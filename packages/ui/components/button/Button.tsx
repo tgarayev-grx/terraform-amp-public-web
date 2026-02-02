@@ -1,0 +1,134 @@
+'use client'
+
+import { createContext, memo, useContext, type ComponentPropsWithoutRef, type ReactNode } from "react";
+import * as Slot from "@radix-ui/react-slot";
+import { clsx } from "clsx";
+
+const baseStyles =
+  "flex justify-center items-center gap-2 font-medium  text-center transition-colors";
+
+const paletteVariantStyles = {
+  primary: {
+    contained: "bg-neutral-900 hover:bg-neutral-800 text-neutral",
+    outlined:
+      "border border-neutral-900 bg-transparent hover:bg-neutral-100 text-neutral-900",
+  },
+  secondary: {
+    contained: "bg-neutral-100 hover:bg-neutral-200 text-neutral-1000",
+    outlined:
+      "border border-neutral-1000 bg-transparent hover:bg-neutral-100 text-neutral-1000",
+  },
+} as const;
+
+const sizeStyles = {
+  sm: "px-3 py-1.5 rounded-lg text-sm",
+  md: "px-6 py-2.5 rounded-xl text-base",
+  lg: "px-6 py-4 rounded-xl text-sm",
+} as const;
+
+const textSizeStyles = {
+  sm: "text-sm",
+  md: "text-base",
+  lg: "text-base",
+} as const;
+
+export type ButtonPalette = keyof typeof paletteVariantStyles;
+export type ButtonVariant = keyof (typeof paletteVariantStyles)["primary"];
+export type ButtonSize = keyof typeof sizeStyles;
+
+const ButtonContext = createContext<{
+  size: ButtonSize;
+}>({
+  size: "sm",
+})
+
+export type ButtonRootProps = ComponentPropsWithoutRef<"button"> & {
+  palette: ButtonPalette;
+  variant: ButtonVariant;
+  size: ButtonSize;
+  asChild?: boolean;
+};
+
+export const ButtonRoot = memo(
+  ({
+    palette,
+    variant,
+    size,
+    asChild = false,
+    className = "",
+    children,
+    ...props
+  }: ButtonRootProps) => {
+    const Root = asChild ? Slot.Root : "button";
+    return (
+      <ButtonContext.Provider value={{ size }}>
+        <Root
+          className={clsx(
+            baseStyles,
+            paletteVariantStyles[palette][variant],
+            sizeStyles[size],
+            className
+          )}
+          {...props}
+        >
+          {children}
+        </Root>
+      </ButtonContext.Provider>
+    );
+  }
+);
+
+ButtonRoot.displayName = "ButtonRoot";
+
+export type ButtonTextProps = {
+  children: ReactNode;
+  asChild?: boolean;
+  className?: string;
+};
+
+export const ButtonText = memo(
+  ({ children, asChild = false, className }: ButtonTextProps) => {
+    const { size } = useContext(ButtonContext);
+    const Text = asChild ? Slot.Root : "span";
+
+    return (
+      <Text className={clsx("font-medium text-center", textSizeStyles[size], className)}>
+        {children}
+      </Text>
+    );
+  }
+);
+
+ButtonText.displayName = "ButtonText";
+
+export type ButtonProps = Omit<ButtonRootProps, "asChild"> & {
+  start?: ReactNode;
+  end?: ReactNode;
+};
+
+export const Button = memo(
+  ({
+    palette = "primary",
+    variant = "contained",
+    size = "sm",
+    className = "",
+    children,
+    start,
+    end,
+    ...props
+  }: ButtonProps) => (
+    <ButtonRoot
+      palette={palette}
+      variant={variant}
+      size={size}
+      className={className}
+      {...props}
+    >
+      {start}
+      <ButtonText>{children}</ButtonText>
+      {end}
+    </ButtonRoot>
+  )
+);
+
+Button.displayName = "Button";

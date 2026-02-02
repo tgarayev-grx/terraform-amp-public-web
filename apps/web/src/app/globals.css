@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: var(--color-neutral-1000);
+  background: var(--color-neutral);
+  font-family: var(--font-nunito-sans), sans-serif;
+}
+
+/* Dark theme */
+html[data-theme="dark"] body {
+  color: var(--color-neutral);
+  background: var(--color-neutral-1000);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

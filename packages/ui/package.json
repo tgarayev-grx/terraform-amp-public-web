@@ -1,0 +1,27 @@
+{
+  "name": "@grx/ui",
+  "version": "0.1.0",
+  "private": true,
+  "peerDependencies": {
+    "react": "^18.0.0"
+  },
+  "dependencies": {
+    "@radix-ui/react-avatar": "^1.1.2",
+    "@radix-ui/react-slot": "^1.2.3",
+    "clsx": "^2.1.1"
+  },
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "react": "^18.3.1"
+  },
+  "exports": {
+    ".": "./index.ts",
+    "./theme": "./theme/index.ts",
+    "./theme/theme.css": "./theme/theme.css",
+    "./theme/tailwind.theme": "./theme/tailwind.theme.ts",
+    "./icons/*": "./icons/*",
+    "./*": "./*"
+  }
+}

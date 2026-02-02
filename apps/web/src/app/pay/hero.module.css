@@ -1,0 +1,74 @@
+.bgImage {
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: 200px;
+  background-position-y: 175px;
+  width: 200%;
+  transform: scale(0.75);
+  transform-origin: bottom right;
+
+  @media (min-width: 375px) {
+    background-position-x: 200px;
+    background-position-y: 125px;
+  }
+
+  @media (min-width: 400px) {
+    background-position-x: 300px;
+    background-position-y: 125px;
+  }
+
+  @media (min-width: 460px) {
+    background-position-x: 400px;
+    background-position-y: 125px;
+  }
+
+  @media (min-width: 640px) {
+    background-position-x: 825px;
+    background-position-y: 0;
+  }
+
+  @media (min-width: 700px) {
+    background-position-x: 400px;
+    background-position-y: 0;
+    transform: scale(1);
+    width: 100%;
+  }
+
+  @media (min-width: 1200px) {
+    background-position-x: 500px;
+    background-position-y: 0;
+  }
+
+  @media (min-width: 1440px) {
+    background-position-x: 600px;
+    background-position-y: 0;
+  }
+
+  @media (min-width: 1600px) {
+    background-size: contain;
+    background-position-x: 800px;
+    background-position-y: 0;
+  }
+
+  @media (min-width: 1920px) {
+    background-position-x: 1000px;
+    background-position-y: 0;
+  }
+
+  @media (min-width: 2200px) {
+    background-position-x: 1200px;
+    background-position-y: 0;
+  }
+
+  @media (min-width: 2560px) {
+    background-position-x: 1500px;
+    background-position-y: 0;
+  }
+
+  @media (min-width: 3200px) {
+    background-position-x: 1800px;
+    background-position-y: 0;
+  }
+}
