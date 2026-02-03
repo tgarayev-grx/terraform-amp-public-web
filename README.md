@@ -4,7 +4,7 @@ A monorepo for the main marketing website built with Next.js and Tailwind CSS.
 
 
 ## Usefull links
-- Figma: https://www.figma.com/design/r3E5XdifyoiiNeuj7mOjBk/GRX-Design-System-%F0%9F%9A%A8?node-id=68-18222&m=dev
+- [Figma](https://www.figma.com/design/pvAFtnn5S99Pz3NYtzFmX5/Website--GRX-Pay-?node-id=53-47905&m=dev)
 
 ## Tech Stack
 
