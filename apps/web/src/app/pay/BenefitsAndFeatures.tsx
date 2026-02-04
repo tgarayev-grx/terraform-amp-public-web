@@ -1,6 +1,6 @@
-import { memo, ReactNode } from "react";
+import { memo } from "react";
 
-import { AMLAndKYBIcon } from "./(icons)/AMLAndKYBIcon";
+import { ShieldIcon } from "./(icons)/ShieldIcon";
 import { APIAndDocumentationIcon } from "./(icons)/APIAndDocumentationIcon";
 import { AutoConvertIcon } from "./(icons)/AutoConvertIcon";
 import { CustomizeYourSpaceIcon } from "./(icons)/CustomizeYourSpaceIcon";
@@ -9,6 +9,7 @@ import { InvoiceIcon } from "./(icons)/InvoiceIcon";
 import { MassPayoutsIcon } from "./(icons)/MassPayoutsIcon";
 import { ReportsIcon } from "./(icons)/ReportsIcon";
 import { RolesAndPermissionsIcon } from "./(icons)/RolesAndPermissionsIcon";
+import { FeatureCard } from "./FeatureCard";
 
 export const BenefitsAndFeaturesSection = memo(() => {
   return (
@@ -22,49 +23,49 @@ export const BenefitsAndFeaturesSection = memo(() => {
           <FeatureCard
             title="Effortless invoicing"
             description="Create, send, and manage your invoices with ease. Invoicing feature allows you to provide the crypto payment method for your clients, customize professional-looking invoices, and receive updates."
-            icon={<InvoiceIcon />}
+            icon={<InvoiceIcon width={24} height={24} />}
           />
           <FeatureCard
             title="Auto-convert"
             description="No need to keep track of crypto volatility — our instant currency exchange system automatically converts your funds into Euro or Tether at the best available rates."
-            icon={<AutoConvertIcon />}
+            icon={<AutoConvertIcon width={24} height={24} />}
           />
           <FeatureCard
             title="Instant Euro withdrawal"
             description="Access your funds swiftly and securely. No waiting, no hassle — just your money in your account, instantly. Perfect for when you need your funds without delay."
-            icon={<InstantEuroWithdrawalIcon />}
+            icon={<InstantEuroWithdrawalIcon width={24} height={24} />}
           />
           <FeatureCard
             title="Customize your space"
             description="Reflect your brand's unique identity with our easy-to-use customization features. Effortlessly upload your company logo and update your contact information to ensure your customers know how to reach you."
-            icon={<CustomizeYourSpaceIcon />}
+            icon={<CustomizeYourSpaceIcon width={24} height={24} />}
           />
           <FeatureCard
             title="Mass payouts"
             description="Whether you're paying freelancers, distributing refunds, or handling payroll, GRX Pay ensures secure, swift, and seamless crypto transactions across borders."
-            icon={<MassPayoutsIcon />}
+            icon={<MassPayoutsIcon width={24} height={24} />}
           />
           <FeatureCard
             title="API and documentation"
             description="Save your time by configuring the API to automatically process cryptocurrency payments and make payouts."
-            icon={<APIAndDocumentationIcon />}
+            icon={<APIAndDocumentationIcon width={24} height={24} />}
           />
           <FeatureCard
             title="AML & KYB"
             description="All transactions undergo verification through Chainalysis to ensure that no suspicious activities reach your wallet reduced processing fees and real-time tracking."
-            icon={<AMLAndKYBIcon />}
+            icon={<ShieldIcon width={24} height={24} />}
           />
           <FeatureCard
             title="Roles and permissions"
             description="Invite an unlimited number of team members and set each person’s permission levels to manage access."
-            icon={<RolesAndPermissionsIcon />}
+            icon={<RolesAndPermissionsIcon width={24} height={24} />}
           />
           <div className="flex sm:justify-center sm:col-span-2 lg:col-span-1">
             <div className="w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-full">
               <FeatureCard
                 title="Comprehensive reports"
                 description="Our settlement and statement reports are easily accessible for downloading and sharing with your bank."
-                icon={<ReportsIcon />}
+                icon={<ReportsIcon width={24} height={24} />}
               />
             </div>
           </div>
@@ -74,31 +75,3 @@ export const BenefitsAndFeaturesSection = memo(() => {
   );
 });
 BenefitsAndFeaturesSection.displayName = "BenefitsAndFeaturesSection";
-
-type FeatureCardProps = {
-  title: string;
-  description: string;
-  icon: ReactNode;
-};
-
-const FeatureCard = memo(({ title, description, icon }: FeatureCardProps) => {
-  return (
-    <div
-      className="flex flex-col gap-4 p-6 rounded-2xl min-h-[292px]"
-      style={{
-        boxShadow:
-          "0 12px 40px -4px rgba(16, 24, 40, 0.08), 0 4px 8px -2px rgba(16, 24, 40, 0.03)",
-      }}
-    >
-      <div className="flex justify-center items-center bg-neutral-100 rounded-xl w-12 h-12 text-neutral-500">
-        {icon}
-      </div>
-
-      <div className="flex flex-col gap-2">
-        <h3 className="font-bold text-[24px] leading-[28px]">{title}</h3>
-        <p className="text-neutral-500 text-base">{description}</p>
-      </div>
-    </div>
-  );
-});
-FeatureCard.displayName = "FeatureCard";

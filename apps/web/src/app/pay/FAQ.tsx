@@ -3,42 +3,19 @@ import { memo } from "react";
 import { MinusIcon } from "./(icons)/MinusIcon";
 import { PlusIcon } from "./(icons)/PlusIcon";
 
-const FAQ_ITEMS = [
-  {
-    value:
-      "what-types-of-businesses-can-use-your-crypto-payment-processing-service",
-    question:
-      "What types of businesses (or individuals) can use your crypto payment processing service?",
-    answer:
-      "Et qui aperiam deserunt. Sed ratione qui qui eaque repellat aut consequatur omnis. Est recusandae culpa voluptate asperiores et. Libero fuga sunt molestiae maxime laudantium enim expedita corporis minus.",
-  },
-  {
-    value: "how-long-to-receive-payments",
-    question: "How long does it take for me to receive my payments?",
-    answer:
-      "Et qui aperiam deserunt. Sed ratione qui qui eaque repellat aut consequatur omnis. Est recusandae culpa voluptate asperiores et. Libero fuga sunt molestiae maxime laudantium enim expedita corporis minus.",
-  },
-  {
-    value: "fees",
-    question: "Are there any fees for using GRX Pay?",
-    answer:
-      "Et qui aperiam deserunt. Sed ratione qui qui eaque repellat aut consequatur omnis. Est recusandae culpa voluptate asperiores et. Libero fuga sunt molestiae maxime laudantium enim expedita corporis minus.",
-  },
-  {
-    value: "safe-to-accept-payments",
-    question: "Is it safe to accept payments in cryptocurrencies?",
-    answer:
-      "Et qui aperiam deserunt. Sed ratione qui qui eaque repellat aut consequatur omnis. Est recusandae culpa voluptate asperiores et. Libero fuga sunt molestiae maxime laudantium enim expedita corporis minus.",
-  },
-  {
-    value: "auto-conversion",
-    question: "What is auto-conversion, and how does it work on the GRX Pay?",
-    answer:
-      "Et qui aperiam deserunt. Sed ratione qui qui eaque repellat aut consequatur omnis. Est recusandae culpa voluptate asperiores et. Libero fuga sunt molestiae maxime laudantium enim expedita corporis minus.",
-  },
-];
+export type FAQQuestion = {
+  value: string;
+  question: string;
+  answer: string;
+};
 
-export const FAQSection = memo(function FAQSection() {
+export type FAQSectionProps = {
+  questions: FAQQuestion[];
+};
+
+export const FAQSection = memo(function FAQSection({
+  questions,
+}: FAQSectionProps) {
   return (
     <section className="flex flex-col items-center px-4 sm:px-8 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
@@ -54,9 +31,9 @@ export const FAQSection = memo(function FAQSection() {
         <Accordion.Root
           type="single"
           collapsible
-          className="flex flex-col mx-auto w-full max-w-[720px]"
+          className="flex flex-col mx-auto mb-6 w-full max-w-[720px]"
         >
-          {FAQ_ITEMS.map((item) => (
+          {questions.map((item) => (
             <Accordion.Item
               key={item.value}
               value={item.value}
@@ -89,6 +66,16 @@ export const FAQSection = memo(function FAQSection() {
             </Accordion.Item>
           ))}
         </Accordion.Root>
+
+        <p className="text-neutral-500 text-base text-center">
+          Still have guestions? Email us at{" "}
+          <a
+            className="text-neutral-700"
+            href="mailto:support@goldenratio.exchange"
+          >
+            support@goldenratio.exchange
+          </a>
+        </p>
       </div>
     </section>
   );

@@ -76,7 +76,7 @@ const ReviewedByCard = memo(
         }}
       >
         <div className="flex flex-col gap-4">
-          <QuoteIcon className="flex-shrink-0 text-gold-500" />
+          <QuoteIcon className="flex-shrink-0 w-5 h-5 text-gold-500" />
 
           <p className="text-sm sm:text-base">{quote}</p>
         </div>

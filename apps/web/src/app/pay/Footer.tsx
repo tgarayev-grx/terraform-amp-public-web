@@ -13,7 +13,7 @@ import { ZENLogo } from "./(icons)/ZENLogo";
 
 export const Footer = memo(() => {
   return (
-    <footer className="flex flex-col items-center px-4 sm:px-8 py-20 sm:py-24">
+    <footer className="flex flex-col items-center bg-neutral-50 px-4 sm:px-8 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
         <FooterNav className="mb-10" />
 

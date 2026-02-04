@@ -88,31 +88,31 @@ const RESOURCES_LINKS = [
     title: "Partner Program",
     description: "Collaboration for mutual benefit",
     href: "/pay/partner-program",
-    icon: <PartnerProgramIcon />,
+    icon: <PartnerProgramIcon width={20} height={20} />,
   },
   {
     title: "News",
     description: "Crypto industry latest updates",
     href: "/pay/news",
-    icon: <NewsIcon />,
+    icon: <NewsIcon width={20} height={20} />,
   },
   {
     title: "FAQ",
     description: "Popular queries, simplified explanations",
     href: "/pay/faq",
-    icon: <FaqIcon />,
+    icon: <FaqIcon width={20} height={20} />,
   },
   {
     title: "API References",
     description: "Efficient integration guides",
     href: "/pay/api",
-    icon: <ApiIcon />,
+    icon: <ApiIcon width={20} height={20} />,
   },
   {
     title: "About us",
     description: "Find out the goals of our company",
     href: "/pay/about",
-    icon: <AboutUsIcon />,
+    icon: <AboutUsIcon width={20} height={20} />,
   },
 ];
 
