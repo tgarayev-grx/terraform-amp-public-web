@@ -1,0 +1,5 @@
+# Cloudflare Pages (dev) — used for local/manual deploys and docs
+# CI uses: wrangler pages deploy apps/web/out --project-name=public-web-dev
+name = "public-web-dev"
+pages_build_output_dir = "apps/web/out"
+compatibility_date = "2024-01-01"
