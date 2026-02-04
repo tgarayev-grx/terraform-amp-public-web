@@ -236,7 +236,7 @@ const CryptoAcquiringTabContent = memo(() => {
 
           <div className="flex flex-col justify-center items-center gap-4 bg-gold-400 p-8 rounded-xl min-h-[232px]">
             If you handle significant volumes, our personalized commission
-            structure fits your needs. Contact us for details and let's enhance
+            structure fits your needs. Contact us for details and let&apos;s enhance
             your experience!
           </div>
         </div>
@@ -387,7 +387,7 @@ const CryptoProcessingTabContent = memo(() => {
 
           <div className="flex flex-col justify-center items-center gap-4 bg-gold-400 p-8 rounded-xl min-h-[232px]">
             If you handle significant volumes, our personalized commission
-            structure fits your needs. Contact us for details and let's enhance
+            structure fits your needs. Contact us for details and let&apos;s enhance
             your experience!
           </div>
         </div>

@@ -14,7 +14,7 @@ export const WhatsIncludedSection = memo(() => {
     <section className="flex flex-col items-center px-4 sm:px-8 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
         <h3 className="flex flex-col gap-4 mx-auto mb-14 max-w-[580px] font-unbounded font-bold text-[28px] sm:text-4xl text-center leading-[32px] sm:leading-[40px]">
-          What's included
+          What&apos;s included
         </h3>
 
         <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
