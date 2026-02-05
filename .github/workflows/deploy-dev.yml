@@ -57,12 +57,8 @@ jobs:
             .
 
       - name: Push image to ECR
-        uses: jwalton/gh-ecr-push@v2
-        with:
-          access-key-id: ${{ secrets.INFRA_ECR_AWS_ACCESS_KEY_ID }}
-          secret-access-key: ${{ secrets.INFRA_ECR_AWS_SECRET_ACCESS_KEY }}
-          region: ${{ secrets.INFRA_ECR_AWS_DEFAULT_REGION }}
-          image: ${{ steps.ecr_registry.outputs.ecr_registry }}/nyx-playground/public-web:${{ steps.version.outputs.version }}
+        run: |
+          docker push ${{ steps.ecr_registry.outputs.ecr_registry }}/nyx-playground/public-web:${{ steps.version.outputs.version }}
 
   update-gitops:
     runs-on: [self-hosted, ubuntu-arm-2204-kuna]
