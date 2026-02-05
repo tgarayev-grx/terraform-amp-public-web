@@ -78,10 +78,10 @@ We run a **static export** in the cluster: the Dockerfile builds the app, copies
 - `INFRA_ECR_AWS_DEFAULT_REGION` — ECR region (e.g. `eu-central-1`).
 - `INFRA_ECR_AWS_ACCESS_KEY_ID` — AWS access key for ECR.
 - `INFRA_ECR_AWS_SECRET_ACCESS_KEY` — AWS secret key for ECR.
-- `INFRA_ECR_REGISTRY` — ECR registry URL (e.g. `983741981862.dkr.ecr.eu-central-1.amazonaws.com`).
 - `PLAT13748_SUPERMAN` — GitHub token with write access to **gitops.dev** (for updating image tag).
 - `ARGO_TOKEN_DEV` — (optional) Argo CD token for `argocd app sync public-web-dev` after deploy.
 
+ECR registry URL is derived from `aws sts get-caller-identity` + region (no `INFRA_ECR_REGISTRY` needed).
 ### Local build and run (Docker)
 
 ```bash

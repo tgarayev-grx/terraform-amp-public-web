@@ -14,6 +14,7 @@ jobs:
     runs-on: [self-hosted, ubuntu-arm-2204-kuna]
     outputs:
       version: ${{ steps.version.outputs.version }}
+      ecr_registry: ${{ steps.ecr_registry.outputs.ecr_registry }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,15 +27,33 @@ jobs:
           v="${GITHUB_SHA::8}-arm"
           echo "version=$v" >> "$GITHUB_OUTPUT"
 
-      - name: Docker login (ECR)
+      - name: Get ECR registry URL
+        id: ecr_registry
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.INFRA_ECR_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.INFRA_ECR_AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.INFRA_ECR_AWS_DEFAULT_REGION }}
         run: |
-          aws ecr get-login-password --region ${{ secrets.INFRA_ECR_AWS_DEFAULT_REGION }} | \
-            docker login --username AWS --password-stdin ${{ secrets.INFRA_ECR_REGISTRY }}
+          ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+          REGION="${{ secrets.INFRA_ECR_AWS_DEFAULT_REGION }}"
+          ECR_REGISTRY="${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com"
+          echo "ecr_registry=${ECR_REGISTRY}" >> "$GITHUB_OUTPUT"
+
+      - name: Docker login (ECR)
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.INFRA_ECR_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.INFRA_ECR_AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.INFRA_ECR_AWS_DEFAULT_REGION }}
+        run: |
+          ECR_REGISTRY="${{ steps.ecr_registry.outputs.ecr_registry }}"
+          aws ecr get-login-password --region $AWS_DEFAULT_REGION | \
+            docker login --username AWS --password-stdin "$ECR_REGISTRY"
 
       - name: Build image
         run: |
+          ECR_REGISTRY="${{ steps.ecr_registry.outputs.ecr_registry }}"
           docker build -f Dockerfile \
-            -t ${{ secrets.INFRA_ECR_REGISTRY }}/nyx-playground/public-web:${{ steps.version.outputs.version }} \
+            -t "${ECR_REGISTRY}/nyx-playground/public-web:${{ steps.version.outputs.version }}" \
             .
 
       - name: Push image to ECR
@@ -43,7 +62,7 @@ jobs:
           access-key-id: ${{ secrets.INFRA_ECR_AWS_ACCESS_KEY_ID }}
           secret-access-key: ${{ secrets.INFRA_ECR_AWS_SECRET_ACCESS_KEY }}
           region: ${{ secrets.INFRA_ECR_AWS_DEFAULT_REGION }}
-          image: ${{ secrets.INFRA_ECR_REGISTRY }}/nyx-playground/public-web:${{ steps.version.outputs.version }}
+          image: ${{ steps.ecr_registry.outputs.ecr_registry }}/nyx-playground/public-web:${{ steps.version.outputs.version }}
 
   update-gitops:
     runs-on: [self-hosted, ubuntu-arm-2204-kuna]
@@ -58,7 +77,7 @@ jobs:
 
       - name: Update image tag
         env:
-          ECR_REGISTRY: ${{ secrets.INFRA_ECR_REGISTRY }}
+          ECR_REGISTRY: ${{ needs.build-and-push.outputs.ecr_registry }}
           VERSION: ${{ needs.build-and-push.outputs.version }}
         run: |
           sed -i "s|image: .*nyx-playground/public-web.*|image: ${ECR_REGISTRY}/nyx-playground/public-web:${VERSION}|" \
