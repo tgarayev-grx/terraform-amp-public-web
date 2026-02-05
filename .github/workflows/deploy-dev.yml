@@ -1,38 +1,86 @@
-# Deploy public-web to Cloudflare Pages (dev) on merge to master
-# Domain: https://website.nyx-dev.com
-name: Deploy to Cloudflare Pages (dev)
+# Build and deploy public-web to dev (K8s + Argo CD).
+# Runners: ubuntu-arm-2204-kuna. Image: AWS ECR. Manifests: gitops.dev.
+name: Build and deploy to dev
 
 on:
   push:
     branches: [master]
 
 env:
-  NODE_VERSION: "20"
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  build-and-push:
+    runs-on: [self-hosted, ubuntu-arm-2204-kuna]
+    outputs:
+      version: ${{ steps.version.outputs.version }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: "pnpm"
+          ref: master
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Version
+        id: version
+        run: |
+          v="${GITHUB_SHA::8}-arm"
+          echo "version=$v" >> "$GITHUB_OUTPUT"
 
-      - name: Build
-        run: pnpm build
+      - name: Docker login (ECR)
+        run: |
+          aws ecr get-login-password --region ${{ secrets.INFRA_ECR_AWS_DEFAULT_REGION }} | \
+            docker login --username AWS --password-stdin ${{ secrets.INFRA_ECR_REGISTRY }}
 
-      - name: Deploy to Cloudflare Pages
-        run: npx wrangler@latest pages deploy apps/web/out --project-name=public-web-dev
+      - name: Build image
+        run: |
+          docker build -f Dockerfile \
+            -t ${{ secrets.INFRA_ECR_REGISTRY }}/nyx-playground/public-web:${{ steps.version.outputs.version }} \
+            .
+
+      - name: Push image to ECR
+        uses: jwalton/gh-ecr-push@v2
+        with:
+          access-key-id: ${{ secrets.INFRA_ECR_AWS_ACCESS_KEY_ID }}
+          secret-access-key: ${{ secrets.INFRA_ECR_AWS_SECRET_ACCESS_KEY }}
+          region: ${{ secrets.INFRA_ECR_AWS_DEFAULT_REGION }}
+          image: ${{ secrets.INFRA_ECR_REGISTRY }}/nyx-playground/public-web:${{ steps.version.outputs.version }}
+
+  update-gitops:
+    runs-on: [self-hosted, ubuntu-arm-2204-kuna]
+    needs: build-and-push
+    steps:
+      - name: Checkout gitops.dev
+        uses: actions/checkout@v4
+        with:
+          repository: NYX-ENGINEERS/gitops.dev
+          token: ${{ secrets.PLAT13748_SUPERMAN }}
+          ref: master
+
+      - name: Update image tag
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_PAGES_EDIT_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          ECR_REGISTRY: ${{ secrets.INFRA_ECR_REGISTRY }}
+          VERSION: ${{ needs.build-and-push.outputs.version }}
+        run: |
+          sed -i "s|image: .*nyx-playground/public-web.*|image: ${ECR_REGISTRY}/nyx-playground/public-web:${VERSION}|" \
+            infrastructure/public-web/deployment.yaml
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add infrastructure/public-web/deployment.yaml
+          git diff --staged --quiet || git commit -m "[public-web] deploy ${{ needs.build-and-push.outputs.version }}"
+          git push origin master
+
+  sync-argocd:
+    runs-on: [self-hosted, ubuntu-arm-2204-kuna]
+    needs: update-gitops
+    steps:
+      - name: Sync Argo CD app
+        run: |
+          argocd app sync public-web-dev \
+            --auth-token ${{ secrets.ARGO_TOKEN_DEV }} \
+            --server argocd-dev.nyx-infra.com \
+            --timeout 300 \
+            --grpc-web
+        continue-on-error: true
