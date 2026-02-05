@@ -71,9 +71,21 @@ jobs:
           token: ${{ secrets.PLAT13748_SUPERMAN }}
           ref: master
 
+      - name: Get ECR registry URL
+        id: ecr_registry
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.INFRA_ECR_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.INFRA_ECR_AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.INFRA_ECR_AWS_DEFAULT_REGION }}
+        run: |
+          ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+          REGION="${{ secrets.INFRA_ECR_AWS_DEFAULT_REGION }}"
+          ECR_REGISTRY="${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com"
+          echo "ecr_registry=${ECR_REGISTRY}" >> "$GITHUB_OUTPUT"
+
       - name: Update image tag
         env:
-          ECR_REGISTRY: ${{ needs.build-and-push.outputs.ecr_registry }}
+          ECR_REGISTRY: ${{ steps.ecr_registry.outputs.ecr_registry }}
           VERSION: ${{ needs.build-and-push.outputs.version }}
         run: |
           sed -i "s|image: .*nyx-playground/public-web.*|image: ${ECR_REGISTRY}/nyx-playground/public-web:${VERSION}|" \
@@ -95,7 +107,7 @@ jobs:
         run: |
           argocd app sync public-web-dev \
             --auth-token ${{ secrets.ARGO_TOKEN_DEV }} \
-            --server argocd-dev.nyx-infra.com \
+            --server argocd-dev.nyx-dev.com \
             --timeout 300 \
             --grpc-web
         continue-on-error: true
