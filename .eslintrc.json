@@ -1,0 +1,10 @@
+{
+  "root": true,
+  "extends": [],
+  "overrides": [
+    {
+      "files": ["apps/web/**/*.{js,jsx,ts,tsx}"],
+      "extends": ["next/core-web-vitals"]
+    }
+  ]
+}
