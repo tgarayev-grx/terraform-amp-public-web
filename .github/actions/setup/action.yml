@@ -1,0 +1,20 @@
+name: 🛠️ Setup environment
+description: Configure Node.js and pnpm versions from package.json and sets up the environment.
+runs:
+  using: composite
+  steps:
+    - id: read-versions
+      name: 📚 Read versions from package.json
+      shell: bash
+      run: |
+        NODE_VERSION=$(jq -r '.engines.node | ltrimstr(">= ")' package.json)
+        echo "NODE_VERSION=$NODE_VERSION" >> "$GITHUB_ENV"
+    - id: setup-pnpm
+      name: 📦 Setup pnpm
+      uses: pnpm/action-setup@v4
+    - id: setup-node
+      name: 💡 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: pnpm

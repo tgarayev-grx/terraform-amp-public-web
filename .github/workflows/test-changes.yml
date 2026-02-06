@@ -1,0 +1,46 @@
+name: 🚦 Test changes
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches: [master]
+
+concurrency:
+  group: pr-ci-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build-packages:
+    name: 📦 Build packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛒 Checkout changes
+        uses: actions/checkout@v4
+
+      - name: 🛠️ Setup environment
+        uses: ./.github/actions/setup
+
+      - name: 📥 Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🛠️ Build packages
+        run: pnpm run build
+
+  check-types:
+    name: 👮‍♂️ Check types
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛒 Checkout changes
+        uses: actions/checkout@v4
+
+      - name: 🛠️ Setup environment
+        uses: ./.github/actions/setup
+
+      - name: 📥 Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🕵️‍♂️ Check types
+        run: pnpm run type-check
