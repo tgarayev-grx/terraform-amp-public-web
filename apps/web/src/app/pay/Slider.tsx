@@ -386,7 +386,7 @@ export const SliderDots = memo(
       >
         <div
           className={clsx(
-            "z-20 absolute bg-neutral-1000 rounded-full pointer-events-none",
+            "z-[2] absolute bg-neutral-1000 rounded-full pointer-events-none",
             classes?.pill
           )}
           style={{

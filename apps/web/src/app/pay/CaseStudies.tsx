@@ -60,7 +60,7 @@ GRX Pay's support of multiple cryptocurrencies and its user-friendly interface e
                 <Link href="/pay/cases">
                   <ButtonText>More case studies</ButtonText>
 
-                  <ArrowRightIcon />
+                  <ArrowRightIcon width={24} height={24} />
                 </Link>
               </ButtonRoot>
             </div>

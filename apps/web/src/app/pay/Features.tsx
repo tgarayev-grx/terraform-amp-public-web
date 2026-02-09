@@ -97,7 +97,7 @@ const FeatureCard = memo(
               <Link href="/sign-in" target="_blank">
                 <ButtonText>{action}</ButtonText>
 
-                <ArrowRightIcon />
+                <ArrowRightIcon width={24} height={24} />
               </Link>
             </ButtonRoot>
           </div>

@@ -4,9 +4,8 @@ import { tailwindConfigColors } from "../../packages/ui/theme/tailwind.theme";
 
 const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    // TODO: Remove this once we have a proper external package for components
     "../../packages/ui/components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   darkMode: ["class", '[data-theme="dark"]'],
@@ -67,6 +66,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
 export default config;

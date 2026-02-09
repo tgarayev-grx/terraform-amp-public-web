@@ -5,6 +5,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: "export",
   images: { unoptimized: true },
+  devIndicators: {
+    position: "bottom-right",
+  },
   transpilePackages: ["@grx/ui"],
   webpack: (config) => {
     config.module.rules.push({
@@ -12,7 +15,7 @@ const nextConfig: NextConfig = {
       issuer: /\.[jt]sx?$/,
       use: ["@svgr/webpack"],
     });
-    
+
     return config;
   },
 };

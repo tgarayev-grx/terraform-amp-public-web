@@ -3,6 +3,8 @@ import { Nunito_Sans, Unbounded } from "next/font/google";
 import "@grx/ui/theme/theme.css";
 import "./globals.css";
 
+import { CookieBanner } from "@/modules/cross-cutting-concerns/cookie-preference";
+
 const nunitoSans = Nunito_Sans({
   subsets: ["latin", "cyrillic"],
   variable: "--font-nunito-sans",
@@ -24,7 +26,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${nunitoSans.variable} ${unbounded.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+
+        <CookieBanner />
+      </body>
     </html>
   );
 }
