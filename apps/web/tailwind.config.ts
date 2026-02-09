@@ -15,6 +15,12 @@ const config: Config = {
         unbounded: ["var(--font-unbounded)", "sans-serif"],
       },
       colors: tailwindConfigColors,
+      boxShadow: {
+        "light-sm":
+          "0 12px 40px -4px rgba(16, 24, 40, 0.08), 0 4px 8px -2px rgba(16, 24, 40, 0.03)",
+        "dark-sm":
+          "0 3px 8px 0 rgba(0, 0, 0, 0.35), 0 1px 3px 0 rgba(0, 0, 0, 0.5), inset 0 0.5px 0 0 rgba(255, 255, 255, 0.08), inset 0 0 0.5px 0 rgba(255, 255, 255, 0.3)",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

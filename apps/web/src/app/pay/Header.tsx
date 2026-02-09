@@ -127,7 +127,7 @@ function ResourcesPopover() {
       </Popover.Trigger>
       <Popover.Portal>
         <Popover.Content
-          className="hidden lg:block bg-neutral shadow-lg p-[8px] border border-neutral-200 rounded-xl min-w-[200px] [transform-origin:var(--radix-popover-content-transform-origin)] data-[state=closed]:animate-popover-out data-[state=open]:animate-popover-in"
+          className="z-50 hidden lg:block bg-neutral shadow-lg p-[8px] border border-neutral-200 rounded-xl min-w-[200px] [transform-origin:var(--radix-popover-content-transform-origin)] data-[state=closed]:animate-popover-out data-[state=open]:animate-popover-in"
           sideOffset={28}
           align="start"
         >
