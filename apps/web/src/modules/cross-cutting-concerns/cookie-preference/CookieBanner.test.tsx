@@ -1,10 +1,20 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen, fireEvent, within } from "@testing-library/react";
+import { NextIntlClientProvider } from "next-intl";
 import { CookieBanner } from "./CookieBanner";
 import {
   CookiePreferencePersist,
   DEFAULT_COOKIE_PREFERENCES,
 } from "./CookiePersist";
+import en from "@/modules/cross-cutting-concerns/i18n/locales/en.json";
+
+function renderWithTranslations(ui: React.ReactElement) {
+  return render(
+    <NextIntlClientProvider locale="en" messages={en}>
+      {ui}
+    </NextIntlClientProvider>
+  );
+}
 
 describe("CookieBanner", () => {
   beforeEach(() => {
@@ -12,7 +22,7 @@ describe("CookieBanner", () => {
   });
 
   it("renders consent banner when loaded and no preferences set", async () => {
-    render(<CookieBanner />);
+    renderWithTranslations(<CookieBanner />);
 
     expect(screen.getByRole("button", { name: /accept all/i })).toBeVisible();
     expect(
@@ -21,7 +31,7 @@ describe("CookieBanner", () => {
   });
 
   it("calls acceptAll when Accept all button is clicked", async () => {
-    render(<CookieBanner />);
+    renderWithTranslations(<CookieBanner />);
 
     const acceptButton = await screen.findByRole("button", {
       name: /accept all/i,
@@ -52,7 +62,7 @@ describe("CookieBanner", () => {
       advertisement: true,
     });
 
-    render(<CookieBanner />);
+    renderWithTranslations(<CookieBanner />);
 
     const manageButton = await screen.findByRole("button");
     expect(
@@ -66,7 +76,7 @@ describe("CookieBanner", () => {
 
   describe("ManageCookiesModal", () => {
     it("opens modal when Manage or reject cookies is clicked", async () => {
-      render(<CookieBanner />);
+      renderWithTranslations(<CookieBanner />);
 
       const manageButton = await screen.findByRole("button", {
         name: /manage or reject cookies/i,
@@ -83,7 +93,7 @@ describe("CookieBanner", () => {
     });
 
     it("shows cookie preference toggles and calls rejectAll when Reject all is clicked", async () => {
-      render(<CookieBanner />);
+      renderWithTranslations(<CookieBanner />);
 
       const manageButton = await screen.findByRole("button", {
         name: /manage or reject cookies/i,
@@ -115,7 +125,7 @@ describe("CookieBanner", () => {
     });
 
     it("saves current toggle state when Save button is clicked", async () => {
-      render(<CookieBanner />);
+      renderWithTranslations(<CookieBanner />);
 
       const manageButton = await screen.findByRole("button", {
         name: /manage or reject cookies/i,
@@ -145,7 +155,7 @@ describe("CookieBanner", () => {
         advertisement: false,
       });
 
-      render(<CookieBanner />);
+      renderWithTranslations(<CookieBanner />);
 
       const manageButton = await screen.findByRole("button");
       fireEvent.click(manageButton);
@@ -162,7 +172,7 @@ describe("CookieBanner", () => {
         advertisement: true,
       });
 
-      render(<CookieBanner />);
+      renderWithTranslations(<CookieBanner />);
 
       const manageButton = await screen.findByRole("button");
       fireEvent.click(manageButton);

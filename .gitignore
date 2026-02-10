@@ -45,3 +45,7 @@ pnpm-debug.log*
 *.swp
 *.swo
 *~
+
+
+# next-intl
+apps/**/locales/*.d.json.ts

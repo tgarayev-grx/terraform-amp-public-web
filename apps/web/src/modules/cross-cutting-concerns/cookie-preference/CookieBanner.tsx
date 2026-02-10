@@ -3,17 +3,18 @@
 import { Button } from "@grx/ui/index";
 import * as Dialog from "@radix-ui/react-dialog";
 import * as Switch from "@radix-ui/react-switch";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { memo, ReactElement, useCallback, useState } from "react";
-import { CloseIcon } from "../../../app/pay/(icons)/CloseIcon";
+import { CloseIcon } from "../../../app/[locale]/pay/(icons)/CloseIcon";
+import { defaultRichComponents } from "@/modules/cross-cutting-concerns/i18n/components/Rich/defaultRichComponents";
 import { CookieIcon } from "./CookieIcon";
 import {
-  CookieSettings,
   DEFAULT_COOKIE_PREFERENCES,
   useCookiePreferences,
 } from "./CookiePersist";
 
 export const CookieBanner = memo(() => {
+  const t = useTranslations();
   const cookiePreferences = useCookiePreferences();
 
   if (!cookiePreferences.loaded) {
@@ -46,21 +47,11 @@ export const CookieBanner = memo(() => {
     >
       <div className="flex flex-col gap-4 px-8 pt-8 text-neutral-1000">
         <h6 className="font-bold text-[20px] leading-[24px] tracking-[0.02px]">
-          We use cookies
+          {t("CookieBanner.banner.title")}
         </h6>
 
         <p className="text-neutral-700 text-sm">
-          We use cookies to enhance your browsing experience, serve personalized
-          ads or content, and analyze our traffic. By clicking &quot;Accept
-          аll&quot;, you consent to our use of cookies{" "}
-          <Link
-            className="text-blue-600 hover:text-blue-500"
-            href="/cookie-policy"
-            target="_blank"
-          >
-            Cookie Policy
-          </Link>
-          .
+          {t.rich("CookieBanner.banner.description", defaultRichComponents)}
         </p>
       </div>
 
@@ -71,12 +62,12 @@ export const CookieBanner = memo(() => {
           size="md"
           onClick={cookiePreferences.acceptAll}
         >
-          Accept all
+          {t("CookieBanner.banner.acceptAll")}
         </Button>
 
         <ManageCookiesModal cookiePreferences={cookiePreferences}>
           <Button palette="primary" variant="outlined" size="md">
-            Manage or reject cookies
+            {t("CookieBanner.banner.manageOrReject")}
           </Button>
         </ManageCookiesModal>
       </div>
@@ -94,6 +85,7 @@ type ManageCookiesModalProps = {
 
 const ManageCookiesModal = memo(
   ({ cookiePreferences, children }: ManageCookiesModalProps) => {
+    const t = useTranslations();
     const [open, setOpen] = useState(false);
     const [functional, setFunctional] = useState(
       cookiePreferences.value?.functional ??
@@ -131,103 +123,35 @@ const ManageCookiesModal = memo(
           >
             <div className="px-8 pt-8 shrink-0">
               <Dialog.Title className="font-semibold text-lg">
-                Cookie preferences
+                {t("CookieBanner.modal.title")}
               </Dialog.Title>
             </div>
 
             <div className="flex-1 px-8 min-h-0 sm:max-h-[500px] overflow-y-auto">
               <Dialog.Description className="mb-10 whitespace-pre-wrap">
-                In order to enhance your browsing experience and enable specific
-                functionalities, we utilize cookies. Below, you will find
-                comprehensive information about each consent category and the
-                associated cookies. The cookies categorized as “Necessary” are
-                essential for enabling the fundamental features of the website
-                and are stored on your browser. Additionally, we utilize
-                third-party cookies to analyze your usage of the website, store
-                your preferences, and provide relevant content and
-                advertisements based on your interests. Prior consent is
-                required for storing these cookies on your browser. You have the
-                option to enable or disable some or all of these cookies, but
-                please note that disabling certain cookies may impact your
-                browsing experience. {"\n"}Read our{" "}
-                <Link
-                  className="text-blue-600 hover:text-blue-500"
-                  href="/cookie-policy"
-                  target="_blank"
-                >
-                  Cookie Policy
-                </Link>
-                .
+                {t.rich(
+                  "CookieBanner.modal.description",
+                  defaultRichComponents
+                )}
               </Dialog.Description>
-
               <div>
                 <div className="mb-6 font-bold text-[18px] leading-[22px]">
-                  Cookie preferences
+                  {t("CookieBanner.modal.sectionTitle")}
                 </div>
 
                 <ul className="flex flex-col gap-4">
                   <li className="flex flex-col gap-2">
                     <div className="flex justify-between items-center">
-                      <div className="font-semibold text-base">Necessary</div>
+                      <div className="font-semibold text-base">
+                        {t("CookieBanner.categories.necessary.title")}
+                      </div>
                       <div className="bg-green-50 px-2 py-1 rounded text-green-600 text-xs">
-                        Always active
+                        {t("CookieBanner.categories.necessary.alwaysActive")}
                       </div>
                     </div>
 
                     <div className="text-neutral-700 text-base">
-                      To utilize the essential functionalities of this website,
-                      like secure log-in and customization of consent
-                      preferences, it is necessary to have certain cookies
-                      enabled. These cookies do not retain any personally
-                      identifiable information.
-                    </div>
-                  </li>
-
-                  <li aria-hidden>
-                    <div className="bg-neutral-200 h-[1px]" />
-                  </li>
-
-                  <li className="flex flex-col gap-2">
-                    <div className="flex justify-between items-center">
-                      <div className="font-semibold text-base">Functional</div>
-                      <Switch.Root
-                        checked={functional}
-                        onCheckedChange={setFunctional}
-                        className="bg-neutral-300 data-[state=checked]:bg-neutral-1000 rounded-full w-10 h-6 transition-colors"
-                      >
-                        <Switch.Thumb className="block bg-neutral rounded-full w-[22px] h-[22px] transition-transform translate-x-[1px] data-[state=checked]:translate-x-[17px] pointer-events-none" />
-                      </Switch.Root>
-                    </div>
-
-                    <div className="text-neutral-700 text-base">
-                      Functional cookies aid in executing specific
-                      functionalities on the website, such as sharing website
-                      content on social media platforms, gathering feedback, and
-                      incorporating other third-party features.
-                    </div>
-                  </li>
-
-                  <li aria-hidden>
-                    <div className="bg-neutral-200 h-[1px]" />
-                  </li>
-
-                  <li className="flex flex-col gap-2">
-                    <div className="flex justify-between items-center">
-                      <div className="font-semibold text-base">Analytics</div>
-                      <Switch.Root
-                        checked={analytics}
-                        onCheckedChange={setAnalytics}
-                        className="bg-neutral-300 data-[state=checked]:bg-neutral-1000 rounded-full w-10 h-6 transition-colors"
-                      >
-                        <Switch.Thumb className="block bg-neutral rounded-full w-[22px] h-[22px] transition-transform translate-x-[1px] data-[state=checked]:translate-x-[17px] pointer-events-none" />
-                      </Switch.Root>
-                    </div>
-
-                    <div className="text-neutral-700 text-base">
-                      Analytical cookies are employed to gain insights into how
-                      visitors engage with the website. They assist in providing
-                      information about metrics such as visitor count, bounce
-                      rate, traffic source, and more.
+                      {t("CookieBanner.categories.necessary.description")}
                     </div>
                   </li>
 
@@ -238,7 +162,53 @@ const ManageCookiesModal = memo(
                   <li className="flex flex-col gap-2">
                     <div className="flex justify-between items-center">
                       <div className="font-semibold text-base">
-                        Advertisement
+                        {t("CookieBanner.categories.functional.title")}
+                      </div>
+                      <Switch.Root
+                        checked={functional}
+                        onCheckedChange={setFunctional}
+                        className="bg-neutral-300 data-[state=checked]:bg-neutral-1000 rounded-full w-10 h-6 transition-colors"
+                      >
+                        <Switch.Thumb className="block bg-neutral rounded-full w-[22px] h-[22px] transition-transform translate-x-[1px] data-[state=checked]:translate-x-[17px] pointer-events-none" />
+                      </Switch.Root>
+                    </div>
+
+                    <div className="text-neutral-700 text-base">
+                      {t("CookieBanner.categories.functional.description")}
+                    </div>
+                  </li>
+
+                  <li aria-hidden>
+                    <div className="bg-neutral-200 h-[1px]" />
+                  </li>
+
+                  <li className="flex flex-col gap-2">
+                    <div className="flex justify-between items-center">
+                      <div className="font-semibold text-base">
+                        {t("CookieBanner.categories.analytics.title")}
+                      </div>
+                      <Switch.Root
+                        checked={analytics}
+                        onCheckedChange={setAnalytics}
+                        className="bg-neutral-300 data-[state=checked]:bg-neutral-1000 rounded-full w-10 h-6 transition-colors"
+                      >
+                        <Switch.Thumb className="block bg-neutral rounded-full w-[22px] h-[22px] transition-transform translate-x-[1px] data-[state=checked]:translate-x-[17px] pointer-events-none" />
+                      </Switch.Root>
+                    </div>
+
+                    <div className="text-neutral-700 text-base">
+                      {t("CookieBanner.categories.analytics.description")}
+                    </div>
+                  </li>
+
+                  <li aria-hidden>
+                    <div className="bg-neutral-200 h-[1px]" />
+                  </li>
+
+                  <li className="flex flex-col gap-2">
+                    <div className="flex justify-between items-center">
+                      <div className="font-semibold text-base">
+                        {t("CookieBanner.categories.advertisement.title")}
                       </div>
                       <Switch.Root
                         checked={advertisement}
@@ -250,11 +220,7 @@ const ManageCookiesModal = memo(
                     </div>
 
                     <div className="text-neutral-700 text-base">
-                      Advertisement cookies are utilized to deliver personalized
-                      advertisements to visitors, taking into account the pages
-                      they have previously visited. These cookies also play a
-                      role in analyzing the effectiveness of advertising
-                      campaigns.
+                      {t("CookieBanner.categories.advertisement.description")}
                     </div>
                   </li>
                 </ul>
@@ -272,7 +238,7 @@ const ManageCookiesModal = memo(
                   setOpen(false);
                 }}
               >
-                Reject all
+                {t("CookieBanner.buttons.rejectAll")}
               </Button>
 
               <Button
@@ -289,7 +255,7 @@ const ManageCookiesModal = memo(
                   setOpen(false);
                 }}
               >
-                Save cookie settings
+                {t("CookieBanner.buttons.saveSettings")}
               </Button>
             </div>
 

@@ -1,0 +1,455 @@
+{
+  "CookieBanner": {
+    "banner": {
+      "title": "We use cookies",
+      "description": "We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking \"Accept all\", you consent to our use of cookies <link-cookie-policy>Cookie Policy</link-cookie-policy>.",
+      "acceptAll": "Accept all",
+      "manageOrReject": "Manage or reject cookies"
+    },
+    "modal": {
+      "title": "Cookie preferences",
+      "sectionTitle": "Cookie preferences",
+      "description": "In order to enhance your browsing experience and enable specific functionalities, we utilize cookies. Below, you will find comprehensive information about each consent category and the associated cookies. The cookies categorized as \"Necessary\" are essential for enabling the fundamental features of the website and are stored on your browser. Additionally, we utilize third-party cookies to analyze your usage of the website, store your preferences, and provide relevant content and advertisements based on your interests. Prior consent is required for storing these cookies on your browser. You have the option to enable or disable some or all of these cookies, but please note that disabling certain cookies may impact your browsing experience.\nRead our <link-cookie-policy>Cookie Policy</link-cookie-policy>."
+    },
+    "categories": {
+      "necessary": {
+        "title": "Necessary",
+        "alwaysActive": "Always active",
+        "description": "To utilize the essential functionalities of this website, like secure log-in and customization of consent preferences, it is necessary to have certain cookies enabled. These cookies do not retain any personally identifiable information."
+      },
+      "functional": {
+        "title": "Functional",
+        "description": "Functional cookies aid in executing specific functionalities on the website, such as sharing website content on social media platforms, gathering feedback, and incorporating other third-party features."
+      },
+      "analytics": {
+        "title": "Analytics",
+        "description": "Analytical cookies are employed to gain insights into how visitors engage with the website. They assist in providing information about metrics such as visitor count, bounce rate, traffic source, and more."
+      },
+      "advertisement": {
+        "title": "Advertisement",
+        "description": "Advertisement cookies are utilized to deliver personalized advertisements to visitors, taking into account the pages they have previously visited. These cookies also play a role in analyzing the effectiveness of advertising campaigns."
+      }
+    },
+    "buttons": {
+      "rejectAll": "Reject all",
+      "saveSettings": "Save cookie settings"
+    }
+  },
+  "Pay": {
+    "Root": {
+      "meta": {
+        "title": "Accept Crypto Payments | GRX Pay",
+        "description": "All-in-one crypto banking solution: bill customers, receive crypto, and get paid in fiat. Start accepting crypto payments in seconds."
+      },
+      "header": {
+        "nav": {
+          "cryptoAcquiring": "Crypto Acquiring",
+          "gaming": "Gaming",
+          "pricing": "Pricing",
+          "partners": "Partners",
+          "aboutUs": "About us",
+          "faq": "FAQ",
+          "resources": "Resources",
+          "signIn": "Sign in",
+          "createAccount": "Create account",
+          "menu": "Menu"
+        },
+        "resources": {
+          "partnerProgram": {
+            "title": "Partner Program",
+            "description": "Collaboration for mutual benefit"
+          },
+          "news": {
+            "title": "News",
+            "description": "Crypto industry latest updates"
+          },
+          "faq": {
+            "title": "FAQ",
+            "description": "Popular queries, simplified explanations"
+          },
+          "api": {
+            "title": "API References",
+            "description": "Efficient integration guides"
+          },
+          "aboutUs": {
+            "title": "About us",
+            "description": "Find out the goals of our company"
+          }
+        },
+        "languages": {
+          "en": "English",
+          "bg": "Bulgarian",
+          "fr": "French",
+          "es": "Spanish"
+        }
+      },
+      "hero": {
+        "title": "Accept crypto payments in seconds",
+        "subtitle": "All-in-one crypto banking solution: bill customers, receive crypto, and get paid in fiat",
+        "getStarted": "Get Started",
+        "contactSales": "Contact Sales",
+        "tagline": "One time decision and use forever"
+      },
+      "features": {
+        "title": "Manage all your crypto flows in one place",
+        "subtitle": "Start your journey with GRX Pay by registering your account",
+        "bankAccounts": {
+          "title": "Create crypto bank accounts",
+          "description": "Instantly create and manage as many crypto bank accounts as required, enabling flexible and unlimited financial operations for your business",
+          "action": "Accept crypto now"
+        },
+        "invoices": {
+          "title": "Generate an invoices",
+          "description": "Generate secure, shareable payment links to receive crypto payments instantly from anyone, anywhere",
+          "action": "Explore invoicing"
+        },
+        "income": {
+          "title": "Track income and withdrawals",
+          "description": "Seamlessly monitor your crypto transactions and maintain a separate EUR balance with our advanced reporting feature ",
+          "action": "Realtime reporting"
+        },
+        "payouts": {
+          "title": "Create mass payouts",
+          "description": "Effortlessly send crypto payments to multiple recipients worldwide with our streamlined mass payout feature",
+          "action": "Try mass payouts"
+        }
+      },
+      "howItWorks": {
+        "title": "How it works?",
+        "subtitle": "Start your journey with GRX Pay by registering your account",
+        "slides": {
+          "0": {
+            "title": "Create Invoices",
+            "description": "Index the currency and amount for the product and provide the payment link to your client."
+          },
+          "1": {
+            "title": "Auto conversion is set up automatically",
+            "description": "Invoice in crypto and get paid in Euro."
+          },
+          "2": {
+            "title": "Scan QR code to provide payment in selected cryptocurrency",
+            "description": "Get full access to all the features inside your merchant account."
+          },
+          "3": {
+            "title": "Complete your payment",
+            "description": "Start your journey with GRX Pay by registering your account."
+          }
+        }
+      },
+      "reviewedBy": {
+        "title": "Reviewed by",
+        "cards": {
+          "0": {
+            "title": "Account manager of digital service business",
+            "quote": "We integrated this service into our operations and were thoroughly impressed. It provided a seamless experience, enhancing our ability to transact globally with ease. Highly recommended for businesses seeking efficiency in their payment processes."
+          },
+          "1": {
+            "title": "Customer story from freelance platform",
+            "quote": "I bill my clients with crypto on a daily basis using GRX Pay. I have been working as a freelancer for the last 5 years and now expanding my payment options to include crypto payments. Great job!"
+          },
+          "2": {
+            "title": "Partner and COO of a marketing agency",
+            "quote": "Smoothly onboarding and great customer support. The operational principles are clear and easy to grasp."
+          },
+          "3": {
+            "title": "Owner of a car rental company",
+            "quote": "I've been in this industry for quite a while, searching for an application that's straightforward and uncomplicated. Honestly, other apps are a maze, but with GRX Pay, everything flows smoothly, making it fast, simple, and incredibly convenient!"
+          }
+        }
+      },
+      "boostYourRevenue": {
+        "title": "Boost your revenue.<br></br>Accept crypto payments <typing></typing>",
+        "createAccount": "Create account",
+        "freeSignUp": "Its free to sign up"
+      },
+      "typingWords": {
+        "globally": "globally",
+        "instantly": "instantly",
+        "effortlessly": "effortlessly"
+      },
+      "caseStudies": {
+        "title": "Loved by",
+        "descriptions": {
+          "0": "We are thrilled to join forces with GRX Pay to enhance the payment experience for our customers. This collaboration underscores our commitment to providing innovative solutions that meet evolving needs.\n\nBy seamlessly integrating crypto payment options into invoys links, we empower businesses with greater flexibility and convenience in managing their financial processes.",
+          "1": "As a private jet charter company, PVJets has found GRX Pay to be an exceptional cryptocurrency payment platform. It offers our clients flexibility and ease with secure and efficient transactions.\nGRX Pay's support of multiple cryptocurrencies and its user-friendly interface ensure a smooth payment experience, enhancing our service delivery. Highly recommended for businesses integrating crypto payments.",
+          "2": "The Superheroes.Marketing team continues cooperation with GRX Pay. Everything is cool: usability, communication. For our team it is a clear benefit :) We have a positive impression of using this service for our marketing agency."
+        },
+        "moreCaseStudies": "More case studies"
+      },
+      "benefitsAndFeatures": {
+        "title": "Our benefits and features",
+        "invoicing": {
+          "title": "Effortless invoicing",
+          "description": "Create, send, and manage your invoices with ease. Invoicing feature allows you to provide the crypto payment method for your clients, customize professional-looking invoices, and receive updates."
+        },
+        "autoConvert": {
+          "title": "Auto-convert",
+          "description": "No need to keep track of crypto volatility — our instant currency exchange system automatically converts your funds into Euro or Tether at the best available rates."
+        },
+        "instantEuro": {
+          "title": "Instant Euro withdrawal",
+          "description": "Access your funds swiftly and securely. No waiting, no hassle — just your money in your account, instantly. Perfect for when you need your funds without delay."
+        },
+        "customize": {
+          "title": "Customize your space",
+          "description": "Reflect your brand's unique identity with our easy-to-use customization features. Effortlessly upload your company logo and update your contact information to ensure your customers know how to reach you."
+        },
+        "massPayouts": {
+          "title": "Mass payouts",
+          "description": "Whether you're paying freelancers, distributing refunds, or handling payroll, GRX Pay ensures secure, swift, and seamless crypto transactions across borders."
+        },
+        "apiDocs": {
+          "title": "API and documentation",
+          "description": "Save your time by configuring the API to automatically process cryptocurrency payments and make payouts."
+        },
+        "amlKyb": {
+          "title": "AML & KYB",
+          "description": "All transactions undergo verification through Chainalysis to ensure that no suspicious activities reach your wallet reduced processing fees and real-time tracking."
+        },
+        "rolesPermissions": {
+          "title": "Roles and permissions",
+          "description": "Invite an unlimited number of team members and set each person's permission levels to manage access."
+        },
+        "reports": {
+          "title": "Comprehensive reports",
+          "description": "Our settlement and statement reports are easily accessible for downloading and sharing with your bank."
+        }
+      },
+      "acceptableCrypto": {
+        "title": "How many currencies do you accept?",
+        "subtitle": "A lot. Break payment barriers with multi-currency support."
+      },
+      "gainAccess": {
+        "title": "Gain access to a $1+ trillion crypto market",
+        "getStarted": "Get started"
+      },
+      "buildYourBusiness": {
+        "title": "Build your crypto business with <nowrap>GRX Pay</nowrap>",
+        "subtitle": "Get started with {brand} today. What are you waiting for?",
+        "contactSales": "Contact sales"
+      },
+      "faq": {
+        "title": "FAQ",
+        "subtitle": "You can find more answers to questions <here>here</here>.",
+        "stillHaveQuestions": "Still have questions? Email us at <contact-support></contact-support>."
+      },
+      "faqItems": {
+        "businessTypes": {
+          "question": "What types of businesses (or individuals) can use your crypto payment processing service?",
+          "answer": "Et qui aperiam deserunt. Sed ratione qui qui eaque repellat aut consequatur omnis. Est recusandae culpa voluptate asperiores et. Libero fuga sunt molestiae maxime laudantium enim expedita corporis minus."
+        },
+        "receivePayments": {
+          "question": "How long does it take for me to receive my payments?",
+          "answer": "Et qui aperiam deserunt. Sed ratione qui qui eaque repellat aut consequatur omnis. Est recusandae culpa voluptate asperiores et. Libero fuga sunt molestiae maxime laudantium enim expedita corporis minus."
+        },
+        "fees": {
+          "question": "Are there any fees for using GRX Pay?",
+          "answer": "Et qui aperiam deserunt. Sed ratione qui qui eaque repellat aut consequatur omnis. Est recusandae culpa voluptate asperiores et. Libero fuga sunt molestiae maxime laudantium enim expedita corporis minus."
+        },
+        "safeToAccept": {
+          "question": "Is it safe to accept payments in cryptocurrencies?",
+          "answer": "Et qui aperiam deserunt. Sed ratione qui qui eaque repellat aut consequatur omnis. Est recusandae culpa voluptate asperiores et. Libero fuga sunt molestiae maxime laudantium enim expedita corporis minus."
+        },
+        "autoConversion": {
+          "question": "What is auto-conversion, and how does it work on the GRX Pay?",
+          "answer": "Et qui aperiam deserunt. Sed ratione qui qui eaque repellat aut consequatur omnis. Est recusandae culpa voluptate asperiores et. Libero fuga sunt molestiae maxime laudantium enim expedita corporis minus."
+        }
+      },
+      "footer": {
+        "productSection": "Product",
+        "aboutSection": "About",
+        "products": "Products",
+        "cryptoAcquiring": "Crypto acquiring",
+        "cases": "Cases",
+        "pricing": "Pricing",
+        "documents": "Documents",
+        "privacyPolicy": "Privacy policy",
+        "cookiePolicy": "Cookie policy",
+        "amlPolicy": "AML policy",
+        "termsOfUse": "Terms of use",
+        "mediaKit": "Media-kit",
+        "learn": "Learn",
+        "partnerProgram": "Partner program",
+        "faq": "FAQ",
+        "apiReferences": "API references",
+        "contactUs": "Contact us",
+        "aboutUs": "About us",
+        "telegramSupport": "Telegram support",
+        "disclaimer1": "UAB Kuna Pro is registered as a crypto currency exchange operator and a crypto currency wallet operator and is authorized to provide virtual currency services in accordance with Lithuanian legislation.",
+        "disclaimer2": "The site and other components of the services are protected by intellectual property laws. All rights reserved. Access to the services and the site is provided under the KUNA trademark registered in the Madrid system, which covers the UK, Armenia, Azerbaijan, Belarus, Georgia, Kazakhstan, Turkey, Ukraine, and the European Union.",
+        "copyright": "© GRX Pay {year}. All rights reserved",
+        "acceptCrypto": "Accept crypto:"
+      }
+    },
+    "Pricing": {
+      "meta": {
+        "title": "Pricing | GRX Pay",
+        "description": "Transparent pricing and competitive rates for our crypto payment services. See plans and what's included."
+      },
+      "title": "Pricing",
+      "subtitle": "Transparent pricing and competitive rates for our services",
+      "tabs": {
+        "cryptoAcquiring": "Crypto Acquiring",
+        "cryptoProcessing": "Crypto Processing"
+      },
+      "depositFeeNote": "Deposit fee depends on plan but is always",
+      "depositFeeMin": "not less than 1.5 EUR",
+      "cryptoWithdrawalFee": "Crypto withdrawal fee",
+      "fiatWithdrawalFee": "Fiat withdrawal fee",
+      "fiatWithdrawalFeeMin": "(min 5 EUR)",
+      "massPayoutFee": "Mass payout fee",
+      "massPayoutFeeMin": "(min 5 EUR per transaction)",
+      "perInvoicePayment": "Per successful invoice payment",
+      "fromAmountPerTransaction": "From 15 000 EUR per transaction",
+      "custom": "Custom",
+      "getStarted": "Get started",
+      "contactSales": "Contact sales",
+      "customVolumeMessage": "If you handle significant volumes, our personalized commission structure fits your needs. Contact us for details and let's enhance your experience!",
+      "benefits": {
+        "unlockCryptoAudience": "Unlock the vast crypto audience of 425 million",
+        "enhanceRevenue": "Enhance revenue generation",
+        "minimizeCosts": "Minimize transaction costs",
+        "accessGlobally": "Access users globally",
+        "keepUpWithTimes": "Keep up with the times"
+      },
+      "whatsIncluded": {
+        "title": "What's included",
+        "globalPayments": {
+          "title": "Global payments with a single integration",
+          "items": [
+            "Ready to go checkout",
+            "Easy invoice generation",
+            "Custom invoice branding",
+            "Get paid in your preferred currency"
+          ]
+        },
+        "security": {
+          "title": "Comprehensive security",
+          "items": [
+            "Data security and encryption",
+            "Regulatory licenses",
+            "Permissions management",
+            "Two-step authentiaction"
+          ]
+        },
+        "aml": {
+          "title": "AML check with Chainalysis",
+          "items": [
+            "Prevent high-risk users",
+            "Fraud protection",
+            "Transaction monitoring for AML/CFT compliance"
+          ]
+        },
+        "reporting": {
+          "title": "Financial reconciliation and reporting",
+          "items": [
+            "Real-time analytics",
+            "Unified reporting",
+            "Prebuilt analytics dashboard"
+          ]
+        },
+        "developer": {
+          "title": "Robust developer platform and third-party integrations",
+          "items": ["API documentation", "Seamless integration"]
+        },
+        "support": {
+          "title": "24/7 support team",
+          "items": [
+            "24/7 support",
+            "World-class documentation",
+            "Comprehensive knowledge base",
+            "Dedicated account manager",
+            "On-site training"
+          ]
+        }
+      },
+      "faqItems": {
+        "commission": {
+          "question": "What is the commission for GRX Pay?",
+          "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+        },
+        "feesApplied": {
+          "question": "How are the fees applied?",
+          "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+        },
+        "volumeDiscounts": {
+          "question": "Are there volume-based discounts available for high-frequency users?",
+          "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+        }
+      }
+    },
+    "PartnerProgram": {
+      "meta": {
+        "title": "Partner Program | GRX Pay",
+        "description": "Earn passive income with the GRX Pay partnership program. For agencies and service providers looking to expand their offerings and build expertise in GRX Pay."
+      },
+      "hero": {
+        "title": "Earn passive income with the GRX Pay partnership program",
+        "subtitle": "Partner Program is for agencies and service providers looking to expand their offerings and build expertise in GRX Pay.",
+        "contactUs": "Contact us"
+      },
+      "benefits": {
+        "title": "Why become a GRX Pay partner?",
+        "from10": {
+          "title": "From 10% recurring commission",
+          "description": "Boost your income by receiving a recurring fee taken from a commission on every transaction facilitated through your referral",
+          "imageAlt": "Recurring commission illustration"
+        },
+        "monthlyPayouts": {
+          "title": "Monthly payouts",
+          "description": "Ensure a predictable and consistent income",
+          "imageAlt": "Monthly payouts icon"
+        },
+        "creativeLibrary": {
+          "title": "Creative Library",
+          "description": "Gain access to promotional assets, training guides, and a wealth of valuable tips and tricks to ensure your success",
+          "imageAlt": "Creative library icon",
+          "viewApi": "View API"
+        }
+      },
+      "targetAudience": {
+        "title": "Are you a good fit?",
+        "subtitle": "Whether you are a representative of large businesses or individual, you can participate in GRX Pay partner program",
+        "openFinance": {
+          "title": "Open Finance solutions",
+          "description": "Your company supports the collaboration of fintechs, businesses and financial institutions and would like to endorse GRX Pay for your audience."
+        },
+        "warehousing": {
+          "title": "Warehousing and shipping company",
+          "description": "Extend payment services to clients utilizing your fulfillment solutions. Businesses engaged in the sale of physical products can significantly broaden their reach by incorporating our diverse payment methods."
+        },
+        "marketing": {
+          "title": "Marketing and digital businesses",
+          "description": "If you're part of a marketing or digital business on the lookout for a robust crypto payment solution to enhance your client offerings, our platform is the perfect fit."
+        },
+        "softwareDev": {
+          "title": "Software development agencies",
+          "description": "For developers who are actively seeking a crypto payment solution to empower your clients"
+        }
+      },
+      "howItWorks": {
+        "title": "How to start?",
+        "steps": {
+          "apply": {
+            "title": "Apply for a partner program",
+            "description": "Submit your application and our team will get in touch to onboard you."
+          },
+          "invite": {
+            "title": "Invite businesses",
+            "description": "Tell about GRX Pay to your partners"
+          },
+          "getPaid": {
+            "title": "Get Paid and Grow",
+            "description": "Receive the income every month right to your GRX Pay account"
+          }
+        },
+        "contactUs": "Contact us"
+      },
+      "faqCta": {
+        "title": "Still have questions?",
+        "description": "Can't find the answer you're looking for? Feel free to reach out, we're happy to help.",
+        "contactUs": "Contact us"
+      }
+    }
+  }
+}

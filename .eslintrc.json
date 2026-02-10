@@ -3,7 +3,10 @@
   "extends": [],
   "overrides": [
     {
-      "files": ["apps/web/**/*.{js,jsx,ts,tsx}"],
+      "files": [
+        "apps/web/**/*.{js,jsx,ts,tsx}",
+        "packages/**/*.{js,jsx,ts,tsx}"
+      ],
       "extends": ["next/core-web-vitals"]
     }
   ]

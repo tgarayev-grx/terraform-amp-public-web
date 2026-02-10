@@ -1,0 +1,7 @@
+files:
+  - source: /apps/web/src/modules/cross-cutting-concerns/i18n/locales/en.json
+    translation: /apps/web/src/modules/cross-cutting-concerns/i18n/locales/%two_letters_code%.json
+    type: json
+pull_request_title: "I18n: Crowdin sync"
+pull_request_labels:
+  - i18n

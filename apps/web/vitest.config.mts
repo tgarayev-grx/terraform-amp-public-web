@@ -13,6 +13,12 @@ export default defineConfig({
     include: ["src/**/*.{test,spec}.{ts,tsx}"],
     setupFiles: ["./src/vitest-setup.ts"],
     pool: "threads",
+    // Process next-intl so its next/navigation import can be resolved (https://next-intl.dev/docs/environments/testing)
+    server: {
+      deps: {
+        inline: ["next-intl"],
+      },
+    },
   },
   resolve: {
     alias: {
