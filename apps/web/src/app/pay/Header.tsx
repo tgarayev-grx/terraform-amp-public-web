@@ -3,15 +3,9 @@
 import Link from "next/link";
 import * as Popover from "@radix-ui/react-popover";
 import * as Dialog from "@radix-ui/react-dialog";
-import * as Accordion from "@radix-ui/react-accordion";
 import Logo from "@grx/ui/icons/brand/pay/logo.svg";
 import { ButtonRoot, ButtonText } from "@grx/ui";
 
-import { PartnerProgramIcon } from "./(icons)/PartnerProgramIcon";
-import { NewsIcon } from "./(icons)/NewsIcon";
-import { FaqIcon } from "./(icons)/FaqIcon";
-import { ApiIcon } from "./(icons)/ApiIcon";
-import { AboutUsIcon } from "./(icons)/AboutUsIcon";
 import { ShevronDownIcon } from "./(icons)/ShevronDownIcon";
 import { GlobeIcon } from "./(icons)/GlobeIcon";
 import { FlagEn } from "./(icons)/FlagEn";
@@ -31,25 +25,29 @@ export function Header() {
 
         <nav className="hidden lg:flex justify-center items-center gap-8">
           <Link
-            href="/pay/crypto-acquiring"
-            className="py-1.5 font-medium text-neutral-700 hover:text-neutral-900 text-sm transition-colors"
-          >
-            Crypto Acquiring
-          </Link>
-          <Link
-            href="/pay/gaming"
-            className="font-medium text-neutral-700 hover:text-neutral-900 text-sm transition-colors"
-          >
-            Gaming
-          </Link>
-          <Link
             href="/pay/pricing"
             className="font-medium text-neutral-700 hover:text-neutral-900 text-sm transition-colors"
           >
             Pricing
           </Link>
-
-          <ResourcesPopover />
+          <Link
+            href="/pay/partner-program"
+            className="font-medium text-neutral-700 hover:text-neutral-900 text-sm transition-colors"
+          >
+            Partners
+          </Link>
+          <Link
+            href="/pay/about"
+            className="font-medium text-neutral-700 hover:text-neutral-900 text-sm transition-colors"
+          >
+            About us
+          </Link>
+          <Link
+            href="/pay/faq"
+            className="font-medium text-neutral-700 hover:text-neutral-900 text-sm transition-colors"
+          >
+            FAQ
+          </Link>
         </nav>
 
         <div className="hidden lg:flex justify-end items-center gap-6">
@@ -83,78 +81,7 @@ export function Header() {
   );
 }
 
-const RESOURCES_LINKS = [
-  {
-    title: "Partner Program",
-    description: "Collaboration for mutual benefit",
-    href: "/pay/partner-program",
-    icon: <PartnerProgramIcon width={20} height={20} />,
-  },
-  {
-    title: "News",
-    description: "Crypto industry latest updates",
-    href: "/pay/news",
-    icon: <NewsIcon width={20} height={20} />,
-  },
-  {
-    title: "FAQ",
-    description: "Popular queries, simplified explanations",
-    href: "/pay/faq",
-    icon: <FaqIcon width={20} height={20} />,
-  },
-  {
-    title: "API References",
-    description: "Efficient integration guides",
-    href: "/pay/api",
-    icon: <ApiIcon width={20} height={20} />,
-  },
-  {
-    title: "About us",
-    description: "Find out the goals of our company",
-    href: "/pay/about",
-    icon: <AboutUsIcon width={20} height={20} />,
-  },
-];
 
-function ResourcesPopover() {
-  return (
-    <Popover.Root>
-      <Popover.Trigger asChild>
-        <button className="group flex items-center gap-1 font-medium text-neutral-700 hover:text-neutral-900 text-sm">
-          <span>Resources</span>
-          <ShevronDownIcon className="w-4 h-4 group-data-[state=open]:rotate-180 transition-transform" />
-        </button>
-      </Popover.Trigger>
-      <Popover.Portal>
-        <Popover.Content
-          className="z-50 hidden lg:block bg-neutral shadow-lg p-[8px] border border-neutral-200 rounded-xl min-w-[200px] [transform-origin:var(--radix-popover-content-transform-origin)] data-[state=closed]:animate-popover-out data-[state=open]:animate-popover-in"
-          sideOffset={28}
-          align="start"
-        >
-          {RESOURCES_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="flex items-center gap-[12px] hover:bg-neutral-100 px-4 py-3 rounded-xl min-w-[300px] text-sm transition-colors"
-            >
-              <div className="flex justify-center items-center bg-neutral border border-neutral-300 rounded-[12px] w-[40px] h-[40px]">
-                {link.icon}
-              </div>
-              <div className="flex flex-col gap-[2px]">
-                <div className="font-medium text-neutral-1000">
-                  {link.title}
-                </div>
-                <div className="mt-0.5 text-neutral-500 text-xs">
-                  {link.description}
-                </div>
-              </div>
-            </Link>
-          ))}
-        </Popover.Content>
-      </Popover.Portal>
-    </Popover.Root>
-  );
-}
 
 function MobileMenu() {
   return (
@@ -183,55 +110,29 @@ function MobileMenu() {
 
             <nav className="flex flex-col flex-grow px-2 pt-6">
               <Link
-                href="/pay/crypto-acquiring"
-                className="px-2 py-3 font-medium text-neutral-700 hover:text-neutral-900 text-sm transition-colors"
-              >
-                Crypto Acquiring
-              </Link>
-              <Link
-                href="/pay/gaming"
-                className="px-2 py-3 font-medium text-neutral-700 hover:text-neutral-900 text-sm transition-colors"
-              >
-                Gaming
-              </Link>
-              <Link
                 href="/pay/pricing"
                 className="px-2 py-3 font-medium text-neutral-700 hover:text-neutral-900 text-sm transition-colors"
               >
                 Pricing
               </Link>
-
-              <Accordion.Root type="single" collapsible className="w-full">
-                <Accordion.Item value="resources" className="border-b-0">
-                  <Accordion.Trigger className="group flex justify-between items-center px-2 py-3 w-full font-medium text-neutral-700 hover:text-neutral-900 text-sm transition-colors">
-                    <span>Resources</span>
-                    <ShevronDownIcon className="w-4 h-4 group-data-[state=open]:rotate-180 transition-transform" />
-                  </Accordion.Trigger>
-                  <Accordion.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                    <div className="flex flex-col gap-2">
-                      {RESOURCES_LINKS.map((link) => (
-                        <Link
-                          key={link.href}
-                          href={link.href}
-                          className="flex items-center gap-3 hover:bg-neutral-100 px-2 py-3 rounded-xl text-sm transition-colors"
-                        >
-                          <div className="flex justify-center items-center bg-neutral border border-neutral-300 rounded-[12px] w-[40px] h-[40px]">
-                            {link.icon}
-                          </div>
-                          <div className="flex flex-col gap-[2px]">
-                            <div className="font-medium text-neutral-1000 text-sm">
-                              {link.title}
-                            </div>
-                            <div className="text-neutral-500 text-xs">
-                              {link.description}
-                            </div>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </Accordion.Content>
-                </Accordion.Item>
-              </Accordion.Root>
+              <Link
+                href="/pay/partner-program"
+                className="px-2 py-3 font-medium text-neutral-700 hover:text-neutral-900 text-sm transition-colors"
+              >
+                Partners
+              </Link>
+              <Link
+                href="/pay/about"
+                className="px-2 py-3 font-medium text-neutral-700 hover:text-neutral-900 text-sm transition-colors"
+              >
+                About us
+              </Link>
+              <Link
+                href="/pay/faq"
+                className="px-2 py-3 font-medium text-neutral-700 hover:text-neutral-900 text-sm transition-colors"
+              >
+                FAQ
+              </Link>
             </nav>
 
             <div className="flex flex-col gap-6 px-2 pt-4 pb-6">
