@@ -9,7 +9,7 @@ import { InvoiceIcon } from "./(icons)/InvoiceIcon";
 import { MassPayoutsIcon } from "./(icons)/MassPayoutsIcon";
 import { ReportsIcon } from "./(icons)/ReportsIcon";
 import { RolesAndPermissionsIcon } from "./(icons)/RolesAndPermissionsIcon";
-import { FeatureCard } from "./FeatureCard";
+import { FeatureCard } from "./(components)/card";
 
 export async function BenefitsAndFeaturesSection() {
   const t = await getTranslations();

@@ -281,6 +281,77 @@
         "acceptCrypto": "Accept crypto:"
       }
     },
+    "AboutUs": {
+      "meta": {
+        "title": "About us | GRX Pay",
+        "description": "Our experienced team aimed to provide customers with future-ready Banking solutions operating globally. Our vision is to provide our customers with the freedom of capital without borders."
+      },
+      "hero": {
+        "title": "We help reimagine the way business accepts payments",
+        "subtitle": "The whole point of our work at GRX Pay is to enable more businesses to accept crypto payments, just the way they should. We believe that this process can be made ultimately transparent, simple, and fast. This is why we've created our own solution that meets each of these fundamentals.",
+        "imageAlt": "Illustration of buying and accepting crypto payments"
+      },
+      "content": {
+        "title": "About us",
+        "description": "Our experienced team aimed to provide customers with future-ready Banking solutions operating globally. Our vision is to provide our customers with the freedom of capital without borders.",
+        "title2": "Crypto acquiring platform that provides accepting payments in cryptocurrencies for businesses",
+        "description2": "Being the B2B provider, GRX Pay allows clients to easily integrate crypto payments to their payment options, thus increasing income by attracting an audience of cryptocurrency users. Payment acceptance with popular digital assets, invoice and turnover management, auto-conversion, and many other features are combined in a single convenient interface.",
+        "demoImageAlt": "GRX Pay platform interface and crypto payment flow demo",
+        "cards": {
+          "1": {
+            "title": "Seamless integration with multiple crypto payment services",
+            "description": "Our payment processing solution opens access to faster and cheaper transactions, no need for a central authority or intermediary, greater security and privacy, and the ability to make payments anywhere in the world."
+          },
+          "2": {
+            "title": "Advanced encryption and security measures",
+            "description": "We implement advanced encryption and security measures to safeguard the integrity of the crypto payment processing, employing features such as two-factor authentication, anti-fraud tools, and real-time monitoring to detect and prevent potential security threats."
+          },
+          "3": {
+            "title": "Break payments barriers with multi-currency support",
+            "description": "GRX Pay platform supports 24+ cryptocurrencies, including Bitcoin, Ethereum, Litecoin, Bitcoin Cash, and many others."
+          }
+        }
+      },
+      "robustSecurity": {
+        "title": "Robust security — your peace of mind prioritized",
+        "description": "Start your journey with GRX Pay by registering your account",
+        "cards": {
+          "1": {
+            "title": "Encryption",
+            "description": "GRX Pay utilizes advanced encryption mechanisms to safeguard the integrity of user data and crypto transactions."
+          },
+          "2": {
+            "title": "Two-factor authentication",
+            "description": "This additional layer of security checking helps fend off unauthorized log-ins or transactions by requiring an extra verification step in addition to a password."
+          },
+          "3": {
+            "title": "Anti-fraud tools",
+            "description": "Boasting a seamless integration with Chainalysis, we help minimize the history of suspicious transactions, making sure the platform remains clean and trustworthy."
+          },
+          "4": {
+            "title": "Real-time monitoring",
+            "description": "The set of regular security measures allows us to monitor the system for suspicious activity, reinforcing the protection of our users in real time."
+          },
+          "5": {
+            "title": "Secure identity verification",
+            "description": "GRX Pay uses a trusted service, SumSub, for secure user verification during onboarding. SumSub employs strong encryption measures of its own."
+          }
+        }
+      },
+      "smoothIntegration": {
+        "imageAlt": "Smooth integration and API connection illustration",
+        "title": "Smooth integration — getting started in minutes",
+        "paragraph1": "You no longer need to invest months into getting a new payment solution for your business. We have taken care of all the under-the-hood processes and created the integration flow, allowing you to get started with GRX Pay at once using an API key.",
+        "paragraph2": "Once integrated, you won't need to put much manual effort — just delegate payments to the system, and invoices will be generated automatically for your customers. You will be paid in fiat after the payment is processed. Find the comprehensive guide in our documentation <link-documentation>here</link-documentation>.",
+        "paragraph3": "GRX Pay offers painless integration and fast adoption of all the benefits of faster and more cost-effective transactions achieved through protected, smooth crypto payments available globally."
+      },
+      "empowerCta": {
+        "imageAlt": "Background for empower your business with crypto payments",
+        "title": "Empower your business with crypto payments using GRX Pay",
+        "subtitle": "Get started with GRX Pay today. What are you waiting for?",
+        "contactSales": "Contact sales"
+      }
+    },
     "Pricing": {
       "meta": {
         "title": "Pricing | GRX Pay",

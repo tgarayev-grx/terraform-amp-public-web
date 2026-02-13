@@ -8,7 +8,7 @@ import { AMLIcon } from "../(icons)/AMLIcon";
 import { ChartWaveIcon } from "../(icons)/ChartWaveIcon";
 import { ChattingIcon } from "../(icons)/ChattingIcon";
 import { PuzzleIcon } from "../(icons)/PuzzleIcon";
-import { FeatureCard } from "../FeatureCard";
+import { FeatureCard } from "../(components)/card";
 
 type WhatsIncludedFeatureCardProps = {
   title: string;

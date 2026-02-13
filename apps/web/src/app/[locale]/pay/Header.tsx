@@ -1,11 +1,14 @@
 "use client";
 
-import Link from "next/link";
 import * as Popover from "@radix-ui/react-popover";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useLocale, useTranslations } from "next-intl";
 import { Logo } from "@grx/ui/icons/brand/pay/logo";
 import { ButtonRoot, ButtonText } from "@grx/ui";
+import {
+  Link,
+  usePathname,
+} from "@/modules/cross-cutting-concerns/i18n/navigation";
 
 import { ShevronDownIcon } from "./(icons)/ShevronDownIcon";
 import { GlobeIcon } from "./(icons)/GlobeIcon";
@@ -40,7 +43,7 @@ export function Header() {
             {t("Pay.Root.header.nav.partners")}
           </Link>
           <Link
-            href="/pay/about"
+            href="/pay/about-us"
             className="font-medium text-neutral-700 hover:text-neutral-900 text-sm transition-colors"
           >
             {t("Pay.Root.header.nav.aboutUs")}
@@ -129,7 +132,7 @@ function MobileMenu() {
                 {t("Pay.Root.header.nav.partners")}
               </Link>
               <Link
-                href="/pay/about"
+                href="/pay/about-us"
                 className="px-2 py-3 font-medium text-neutral-700 hover:text-neutral-900 text-sm transition-colors"
               >
                 {t("Pay.Root.header.nav.aboutUs")}
@@ -181,12 +184,13 @@ function MobileMenu() {
 function LocalizationSelect() {
   const t = useTranslations();
   const locale = useLocale();
+  const pathname = usePathname();
   const languages = [
     { code: "en", name: t("Pay.Root.header.languages.en"), flag: <FlagEn /> },
     { code: "bg", name: t("Pay.Root.header.languages.bg"), flag: <FlagBg /> },
     { code: "fr", name: t("Pay.Root.header.languages.fr"), flag: <FlagFr /> },
     { code: "es", name: t("Pay.Root.header.languages.es"), flag: <FlagEs /> },
-  ];
+  ] as const;
   const currentLanguage =
     languages.find((lang) => lang.code === locale) || languages[0];
 
@@ -211,9 +215,11 @@ function LocalizationSelect() {
           align="start"
         >
           {languages.map((lang) => (
-            <button
+            <Link
               key={lang.code}
               className="flex items-center gap-3 hover:bg-neutral-100 p-2 rounded-lg w-full transition-colors"
+              href={pathname}
+              locale={lang.code}
             >
               <div className="flex justify-center items-center rounded-full w-6 h-6">
                 {lang.flag}
@@ -224,7 +230,7 @@ function LocalizationSelect() {
                   {lang.name} ({lang.code.toUpperCase()})
                 </span>
               </div>
-            </button>
+            </Link>
           ))}
         </Popover.Content>
       </Popover.Portal>

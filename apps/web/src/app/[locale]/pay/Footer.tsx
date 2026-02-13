@@ -19,7 +19,7 @@ export async function Footer() {
   const t = await getTranslations();
 
   return (
-    <footer className="flex flex-col items-center bg-neutral-50 px-4 sm:px-8 py-20 sm:py-24">
+    <footer className="flex flex-col items-center bg-neutral-100 px-4 sm:px-8 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
         <FooterNav t={t} className="mb-10" />
 
@@ -58,7 +58,7 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
       {/* Auto gap: flexible space between logo and link columns (per Figma) */}
       <div className="hidden lg:block lg:flex-1 lg:min-w-0" aria-hidden />
 
-      <div className="flex flex-col sm:flex-row gap-8 sm:gap-[160px]">
+      <div className="flex sm:flex-row flex-col gap-8 sm:gap-[160px]">
         <div className="flex flex-col gap-4">
           <span className="font-semibold text-base">
             {t("Pay.Root.footer.productSection")}
@@ -81,7 +81,7 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
           </span>
           <ul className="flex flex-col gap-4">
             <li className="text-neutral-700 text-sm">
-              <Link href="/pay/about">{t("Pay.Root.footer.aboutUs")}</Link>
+              <Link href="/pay/about-us">{t("Pay.Root.footer.aboutUs")}</Link>
             </li>
             <li className="text-neutral-700 text-sm">
               <Link href="/pay/faq">{t("Pay.Root.footer.faq")}</Link>

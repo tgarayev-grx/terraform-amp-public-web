@@ -281,6 +281,77 @@
         "acceptCrypto": "Accepter les crypto :"
       }
     },
+    "AboutUs": {
+      "meta": {
+        "title": "À propos | GRX Pay",
+        "description": "Notre équipe expérimentée vise à offrir aux clients des solutions bancaires prêtes pour l'avenir opérant à l'échelle mondiale. Notre vision est de donner à nos clients la liberté des capitaux sans frontières."
+      },
+      "hero": {
+        "title": "Nous aidons à repenser la façon dont les entreprises acceptent les paiements",
+        "subtitle": "L'objectif de notre travail chez GRX Pay est de permettre à davantage d'entreprises d'accepter les paiements crypto, comme il se doit. Nous croyons que ce processus peut être totalement transparent, simple et rapide. C'est pourquoi nous avons créé notre propre solution qui répond à chacun de ces fondamentaux.",
+        "imageAlt": "Illustration d'achat et d'acceptation de paiements crypto"
+      },
+      "content": {
+        "title": "À propos",
+        "description": "Notre équipe expérimentée vise à offrir aux clients des solutions bancaires prêtes pour l'avenir opérant à l'échelle mondiale. Notre vision est de donner à nos clients la liberté des capitaux sans frontières.",
+        "title2": "Plateforme d'acquisition crypto permettant aux entreprises d'accepter les paiements en cryptomonnaies",
+        "description2": "En tant que fournisseur B2B, GRX Pay permet aux clients d'intégrer facilement les paiements crypto à leurs options de paiement, augmentant ainsi les revenus en attirant une audience d'utilisateurs de cryptomonnaies. Acceptation des paiements en actifs numériques populaires, gestion des factures et du chiffre d'affaires, conversion automatique et bien d'autres fonctionnalités sont regroupées dans une interface unique et pratique.",
+        "demoImageAlt": "Interface de la plateforme GRX Pay et démo du flux de paiement crypto",
+        "cards": {
+          "1": {
+            "title": "Intégration transparente avec de multiples services de paiement crypto",
+            "description": "Notre solution de traitement des paiements ouvre l'accès à des transactions plus rapides et moins chères, sans autorité centrale ni intermédiaire, une sécurité et une confidentialité accrues, et la possibilité d'effectuer des paiements partout dans le monde."
+          },
+          "2": {
+            "title": "Chiffrement avancé et mesures de sécurité",
+            "description": "Nous mettons en œuvre un chiffrement avancé et des mesures de sécurité pour préserver l'intégrité du traitement des paiements crypto, avec notamment l'authentification à deux facteurs, des outils anti-fraude et une surveillance en temps réel pour détecter et prévenir les menaces potentielles."
+          },
+          "3": {
+            "title": "Franchissez les barrières de paiement avec le multi-devises",
+            "description": "La plateforme GRX Pay prend en charge plus de 24 cryptomonnaies, dont Bitcoin, Ethereum, Litecoin, Bitcoin Cash et bien d'autres."
+          }
+        }
+      },
+      "robustSecurity": {
+        "title": "Sécurité robuste — votre tranquillité d'esprit prioritaire",
+        "description": "Commencez votre parcours avec GRX Pay en créant un compte",
+        "cards": {
+          "1": {
+            "title": "Chiffrement",
+            "description": "GRX Pay utilise des mécanismes de chiffrement avancés pour préserver l'intégrité des données utilisateur et des transactions crypto."
+          },
+          "2": {
+            "title": "Authentification à deux facteurs",
+            "description": "Cette couche de sécurité supplémentaire permet de lutter contre les connexions ou transactions non autorisées en exigeant une étape de vérification en plus du mot de passe."
+          },
+          "3": {
+            "title": "Outils anti-fraude",
+            "description": "Grâce à une intégration fluide avec Chainalysis, nous contribuons à réduire les transactions suspectes et à maintenir une plateforme propre et fiable."
+          },
+          "4": {
+            "title": "Surveillance en temps réel",
+            "description": "L'ensemble des mesures de sécurité habituelles nous permet de surveiller le système pour détecter toute activité suspecte et renforcer la protection de nos utilisateurs en temps réel."
+          },
+          "5": {
+            "title": "Vérification d'identité sécurisée",
+            "description": "GRX Pay s'appuie sur un partenaire de confiance, SumSub, pour la vérification sécurisée des utilisateurs lors de l'onboarding. SumSub applique ses propres mesures de chiffrement renforcées."
+          }
+        }
+      },
+      "smoothIntegration": {
+        "imageAlt": "Illustration d'intégration fluide et de connexion API",
+        "title": "Intégration fluide — opérationnelle en quelques minutes",
+        "paragraph1": "Vous n'avez plus besoin d'investir des mois pour mettre en place une nouvelle solution de paiement. Nous avons pris en charge tous les processus techniques et créé le flux d'intégration pour que vous puissiez démarrer avec GRX Pay immédiatement avec une clé API.",
+        "paragraph2": "Une fois intégré, peu d'effort manuel sera nécessaire : déléguez les paiements au système et les factures seront générées automatiquement pour vos clients. Vous serez payé en fiat une fois le paiement traité. Consultez le guide complet dans notre documentation <link-documentation>ici</link-documentation>.",
+        "paragraph3": "GRX Pay offre une intégration simple et une adoption rapide de tous les avantages de transactions plus rapides et plus rentables grâce à des paiements crypto sécurisés et fluides, disponibles dans le monde entier."
+      },
+      "empowerCta": {
+        "imageAlt": "Arrière-plan pour renforcer votre entreprise avec les paiements crypto",
+        "title": "Renforcez votre entreprise avec les paiements crypto grâce à GRX Pay",
+        "subtitle": "Démarrez avec GRX Pay aujourd'hui. Qu'attendez-vous ?",
+        "contactSales": "Contacter les ventes"
+      }
+    },
     "Pricing": {
       "meta": {
         "title": "Tarifs | GRX Pay",
