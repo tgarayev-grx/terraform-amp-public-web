@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import clsx from "clsx";
 import { ButtonRoot, ButtonText } from "@grx/ui/components/button/Button";
-import { SALES_EMAIL } from "./constants";
+import { SALES_EMAIL } from "@/config/emails";
 
 import partnerProgramHeroImage from "./(assets)/partner-program-hero.png";
 import partnerProgramCoinImage from "./(assets)/partner-program-coin.png";

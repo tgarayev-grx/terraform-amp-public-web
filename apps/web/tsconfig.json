@@ -10,6 +10,7 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
+    "allowArbitraryExtensions": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
@@ -23,6 +24,12 @@
       "@grx/ui/*": ["../../packages/ui/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "**/*.d.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "**/*.d.ts"
+  ],
   "exclude": ["node_modules"]
 }

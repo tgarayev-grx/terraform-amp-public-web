@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { ButtonRoot, ButtonText } from "@grx/ui/components/button/Button";
-import { SALES_EMAIL } from "./constants";
+import { SALES_EMAIL } from "@/config/emails";
 
 type StepCardProps = {
   number: number;

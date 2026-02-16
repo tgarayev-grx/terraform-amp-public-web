@@ -521,6 +521,12 @@
         "description": "¿No encuentras la respuesta? Escríbenos, estaremos encantados de ayudarte.",
         "contactUs": "Contáctanos"
       }
+    },
+    "Faq": {
+      "article": {
+        "back_link": "Volver a FAQ",
+        "not_found": "Artículo no encontrado."
+      }
     }
   }
 }

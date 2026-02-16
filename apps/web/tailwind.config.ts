@@ -14,7 +14,9 @@ const config: Config = {
       fontFamily: {
         unbounded: ["var(--font-unbounded)", "sans-serif"],
       },
-      colors: tailwindConfigColors,
+      colors: {
+        ...tailwindConfigColors,
+      },
       boxShadow: {
         "light-sm":
           "0 12px 40px -4px rgba(16, 24, 40, 0.08), 0 4px 8px -2px rgba(16, 24, 40, 0.03)",

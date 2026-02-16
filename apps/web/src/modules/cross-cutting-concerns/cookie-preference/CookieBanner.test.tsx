@@ -6,7 +6,8 @@ import {
   CookiePreferencePersist,
   DEFAULT_COOKIE_PREFERENCES,
 } from "./CookiePersist";
-import en from "@/modules/cross-cutting-concerns/i18n/locales/en.json";
+// Use require to load actual JSON; ESM import resolves to generated .d.json.ts
+const en = require("../i18n/locales/en.json") as Record<string, unknown>;
 
 function renderWithTranslations(ui: React.ReactElement) {
   return render(

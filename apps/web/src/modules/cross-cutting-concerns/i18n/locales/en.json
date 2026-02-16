@@ -521,6 +521,12 @@
         "description": "Can't find the answer you're looking for? Feel free to reach out, we're happy to help.",
         "contactUs": "Contact us"
       }
+    },
+    "Faq": {
+      "article": {
+        "back_link": "Back to FAQ",
+        "not_found": "Article not found."
+      }
     }
   }
 }
