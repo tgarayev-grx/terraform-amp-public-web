@@ -64,14 +64,14 @@ landing/
 The site is deployed to the **dev Kubernetes cluster** like other services (e.g. Kuna.Pro). Dev URL: **https://website.nyx-dev.com** (private Istio ingress).
 
 - **Build**: GitHub Actions on `ubuntu-arm-2204-kuna` runners on push to `master`.
-- **Image**: AWS ECR (`nyx-playground/public-web`). One repo; dev tags like `a1b2c3d4-arm`, prod tags e.g. `a1b2c3d4-arm-prod`. Static export is built in Docker, then served by nginx in the image.
+- **Image**: AWS ECR (`nyx-playground/public-web`). One repo; dev tags like `a1b2c3d4-arm`, prod tags e.g. `a1b2c3d4-arm-prod`. Next.js standalone build runs via Node.js server (port 80).
 - **Manifests**: GitOps in [gitops.dev](https://github.com/NYX-ENGINEERS/gitops.dev) — `infrastructure/public-web/` (Deployment, Service, Istio Gateway/VirtualService).
 - **Domain**: `website.nyx-dev.com` is configured as **private Istio** in [terraform-configurations-nyx-dev](https://github.com/NYX-ENGINEERS/terraform-configurations-nyx-dev) (`ingress-and-dns/locals.tf`, key `website`).
 - **Argo CD**: App `public-web-dev` in gitops.dev (`infrastructure/apps/app-public-web.yaml`). CI pushes a new image tag to gitops and optionally runs `argocd app sync public-web-dev`.
 
-### Why `output: "export"` and `images: { unoptimized: true }` in `next.config.ts`?
+### Why `output: "standalone"` and `images: { unoptimized: true }` in `next.config.ts`?
 
-We run a **static export** in the cluster: the Dockerfile builds the app, copies `apps/web/out` into an nginx image, and nginx serves the files. So Next.js must produce the `out/` folder; without `output: "export"` it would build for Node (SSR), which this setup does not use.
+We run a **Node.js server** in the cluster: the Dockerfile builds the app with `output: "standalone"`, copies the minimal standalone output, and runs `node server.js`. The server listens on port 80. `images: { unoptimized: true }` avoids runtime image optimization (no sharp/squoosh in container).
 
 ### GitHub Actions secrets (public-web repo)
 

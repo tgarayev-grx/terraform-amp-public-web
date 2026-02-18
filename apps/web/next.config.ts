@@ -9,9 +9,9 @@ const withNextIntl = createNextIntlPlugin({
   },
 });
 
-// Static export required for Cloudflare Pages: build outputs to out/ for wrangler pages deploy.
-// Without output: "export" Next builds for Node (SSR) and Pages cannot serve it.
+// K8s/Docker: output "standalone" for Node.js server (pnpm start).
 const nextConfig: NextConfig = {
+  output: "standalone",
   images: { unoptimized: true },
   devIndicators: {
     position: "bottom-right",

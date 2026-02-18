@@ -1,4 +1,4 @@
-# Build stage: Node + pnpm, static export to apps/web/out
+# Build stage: Node + pnpm, Next.js standalone output
 FROM node:20-alpine AS builder
 
 RUN corepack enable && corepack prepare pnpm@9.0.0 --activate
@@ -12,14 +12,29 @@ COPY packages/ui ./packages/ui
 RUN pnpm install --frozen-lockfile
 
 COPY apps/web ./apps/web
+# Ensure public dir exists for COPY in runner (Next.js may not create it)
+RUN mkdir -p apps/web/public
 
 RUN pnpm build
 
-# Serve stage: nginx serves static files from Next.js export
-FROM nginx:1.17.9-alpine AS final
+# Run stage: Node.js serves via standalone server
+# Monorepo: standalone output is at apps/web/.next/standalone/apps/web/
+FROM node:20-alpine AS runner
 
-COPY --from=builder /usr/src/apps/web/.next /usr/share/nginx/html
-RUN rm -f /etc/nginx/conf.d/default.conf
-COPY apps/web/nginx.conf /etc/nginx/conf.d/default.conf
+WORKDIR /app
+ENV NODE_ENV=production
+ENV PORT=80
+ENV HOSTNAME="0.0.0.0"
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+COPY --from=builder --chown=nextjs:nodejs /usr/src/apps/web/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /usr/src/apps/web/.next/static ./apps/web/.next/static
+COPY --from=builder --chown=nextjs:nodejs /usr/src/apps/web/public ./apps/web/public
+
+USER nextjs
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# Monorepo: server.js is nested at apps/web/, run from there so .next is found
+WORKDIR /app/apps/web
+CMD ["node", "server.js"]
