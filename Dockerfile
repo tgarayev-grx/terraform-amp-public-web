@@ -18,7 +18,7 @@ RUN pnpm build
 # Serve stage: nginx serves static files from Next.js export
 FROM nginx:1.17.9-alpine AS final
 
-COPY --from=builder /usr/src/apps/web/out /usr/share/nginx/html
+COPY --from=builder /usr/src/apps/web/.next /usr/share/nginx/html
 RUN rm -f /etc/nginx/conf.d/default.conf
 COPY apps/web/nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
