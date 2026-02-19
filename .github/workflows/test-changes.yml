@@ -15,7 +15,7 @@ permissions:
 jobs:
   build-packages:
     name: 📦 Build packages
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, ubuntu-arm-2204-kuna]
     steps:
       - name: 🛒 Checkout changes
         uses: actions/checkout@v4
@@ -31,7 +31,7 @@ jobs:
 
   run-tests:
     name: 🧪 Run tests
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, ubuntu-arm-2204-kuna]
     steps:
       - name: 🛒 Checkout changes
         uses: actions/checkout@v4
