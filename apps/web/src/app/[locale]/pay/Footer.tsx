@@ -100,6 +100,11 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
               </Link>
             </li>
             <li className="text-neutral-700 text-sm">
+              <Link href="/pay/privacy-policy">
+                {t("Pay.Root.footer.privacyPolicy")}
+              </Link>
+            </li>
+            <li className="text-neutral-700 text-sm">
               <Link href="/cookie-policy">
                 {t("Pay.Root.footer.cookiePolicy")}
               </Link>

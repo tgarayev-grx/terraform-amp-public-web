@@ -527,6 +527,14 @@
         "back_link": "Back to FAQ",
         "not_found": "Article not found."
       }
+    },
+    "PrivacyPolicy": {
+      "meta": {
+        "title": "Privacy Policy | GRX Pay",
+        "description": "Read our Privacy Policy to understand how we collect, use, and protect your personal data when using GRX Pay services."
+      },
+      "title": "Privacy Policy",
+      "lastUpdated": "Last updated on 16th February 2026"
     }
   }
 }
