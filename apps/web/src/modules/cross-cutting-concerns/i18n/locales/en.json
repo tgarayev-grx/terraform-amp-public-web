@@ -1,4 +1,46 @@
 {
+  "CommonHeader": {
+    "nav": {
+      "products": "Products",
+      "pricing": "Pricing",
+      "partners": "Partners",
+      "aboutUs": "About us",
+      "faq": "FAQ",
+      "signIn": "Sign in",
+      "createAccount": "Create account",
+      "menu": "Menu"
+    },
+    "products": {
+      "comingSoon": "Coming soon",
+      "grxPay": {
+        "description": "Global payments. Seamless integration."
+      },
+      "grxExchange": {
+        "description": "Trade with Confidence. Anytime. Anywhere."
+      },
+      "grxRwa": {
+        "description": "Bringing Real-World Assets On-Chain."
+      }
+    },
+    "languages": {
+      "en": "English",
+      "bg": "Bulgarian",
+      "fr": "French",
+      "es": "Spanish"
+    }
+  },
+  "ProductSubHeader": {
+    "overview": "Overview",
+    "pricing": "Pricing",
+    "partners": "Partners",
+    "faq": "FAQ",
+    "aboutProduct": "About {product}"
+  },
+  "Faq": {
+    "breadcrumbs": {
+      "grxPay": "GRX Pay"
+    }
+  },
   "CookieBanner": {
     "banner": {
       "title": "We use cookies",
@@ -256,29 +298,26 @@
         }
       },
       "footer": {
-        "productSection": "Product",
-        "aboutSection": "About",
         "products": "Products",
-        "cryptoAcquiring": "Crypto acquiring",
-        "cases": "Cases",
+        "grxPay": "GRX Pay",
+        "grxExchange": "GRX Exchange",
+        "grxRwa": "GRX RWA",
+        "comingSoon": "Coming soon",
+        "grxPaySection": "GRX Pay",
         "pricing": "Pricing",
-        "documents": "Documents",
-        "privacyPolicy": "Privacy policy",
+        "partners": "Partners",
+        "faq": "FAQ",
+        "aboutGrxPay": "About GRX Pay",
+        "aboutSection": "About",
+        "aboutGrx": "About GRX",
+        "contactGrx": "Contact GRX",
+        "legal": "Legal",
+        "termsOfUse": "Terms of use",
         "cookiePolicy": "Cookie policy",
         "amlPolicy": "AML policy",
-        "termsOfUse": "Terms of use",
-        "mediaKit": "Media-kit",
-        "learn": "Learn",
-        "partnerProgram": "Partner program",
-        "faq": "FAQ",
-        "apiReferences": "API references",
-        "contactUs": "Contact us",
-        "aboutUs": "About us",
-        "telegramSupport": "Telegram support",
-        "disclaimer1": "UAB Kuna Pro is registered as a crypto currency exchange operator and a crypto currency wallet operator and is authorized to provide virtual currency services in accordance with Lithuanian legislation.",
-        "disclaimer2": "The site and other components of the services are protected by intellectual property laws. All rights reserved. Access to the services and the site is provided under the KUNA trademark registered in the Madrid system, which covers the UK, Armenia, Azerbaijan, Belarus, Georgia, Kazakhstan, Turkey, Ukraine, and the European Union.",
-        "copyright": "© GRX Pay {year}. All rights reserved",
-        "acceptCrypto": "Accept crypto:"
+        "acceptCrypto": "Accept crypto",
+        "copyright": "© GRX {year}. All rights reserved",
+        "disclaimer": "GRX Services and the content on this site are provided for informational purposes only. Digital assets involve risks. GRX does not provide financial, investment, legal, or tax advice. Availability of services may vary by jurisdiction. Past performance does not guarantee future results. Assets under management figure last updated June, 2025."
       }
     },
     "AboutUs": {

@@ -9,6 +9,7 @@ import "../globals.css";
 
 import { routing } from "@/modules/cross-cutting-concerns/i18n/routing";
 import { CookieBanner } from "@/modules/cross-cutting-concerns/cookie-preference";
+import { CommonHeader } from "@/modules/shared/header";
 import clsx from "clsx";
 
 export const metadata: Metadata = {
@@ -47,6 +48,7 @@ export default async function LocaleLayout({
     >
       <body>
         <NextIntlClientProvider>
+          <CommonHeader theme="light" />
           {children}
 
           <CookieBanner />

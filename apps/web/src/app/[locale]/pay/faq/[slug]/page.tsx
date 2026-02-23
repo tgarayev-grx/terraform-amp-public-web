@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { FAQ_ARTICLES } from "../data";
 import { DirectionRightIcon } from "../../(icons)/DirectionRightIcon";
-import { HomeIcon } from "../../(icons)/HomeIcon";
 import { ArticleSidebarNav } from "./ArticleSidebarNav";
 import {
   getArticleBody,
@@ -55,7 +54,13 @@ function ArticleSidebar({ sections }: { sections: ArticleSection[] }) {
   );
 }
 
-function ArticleBreadcrumbs({ topicTitle }: { topicTitle: string }) {
+function ArticleBreadcrumbs({
+  topicTitle,
+  grxPayLabel,
+}: {
+  topicTitle: string;
+  grxPayLabel: string;
+}) {
   return (
     <nav
       className="flex items-center gap-[6px] font-normal text-[14px] leading-5 text-neutral-500"
@@ -66,12 +71,8 @@ function ArticleBreadcrumbs({ topicTitle }: { topicTitle: string }) {
           <Link
             className="text-neutral-1000 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded-sm"
             href="/pay"
-            aria-label="Home"
           >
-            <HomeIcon
-              className="size-4 shrink-0 text-neutral-400"
-              aria-hidden
-            />
+            {grxPayLabel}
           </Link>
         </li>
         <li className="flex items-center gap-[6px]" aria-hidden>
@@ -212,13 +213,17 @@ export default async function FaqArticlePage({ params }: ArticlePageProps) {
   }
 
   const sections = getArticleBody(slug);
+  const grxPayLabel = (await getTranslations("Faq.breadcrumbs"))("grxPay");
 
   return (
     <main className="w-full pt-10 pb-16">
       <div className="mx-auto flex w-full max-w-[1180px] flex-col gap-12 px-4 md:flex-row md:gap-8 lg:gap-10">
         <ArticleSidebar sections={sections} />
         <article className="mx-auto flex min-w-0 w-full max-w-[343px] flex-col items-start gap-0 md:mx-0 md:max-w-none md:w-[523px] md:flex-none lg:gap-8 lg:w-[880px] lg:flex-none">
-          <ArticleBreadcrumbs topicTitle={article.title} />
+          <ArticleBreadcrumbs
+            topicTitle={article.title}
+            grxPayLabel={grxPayLabel}
+          />
           <div className="mt-10 mb-8 flex flex-col items-start gap-2 md:mt-10 md:mb-8 lg:mt-0 lg:mb-0">
             <h1 className="font-bold text-[36px] leading-[40px] text-neutral-1000">
               {article.title}

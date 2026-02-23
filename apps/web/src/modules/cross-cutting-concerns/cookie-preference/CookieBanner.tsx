@@ -5,7 +5,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import * as Switch from "@radix-ui/react-switch";
 import { useTranslations } from "next-intl";
 import { memo, ReactElement, useCallback, useState } from "react";
-import { CloseIcon } from "../../../app/[locale]/pay/(icons)/CloseIcon";
+import { CloseIcon } from "@/modules/shared/icons";
 import { defaultRichComponents } from "@/modules/cross-cutting-concerns/i18n/components/Rich/defaultRichComponents";
 import { CookieIcon } from "./CookieIcon";
 import {
