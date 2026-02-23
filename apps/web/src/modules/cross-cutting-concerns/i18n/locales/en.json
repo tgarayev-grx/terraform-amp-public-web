@@ -574,6 +574,14 @@
       },
       "title": "Privacy Policy",
       "lastUpdated": "Last updated on 16th February 2026"
+    },
+    "TermsOfUse": {
+      "meta": {
+        "title": "Terms of Use | GRX Pay",
+        "description": "Read our Terms of Use to understand your rights and responsibilities when using GRX Pay services."
+      },
+      "title": "Terms of Use",
+      "lastUpdated": "Last updated on {date}"
     }
   }
 }

@@ -574,6 +574,14 @@
       },
       "title": "Politique de confidentialité",
       "lastUpdated": "Dernière mise à jour le 16 février 2026"
+    },
+    "TermsOfUse": {
+      "meta": {
+        "title": "Conditions d'utilisation | GRX Pay",
+        "description": "Lisez nos Conditions d'utilisation pour comprendre vos droits et responsabilités lors de l'utilisation des services GRX Pay."
+      },
+      "title": "Conditions d'utilisation",
+      "lastUpdated": "Dernière mise à jour le {date}"
     }
   }
 }
