@@ -6,6 +6,7 @@ export const ROUTES = {
   payAboutUs: "/pay/about-us",
   aboutUs: "/about-us",
   payTermsOfUse: "/pay/terms-of-use",
+  payPrivacyPolicy: "/pay/privacy-policy",
   payAmlPolicy: "/pay/aml-policy",
   cookiePolicy: "/cookie-policy",
   signIn: "/sign-in",

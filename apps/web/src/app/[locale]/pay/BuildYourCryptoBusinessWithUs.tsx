@@ -1,10 +1,9 @@
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
-import { ButtonRoot, ButtonText } from "@grx/ui/components/button/Button";
-
+import { Button } from "@grx/ui/components/button/Button";
+import { ContactUsModal } from "@/modules/contact-us";
 import buildYourCryptoBusinessWithUsImagePng from "./(assets)/build-your-crypto-business-with-us.png";
 import { defaultRichComponents } from "@/modules/cross-cutting-concerns/i18n/components/Rich/defaultRichComponents";
-import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 
 export async function BuildYourCryptoBusinessWithUsSection() {
   const t = await getTranslations();
@@ -26,19 +25,20 @@ export async function BuildYourCryptoBusinessWithUsSection() {
           </div>
 
           <div className="flex justify-center mb-4">
-            <ButtonRoot
-              className="min-w-[180px]"
-              palette="primary"
-              variant="contained"
-              size="md"
-              asChild
+            <ContactUsModal
+              defaultValues={{
+                interestedIn: ["grxPay"],
+              }}
             >
-              <Link href="mailto:sales@goldenratio.exchange">
-                <ButtonText>
-                  {t("Pay.Root.buildYourBusiness.contactSales")}
-                </ButtonText>
-              </Link>
-            </ButtonRoot>
+              <Button
+                className="min-w-[180px]"
+                palette="primary"
+                variant="contained"
+                size="md"
+              >
+                {t("Pay.Root.buildYourBusiness.contactSales")}
+              </Button>
+            </ContactUsModal>
           </div>
         </div>
 

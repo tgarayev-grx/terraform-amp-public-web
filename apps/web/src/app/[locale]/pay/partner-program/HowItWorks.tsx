@@ -1,7 +1,6 @@
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
-import { ButtonRoot, ButtonText } from "@grx/ui/components/button/Button";
-import { SALES_EMAIL } from "@/config/emails";
+import { Button } from "@grx/ui/components/button/Button";
+import { ContactUsModal } from "@/modules/contact-us";
 
 type StepCardProps = {
   number: number;
@@ -74,23 +73,20 @@ export async function HowItWorksSection() {
         </div>
 
         <div className="flex justify-center">
-          <ButtonRoot
-            className="w-full sm:w-[180px]"
-            palette="secondary"
-            variant="contained"
-            size="lg"
-            asChild
+          <ContactUsModal
+            defaultValues={{
+              interestedIn: ["grxPay"],
+            }}
           >
-            <Link
-              href={`mailto:${SALES_EMAIL}`}
-              rel="noopener noreferrer"
-              aria-label="Contact sales team via email"
+            <Button
+              className="w-full sm:w-[180px]"
+              palette="secondary"
+              variant="contained"
+              size="lg"
             >
-              <ButtonText>
-                {t("Pay.PartnerProgram.howItWorks.contactUs")}
-              </ButtonText>
-            </Link>
-          </ButtonRoot>
+              {t("Pay.PartnerProgram.howItWorks.contactUs")}
+            </Button>
+          </ContactUsModal>
         </div>
       </div>
     </section>

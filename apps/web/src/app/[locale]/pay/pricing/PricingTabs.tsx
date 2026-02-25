@@ -3,8 +3,9 @@
 import { useTranslations } from "next-intl";
 import { memo } from "react";
 import * as Tabs from "@radix-ui/react-tabs";
-import { ButtonRoot, ButtonText } from "@grx/ui/index";
+import { ButtonRoot, ButtonText, Button } from "@grx/ui/index";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
+import { ContactUsModal } from "@/modules/contact-us";
 import { CheckCircleFilledIcon } from "../(icons)/CheckCircleFilledIcon";
 import blackGemPng from "./black-gem.png";
 import goldGemPng from "./gold-gem.png";
@@ -142,17 +143,20 @@ function CryptoAcquiringTabContent() {
                 {t("Pay.Pricing.fromAmountPerTransaction")}
               </div>
             </div>
-            <ButtonRoot
-              className="max-w-[180px] xl:max-w-full"
-              palette="secondary"
-              variant="contained"
-              size="md"
-              asChild
+            <ContactUsModal
+              defaultValues={{
+                interestedIn: ["grxPay"],
+              }}
             >
-              <Link href="mailto:sales@goldenratio.exchange">
-                <ButtonText>{t("Pay.Pricing.contactSales")}</ButtonText>
-              </Link>
-            </ButtonRoot>
+              <Button
+                className="max-w-[180px] xl:max-w-full"
+                palette="secondary"
+                variant="contained"
+                size="md"
+              >
+                {t("Pay.Pricing.contactSales")}
+              </Button>
+            </ContactUsModal>
           </div>
           <div className="flex flex-col justify-center items-center gap-4 bg-gold-400 p-8 rounded-xl min-h-[232px]">
             {t("Pay.Pricing.customVolumeMessage")}
@@ -237,17 +241,20 @@ function CryptoProcessingTabContent() {
                 {t("Pay.Pricing.fromAmountPerTransaction")}
               </div>
             </div>
-            <ButtonRoot
-              className="max-w-[180px] xl:max-w-full"
-              palette="secondary"
-              variant="contained"
-              size="md"
-              asChild
+            <ContactUsModal
+              defaultValues={{
+                interestedIn: ["grxPay"],
+              }}
             >
-              <Link href="mailto:sales@goldenratio.exchange">
-                <ButtonText>{t("Pay.Pricing.contactSales")}</ButtonText>
-              </Link>
-            </ButtonRoot>
+              <Button
+                className="max-w-[180px] xl:max-w-full"
+                palette="secondary"
+                variant="contained"
+                size="md"
+              >
+                {t("Pay.Pricing.contactSales")}
+              </Button>
+            </ContactUsModal>
           </div>
           <div className="flex flex-col justify-center items-center gap-4 bg-gold-400 p-8 rounded-xl min-h-[232px]">
             {t("Pay.Pricing.customVolumeMessage")}

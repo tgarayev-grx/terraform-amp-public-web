@@ -3,14 +3,16 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { Nunito_Sans, Unbounded } from "next/font/google";
 import { Metadata } from "next";
+import clsx from "clsx";
 
 import "@grx/ui/theme/theme.css";
 import "../globals.css";
 
+import { ToastProvider } from "@grx/ui/components/toast";
 import { routing } from "@/modules/cross-cutting-concerns/i18n/routing";
 import { CookieBanner } from "@/modules/cross-cutting-concerns/cookie-preference";
 import { CommonHeader } from "@/modules/shared/header";
-import clsx from "clsx";
+import { Footer } from "./Footer";
 
 export const metadata: Metadata = {
   title: "Golden Ratio Exchange",
@@ -48,10 +50,13 @@ export default async function LocaleLayout({
     >
       <body>
         <NextIntlClientProvider>
-          <CommonHeader theme="light" />
-          {children}
+          <ToastProvider>
+            <CommonHeader theme="light" />
+            {children}
+            <Footer />
 
-          <CookieBanner />
+            <CookieBanner />
+          </ToastProvider>
         </NextIntlClientProvider>
       </body>
     </html>

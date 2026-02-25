@@ -1,6 +1,11 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
-import { ButtonRoot, ButtonText } from "@grx/ui/components/button/Button";
+import {
+  Button,
+  ButtonRoot,
+  ButtonText,
+} from "@grx/ui/components/button/Button";
+import { ContactUsModal } from "@/modules/contact-us";
 
 import heroBackgroundImagePng from "./(assets)/banner.png";
 import styles from "./hero.module.css";
@@ -43,17 +48,20 @@ export async function HeroSection() {
               </Link>
             </ButtonRoot>
 
-            <ButtonRoot
-              className="min-[425px]:min-w-[186px]"
-              asChild
-              palette="secondary"
-              variant="outlined"
-              size="lg"
+            <ContactUsModal
+              defaultValues={{
+                interestedIn: ["grxPay"],
+              }}
             >
-              <Link href="mailto:sales@goldenratio.exchange">
-                <ButtonText>{t("Pay.Root.hero.contactSales")}</ButtonText>
-              </Link>
-            </ButtonRoot>
+              <Button
+                className="min-[425px]:min-w-[186px]"
+                palette="secondary"
+                variant="outlined"
+                size="lg"
+              >
+                {t("Pay.Root.hero.contactSales")}
+              </Button>
+            </ContactUsModal>
           </div>
 
           <h3 className="font-medium text-neutral-500 text-xs">

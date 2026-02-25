@@ -12,20 +12,20 @@ import * as Slot from "@radix-ui/react-slot";
 import { clsx } from "clsx";
 
 const baseStyles =
-  "flex justify-center items-center gap-2 font-medium  text-center transition-colors";
+  "flex justify-center items-center gap-2 font-medium  text-center transition-colors outline-none focus-visible:ring-4 focus-visible:ring-offset-[2px] focus-visible:ring-neutral-200";
 
 const paletteVariantStyles = {
   primary: {
     contained:
-      "bg-neutral-1000 hover:bg-neutral-800 active:bg-neutral-700 text-neutral",
+      "bg-neutral-1000 hover:bg-neutral-800 active:not(:disabled):bg-neutral-700 text-neutral disabled:bg-neutral-100 disabled:text-neutral-400",
     outlined:
-      "border border-neutral-900 bg-transparent hover:bg-neutral-100 active:bg-neutral-200 text-neutral-900",
+      "border border-neutral-900 bg-transparent hover:not(:disabled):bg-neutral-100 active:not(:disabled):bg-neutral-200 text-neutral-900",
   },
   secondary: {
     contained:
-      "bg-neutral-100 hover:bg-neutral-200 text-neutral-1000 active:bg-neutral-300",
+      "bg-neutral-100 hover:not(:disabled):bg-neutral-200 text-neutral-1000 active:not(:disabled):bg-neutral-300",
     outlined:
-      "border border-neutral-1000 bg-transparent hover:bg-neutral-100 active:bg-neutral-200 text-neutral-1000",
+      "border border-neutral-1000 bg-transparent hover:not(:disabled):bg-neutral-100 active:not(:disabled):bg-neutral-200 text-neutral-1000",
   },
 } as const;
 

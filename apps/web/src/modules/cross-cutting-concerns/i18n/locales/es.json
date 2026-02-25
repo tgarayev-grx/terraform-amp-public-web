@@ -50,6 +50,7 @@
     },
     "modal": {
       "title": "Preferencias de cookies",
+      "closeAriaLabel": "Cerrar preferencias de cookies",
       "sectionTitle": "Preferencias de cookies",
       "description": "Para mejorar tu experiencia y habilitar ciertas funciones, utilizamos cookies. A continuación encontrarás información sobre cada categoría de consentimiento. Las cookies \"Necesarias\" son esenciales para el funcionamiento básico del sitio y se almacenan en tu navegador. También usamos cookies de terceros para analizar el uso del sitio, guardar preferencias y mostrar contenido y anuncios relevantes. Se requiere consentimiento previo para almacenar estas cookies. Puedes activar o desactivar algunas o todas, pero ten en cuenta que desactivar ciertas cookies puede afectar tu experiencia.\nLee nuestra <link-cookie-policy>Política de cookies</link-cookie-policy>."
     },
@@ -75,6 +76,233 @@
     "buttons": {
       "rejectAll": "Rechazar todo",
       "saveSettings": "Guardar preferencias de cookies"
+    }
+  },
+  "Root": {
+    "header": {
+      "nav": {
+        "cryptoAcquiring": "Cripto adquirencia",
+        "gaming": "Juegos",
+        "pricing": "Precios",
+        "partners": "Socios",
+        "aboutUs": "Sobre nosotros",
+        "faq": "Preguntas frecuentes",
+        "resources": "Recursos",
+        "signIn": "Iniciar sesión",
+        "createAccount": "Crear cuenta",
+        "menu": "Menú"
+      },
+      "resources": {
+        "partnerProgram": {
+          "title": "Programa de socios",
+          "description": "Colaboración en beneficio mutuo"
+        },
+        "news": {
+          "title": "Noticias",
+          "description": "Últimas novedades de la industria cripto"
+        },
+        "faq": {
+          "title": "Preguntas frecuentes",
+          "description": "Consultas populares, explicaciones simplificadas"
+        },
+        "api": {
+          "title": "Referencias API",
+          "description": "Guías de integración eficientes"
+        },
+        "aboutUs": {
+          "title": "Sobre nosotros",
+          "description": "Conoce los objetivos de nuestra empresa"
+        }
+      },
+      "languages": {
+        "en": "Inglés",
+        "bg": "Búlgaro",
+        "fr": "Francés",
+        "es": "Español"
+      }
+    },
+    "footer": {
+      "productSection": "Producto",
+      "aboutSection": "Nosotros",
+      "products": "Productos",
+      "cryptoAcquiring": "Cripto adquirencia",
+      "cases": "Casos",
+      "pricing": "Precios",
+      "documents": "Documentos",
+      "privacyPolicy": "Política de privacidad",
+      "cookiePolicy": "Política de cookies",
+      "amlPolicy": "Política AML",
+      "termsOfUse": "Términos de uso",
+      "mediaKit": "Media kit",
+      "learn": "Aprender",
+      "partnerProgram": "Programa de socios",
+      "faq": "Preguntas frecuentes",
+      "apiReferences": "Referencias API",
+      "contactUs": "Contáctanos",
+      "aboutUs": "Sobre nosotros",
+      "telegramSupport": "Soporte por Telegram",
+      "disclaimer1": "UAB Kuna Pro está registrada como operador de cambio de criptomonedas y operador de monederos cripto y está autorizada a prestar servicios de moneda virtual según la legislación lituana.",
+      "disclaimer2": "El sitio y demás componentes de los servicios están protegidos por las leyes de propiedad intelectual. Todos los derechos reservados. El acceso a los servicios y al sitio se proporciona bajo la marca KUNA registrada en el sistema de Madrid, que cubre Reino Unido, Armenia, Azerbaiyán, Bielorrusia, Georgia, Kazajistán, Turquía, Ucrania y la Unión Europea.",
+      "copyright": "© GRX Pay {year}. Todos los derechos reservados",
+      "acceptCrypto": "Acepta cripto:"
+    }
+  },
+  "AboutUsPage": {
+    "hero": {
+      "title": "Sobre GRX",
+      "subtitle": "Construyendo infraestructura regulada para activos digitales y del mundo real",
+      "contactUs": "Contáctanos"
+    },
+    "whoAreWe": {
+      "title": "Quiénes somos",
+      "description": "GRX es un ecosistema fintech de nueva generación diseñado para tender puentes entre las finanzas tradicionales y la economía descentralizada\n\nCreemos en soluciones financieras seguras, sin fronteras y eficientes, accesibles para todos: particulares, empresas e instituciones.",
+      "visionTitle": "Nuestra visión",
+      "visionDescription": "Empoderar a personas y empresas con libertad de capital y nuevas oportunidades en mercados digitales y del mundo real."
+    },
+    "whatWeBuild": {
+      "title": "Qué construimos",
+      "subtitle": "Infraestructura de pila completa para activos digitales y del mundo real",
+      "bankingCustody": "Integración bancaria y de custodia",
+      "complianceAudit": "Cumplimiento, auditoría e informes, compatibilidad",
+      "assetTokenization": "Tokenización de activos",
+      "assetTokenizationDescription": "(RWA → instrumentos digitales regulados)",
+      "distributionRails": "Canales de distribución",
+      "distributionRailsDescription": "(clientes, socios, mercados secundarios)",
+      "digitalAssetsAccess": "Acceso opcional a activos digitales sin salir del perímetro bancario"
+    },
+    "ourTeam": {
+      "title": "Nuestro equipo",
+      "subtitle": "Conoce a nuestro consejo de administración y dirección",
+      "roles": {
+        "founder": "Fundador",
+        "managingPartner": "Socio director",
+        "coo": "COO",
+        "cmo": "CMO",
+        "cto": "CTO",
+        "securityAdvisor": "Asesor de seguridad",
+        "boardAdvisor": "Asesor del consejo"
+      }
+    }
+  },
+  "ContactUs": {
+    "getInTouch": {
+      "title": "Contáctanos para saber más",
+      "subtitle": "Infraestructura diseñada para operaciones de activos seguras y escalables"
+    },
+    "modal": {
+      "title": "Contáctanos",
+      "closeAriaLabel": "Cerrar formulario de contacto"
+    },
+    "contactForm": {
+      "field": {
+        "firstName": {
+          "label": "Nombre",
+          "placeholder": "Nombre*",
+          "errors": {
+            "required": "El nombre es obligatorio",
+            "maxLength": "El nombre debe tener menos de {maxLength} caracteres"
+          }
+        },
+        "lastName": {
+          "label": "Apellidos",
+          "placeholder": "Apellidos*",
+          "errors": {
+            "required": "Los apellidos son obligatorios",
+            "maxLength": "Los apellidos deben tener menos de {maxLength} caracteres"
+          }
+        },
+        "businessEmail": {
+          "label": "Email profesional",
+          "placeholder": "Email profesional*",
+          "errors": {
+            "required": "El email profesional es obligatorio",
+            "invalidEmail": "Email no válido"
+          }
+        },
+        "phoneNumber": {
+          "label": "Número de teléfono",
+          "placeholder": "Número de teléfono*",
+          "errors": {
+            "required": "El número de teléfono es obligatorio",
+            "maxLength": "El número debe tener menos de {maxLength} caracteres",
+            "startsWithPlus": "El número debe comenzar con +",
+            "invalidPhoneNumber": "Número de teléfono no válido"
+          }
+        },
+        "companyName": {
+          "label": "Nombre de la empresa",
+          "placeholder": "Nombre de la empresa*",
+          "errors": {
+            "required": "El nombre de la empresa es obligatorio",
+            "maxLength": "El nombre debe tener menos de {maxLength} caracteres"
+          }
+        },
+        "country": {
+          "label": "País",
+          "placeholder": "País*",
+          "errors": {
+            "required": "El país es obligatorio",
+            "maxLength": "El país debe tener menos de {maxLength} caracteres"
+          },
+          "options": {
+            "US": "Estados Unidos",
+            "GB": "Reino Unido",
+            "DE": "Alemania",
+            "FR": "Francia",
+            "LT": "Lituania",
+            "PL": "Polonia",
+            "UA": "Ucrania",
+            "OTHER": "Otro"
+          }
+        },
+        "primaryRole": {
+          "label": "Rol principal",
+          "placeholder": "Rol principal",
+          "errors": {
+            "maxLength": "El rol debe tener menos de {maxLength} caracteres"
+          }
+        },
+        "organizationType": {
+          "label": "Tipo de organización",
+          "placeholder": "Tipo de organización",
+          "errors": {
+            "maxLength": "El tipo debe tener menos de {maxLength} caracteres"
+          },
+          "options": {
+            "startup": "Startup",
+            "sme": "PYME",
+            "enterprise": "Empresa",
+            "financialInstitution": "Institución financiera",
+            "other": "Otro"
+          }
+        },
+        "interestedIn": {
+          "label": "Interesado en",
+          "errors": {
+            "selectAtLeastOne": "Selecciona al menos un ámbito de interés"
+          },
+          "options": {
+            "grxPay": "GRX Pay",
+            "grxExchange": "GRX Exchange",
+            "grxRwa": "GRX RWA",
+            "institutionalSto": "Institutional STO"
+          }
+        },
+        "message": {
+          "label": "Mensaje",
+          "placeholder": "¿Cómo podemos ayudarte?",
+          "errors": {
+            "maxLength": "El mensaje debe tener menos de {maxLength} caracteres"
+          }
+        }
+      },
+      "submit": "Enviar",
+      "submitting": "Enviando…",
+      "footer": "Al enviar este formulario, aceptas nuestros <linkTerms>Términos de uso</linkTerms> y <linkPrivacy>Política de privacidad</linkPrivacy>.",
+      "toast": {
+        "success": "Solicitud recibida. Nos pondremos en contacto contigo pronto.",
+        "error": "Algo ha ido mal. Por favor, inténtalo de nuevo más tarde."
+      }
     }
   },
   "Pay": {

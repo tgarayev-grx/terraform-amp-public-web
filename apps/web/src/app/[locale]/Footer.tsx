@@ -6,14 +6,15 @@ import { Fragment, memo } from "react";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { ROUTES } from "@/modules/shared/header/routes";
 
-import gdprPng from "./(assets)/gdpr.png";
-import { ChainAnalysisLogo } from "./(icons)/ChainAnalysisLogo";
+import gdprPng from "./pay/(assets)/gdpr.png";
+import { ChainAnalysisLogo } from "./pay/(icons)/ChainAnalysisLogo";
 import { FooterLogo } from "@/modules/shared/icons";
 import { ComingSoonBadge } from "@/modules/shared/header/components/ComingSoonBadge";
-import { MasterCardLogo } from "./(icons)/MasterCardLogo";
-import { SEPALogo } from "./(icons)/SEPALogo";
-import { VISALogo } from "./(icons)/VISALogo";
-import { ZENLogo } from "./(icons)/ZENLogo";
+import { MasterCardLogo } from "./pay/(icons)/MasterCardLogo";
+import { SEPALogo } from "./pay/(icons)/SEPALogo";
+import { VISALogo } from "./pay/(icons)/VISALogo";
+import { ZENLogo } from "./pay/(icons)/ZENLogo";
+import { ContactUsModal } from "@/modules/contact-us";
 
 type FooterT = Awaited<ReturnType<typeof getTranslations>>;
 
@@ -22,20 +23,20 @@ export async function Footer() {
 
   return (
     <footer className="flex flex-col bg-neutral-100 py-16 sm:py-20">
-      <div className="mx-auto w-full max-w-[704px] px-4 lg:max-w-[1180px]">
+      <div className="mx-auto px-4 w-full max-w-[704px] lg:max-w-[1180px]">
         <FooterNav t={t} className="mb-12" />
 
         <AcceptCryptoList t={t} className="mb-8" />
 
         <IntegrationsList className="mb-8" />
 
-        <div className="text-neutral-500 text-sm mb-6">
+        <div className="mb-6 text-neutral-500 text-sm">
           {t("Pay.Root.footer.copyright", {
             year: String(new Date().getFullYear()),
           })}
         </div>
 
-        <p className="text-neutral-500 text-xs leading-relaxed max-w-[1180px]">
+        <p className="max-w-[1180px] text-neutral-500 text-xs leading-relaxed">
           {t("Pay.Root.footer.disclaimer")}
         </p>
       </div>
@@ -61,9 +62,9 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
         <FooterLogo className="w-auto h-8 text-neutral-900" />
       </Link>
 
-      <div className="flex flex-wrap gap-x-12 gap-y-10 md:justify-between lg:gap-x-16 lg:flex-1 lg:justify-end">
+      <div className="flex flex-wrap lg:flex-1 md:justify-between lg:justify-end gap-x-12 gap-y-10 lg:gap-x-16">
         <div className="flex flex-col gap-4">
-          <span className="font-semibold text-base text-neutral-900">
+          <span className="font-semibold text-neutral-900 text-base">
             {t("Pay.Root.footer.products")}
           </span>
           <ul className="flex flex-col gap-4">
@@ -95,7 +96,7 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
         </div>
 
         <div className="flex flex-col gap-4">
-          <span className="font-semibold text-base text-neutral-900">
+          <span className="font-semibold text-neutral-900 text-base">
             {t("Pay.Root.footer.grxPaySection")}
           </span>
           <ul className="flex flex-col gap-4">
@@ -135,7 +136,7 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
         </div>
 
         <div className="flex flex-col gap-4">
-          <span className="font-semibold text-base text-neutral-900">
+          <span className="font-semibold text-neutral-900 text-base">
             {t("Pay.Root.footer.aboutSection")}
           </span>
           <ul className="flex flex-col gap-4">
@@ -148,18 +149,21 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
               </Link>
             </li>
             <li>
-              <Link
-                href={ROUTES.pay}
-                className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors"
+              <ContactUsModal
+                defaultValues={{
+                  interestedIn: ["grxPay"],
+                }}
               >
-                {t("Pay.Root.footer.contactGrx")}
-              </Link>
+                <button className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors cursor-pointer">
+                  {t("Pay.Root.footer.contactGrx")}
+                </button>
+              </ContactUsModal>
             </li>
           </ul>
         </div>
 
         <div className="flex flex-col gap-4">
-          <span className="font-semibold text-base text-neutral-900">
+          <span className="font-semibold text-neutral-900 text-base">
             {t("Pay.Root.footer.legal")}
           </span>
           <ul className="flex flex-col gap-4">

@@ -39,6 +39,7 @@ export function ArticleSidebarNav({
       const next = getActiveSectionId(ids);
       return next === prev ? prev : next;
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ids.join(",")]);
 
   useEffect(() => {
@@ -50,7 +51,7 @@ export function ArticleSidebarNav({
   if (sections.length === 0) return null;
 
   return (
-    <div className="flex flex-col gap-0.5 self-stretch">
+    <div className="flex flex-col self-stretch gap-0.5">
       {sections.map((section) => {
         const id = headingToId(section.heading);
         const isActive = activeId === id;
@@ -67,7 +68,7 @@ export function ArticleSidebarNav({
           >
             {isActive && (
               <span
-                className="absolute left-0 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-r-full bg-gold-500"
+                className="top-1/2 left-0 absolute bg-gold-500 rounded-r-full w-[3px] h-5 -translate-y-1/2"
                 aria-hidden
               />
             )}

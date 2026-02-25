@@ -1,11 +1,10 @@
 "use client";
 
 import { Button } from "@grx/ui/index";
-import * as Dialog from "@radix-ui/react-dialog";
 import * as Switch from "@radix-ui/react-switch";
 import { useTranslations } from "next-intl";
 import { memo, ReactElement, useCallback, useState } from "react";
-import { CloseIcon } from "@/modules/shared/icons";
+import { Modal } from "@grx/ui";
 import { defaultRichComponents } from "@/modules/cross-cutting-concerns/i18n/components/Rich/defaultRichComponents";
 import { CookieIcon } from "./CookieIcon";
 import {
@@ -25,7 +24,7 @@ export const CookieBanner = memo(() => {
     return (
       <ManageCookiesModal cookiePreferences={cookiePreferences}>
         <button
-          className="bottom-6 left-6 z-[3] fixed flex flex-col justify-center items-center bg-neutral-1000 hover:bg-neutral-800 active:bg-neutral-700 p-2.5 rounded-[12px] text-neutral"
+          className="bottom-6 left-6 z-10 fixed flex flex-col justify-center items-center bg-neutral-1000 hover:bg-neutral-800 active:bg-neutral-700 p-2.5 rounded-[12px] text-neutral"
           style={{
             boxShadow:
               "0 20px 48px -4px rgba(16, 24, 40, 0.08), 0 8px 16px -4px rgba(16, 24, 40, 0.03)",
@@ -39,7 +38,7 @@ export const CookieBanner = memo(() => {
 
   return (
     <div
-      className="right-0 sm:right-6 bottom-0 sm:bottom-6 z-[3] fixed flex flex-col bg-neutral rounded-2xl max-w-full sm:max-w-[440px]"
+      className="right-0 sm:right-6 bottom-0 sm:bottom-6 z-10 fixed flex flex-col bg-neutral rounded-2xl max-w-full sm:max-w-[440px]"
       style={{
         boxShadow:
           "0 20px 48px -4px rgba(16, 24, 40, 0.08), 0 8px 16px -4px rgba(16, 24, 40, 0.03)",
@@ -108,32 +107,26 @@ const ManageCookiesModal = memo(
     );
 
     return (
-      <Dialog.Root open={open} onOpenChange={setOpen}>
-        <Dialog.Trigger asChild>{children}</Dialog.Trigger>
+      <Modal.Root open={open} onOpenChange={setOpen}>
+        <Modal.Trigger asChild>{children}</Modal.Trigger>
 
-        <Dialog.Portal>
-          <Dialog.Overlay className="z-[100] fixed inset-0 bg-black/50 data-[state=closed]:animate-out data-[state=open]:animate-in data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+        <Modal.Portal>
+          <Modal.Overlay />
 
-          <Dialog.Content
-            className="max-sm:top-8 sm:data-[state=closed]:slide-out-to-top-[48%] sm:top-1/2 right-0 bottom-0 max-sm:data-[state=closed]:slide-out-to-bottom max-sm:data-[state=open]:slide-in-from-bottom sm:bottom-auto left-0 sm:data-[state=closed]:slide-out-to-left-1/2 sm:left-1/2 z-[101] fixed flex flex-col bg-neutral sm:data-[state=open]:slide-in-from-left-1/2 sm:data-[state=open]:slide-in-from-top-[48%] sm:rounded-2xl rounded-t-2xl focus:outline-none w-full sm:w-full sm:max-w-[600px] max-h-[100dvh] text-neutral-1000 sm:-translate-x-1/2 sm:-translate-y-1/2 data-[state=closed]:animate-out data-[state=open]:animate-in duration-200 data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 sm:data-[state=closed]:zoom-out-95 sm:data-[state=open]:zoom-in-95"
-            style={{
-              boxShadow:
-                "0 20px 48px -4px rgba(16, 24, 40, 0.08), 0 8px 16px -4px rgba(16, 24, 40, 0.03)",
-            }}
-          >
+          <Modal.Content>
             <div className="px-8 pt-8 shrink-0">
-              <Dialog.Title className="font-semibold text-lg">
+              <Modal.Title className="font-semibold text-lg">
                 {t("CookieBanner.modal.title")}
-              </Dialog.Title>
+              </Modal.Title>
             </div>
 
             <div className="flex-1 px-8 min-h-0 sm:max-h-[500px] overflow-y-auto">
-              <Dialog.Description className="mb-10 whitespace-pre-wrap">
+              <Modal.Description className="mb-10 whitespace-pre-wrap">
                 {t.rich(
                   "CookieBanner.modal.description",
                   defaultRichComponents
                 )}
-              </Dialog.Description>
+              </Modal.Description>
               <div>
                 <div className="mb-6 font-bold text-[18px] leading-[22px]">
                   {t("CookieBanner.modal.sectionTitle")}
@@ -259,14 +252,10 @@ const ManageCookiesModal = memo(
               </Button>
             </div>
 
-            <Dialog.Close asChild>
-              <button className="top-4 right-4 absolute flex justify-center items-center text-neutral-700 hover:text-neutral-900 transition-colors">
-                <CloseIcon className="w-6 h-6" />
-              </button>
-            </Dialog.Close>
-          </Dialog.Content>
-        </Dialog.Portal>
-      </Dialog.Root>
+            <Modal.Close aria-label={t("CookieBanner.modal.closeAriaLabel")} />
+          </Modal.Content>
+        </Modal.Portal>
+      </Modal.Root>
     );
   }
 );

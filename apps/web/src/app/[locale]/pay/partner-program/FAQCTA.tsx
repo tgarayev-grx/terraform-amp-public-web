@@ -1,8 +1,7 @@
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
-import { ButtonRoot, ButtonText } from "@grx/ui/components/button/Button";
+import { Button } from "@grx/ui/components/button/Button";
+import { ContactUsModal } from "@/modules/contact-us";
 import { MessageIcon } from "./(icons)/MessageIcon";
-import { SALES_EMAIL } from "@/config/emails";
 
 export async function FAQCTASection() {
   const t = await getTranslations();
@@ -23,21 +22,20 @@ export async function FAQCTASection() {
           </p>
         </div>
 
-        <ButtonRoot
-          className="min-w-[240px]"
-          palette="primary"
-          variant="contained"
-          size="md"
-          asChild
+        <ContactUsModal
+          defaultValues={{
+            interestedIn: ["grxPay"],
+          }}
         >
-          <Link
-            href={`mailto:${SALES_EMAIL}`}
-            rel="noopener noreferrer"
-            aria-label="Contact sales team via email"
+          <Button
+            className="min-w-[240px]"
+            palette="primary"
+            variant="contained"
+            size="md"
           >
-            <ButtonText>{t("Pay.PartnerProgram.faqCta.contactUs")}</ButtonText>
-          </Link>
-        </ButtonRoot>
+            {t("Pay.PartnerProgram.faqCta.contactUs")}
+          </Button>
+        </ContactUsModal>
       </div>
     </section>
   );

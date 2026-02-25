@@ -3,7 +3,7 @@
 import * as Popover from "@radix-ui/react-popover";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useLocale, useTranslations } from "next-intl";
-import { Logo } from "@grx/ui/icons/brand/pay/logo";
+import { LogoPay } from "@grx/ui/icons/brand/pay/logo";
 import { ButtonRoot, ButtonText } from "@grx/ui";
 import {
   Link,
@@ -26,7 +26,7 @@ export function Header() {
     <header className="top-0 z-50 sticky bg-neutral border-neutral-200 border-b w-full">
       <div className="flex justify-between items-center mx-auto px-4 max-w-[1180px] h-16">
         <Link href="/pay" className="flex items-center">
-          <Logo className="w-auto h-8 text-neutral-900" />
+          <LogoPay className="w-auto h-8 text-neutral-900" />
         </Link>
 
         <nav className="hidden lg:flex justify-center items-center gap-8">
@@ -110,7 +110,7 @@ function MobileMenu() {
           </Dialog.Title>
           <div className="flex flex-col flex-grow">
             <div className="flex justify-between items-center px-4 py-3 border-neutral-200 border-b">
-              <Logo className="w-auto h-8 text-neutral-900" />
+              <LogoPay className="w-auto h-8 text-neutral-900" />
               <Dialog.Close asChild>
                 <button className="flex justify-center items-center w-10 h-10 text-neutral-700 hover:text-neutral-900 transition-colors">
                   <CloseIcon className="w-6 h-6" />
