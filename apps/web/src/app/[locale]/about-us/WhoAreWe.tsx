@@ -37,13 +37,7 @@ type DescriptionCardProps = {
 
 const DescriptionCard = memo(({ title, description }: DescriptionCardProps) => {
   return (
-    <div
-      className="flex flex-col gap-4 p-6 rounded-2xl text-left"
-      style={{
-        boxShadow:
-          "0 12px 40px -4px rgba(16, 24, 40, 0.08), 0 4px 8px -2px rgba(16, 24, 40, 0.03)",
-      }}
-    >
+    <div className="flex flex-col gap-4 shadow-light-sm p-6 rounded-2xl text-left">
       <h2 className="font-bold text-[28px] md:text-[32px] leading-[32px] md:leading-[36px]">
         {title}
       </h2>

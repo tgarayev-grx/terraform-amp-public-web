@@ -64,13 +64,9 @@ function ReviewedByCard({
   return (
     <div
       className={clsx(
-        "flex flex-col justify-between gap-10 p-4 rounded-xl min-h-[256px] sm:min-h-[316px]",
+        "flex flex-col justify-between gap-10 shadow-light-sm p-4 rounded-xl min-h-[256px] sm:min-h-[316px]",
         className
       )}
-      style={{
-        boxShadow:
-          "0 12px 40px -4px rgba(16, 24, 40, 0.08), 0 4px 8px -2px rgba(16, 24, 40, 0.03)",
-      }}
     >
       <div className="flex flex-col gap-4">
         <QuoteIcon className="flex-shrink-0 w-5 h-5 text-gold-500" />

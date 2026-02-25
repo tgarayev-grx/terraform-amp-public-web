@@ -19,7 +19,7 @@ export const tailwindConfigColors = {
     900: "var(--color-neutral-900)",
     1000: "var(--color-neutral-1000)",
   },
-  
+
   // Blue
   blue: {
     50: "var(--color-blue-50)",
@@ -34,7 +34,7 @@ export const tailwindConfigColors = {
     900: "var(--color-blue-900)",
     950: "var(--color-blue-950)",
   },
-  
+
   // Indigo
   indigo: {
     50: "var(--color-indigo-50)",
@@ -48,7 +48,7 @@ export const tailwindConfigColors = {
     800: "var(--color-indigo-800)",
     900: "var(--color-indigo-900)",
   },
-  
+
   // Fuchsia
   fuchsia: {
     50: "var(--color-fuchsia-50)",
@@ -62,7 +62,7 @@ export const tailwindConfigColors = {
     800: "var(--color-fuchsia-800)",
     900: "var(--color-fuchsia-900)",
   },
-  
+
   // Gold
   gold: {
     50: "var(--color-gold-50)",
@@ -77,7 +77,7 @@ export const tailwindConfigColors = {
     900: "var(--color-gold-900)",
     950: "var(--color-gold-950)",
   },
-  
+
   // Amber
   amber: {
     50: "var(--color-amber-50)",
@@ -91,7 +91,7 @@ export const tailwindConfigColors = {
     800: "var(--color-amber-800)",
     900: "var(--color-amber-900)",
   },
-  
+
   // Green
   green: {
     DEFAULT: "var(--color-green)",
@@ -107,7 +107,7 @@ export const tailwindConfigColors = {
     900: "var(--color-green-900)",
     950: "var(--color-green-950)",
   },
-  
+
   // Emerald
   emerald: {
     50: "var(--color-emerald-50)",
@@ -121,7 +121,7 @@ export const tailwindConfigColors = {
     800: "var(--color-emerald-800)",
     900: "var(--color-emerald-900)",
   },
-  
+
   // Pea
   pea: {
     50: "var(--color-pea-50)",
@@ -135,7 +135,7 @@ export const tailwindConfigColors = {
     800: "var(--color-pea-800)",
     900: "var(--color-pea-900)",
   },
-  
+
   // Orange
   orange: {
     50: "var(--color-orange-50)",
@@ -149,7 +149,7 @@ export const tailwindConfigColors = {
     800: "var(--color-orange-800)",
     900: "var(--color-orange-900)",
   },
-  
+
   // Pink
   pink: {
     50: "var(--color-pink-50)",
@@ -163,10 +163,10 @@ export const tailwindConfigColors = {
     800: "var(--color-pink-800)",
     900: "var(--color-pink-900)",
   },
-  
+
   // Beige
   beige: "var(--color-beige)",
-  
+
   // Red
   red: {
     50: "var(--color-red-50)",
@@ -181,7 +181,7 @@ export const tailwindConfigColors = {
     900: "var(--color-red-900)",
     950: "var(--color-red-950)",
   },
-  
+
   // Yellow
   yellow: {
     50: "var(--color-yellow-50)",
@@ -196,7 +196,7 @@ export const tailwindConfigColors = {
     900: "var(--color-yellow-900)",
     950: "var(--color-yellow-950)",
   },
-  
+
   // Cyan
   cyan: {
     50: "var(--color-cyan-50)",
@@ -210,7 +210,7 @@ export const tailwindConfigColors = {
     800: "var(--color-cyan-800)",
     900: "var(--color-cyan-900)",
   },
-  
+
   // Sky
   sky: {
     50: "var(--color-sky-50)",
@@ -224,7 +224,7 @@ export const tailwindConfigColors = {
     800: "var(--color-sky-800)",
     900: "var(--color-sky-900)",
   },
-  
+
   // Purple
   purple: {
     50: "var(--color-purple-50)",
@@ -238,4 +238,17 @@ export const tailwindConfigColors = {
     800: "var(--color-purple-800)",
     900: "var(--color-purple-900)",
   },
+} as const;
+
+export const tailwindConfigShadows = {
+  "light-xs": "var(--shadow-light-xs)",
+  "light-sm": "var(--shadow-light-sm)",
+  "light-md": "var(--shadow-light-md)",
+  "light-lg": "var(--shadow-light-lg)",
+  "light-xl": "var(--shadow-light-xl)",
+  "dark-xs": "var(--shadow-dark-xs)",
+  "dark-sm": "var(--shadow-dark-sm)",
+  "dark-md": "var(--shadow-dark-md)",
+  "dark-lg": "var(--shadow-dark-lg)",
+  "dark-xl": "var(--shadow-dark-xl)",
 } as const;

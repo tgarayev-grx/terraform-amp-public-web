@@ -64,13 +64,7 @@ type FeatureCardProps = {
 
 function FeatureCard({ title, description, img, action }: FeatureCardProps) {
   return (
-    <div
-      className="flex flex-col gap-4 p-1 rounded-2xl"
-      style={{
-        boxShadow:
-          "0 12px 40px -4px rgba(16, 24, 40, 0.08), 0 4px 8px -2px rgba(16, 24, 40, 0.03)",
-      }}
-    >
+    <div className="flex flex-col gap-4 shadow-light-sm p-1 rounded-2xl">
       <div className="bg-gradient-to-r from-neutral-50 hover:from-[#FDEDCD] to-neutral-50 hover:to-[#FFFBF4] rounded-xl overflow-hidden transition-all duration-300">
         <Image
           className="w-full h-full object-cover hover:scale-105 transition-all duration-300"

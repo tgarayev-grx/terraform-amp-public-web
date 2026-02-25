@@ -74,13 +74,7 @@ function CryptoAcquiringTabContent() {
   return (
     <Tabs.Content value="crypto-acquiring">
       <div className="gap-[60px] xl:gap-6 grid grid-cols-1 xl:grid-cols-2 pt-[72px] pb-8">
-        <div
-          className="relative grid grid-cols-1 sm:grid-cols-2 p-1 rounded-2xl min-h-[280px]"
-          style={{
-            boxShadow:
-              "0 12px 40px -4px rgba(16, 24, 40, 0.08), 0 4px 8px -2px rgba(16, 24, 40, 0.03)",
-          }}
-        >
+        <div className="relative grid grid-cols-1 sm:grid-cols-2 shadow-light-sm p-1 rounded-2xl min-h-[280px]">
           <Image
             className="-top-10 left-8 absolute"
             src={blackGemPng}
@@ -116,13 +110,7 @@ function CryptoAcquiringTabContent() {
           </ul>
         </div>
 
-        <div
-          className="relative grid grid-cols-1 sm:grid-cols-2 bg-gold-500 p-1 rounded-2xl min-h-[280px]"
-          style={{
-            boxShadow:
-              "0 12px 40px -4px rgba(16, 24, 40, 0.08), 0 4px 8px -2px rgba(16, 24, 40, 0.03)",
-          }}
-        >
+        <div className="relative grid grid-cols-1 sm:grid-cols-2 bg-gold-500 shadow-light-sm p-1 rounded-2xl min-h-[280px]">
           <Image
             className="-top-10 left-8 absolute"
             src={goldGemPng}
@@ -172,13 +160,7 @@ function CryptoProcessingTabContent() {
   return (
     <Tabs.Content value="crypto-processing">
       <div className="gap-[60px] xl:gap-6 grid grid-cols-1 xl:grid-cols-2 pt-[72px] pb-8">
-        <div
-          className="relative grid grid-cols-1 sm:grid-cols-2 p-1 rounded-2xl min-h-[280px]"
-          style={{
-            boxShadow:
-              "0 12px 40px -4px rgba(16, 24, 40, 0.08), 0 4px 8px -2px rgba(16, 24, 40, 0.03)",
-          }}
-        >
+        <div className="relative grid grid-cols-1 sm:grid-cols-2 shadow-light-sm p-1 rounded-2xl min-h-[280px]">
           <Image
             className="-top-10 left-8 absolute"
             src={blackGemPng}
@@ -214,13 +196,7 @@ function CryptoProcessingTabContent() {
           </ul>
         </div>
 
-        <div
-          className="relative grid grid-cols-1 sm:grid-cols-2 bg-gold-500 p-1 rounded-2xl min-h-[280px]"
-          style={{
-            boxShadow:
-              "0 12px 40px -4px rgba(16, 24, 40, 0.08), 0 4px 8px -2px rgba(16, 24, 40, 0.03)",
-          }}
-        >
+        <div className="relative grid grid-cols-1 sm:grid-cols-2 bg-gold-500 shadow-light-sm p-1 rounded-2xl min-h-[280px]">
           <Image
             className="-top-10 left-8 absolute"
             src={goldGemPng}

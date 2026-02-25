@@ -92,18 +92,13 @@ const WhatWeBuildCard = memo(
 WhatWeBuildCard.displayName = "WhatWeBuildCard";
 
 const WhatWeBuildCardRoot = memo(
-  ({ className, style = {}, ...props }: HTMLAttributes<HTMLDivElement>) => {
+  ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {
     return (
       <div
         className={twMerge(
-          "flex flex-col justify-center items-center gap-6 bg-neutral p-6 rounded-2xl min-h-[266px] md:min-h-[320px]",
+          "flex flex-col justify-center items-center gap-6 bg-neutral shadow-light-sm p-6 rounded-2xl min-h-[266px] md:min-h-[320px]",
           className
         )}
-        style={{
-          ...style,
-          boxShadow:
-            "0 12px 40px -4px rgba(16, 24, 40, 0.08), 0 4px 8px -2px rgba(16, 24, 40, 0.03)",
-        }}
         {...props}
       />
     );
