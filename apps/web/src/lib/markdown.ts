@@ -1,3 +1,4 @@
+import "server-only";
 import { readFileSync } from "fs";
 import matter from "gray-matter";
 import { join } from "path";

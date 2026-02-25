@@ -82,20 +82,20 @@ type ManageCookiesModalProps = {
   }>;
 };
 
-const ManageCookiesModal = memo(
+export const ManageCookiesModal = memo(
   ({ cookiePreferences, children }: ManageCookiesModalProps) => {
     const t = useTranslations();
     const [open, setOpen] = useState(false);
     const [functional, setFunctional] = useState(
       cookiePreferences.value?.functional ??
-        DEFAULT_COOKIE_PREFERENCES.functional
+      DEFAULT_COOKIE_PREFERENCES.functional
     );
     const [analytics, setAnalytics] = useState(
       cookiePreferences.value?.analytics ?? DEFAULT_COOKIE_PREFERENCES.analytics
     );
     const [advertisement, setAdvertisement] = useState(
       cookiePreferences.value?.advertisement ??
-        DEFAULT_COOKIE_PREFERENCES.advertisement
+      DEFAULT_COOKIE_PREFERENCES.advertisement
     );
 
     cookiePreferences.useOnUpdate(

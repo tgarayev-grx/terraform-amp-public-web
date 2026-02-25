@@ -796,6 +796,14 @@
         "not_found": "Article not found."
       }
     },
+    "CookiePolicy": {
+      "meta": {
+        "title": "Cookie Policy | GRX Pay",
+        "description": "Read our Cookie Policy to understand how we use cookies and similar technologies on GRX Pay."
+      },
+      "title": "Cookie Policy",
+      "lastUpdated": "Last updated on {lastUpdated}"
+    },
     "PrivacyPolicy": {
       "meta": {
         "title": "Privacy Policy | GRX Pay",

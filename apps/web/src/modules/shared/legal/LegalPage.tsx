@@ -5,7 +5,11 @@ import { parseMarkdownFile } from "@/lib/markdown";
 import { LegalMarkdown } from "./LegalMarkdown";
 import { LegalPageLayout } from "./LegalPageLayout";
 
-const LEGAL_NAMESPACES = ["Pay.PrivacyPolicy", "Pay.TermsOfUse"] as const;
+const LEGAL_NAMESPACES = [
+  "Pay.CookiePolicy",
+  "Pay.PrivacyPolicy",
+  "Pay.TermsOfUse",
+] as const;
 
 type LegalPageConfig = {
   contentDir: string;
