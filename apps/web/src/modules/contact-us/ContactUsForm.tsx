@@ -285,7 +285,7 @@ export function ContactUsForm({
             {t.rich("footer", {
               linkTerms: (chunks) => (
                 <Link
-                  href={ROUTES.payTermsOfUse}
+                  href={ROUTES.termsOfUse}
                   className="text-blue-600 hover:text-blue-500"
                 >
                   {chunks}
@@ -293,7 +293,7 @@ export function ContactUsForm({
               ),
               linkPrivacy: (chunks) => (
                 <Link
-                  href={ROUTES.payPrivacyPolicy}
+                  href={ROUTES.privacyPolicy}
                   className="text-blue-600 hover:text-blue-500"
                 >
                   {chunks}

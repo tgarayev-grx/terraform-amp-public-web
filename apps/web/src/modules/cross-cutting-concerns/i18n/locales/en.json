@@ -540,6 +540,7 @@
         "aboutGrx": "About GRX",
         "contactGrx": "Contact GRX",
         "legal": "Legal",
+        "privacyPolicy": "Privacy policy",
         "termsOfUse": "Terms of use",
         "cookiePolicy": "Cookie policy",
         "amlPolicy": "AML policy",
@@ -801,7 +802,7 @@
         "description": "Read our Privacy Policy to understand how we collect, use, and protect your personal data when using GRX Pay services."
       },
       "title": "Privacy Policy",
-      "lastUpdated": "Last updated on 16th February 2026"
+      "lastUpdated": "Last updated on {lastUpdated}"
     },
     "TermsOfUse": {
       "meta": {
@@ -809,7 +810,7 @@
         "description": "Read our Terms of Use to understand your rights and responsibilities when using GRX Pay services."
       },
       "title": "Terms of Use",
-      "lastUpdated": "Last updated on {date}"
+      "lastUpdated": "Last updated on {lastUpdated}"
     }
   }
 }

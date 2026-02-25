@@ -1,3 +1,10 @@
+---
+title: Privacy Policy | GRX Pay
+description: Read our Privacy Policy to understand how we collect, use, and protect your personal data when using GRX Pay services.
+createdAt: "2026-02-16"
+lastUpdatedAt: "2026-02-16"
+---
+
 ## I. Why should you review our policy for the processing and protection of personal data
 
 "GRX Europe" (hereinafter referred to as "the Company") processes personal data in its capacity as controller of personal data of our clients, partners and counterparties, as well as of our employees. This means that your personal data – such as name, address, phone, contact e-mail, position, qualification and work experience, personal health data, conviction data, etc. – may be stored with us.
@@ -28,7 +35,7 @@ The Company applies its confidentiality standards to all information that comes 
 
 The personal data that are covered by this Policy include any information relating to a specific natural person, and may include name, address, contact details, qualification and work experience details, personal health details, conviction details, job and employer data. In some cases, the personal data we process may not be sufficient to determine which individual they relate to – for example, data that has been anonymised. We apply to these data the same standards of protection that we apply to all other data, but in order to exercise your rights set out below in relation to such data, you will need to assist us so that we can identify you.
 
-We also process information about visits to our website as personal data, and the information is stored on the terminal devices of registered website users only. You can learn more about our cookie policy at the following link: [Cookie Policy](/cookie-policy).
+We also process information about visits to our website as personal data, and the information is stored on the terminal devices of registered website users only. You can learn more about our cookie policy at the following link: [Cookie Policy](/pay/cookie-policy).
 
 The contact details of legal entities – name, contact address, office telephone numbers and e-mail addresses, etc. – are not personal data, and the rules set out in point V of this Policy do not apply to these data.
 
@@ -44,7 +51,7 @@ The Company processes this data for the term of the services contract – after 
 
 **2. With regard to the use of our website and our mobile/desktop application**
 
-For the purpose of functioning, our website saves certain files – cookies – on your device. This is necessary for the functioning of the website and for the fulfilment of our obligations in this regard. You can find detailed information about the cookies used by our website here: [Cookie Policy](/cookie-policy).
+For the purpose of functioning, our website saves certain files – cookies – on your device. This is necessary for the functioning of the website and for the fulfilment of our obligations in this regard. You can find detailed information about the cookies used by our website here: [Cookie Policy](/pay/cookie-policy).
 
 Your consent to the use of cookies is not a condition for the provision of services by us and your refusal to give it will in no way affect your rights or the quality of our services. Also, if you give consent, you can withdraw it at any time by using the forms under this policy. The withdrawal of your consent again will not affect your rights or the quality of our services in any way.
 

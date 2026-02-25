@@ -25,14 +25,13 @@ export const defaultRichComponents = {
     </a>
   ),
   "link-privacy-policy": (chunks) => (
-    <Link href="/privacy-policy" className="text-neutral-700">
+    <Link href="/pay/privacy-policy" className="text-neutral-700">
       {chunks}
     </Link>
   ),
   "link-cookie-policy": (chunks) => (
     <Link
-      href="/cookie-policy"
-      target="_blank"
+      href="/pay/cookie-policy"
       className="text-blue-600 hover:text-blue-500"
     >
       {chunks}

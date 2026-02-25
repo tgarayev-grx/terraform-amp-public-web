@@ -1,3 +1,10 @@
+---
+title: Privacy Policy | GRX Pay
+description: Read our Privacy Policy to understand how we collect, use, and protect your personal data when using GRX Pay services.
+createdAt: "2026-02-16"
+lastUpdatedAt: "2026-02-16"
+---
+
 ## I. Por qué debe revisar nuestra política de procesamiento y protección de datos personales
 
 "GRX Europe" (en adelante "la Empresa") procesa datos personales en su calidad de responsable del tratamiento de datos personales de nuestros clientes, socios y contrapartes, así como de nuestros empleados. Esto significa que sus datos personales – como nombre, dirección, teléfono, correo electrónico de contacto, cargo, cualificación y experiencia laboral, datos de salud personales, datos de condenas, etc. – pueden ser almacenados por nosotros.
@@ -28,7 +35,7 @@ La Empresa aplica sus estándares de confidencialidad a toda la información que
 
 Los datos personales cubiertos por esta Política incluyen cualquier información relativa a una persona física identificada, y pueden incluir nombre, dirección, datos de contacto, detalles de cualificación y experiencia laboral, detalles de salud personal, detalles de condenas, datos de empleo y empleador. En algunos casos, los datos personales que procesamos pueden no ser suficientes para determinar a qué individuo se refieren – por ejemplo, datos que han sido anonimizados. Aplicamos a estos datos los mismos estándares de protección que aplicamos a todos los demás datos, pero para ejercer sus derechos establecidos a continuación en relación con dichos datos, deberá ayudarnos para que podamos identificarlo.
 
-También procesamos la información sobre las visitas a nuestro sitio web como datos personales, y la información se almacena solo en los dispositivos terminales de los usuarios registrados del sitio web. Puede obtener más información sobre nuestra política de cookies en el siguiente enlace: [Política de cookies](/cookie-policy).
+También procesamos la información sobre las visitas a nuestro sitio web como datos personales, y la información se almacena solo en los dispositivos terminales de los usuarios registrados del sitio web. Puede obtener más información sobre nuestra política de cookies en el siguiente enlace: [Política de cookies](/pay/cookie-policy).
 
 Los datos de contacto de las personas jurídicas – nombre, dirección de contacto, números de teléfono de oficina y direcciones de correo electrónico, etc. – no son datos personales, y las reglas establecidas en el punto V de esta Política no se aplican a estos datos.
 
@@ -44,7 +51,7 @@ La Empresa procesa estos datos por el plazo del contrato de servicios – despu�
 
 **2. Con respecto al uso de nuestro sitio web y nuestra aplicación móvil/escritorio**
 
-Para el funcionamiento, nuestro sitio web guarda ciertos archivos – cookies – en su dispositivo. Esto es necesario para el funcionamiento del sitio web y para el cumplimiento de nuestras obligaciones a este respecto. Puede encontrar información detallada sobre las cookies utilizadas por nuestro sitio web aquí: [Política de cookies](/cookie-policy).
+Para el funcionamiento, nuestro sitio web guarda ciertos archivos – cookies – en su dispositivo. Esto es necesario para el funcionamiento del sitio web y para el cumplimiento de nuestras obligaciones a este respecto. Puede encontrar información detallada sobre las cookies utilizadas por nuestro sitio web aquí: [Política de cookies](/pay/cookie-policy).
 
 Su consentimiento para el uso de cookies no es una condición para la prestación de servicios por nuestra parte y su negativa a darlo no afectará de ninguna manera sus derechos o la calidad de nuestros servicios. Asimismo, si da su consentimiento, puede retirarlo en cualquier momento utilizando los formularios bajo esta política. La retirada de su consentimiento nuevamente no afectará sus derechos o la calidad de nuestros servicios de ninguna manera.
 

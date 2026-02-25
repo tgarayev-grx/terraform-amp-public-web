@@ -169,7 +169,15 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
           <ul className="flex flex-col gap-4">
             <li>
               <Link
-                href={ROUTES.payTermsOfUse}
+                href={ROUTES.privacyPolicy}
+                className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors"
+              >
+                {t("Pay.Root.footer.privacyPolicy")}
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={ROUTES.termsOfUse}
                 className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors"
               >
                 {t("Pay.Root.footer.termsOfUse")}
@@ -185,7 +193,7 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
             </li>
             <li>
               <Link
-                href={ROUTES.payAmlPolicy}
+                href={ROUTES.amlPolicy}
                 className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors"
               >
                 {t("Pay.Root.footer.amlPolicy")}
