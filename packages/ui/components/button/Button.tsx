@@ -25,14 +25,14 @@ const paletteVariantStyles = {
     contained:
       "bg-neutral-100 hover:not(:disabled):bg-neutral-200 text-neutral-1000 active:not(:disabled):bg-neutral-300 disabled:text-neutral-400",
     outlined:
-      "border border-neutral-1000 bg-transparent hover:not(:disabled):bg-neutral-100 active:not(:disabled):bg-neutral-200 text-neutral-1000",
+      "border border-neutral bg-transparent hover:not(:disabled):bg-neutral-100 active:not(:disabled):bg-neutral-200 text-neutral",
   },
 } as const;
 
 const sizeStyles = {
   sm: "px-3 py-1.5 rounded-lg text-sm",
   md: "px-6 py-2.5 rounded-xl text-base",
-  lg: "px-6 py-4 rounded-xl text-sm",
+  lg: "p-4 rounded-xl text-sm",
 } as const;
 
 const textSizeStyles = {
