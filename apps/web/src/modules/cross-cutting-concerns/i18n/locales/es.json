@@ -78,6 +78,78 @@
       "saveSettings": "Guardar preferencias de cookies"
     }
   },
+  "Home": {
+    "hero": {
+      "title": "Conectando las finanzas tradicionales y los <highlight>activos digitales</highlight>",
+      "subtitle": "Transacciones sin fronteras. Intercambio seguro.",
+      "subtitleLine2": "Activos del mundo real en cadena.",
+      "exploreGrxPay": "Explorar GRX Pay",
+      "contactUs": "Contáctanos"
+    },
+    "foundation": {
+      "title": "Los cimientos de GRX",
+      "securityAndTrust": {
+        "title": "Seguridad y confianza",
+        "description": "Arquitectura de seguridad de nivel institucional para proteger activos digitales y del mundo real en todo su ciclo de vida.",
+        "alt": "Seguridad y confianza"
+      },
+      "simplicityInUx": {
+        "title": "Simplicidad en la experiencia de usuario",
+        "description": "Una plataforma unificada e intuitiva que hace manejables las operaciones complejas con activos — desde custodia hasta transacciones e informes.",
+        "alt": "Simplicidad en la experiencia de usuario"
+      },
+      "transparencyAndCompliance": {
+        "title": "Transparencia y cumplimiento",
+        "description": "Infraestructura centrada en el cumplimiento con procesos transparentes para apoyar los requisitos regulatorios en todas las jurisdicciones.",
+        "alt": "Transparencia y cumplimiento"
+      },
+      "scalabilityAndInnovation": {
+        "title": "Escalabilidad e innovación",
+        "description": "Arquitectura modular y API-first para operaciones de alto volumen y la futura expansión de activos del mundo real en cadena.",
+        "alt": "Escalabilidad e innovación"
+      }
+    },
+    "ecosystem": {
+      "title": "El ecosistema GRX",
+      "subtitle": "Explora los productos construidos sobre la plataforma GRX",
+      "comingSoon": "Próximamente",
+      "grxPay": {
+        "product": "GRX Pay",
+        "title": "Pagos globales. Integración fluida.",
+        "description": "Una pasarela de pago universal que permite a comerciantes e individuos enviar, recibir y procesar pagos en cripto y fiat.",
+        "exploreGrxPay": "Explorar GRX Pay",
+        "imageAlt": "GRX Pay — pagos globales e integración fluida"
+      },
+      "grxExchange": {
+        "product": "GRX Exchange",
+        "title": "Opera con confianza. En cualquier lugar. En todo momento.",
+        "description": "Una plataforma de trading de alto rendimiento para principiantes y traders profesionales.",
+        "imageAlt": "GRX Exchange — plataforma de trading"
+      },
+      "grxRwa": {
+        "product": "GRX RWA",
+        "title": "Activos del mundo real en cadena",
+        "description": "Liquidez y oportunidades de inversión con activos del mundo real tokenizados (RWA).",
+        "imageAlt": "GRX RWA — activos del mundo real en cadena"
+      }
+    },
+    "technology": {
+      "title": "Tecnología",
+      "subtitle": "Infraestructura diseñada para operaciones con activos seguras y escalables",
+      "cloudNative": {
+        "title": "Cloud-Native y modular",
+        "description": "Construida sobre microservicios con triple redundancia para máxima fiabilidad."
+      },
+      "secureAndCompliant": {
+        "title": "Seguro y conforme",
+        "description": "Cifrado avanzado, AML/KYC y análisis de cadena."
+      },
+      "scalableAndFlexible": {
+        "title": "Escalable y flexible",
+        "description": "Arquitectura API-first para integraciones rápidas."
+      }
+    }
+  },
   "Root": {
     "header": {
       "nav": {

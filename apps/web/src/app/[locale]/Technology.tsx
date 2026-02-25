@@ -7,35 +7,33 @@ import { CubeIcon } from "./pay/(icons)/CubeIcon";
 import { ZoomOutIcon } from "./pay/(icons)/ZoomOutIcon";
 
 export async function TechnologySection() {
-  const t = await getTranslations();
+  const t = await getTranslations("Home");
   return (
     <section className="flex flex-col items-center px-4 sm:px-8 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col gap-4 mb-14 text-center">
           <h3 className="mx-auto max-w-[580px] font-unbounded font-bold text-[28px] sm:text-4xl leading-[32px] sm:leading-[40px]">
-            Technology
+            {t("technology.title")}
           </h3>
           <h4 className="font-medium text-neutral-700 sm:text-[20px] text-base sm:leading-[26px]">
-            Infrastructure designed for secure, scalable asset operations
+            {t("technology.subtitle")}
           </h4>
         </div>
 
         <div className="gap-6 grid grid-cols-1 lg:grid-cols-3">
           <FeatureCard
-            title={"Cloud‑Native & Modular"}
-            description={
-              "Built on microservices with x3 redundancy for maximum reliability."
-            }
+            title={t("technology.cloudNative.title")}
+            description={t("technology.cloudNative.description")}
             icon={<CubeIcon width={24} height={24} />}
           />
           <FeatureCard
-            title={"Secure & Compliant"}
-            description={"Advanced encryption, AML/KYC, and chain analysis."}
+            title={t("technology.secureAndCompliant.title")}
+            description={t("technology.secureAndCompliant.description")}
             icon={<ShieldIcon width={24} height={24} />}
           />
           <FeatureCard
-            title={"Scalable & Flexible"}
-            description={"API-first architecture for fast integrations."}
+            title={t("technology.scalableAndFlexible.title")}
+            description={t("technology.scalableAndFlexible.description")}
             icon={<ZoomOutIcon width={24} height={24} />}
           />
         </div>

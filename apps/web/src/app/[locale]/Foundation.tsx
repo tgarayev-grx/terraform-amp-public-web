@@ -9,41 +9,41 @@ import transparancyAndComplianceImg from "./(assets)/foundation-transparancy-and
 import scalabilityAndInnovationImg from "./(assets)/foundation-scalability-and-innovation.webp";
 
 export async function FoundationSection() {
-  const t = await getTranslations();
+  const t = await getTranslations("Home");
   return (
     <section className="flex flex-col items-center px-4 sm:px-8 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col gap-4 mb-14 text-center">
           <h3 className="mx-auto max-w-[580px] font-unbounded font-bold text-[28px] sm:text-4xl leading-[32px] sm:leading-[40px]">
-            The foundation of GRX
+            {t("foundation.title")}
           </h3>
         </div>
 
         <div className="flex flex-col gap-12 mx-auto max-w-[980px]">
           <FeatureCard
-            title="Security & Trust"
-            description="Institutional-grade security architecture designed to safeguard digital and real-world assets across their entire lifecycle."
+            title={t("foundation.securityAndTrust.title")}
+            description={t("foundation.securityAndTrust.description")}
             start={securityAndTrustImg}
-            alt="Security and Trust"
+            alt={t("foundation.securityAndTrust.alt")}
           />
 
           <FeatureCard
-            title="Simplicity in User Experience"
-            description="A unified, intuitive platform that makes complex asset operations manageable — from custody to transactions and reporting."
+            title={t("foundation.simplicityInUx.title")}
+            description={t("foundation.simplicityInUx.description")}
             end={simplicityInUxImg}
-            alt=""
+            alt={t("foundation.simplicityInUx.alt")}
           />
           <FeatureCard
-            title="Transparency & Compliance"
-            description="Compliance-first infrastructure with transparent processes designed to support regulatory requirements across jurisdictions."
+            title={t("foundation.transparencyAndCompliance.title")}
+            description={t("foundation.transparencyAndCompliance.description")}
             start={transparancyAndComplianceImg}
-            alt=""
+            alt={t("foundation.transparencyAndCompliance.alt")}
           />
           <FeatureCard
-            title="Scalability & Innovation"
-            description="Modular, API-first architecture built to support high-volume operations and the future expansion of real-world assets on-chain."
+            title={t("foundation.scalabilityAndInnovation.title")}
+            description={t("foundation.scalabilityAndInnovation.description")}
             end={scalabilityAndInnovationImg}
-            alt=""
+            alt={t("foundation.scalabilityAndInnovation.alt")}
           />
         </div>
       </div>

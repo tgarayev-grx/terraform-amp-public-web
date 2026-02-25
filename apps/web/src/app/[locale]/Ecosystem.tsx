@@ -12,25 +12,26 @@ import { ROUTES } from "@/modules/shared/header/routes";
 import { ComingSoonBadge } from "@/modules/shared/header/components/ComingSoonBadge";
 
 export async function EcosystemSection() {
-  const t = await getTranslations();
+  const t = await getTranslations("Home");
   return (
     <section className="flex flex-col items-center px-4 sm:px-8 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col gap-4 mb-14 text-center">
           <h3 className="mx-auto max-w-[580px] font-unbounded font-bold text-[28px] sm:text-4xl leading-[32px] sm:leading-[40px]">
-            The GRX Ecosystem
+            {t("ecosystem.title")}
           </h3>
 
           <h4 className="font-medium text-neutral-700 sm:text-[20px] text-base sm:leading-[26px]">
-            Explore products built on the GRX platform
+            {t("ecosystem.subtitle")}
           </h4>
         </div>
 
         <div className="gap-6 grid grid-cols-1">
           <FeatureCard
-            product="GRX Pay"
-            title="Global payments. Seamless integration."
-            description="A universal payment gateway that allows merchants and individuals to send, receive, and process payments in crypto and fiat."
+            product={t("ecosystem.grxPay.product")}
+            title={t("ecosystem.grxPay.title")}
+            description={t("ecosystem.grxPay.description")}
+            imageAlt={t("ecosystem.grxPay.imageAlt")}
             action={
               <ButtonRoot
                 palette="secondary"
@@ -39,7 +40,7 @@ export async function EcosystemSection() {
                 asChild
               >
                 <Link href={ROUTES.pay}>
-                  <ButtonText>Explore GRX Pay</ButtonText>
+                  <ButtonText>{t("ecosystem.grxPay.exploreGrxPay")}</ButtonText>
                 </Link>
               </ButtonRoot>
             }
@@ -48,11 +49,14 @@ export async function EcosystemSection() {
 
           <FeatureCard
             prepend={
-              <ComingSoonBadge variant="yellow">Coming soon</ComingSoonBadge>
+              <ComingSoonBadge variant="yellow">
+                {t("ecosystem.comingSoon")}
+              </ComingSoonBadge>
             }
-            product="GRX Exchange"
-            title="Trade with confidence. Anytime. Anywhere."
-            description="A high-performance trading platform built for both beginners and professional traders."
+            product={t("ecosystem.grxExchange.product")}
+            title={t("ecosystem.grxExchange.title")}
+            description={t("ecosystem.grxExchange.description")}
+            imageAlt={t("ecosystem.grxExchange.imageAlt")}
             action={
               <Button
                 palette="secondary"
@@ -60,18 +64,21 @@ export async function EcosystemSection() {
                 size="md"
                 disabled
               >
-                Coming soon
+                {t("ecosystem.comingSoon")}
               </Button>
             }
             end={grxExchangeImg}
           />
           <FeatureCard
             prepend={
-              <ComingSoonBadge variant="yellow">Coming soon</ComingSoonBadge>
+              <ComingSoonBadge variant="yellow">
+                {t("ecosystem.comingSoon")}
+              </ComingSoonBadge>
             }
-            product="GRX RWA"
-            title="Bringing real-world assets on-chain"
-            description="Unlock liquidity and investment opportunities with tokenized real-world assets (RWA)."
+            product={t("ecosystem.grxRwa.product")}
+            title={t("ecosystem.grxRwa.title")}
+            description={t("ecosystem.grxRwa.description")}
+            imageAlt={t("ecosystem.grxRwa.imageAlt")}
             action={
               <Button
                 palette="secondary"
@@ -79,7 +86,7 @@ export async function EcosystemSection() {
                 size="md"
                 disabled
               >
-                Coming soon
+                {t("ecosystem.comingSoon")}
               </Button>
             }
             start={grxRwaImg}
@@ -96,6 +103,7 @@ type FeatureCardProps = {
   product: string;
   title: string;
   description: string;
+  imageAlt: string;
   start?: StaticImageData;
   end?: StaticImageData;
   action: ReactNode;
@@ -106,6 +114,7 @@ const FeatureCard = memo(
     product,
     title,
     description,
+    imageAlt,
     start,
     end,
     action,
@@ -121,7 +130,7 @@ const FeatureCard = memo(
           <Image
             className="row-start-1 md:row-start-auto shadow-light-sm rounded-2xl h-full max-h-[320px] md:max-h-none object-cover"
             src={start}
-            alt={product}
+            alt={imageAlt}
           />
         )}
 
@@ -158,7 +167,7 @@ const FeatureCard = memo(
           <Image
             className="row-start-1 md:row-start-auto shadow-light-sm rounded-2xl h-full max-h-[320px] md:max-h-none object-cover"
             src={end}
-            alt={product}
+            alt={imageAlt}
           />
         )}
       </div>
