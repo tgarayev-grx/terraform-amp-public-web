@@ -55,7 +55,7 @@ export async function HeroSection() {
             >
               <Button
                 className="min-[425px]:min-w-[186px]"
-                palette="secondary"
+                palette="primary"
                 variant="outlined"
                 size="lg"
               >
