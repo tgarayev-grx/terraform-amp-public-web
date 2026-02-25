@@ -1,4 +1,5 @@
 export const ROUTES = {
+  home: "/",
   pay: "/pay",
   payPricing: "/pay/pricing",
   payPartnerProgram: "/pay/partner-program",

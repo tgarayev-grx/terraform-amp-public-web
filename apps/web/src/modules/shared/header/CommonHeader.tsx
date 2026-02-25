@@ -36,7 +36,7 @@ export function CommonHeader({ theme = "light" }: CommonHeaderProps) {
   return (
     <header className={clsx("top-0 z-50 sticky border-b w-full", tc.header)}>
       <div className="flex justify-between items-center mx-auto px-4 max-w-[1180px] h-16">
-        <Link href={ROUTES.pay} className={clsx("flex items-center", tc.logo)}>
+        <Link href={ROUTES.home} className={clsx("flex items-center", tc.logo)}>
           <FooterLogo className={clsx("w-auto h-8", tc.logo)} />
         </Link>
 

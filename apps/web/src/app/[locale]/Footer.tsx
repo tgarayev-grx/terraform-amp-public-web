@@ -58,7 +58,7 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
         className
       )}
     >
-      <Link href={ROUTES.pay} className="shrink-0">
+      <Link href={ROUTES.home} className="shrink-0">
         <FooterLogo className="w-auto h-8 text-neutral-900" />
       </Link>
 
