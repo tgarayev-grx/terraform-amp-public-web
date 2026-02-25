@@ -3,10 +3,10 @@ import { memo } from "react";
 import Image, { StaticImageData } from "next/image";
 import clsx from "clsx";
 
-import securityAndTrustPng from "./(assets)/foundation-security-and-trust.png";
-import simplicityInUxPng from "./(assets)/foundation-simplicity-in-ux.png";
-import transparancyAndCompliancePng from "./(assets)/foundation-transparancy-and-compliance.png";
-import scalabilityAndInnovationPng from "./(assets)/foundation-scalability-and-innovation.png";
+import securityAndTrustImg from "./(assets)/foundation-security-and-trust.webp";
+import simplicityInUxImg from "./(assets)/foundation-simplicity-in-ux.webp";
+import transparancyAndComplianceImg from "./(assets)/foundation-transparancy-and-compliance.webp";
+import scalabilityAndInnovationImg from "./(assets)/foundation-scalability-and-innovation.webp";
 
 export async function FoundationSection() {
   const t = await getTranslations();
@@ -23,26 +23,26 @@ export async function FoundationSection() {
           <FeatureCard
             title="Security & Trust"
             description="Institutional-grade security architecture designed to safeguard digital and real-world assets across their entire lifecycle."
-            start={securityAndTrustPng}
+            start={securityAndTrustImg}
             alt="Security and Trust"
           />
 
           <FeatureCard
             title="Simplicity in User Experience"
             description="A unified, intuitive platform that makes complex asset operations manageable — from custody to transactions and reporting."
-            end={simplicityInUxPng}
+            end={simplicityInUxImg}
             alt=""
           />
           <FeatureCard
             title="Transparency & Compliance"
             description="Compliance-first infrastructure with transparent processes designed to support regulatory requirements across jurisdictions."
-            start={transparancyAndCompliancePng}
+            start={transparancyAndComplianceImg}
             alt=""
           />
           <FeatureCard
             title="Scalability & Innovation"
             description="Modular, API-first architecture built to support high-volume operations and the future expansion of real-world assets on-chain."
-            end={scalabilityAndInnovationPng}
+            end={scalabilityAndInnovationImg}
             alt=""
           />
         </div>

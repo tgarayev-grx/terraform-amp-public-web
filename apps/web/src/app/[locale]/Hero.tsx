@@ -10,19 +10,14 @@ import {
 import { ContactUsModal } from "@/modules/contact-us";
 import { ROUTES } from "@/modules/shared/header/routes";
 
-import heroBackgroundImagePng from "./(assets)/hero-bg.png";
+import heroBackgroundImg from "./(assets)/hero-bg.webp";
 
 export async function HeroSection() {
   const t = await getTranslations();
   return (
     <section
-      className="relative flex flex-col justify-center items-center bg-neutral-1000 min-h-[800px] overflow-hidden text-center"
-      style={{
-        backgroundImage: `url(${heroBackgroundImagePng.src})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
+      className="relative flex flex-col justify-center items-center bg-neutral-1000 bg-cover bg-no-repeat bg-center min-h-[800px] overflow-hidden text-center"
+      style={{ backgroundImage: `url(${heroBackgroundImg.src})` }}
     >
       <div className="relative flex flex-col flex-grow sm:justify-between lg:justify-center lg:items-center gap-8 mx-auto pt-[160px] md:pt-[116px] lg:pt-[80px] lg:pb-[160px] w-full max-w-[1080px]">
         <div className="flex flex-col px-4 md:px-8 lg:px-8 xl:px-0">

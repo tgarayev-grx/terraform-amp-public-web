@@ -3,9 +3,9 @@ import { memo, ReactNode } from "react";
 import Image, { StaticImageData } from "next/image";
 import clsx from "clsx";
 
-import grxPayPng from "./(assets)/ecosystem-grx-pay.png";
-import grxExchangePng from "./(assets)/ecosystem-grx-exchange.png";
-import grxRwaPng from "./(assets)/ecosystem-grx-rwa.png";
+import grxPayImg from "./(assets)/ecosystem-grx-pay.webp";
+import grxExchangeImg from "./(assets)/ecosystem-grx-exchange.webp";
+import grxRwaImg from "./(assets)/ecosystem-grx-rwa.webp";
 import { Button, ButtonRoot, ButtonText } from "@grx/ui/components/button";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { ROUTES } from "@/modules/shared/header/routes";
@@ -43,7 +43,7 @@ export async function EcosystemSection() {
                 </Link>
               </ButtonRoot>
             }
-            start={grxPayPng}
+            start={grxPayImg}
           />
 
           <FeatureCard
@@ -63,7 +63,7 @@ export async function EcosystemSection() {
                 Coming soon
               </Button>
             }
-            end={grxExchangePng}
+            end={grxExchangeImg}
           />
           <FeatureCard
             prepend={
@@ -82,7 +82,7 @@ export async function EcosystemSection() {
                 Coming soon
               </Button>
             }
-            start={grxRwaPng}
+            start={grxRwaImg}
           />
         </div>
       </div>
