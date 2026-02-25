@@ -542,6 +542,7 @@
         "legal": "Legal",
         "privacyPolicy": "Privacy policy",
         "termsOfUse": "Terms of use",
+        "privacyPolicy": "Privacy policy",
         "cookiePolicy": "Cookie policy",
         "amlPolicy": "AML policy",
         "acceptCrypto": "Accept crypto",
@@ -810,6 +811,14 @@
         "description": "Read our Privacy Policy to understand how we collect, use, and protect your personal data when using GRX Pay services."
       },
       "title": "Privacy Policy",
+      "lastUpdated": "Last updated on {lastUpdated}"
+    },
+    "AmlPolicy": {
+      "meta": {
+        "title": "AML Policy | GRX Pay",
+        "description": "Read our Anti-Money Laundering and Counter-Terrorist Financing Policy to understand how GRX combats money laundering and terrorist financing."
+      },
+      "title": "Anti-Money Laundering and Counter-Terrorist Financing Policy of GRX",
       "lastUpdated": "Last updated on {lastUpdated}"
     },
     "TermsOfUse": {
