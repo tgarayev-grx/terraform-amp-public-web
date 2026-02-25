@@ -287,6 +287,7 @@ export function ContactUsForm({
                 <Link
                   href={ROUTES.termsOfUse}
                   className="text-blue-600 hover:text-blue-500"
+                  target="_blank"
                 >
                   {chunks}
                 </Link>
@@ -295,6 +296,7 @@ export function ContactUsForm({
                 <Link
                   href={ROUTES.privacyPolicy}
                   className="text-blue-600 hover:text-blue-500"
+                  target="_blank"
                 >
                   {chunks}
                 </Link>
