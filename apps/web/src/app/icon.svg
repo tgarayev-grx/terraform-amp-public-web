@@ -1,0 +1,21 @@
+<svg width="240" height="240" viewBox="0 0 192 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .logo-path { fill: #000000; }
+  @media (prefers-color-scheme: dark) {
+    .logo-path { fill: #ffffff; }
+  }
+</style>
+<g clip-path="url(#clip0_824_23817)">
+<path class="logo-path" d="M122.34 46.02C118.86 45.14 115.21 44.68 111.46 44.68H66.88C42.26 44.68 22.3 64.68 22.3 89.36C22.3 108.46 34.26 124.75 51.07 131.15L35.37 149.9C14.42 139.56 0 117.96 0 92.98V85.73C0 50.72 28.32 22.34 63.26 22.34H115.07C123.32 22.34 131.2 23.92 138.43 26.8L122.34 46.02Z"/>
+<path class="logo-path" d="M182.55 149.73H153.63L125.01 115.32L139.47 98.11L182.55 149.73Z"/>
+<path class="logo-path" d="M182.55 149.73H153.63L125.01 115.32L139.47 98.11L182.55 149.73Z"/>
+<path class="logo-path" d="M189.18 38.64L180.19 31.09L130.46 90.41L80.7298 149.73H51.5098L163.01 16.67L153.94 9.05L191.59 0L189.18 38.64Z"/>
+<path class="logo-path" d="M189.18 38.64L180.19 31.09L130.46 90.41L80.7298 149.73H51.5098L163.01 16.67L153.94 9.05L191.59 0L189.18 38.64Z"/>
+<path class="logo-path" d="M78.3199 98.41L94.2899 79.69H62.0599L46.3999 98.41H78.3299H78.3199Z"/>
+</g>
+<defs>
+<clipPath id="clip0_824_23817">
+<rect width="192" height="150" fill="white"/>
+</clipPath>
+</defs>
+</svg>
