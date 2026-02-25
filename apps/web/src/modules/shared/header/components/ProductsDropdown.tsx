@@ -1,7 +1,9 @@
 "use client";
 
 import * as Popover from "@radix-ui/react-popover";
+import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { useState, useEffect } from "react";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { ComingSoonBadge } from "./ComingSoonBadge";
 import { ShevronDownIcon } from "../../icons";
@@ -31,10 +33,16 @@ interface ProductsDropdownProps {
 
 export function ProductsDropdown({ theme }: ProductsDropdownProps) {
   const t = useTranslations();
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
   const tc = themeClasses[theme];
 
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   return (
-    <Popover.Root>
+    <Popover.Root open={open} onOpenChange={setOpen}>
       <Popover.Trigger asChild>
         <button
           className={clsx(
@@ -80,7 +88,9 @@ export function ProductsDropdown({ theme }: ProductsDropdownProps) {
           >
             <div className="flex items-center gap-2">
               <span className="font-medium">GRX Exchange</span>
-              <ComingSoonBadge>{t("CommonHeader.products.comingSoon")}</ComingSoonBadge>
+              <ComingSoonBadge>
+                {t("CommonHeader.products.comingSoon")}
+              </ComingSoonBadge>
             </div>
             <span className="text-sm opacity-80">
               {t("CommonHeader.products.grxExchange.description")}
@@ -95,7 +105,9 @@ export function ProductsDropdown({ theme }: ProductsDropdownProps) {
           >
             <div className="flex items-center gap-2">
               <span className="font-medium">GRX RWA (Real World Assets)</span>
-              <ComingSoonBadge>{t("CommonHeader.products.comingSoon")}</ComingSoonBadge>
+              <ComingSoonBadge>
+                {t("CommonHeader.products.comingSoon")}
+              </ComingSoonBadge>
             </div>
             <span className="text-sm opacity-80">
               {t("CommonHeader.products.grxRwa.description")}
