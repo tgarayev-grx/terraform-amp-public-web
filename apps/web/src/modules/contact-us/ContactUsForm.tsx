@@ -269,7 +269,7 @@ export function ContactUsForm({
             {(isSubmitting) => (
               <Button
                 className={clsx(
-                  "mt-14 w-full",
+                  "mt-14 w-full rounded-[10px]",
                   "dark:bg-neutral dark:text-neutral-1000 dark:hover:bg-neutral-100",
                   classes?.submit
                 )}
@@ -284,12 +284,12 @@ export function ContactUsForm({
             )}
           </form.Subscribe>
 
-          <p className="mt-4 font-medium text-neutral-500 text-xs text-center">
+          <p className="mt-4 font-medium text-neutral-500 dark:text-neutral-400 text-xs text-center">
             {t.rich("footer", {
               linkTerms: (chunks) => (
                 <Link
                   href={ROUTES.termsOfUse}
-                  className="text-blue-600 hover:text-blue-500"
+                  className="text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
                   target="_blank"
                 >
                   {chunks}
@@ -298,7 +298,7 @@ export function ContactUsForm({
               linkPrivacy: (chunks) => (
                 <Link
                   href={ROUTES.privacyPolicy}
-                  className="text-blue-600 hover:text-blue-500"
+                  className="text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
                   target="_blank"
                 >
                   {chunks}

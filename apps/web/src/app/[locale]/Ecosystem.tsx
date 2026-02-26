@@ -38,6 +38,7 @@ export async function EcosystemSection() {
                 variant="contained"
                 size="md"
                 asChild
+                className="rounded-[10px]"
               >
                 <Link href={ROUTES.pay}>
                   <ButtonText>{t("ecosystem.grxPay.exploreGrxPay")}</ButtonText>
@@ -63,6 +64,7 @@ export async function EcosystemSection() {
                 variant="contained"
                 size="md"
                 disabled
+                className="rounded-[10px]"
               >
                 {t("ecosystem.comingSoon")}
               </Button>
@@ -85,6 +87,7 @@ export async function EcosystemSection() {
                 variant="contained"
                 size="md"
                 disabled
+                className="rounded-[10px]"
               >
                 {t("ecosystem.comingSoon")}
               </Button>

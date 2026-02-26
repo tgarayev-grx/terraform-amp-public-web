@@ -52,7 +52,7 @@
 :global(.dark) .root {
   border-color: var(--color-neutral-600);
   color: var(--color-neutral);
-  background-color: var(--color-neutral-900);
+  background-color: #1e1e1e;
 }
 
 :global(.dark) .root > input::placeholder,

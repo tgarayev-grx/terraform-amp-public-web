@@ -23,7 +23,7 @@ const paletteVariantStyles = {
   },
   secondary: {
     contained:
-      "bg-neutral-100 hover:not(:disabled):bg-neutral-200 text-neutral-1000 active:not(:disabled):bg-neutral-300 disabled:text-neutral-400",
+      "bg-neutral-100 hover:not(:disabled):bg-neutral-200 text-neutral-1000 active:not(:disabled):bg-neutral-300 disabled:text-neutral-400 dark:bg-neutral-800 dark:hover:not(:disabled):bg-neutral-700 dark:text-neutral dark:active:not(:disabled):bg-neutral-600 dark:disabled:bg-neutral-800 dark:disabled:text-neutral-500",
     outlined:
       "border border-neutral bg-transparent hover:not(:disabled):bg-neutral-100 active:not(:disabled):bg-neutral-200 text-neutral",
   },

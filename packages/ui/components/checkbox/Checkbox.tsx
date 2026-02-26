@@ -10,7 +10,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     <CheckboxPrimitive.Root
       ref={ref}
       className={clsx(
-        "flex justify-center items-center border-2 border-neutral-300 dark:border-neutral-600 rounded w-5 h-5 shrink-0",
+        "flex justify-center items-center border-2 border-neutral-300 dark:border-neutral-600 rounded w-5 h-5 shrink-0 dark:bg-[#1E1E1E]",
         "data-[state=checked]:border-neutral-1000 data-[state=checked]:bg-neutral data-[state=checked]:text-neutral-1000",
         "dark:data-[state=checked]:border-neutral-400 dark:data-[state=checked]:bg-neutral-1000 dark:data-[state=checked]:text-neutral",
         "focus-visible:ring-4 focus-visible:ring-offset-[2px] focus-visible:ring-neutral-200 focus-visible:text-neutral-200 focus-visible:border-neutral-200",

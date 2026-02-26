@@ -54,9 +54,9 @@ const SingleSelectTrigger = forwardRef<
         ref={ref}
         onBlur={onBlur}
         className={clsx(
-          "p-[11px] rounded-xl text-sm",
+          "p-[11px] rounded-[10px] text-sm",
           "group",
-          "flex w-full items-center justify-between gap-2 border border-neutral-300 dark:border-neutral-600 text-left text-neutral-1000 dark:text-neutral dark:bg-neutral-900 outline-none data-[placeholder]:text-neutral-600 dark:data-[placeholder]:text-neutral-500 [&>span]:line-clamp-1 focus-visible:border-neutral-900 dark:focus-visible:border-neutral-400",
+          "flex w-full items-center justify-between gap-2 border border-neutral-300 dark:border-neutral-600 text-left text-neutral-1000 dark:text-neutral dark:bg-[#1E1E1E] outline-none data-[placeholder]:text-neutral-600 dark:data-[placeholder]:text-neutral-500 [&>span]:line-clamp-1 focus-visible:border-neutral-900 dark:focus-visible:border-neutral-400 rounded-[10px]",
           "[&>[data-value]]:flex-grow",
           {
             "border-red-500 focus-visible:border-red-500": hasError,
