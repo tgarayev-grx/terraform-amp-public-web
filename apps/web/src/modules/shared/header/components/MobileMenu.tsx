@@ -12,6 +12,7 @@ import { ComingSoonBadge } from "./ComingSoonBadge";
 import { LocalizationSelect } from "./LocalizationSelect";
 import { ROUTES } from "../routes";
 import clsx from "clsx";
+import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
 
 export type HeaderTheme = "light" | "dark";
 
@@ -206,7 +207,7 @@ export function MobileMenu({ theme }: MobileMenuProps) {
                   variant="contained"
                   size="md"
                 >
-                  <Link href={ROUTES.createAccount} target="_blank">
+                  <Link href={EXTERNAL_LINKS.Pay.signUp} target="_blank">
                     <ButtonText>
                       {t("CommonHeader.nav.createAccount")}
                     </ButtonText>
@@ -219,7 +220,7 @@ export function MobileMenu({ theme }: MobileMenuProps) {
                   variant="contained"
                   size="md"
                 >
-                  <Link href={ROUTES.signIn} target="_blank">
+                  <Link href={EXTERNAL_LINKS.Pay.signIn.href} target="_blank">
                     <ButtonText>{t("CommonHeader.nav.signIn")}</ButtonText>
                   </Link>
                 </ButtonRoot>

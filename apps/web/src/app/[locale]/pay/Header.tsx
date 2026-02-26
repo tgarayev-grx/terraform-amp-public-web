@@ -18,6 +18,7 @@ import { FlagFr } from "./(icons)/FlagFr";
 import { FlagEs } from "./(icons)/FlagEs";
 import { MenuIcon } from "./(icons)/MenuIcon";
 import { CloseIcon } from "./(icons)/CloseIcon";
+import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
 
 export function Header() {
   const t = useTranslations();
@@ -66,7 +67,7 @@ export function Header() {
               variant="contained"
               size="sm"
             >
-              <Link href="/sign-in" target="_blank">
+              <Link href={EXTERNAL_LINKS.Pay.signIn.href} target="_blank">
                 <ButtonText>{t("Pay.Root.header.nav.signIn")}</ButtonText>
               </Link>
             </ButtonRoot>
@@ -168,7 +169,7 @@ function MobileMenu() {
                   variant="contained"
                   size="md"
                 >
-                  <Link href="/sign-in" target="_blank">
+                  <Link href={EXTERNAL_LINKS.Pay.signIn.href} target="_blank">
                     <ButtonText>{t("Pay.Root.header.nav.signIn")}</ButtonText>
                   </Link>
                 </ButtonRoot>

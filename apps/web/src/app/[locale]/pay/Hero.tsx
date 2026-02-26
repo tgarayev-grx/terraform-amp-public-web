@@ -10,6 +10,7 @@ import { ContactUsModal } from "@/modules/contact-us";
 import heroBackgroundImagePng from "./(assets)/banner.png";
 import styles from "./hero.module.css";
 import clsx from "clsx";
+import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
 
 export async function HeroSection() {
   const t = await getTranslations();
@@ -43,7 +44,7 @@ export async function HeroSection() {
               variant="contained"
               size="lg"
             >
-              <Link href="/sign-in" target="_blank">
+              <Link href={EXTERNAL_LINKS.Pay.signIn.href} target="_blank">
                 <ButtonText>{t("Pay.Root.hero.getStarted")}</ButtonText>
               </Link>
             </ButtonRoot>

@@ -9,6 +9,7 @@ import { ProductsDropdown } from "./components/ProductsDropdown";
 import { LocalizationSelect } from "./components/LocalizationSelect";
 import { ROUTES } from "./routes";
 import clsx from "clsx";
+import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
 
 export type HeaderTheme = "light" | "dark";
 
@@ -82,13 +83,13 @@ export function CommonHeader({ theme = "light" }: CommonHeaderProps) {
               variant="contained"
               size="sm"
             >
-              <Link href={ROUTES.signIn} target="_blank">
+              <Link href={EXTERNAL_LINKS.Pay.signIn.href} target="_blank">
                 <ButtonText>{t("CommonHeader.nav.signIn")}</ButtonText>
               </Link>
             </ButtonRoot>
 
             <ButtonRoot asChild palette="primary" variant="contained" size="sm">
-              <Link href={ROUTES.createAccount} target="_blank">
+              <Link href={EXTERNAL_LINKS.Pay.signUp.href} target="_blank">
                 <ButtonText>{t("CommonHeader.nav.createAccount")}</ButtonText>
               </Link>
             </ButtonRoot>

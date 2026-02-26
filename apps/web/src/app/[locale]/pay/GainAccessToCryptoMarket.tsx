@@ -4,6 +4,7 @@ import { ButtonRoot, ButtonText } from "@grx/ui/components/button/Button";
 
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import gainAccessToCryptoMarketImagePng from "./(assets)/gain-access-to-crypto-market.png";
+import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
 
 export async function GainAccessToCryptoMarketSection() {
   const t = await getTranslations();
@@ -24,7 +25,7 @@ export async function GainAccessToCryptoMarketSection() {
               size="md"
               asChild
             >
-              <Link href="/sign-up" target="_blank">
+              <Link href={EXTERNAL_LINKS.Pay.signUp.href} target="_blank">
                 <ButtonText>{t("Pay.Root.gainAccess.getStarted")}</ButtonText>
               </Link>
             </ButtonRoot>

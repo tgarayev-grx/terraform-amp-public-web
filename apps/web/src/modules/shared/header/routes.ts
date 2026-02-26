@@ -10,6 +10,4 @@ export const ROUTES = {
   termsOfUse: "/terms-of-use",
   amlPolicy: "/aml-policy",
   cookiePolicy: "/cookie-policy",
-  signIn: "/sign-in",
-  createAccount: "/create-account",
 } as const;

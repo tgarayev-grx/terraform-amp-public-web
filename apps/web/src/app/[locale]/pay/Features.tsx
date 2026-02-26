@@ -9,6 +9,7 @@ import featureBankAccountsPng from "./(assets)/features-bank-accounts.png";
 import featureInvoicesPng from "./(assets)/features-invoices.png";
 import featureIncomePng from "./(assets)/features-income.png";
 import featurePayoutsPng from "./(assets)/features-payouts.png";
+import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
 
 export async function FeaturesSection() {
   const t = await getTranslations();
@@ -83,7 +84,7 @@ function FeatureCard({ title, description, img, action }: FeatureCardProps) {
 
         <div className="flex justify-start">
           <ButtonRoot palette="secondary" variant="contained" size="md" asChild>
-            <Link href="/sign-in" target="_blank">
+            <Link href={EXTERNAL_LINKS.Pay.signIn.href} target="_blank">
               <ButtonText>{action}</ButtonText>
 
               <ArrowRightIcon width={24} height={24} />
