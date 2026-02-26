@@ -37,12 +37,12 @@ type DescriptionCardProps = {
 
 const DescriptionCard = memo(({ title, description }: DescriptionCardProps) => {
   return (
-    <div className="flex flex-col gap-4 shadow-light-sm p-6 rounded-2xl text-left">
+    <div className="flex flex-col gap-4 shadow-light-sm dark:bg-card dark:shadow-dark-sm p-6 rounded-2xl text-left">
       <h2 className="font-bold text-[28px] md:text-[32px] leading-[32px] md:leading-[36px]">
         {title}
       </h2>
 
-      <p className="text-neutral-700 md:text-[18px] text-base md:leading-[26px] whitespace-pre-wrap">
+      <p className="text-neutral-700 dark:text-neutral-400 md:text-[18px] text-base md:leading-[26px] whitespace-pre-wrap">
         {description}
       </p>
     </div>

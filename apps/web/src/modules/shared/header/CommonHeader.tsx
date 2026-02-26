@@ -11,70 +11,44 @@ import { ROUTES } from "./routes";
 import clsx from "clsx";
 import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
 
-export type HeaderTheme = "light" | "dark";
-
-interface CommonHeaderProps {
-  theme?: HeaderTheme;
-}
-
-const themeClasses = {
-  light: {
-    header: "bg-neutral border-neutral-200 text-neutral-900",
-    navLink: "text-neutral-700 hover:text-neutral-900",
-    logo: "text-neutral-900",
-  },
-  dark: {
-    header: "bg-neutral-1000 border-neutral-800 text-neutral",
-    navLink: "text-neutral-300 hover:text-neutral",
-    logo: "text-neutral",
-  },
-} as const;
-
-export function CommonHeader({ theme = "light" }: CommonHeaderProps) {
+export function CommonHeader() {
   const t = useTranslations();
-  const tc = themeClasses[theme];
 
   return (
-    <header className={clsx("top-0 z-50 sticky border-b w-full", tc.header)}>
+    <header className="top-0 z-50 sticky border-b w-full bg-neutral dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-neutral">
       <div className="flex justify-between items-center mx-auto px-4 max-w-[1180px] h-16">
-        <Link href={ROUTES.home} className={clsx("flex items-center", tc.logo)}>
-          <FooterLogo className={clsx("w-auto h-8", tc.logo)} />
+        <Link
+          href={ROUTES.home}
+          className="flex items-center text-neutral-900 dark:text-neutral"
+        >
+          <FooterLogo className="w-auto h-8 text-neutral-900 dark:text-neutral" />
         </Link>
 
         <nav className="hidden lg:flex justify-center items-center gap-8">
-          <ProductsDropdown theme={theme} />
+          <ProductsDropdown />
 
           <Link
             href={ROUTES.payPricing}
-            className={clsx(
-              "font-medium text-sm transition-colors",
-              tc.navLink
-            )}
+            className="font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral"
           >
             {t("CommonHeader.nav.pricing")}
           </Link>
           <Link
             href={ROUTES.payPartnerProgram}
-            className={clsx(
-              "font-medium text-sm transition-colors",
-              tc.navLink
-            )}
+            className="font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral"
           >
             {t("CommonHeader.nav.partners")}
           </Link>
           <Link
             href={ROUTES.aboutUs}
-            className={clsx(
-              "font-medium text-sm transition-colors",
-              tc.navLink
-            )}
+            className="font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral"
           >
             {t("CommonHeader.nav.aboutUs")}
           </Link>
         </nav>
 
         <div className="hidden lg:flex justify-end items-center gap-6">
-          <LocalizationSelect theme={theme} />
+          <LocalizationSelect />
 
           <div className="flex items-center gap-3">
             <ButtonRoot
@@ -97,7 +71,7 @@ export function CommonHeader({ theme = "light" }: CommonHeaderProps) {
         </div>
 
         <div className="lg:hidden flex justify-end">
-          <MobileMenu theme={theme} />
+          <MobileMenu />
         </div>
       </div>
     </header>

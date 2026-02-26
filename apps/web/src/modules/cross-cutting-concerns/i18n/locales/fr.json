@@ -148,6 +148,11 @@
         "title": "Évolutif et flexible",
         "description": "Architecture API-first pour des intégrations rapides."
       }
+    },
+    "buildCta": {
+      "title": "Construisons quelque chose de grand ensemble !",
+      "subtitle": "Un partenaire fiable pour transformer des idées ambitieuses en production.",
+      "getInTouch": "Nous contacter"
     }
   },
   "Root": {

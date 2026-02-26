@@ -15,7 +15,7 @@ export async function TechnologySection() {
           <h3 className="mx-auto max-w-[580px] font-unbounded font-bold text-[28px] sm:text-4xl leading-[32px] sm:leading-[40px]">
             {t("technology.title")}
           </h3>
-          <h4 className="font-medium text-neutral-700 sm:text-[20px] text-base sm:leading-[26px]">
+          <h4 className="font-medium text-neutral-700 dark:text-neutral-400 sm:text-[20px] text-base sm:leading-[26px]">
             {t("technology.subtitle")}
           </h4>
         </div>
@@ -60,14 +60,14 @@ const FeatureCard = memo(
     return (
       <div
         className={clsx(
-          "flex flex-col items-center gap-10 shadow-light-sm p-10 rounded-2xl min-h-[292px]",
+          "flex flex-col items-center gap-10 shadow-light-sm dark:shadow-none dark:border dark:border-neutral-700 p-10 rounded-2xl min-h-[292px]",
           classes?.root,
           className
         )}
       >
         <div
           className={clsx(
-            "flex justify-center items-center bg-neutral-100 rounded-xl w-12 h-12 text-neutral-500",
+            "flex justify-center items-center bg-neutral-100 dark:bg-neutral-800 rounded-xl w-12 h-12 text-neutral-500 dark:text-neutral-400",
             classes?.icon
           )}
         >
@@ -88,7 +88,7 @@ const FeatureCard = memo(
 
           <div
             className={clsx(
-              "text-neutral-500 text-base text-center",
+              "text-neutral-500 dark:text-neutral-400 text-base text-center",
               classes?.description
             )}
           >

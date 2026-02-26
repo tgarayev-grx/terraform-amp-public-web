@@ -13,7 +13,6 @@ import {
 } from "./contactUsSchema";
 import { GlobeIcon } from "@/app/[locale]/pay/(icons)/GlobeIcon";
 import clsx from "clsx";
-import { twMerge } from "tailwind-merge";
 import { FieldError } from "@grx/ui/form/FieldError";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { ROUTES } from "@/modules/shared/header/routes";
@@ -236,7 +235,7 @@ export function ContactUsForm({
                         }}
                       />
 
-                      <span className="font-medium text-neutral-1000 text-sm">
+                      <span className="font-medium text-neutral-1000 dark:text-neutral text-sm">
                         {t(`field.interestedIn.options.${option}`)}
                       </span>
                     </label>
@@ -269,7 +268,11 @@ export function ContactUsForm({
           <form.Subscribe selector={(state) => state.isSubmitting}>
             {(isSubmitting) => (
               <Button
-                className={twMerge("mt-14 w-full", classes?.submit)}
+                className={clsx(
+                  "mt-14 w-full",
+                  "dark:bg-neutral dark:text-neutral-1000 dark:hover:bg-neutral-100",
+                  classes?.submit
+                )}
                 type="submit"
                 palette="primary"
                 variant="contained"

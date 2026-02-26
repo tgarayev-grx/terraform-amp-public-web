@@ -7,18 +7,18 @@ import { HTMLAttributes, memo, ReactNode } from "react";
 import { GoldIcon } from "../pay/(icons)/GoldIcon";
 import { GlobeIcon } from "../pay/(icons)/GlobeIcon";
 import { LockIcon } from "../pay/(icons)/LockIcon";
-import { twMerge } from "tailwind-merge";
+import clsx from "clsx";
 
 export async function WhatWeBuildSection() {
   const t = await getTranslations();
   return (
-    <section className="flex flex-col items-center bg-neutral-100 px-4 sm:px-8 py-20 sm:py-24">
+    <section className="flex flex-col items-center bg-neutral-100 dark:bg-neutral-800 px-4 sm:px-8 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col gap-4 mb-14 text-center">
           <h3 className="mx-auto max-w-[500px] font-unbounded font-bold text-[28px] lg:text-4xl leading-[32px]">
             {t("AboutUsPage.whatWeBuild.title")}
           </h3>
-          <h4 className="font-medium text-neutral-700 lg:text-[20px] text-base lg:leading-[26px]">
+          <h4 className="font-medium text-neutral-700 dark:text-neutral-400 lg:text-[20px] text-base lg:leading-[26px]">
             {t("AboutUsPage.whatWeBuild.subtitle")}
           </h4>
         </div>
@@ -30,29 +30,39 @@ export async function WhatWeBuildSection() {
 
           <WhatWeBuildCard
             title={t("AboutUsPage.whatWeBuild.bankingCustody")}
-            icon={<BankIcon className="w-6 h-6 text-neutral-700" />}
+            icon={
+              <BankIcon className="w-6 h-6 text-neutral-700 dark:text-neutral-400" />
+            }
           />
           <WhatWeBuildCard
             title={t("AboutUsPage.whatWeBuild.complianceAudit")}
-            icon={<ShieldIcon className="w-6 h-6 text-neutral-700" />}
+            icon={
+              <ShieldIcon className="w-6 h-6 text-neutral-700 dark:text-neutral-400" />
+            }
           />
           <WhatWeBuildCard
             title={t("AboutUsPage.whatWeBuild.assetTokenization")}
             description={t(
               "AboutUsPage.whatWeBuild.assetTokenizationDescription"
             )}
-            icon={<GoldIcon className="w-6 h-6 text-neutral-700" />}
+            icon={
+              <GoldIcon className="w-6 h-6 text-neutral-700 dark:text-neutral-400" />
+            }
           />
           <WhatWeBuildCard
             title={t("AboutUsPage.whatWeBuild.distributionRails")}
             description={t(
               "AboutUsPage.whatWeBuild.distributionRailsDescription"
             )}
-            icon={<GlobeIcon className="w-6 h-6 text-neutral-700" />}
+            icon={
+              <GlobeIcon className="w-6 h-6 text-neutral-700 dark:text-neutral-400" />
+            }
           />
           <WhatWeBuildCard
             title={t("AboutUsPage.whatWeBuild.digitalAssetsAccess")}
-            icon={<LockIcon className="w-6 h-6 text-neutral-700" />}
+            icon={
+              <LockIcon className="w-6 h-6 text-neutral-700 dark:text-neutral-400" />
+            }
           />
         </div>
       </div>
@@ -70,7 +80,7 @@ const WhatWeBuildCard = memo(
   ({ title, description, icon }: WhatWeBuildCardProps) => {
     return (
       <WhatWeBuildCardRoot>
-        <div className="flex justify-center items-center bg-neutral-100 rounded-[10px] w-12 h-12">
+        <div className="flex justify-center items-center bg-neutral-100 dark:bg-neutral-800 rounded-[10px] w-12 h-12">
           {icon}
         </div>
 
@@ -80,7 +90,7 @@ const WhatWeBuildCard = memo(
           </h4>
 
           {!!description && (
-            <h5 className="text-[20px] text-neutral-700 text-center leading-[26px]">
+            <h5 className="text-[20px] text-neutral-700 dark:text-neutral-400 text-center leading-[26px]">
               {description}
             </h5>
           )}
@@ -95,8 +105,9 @@ const WhatWeBuildCardRoot = memo(
   ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {
     return (
       <div
-        className={twMerge(
-          "flex flex-col justify-center items-center gap-6 bg-neutral shadow-light-sm p-6 rounded-2xl min-h-[266px] md:min-h-[320px]",
+        className={clsx(
+          "flex flex-col justify-center items-center gap-6 shadow-light-sm dark:shadow-dark-sm p-6 rounded-2xl min-h-[266px] md:min-h-[320px]",
+          !className?.includes("bg-") && "bg-neutral dark:bg-card",
           className
         )}
         {...props}

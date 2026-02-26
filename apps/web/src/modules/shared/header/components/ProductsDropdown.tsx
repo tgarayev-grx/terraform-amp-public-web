@@ -10,32 +10,10 @@ import { ShevronDownIcon } from "../../icons";
 import { ROUTES } from "../routes";
 import clsx from "clsx";
 
-export type HeaderTheme = "light" | "dark";
-
-const themeClasses = {
-  light: {
-    navLink: "text-neutral-700 hover:text-neutral-900",
-    dropdown: "bg-neutral border-neutral-200",
-    dropdownItem: "hover:bg-neutral-100 text-neutral-1000",
-    dropdownItemDisabled: "text-neutral-500 cursor-not-allowed",
-  },
-  dark: {
-    navLink: "text-neutral-300 hover:text-neutral",
-    dropdown: "bg-neutral-900 border-neutral-800",
-    dropdownItem: "hover:bg-neutral-800 text-neutral",
-    dropdownItemDisabled: "text-neutral-500 cursor-not-allowed",
-  },
-} as const;
-
-interface ProductsDropdownProps {
-  theme: HeaderTheme;
-}
-
-export function ProductsDropdown({ theme }: ProductsDropdownProps) {
+export function ProductsDropdown() {
   const t = useTranslations();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const tc = themeClasses[theme];
 
   useEffect(() => {
     setOpen(false);
@@ -44,12 +22,7 @@ export function ProductsDropdown({ theme }: ProductsDropdownProps) {
   return (
     <Popover.Root open={open} onOpenChange={setOpen}>
       <Popover.Trigger asChild>
-        <button
-          className={clsx(
-            "group flex items-center gap-1.5 font-medium text-sm transition-colors",
-            tc.navLink
-          )}
-        >
+        <button className="group flex items-center gap-1.5 font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral">
           {t("CommonHeader.nav.products")}
           <ShevronDownIcon className="w-4 h-4 group-data-[state=open]:rotate-180 transition-transform" />
         </button>
@@ -60,17 +33,14 @@ export function ProductsDropdown({ theme }: ProductsDropdownProps) {
           className={clsx(
             "z-50 shadow-lg p-2 border rounded-xl min-w-[280px] [transform-origin:var(--radix-popover-content-transform-origin)]",
             "data-[state=closed]:animate-popover-out data-[state=open]:animate-popover-in",
-            tc.dropdown
+            "bg-neutral dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800"
           )}
           sideOffset={8}
           align="start"
         >
           <Link
             href={ROUTES.pay}
-            className={clsx(
-              "flex flex-col gap-0.5 p-3 rounded-lg cursor-pointer outline-none transition-colors block",
-              tc.dropdownItem
-            )}
+            className="flex flex-col gap-0.5 p-3 rounded-lg cursor-pointer outline-none transition-colors block hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-1000 dark:text-neutral"
           >
             <div className="flex items-center gap-2">
               <span className="font-medium">GRX Pay</span>
@@ -80,12 +50,7 @@ export function ProductsDropdown({ theme }: ProductsDropdownProps) {
             </span>
           </Link>
 
-          <div
-            className={clsx(
-              "flex flex-col gap-0.5 p-3 rounded-lg",
-              tc.dropdownItemDisabled
-            )}
-          >
+          <div className="flex flex-col gap-0.5 p-3 rounded-lg text-neutral-500 cursor-not-allowed">
             <div className="flex items-center gap-2">
               <span className="font-medium">GRX Exchange</span>
               <ComingSoonBadge>
@@ -97,12 +62,7 @@ export function ProductsDropdown({ theme }: ProductsDropdownProps) {
             </span>
           </div>
 
-          <div
-            className={clsx(
-              "flex flex-col gap-0.5 p-3 rounded-lg",
-              tc.dropdownItemDisabled
-            )}
-          >
+          <div className="flex flex-col gap-0.5 p-3 rounded-lg text-neutral-500 cursor-not-allowed">
             <div className="flex items-center gap-2">
               <span className="font-medium">GRX RWA (Real World Assets)</span>
               <ComingSoonBadge>

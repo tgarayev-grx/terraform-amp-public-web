@@ -16,7 +16,7 @@ export async function OurTeamSection() {
           <h3 className="mx-auto max-w-[500px] font-unbounded font-bold text-[28px] lg:text-4xl leading-[32px]">
             {t("AboutUsPage.ourTeam.title")}
           </h3>
-          <h4 className="font-medium text-neutral-700 lg:text-[20px] text-base lg:leading-[26px]">
+          <h4 className="font-medium text-neutral-700 dark:text-neutral-400 lg:text-[20px] text-base lg:leading-[26px]">
             {t("AboutUsPage.ourTeam.subtitle")}
           </h4>
         </div>
@@ -95,7 +95,7 @@ const OurTeamCard = memo(({ className, name, role, img }: OurTeamCardProps) => {
   return (
     <div className={clsx("flex flex-col gap-4", className)}>
       <Image
-        className="bg-neutral-100 rounded-2xl w-full sm:h-[280px] object-cover"
+        className="bg-neutral-100 dark:bg-neutral-800 rounded-2xl w-full sm:h-[280px] object-cover"
         src={img}
         alt={name}
       />
@@ -105,7 +105,9 @@ const OurTeamCard = memo(({ className, name, role, img }: OurTeamCardProps) => {
           {name}
         </h4>
 
-        <h5 className="text-[16px] text-neutral-500 leading-[20px]">{role}</h5>
+        <h5 className="text-[16px] text-neutral-500 dark:text-neutral-400 leading-[20px]">
+          {role}
+        </h5>
       </div>
     </div>
   );

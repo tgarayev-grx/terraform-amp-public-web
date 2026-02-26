@@ -77,7 +77,7 @@ const FeatureCard = memo(
         <div className="flex flex-col flex-grow md:justify-center gap-2">
           <h3 className="font-bold text-[36px] leading-[40px]">{title}</h3>
 
-          <div className="max-w-[680px] text-[20px] text-neutral-500 leading-[26px]">
+          <div className="max-w-[680px] text-[20px] text-neutral-500 dark:text-neutral-400 leading-[26px]">
             {description}
           </div>
         </div>

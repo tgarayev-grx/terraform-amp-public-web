@@ -2,20 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --background: var(--color-neutral);
+  --foreground: var(--color-neutral-1000);
+
+  --muted: var(--color-neutral-100);
+  --muted-foreground: var(--color-neutral-500);
+
+  --card: var(--color-neutral);
+  --card-foreground: var(--color-neutral-1000);
+
+  --border: var(--color-neutral-200);
+  --input: var(--color-neutral-200);
+
+  --primary: var(--color-gold-500);
+  --primary-foreground: var(--color-neutral-1000);
+}
+
+.dark {
+  --background: var(--color-neutral-1000);
+  --foreground: var(--color-neutral);
+
+  --muted: var(--color-neutral-900);
+  --muted-foreground: var(--color-neutral-400);
+
+  --card: #1d1d1d;
+  --card-foreground: var(--color-neutral);
+
+  --border: var(--color-neutral-600);
+  --input: var(--color-neutral-800);
+
+  --primary: var(--color-gold-500);
+  --primary-foreground: var(--color-neutral-1000);
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  color: var(--color-neutral-1000);
-  background: var(--color-neutral);
+  color: var(--foreground);
+  background: var(--background);
   font-family: var(--font-nunito-sans), sans-serif;
-}
-
-/* Dark theme */
-html[data-theme="dark"] body {
-  color: var(--color-neutral);
-  background: var(--color-neutral-1000);
 }
 
 @layer utilities {

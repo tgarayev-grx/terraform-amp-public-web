@@ -29,8 +29,6 @@ export function useFieldId() {
   return ctx?.id;
 }
 
-// --- Root ---
-
 export type FieldRootProps = ComponentPropsWithoutRef<"div"> & {
   id?: string;
   asChild?: boolean;
@@ -56,8 +54,6 @@ const FieldRoot = forwardRef<HTMLDivElement, FieldRootProps>(
 );
 FieldRoot.displayName = "FieldRoot";
 
-// --- Label ---
-
 export type FieldLabelProps = ComponentPropsWithoutRef<"label"> & {
   noId?: boolean;
   asChild?: boolean;
@@ -71,7 +67,7 @@ const FieldLabel = forwardRef<HTMLLabelElement, FieldLabelProps>(
       <Root
         ref={ref}
         className={clsx(
-          "min-h-[20px] font-medium text-neutral-700 text-sm",
+          "min-h-[20px] font-medium text-neutral-700 dark:text-neutral-400 text-sm",
           className
         )}
         {...rest}
@@ -83,8 +79,6 @@ const FieldLabel = forwardRef<HTMLLabelElement, FieldLabelProps>(
   }
 );
 FieldLabel.displayName = "FieldLabel";
-
-// --- HelperText ---
 
 export type FieldHelperTextProps = ComponentPropsWithoutRef<"p"> & {
   isError?: boolean;
@@ -99,7 +93,7 @@ const FieldHelperText = forwardRef<HTMLParagraphElement, FieldHelperTextProps>(
         ref={ref}
         className={clsx(
           "inline-flex justify-start items-center gap-1.5 text-sm",
-          isError ? "text-red-500" : "text-neutral-600",
+          isError ? "text-red-500" : "text-neutral-600 dark:text-neutral-500",
           className
         )}
         role={isError ? "alert" : undefined}

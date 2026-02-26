@@ -21,7 +21,7 @@ export async function EcosystemSection() {
             {t("ecosystem.title")}
           </h3>
 
-          <h4 className="font-medium text-neutral-700 sm:text-[20px] text-base sm:leading-[26px]">
+          <h4 className="font-medium text-neutral-700 dark:text-neutral-400 sm:text-[20px] text-base sm:leading-[26px]">
             {t("ecosystem.subtitle")}
           </h4>
         </div>
@@ -136,7 +136,7 @@ const FeatureCard = memo(
 
         <div
           className={clsx(
-            "flex flex-col gap-10 shadow-light-sm p-6 rounded-2xl min-h-[320px]"
+            "flex flex-col gap-10 shadow-light-sm dark:bg-card dark:shadow-dark-sm p-6 rounded-2xl min-h-[320px]"
           )}
         >
           <div
@@ -146,7 +146,7 @@ const FeatureCard = memo(
               <div className="flex flex-col gap-2">
                 <div>{prepend}</div>
 
-                <h2 className="font-bold text-[18px] text-neutral-400 md:text-[24px] leading-[22px] md:leading-[28px] tracking-[0.072px]">
+                <h2 className="font-bold text-[18px] text-neutral-400 dark:text-neutral-500 md:text-[24px] leading-[22px] md:leading-[28px] tracking-[0.072px]">
                   {product}
                 </h2>
               </div>
@@ -154,7 +154,11 @@ const FeatureCard = memo(
                 {title}
               </h3>
 
-              <div className={clsx("text-neutral-500 text-base")}>
+              <div
+                className={clsx(
+                  "text-neutral-500 dark:text-neutral-400 text-base"
+                )}
+              >
                 {description}
               </div>
             </div>

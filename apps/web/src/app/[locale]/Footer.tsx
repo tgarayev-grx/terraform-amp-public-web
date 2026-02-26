@@ -22,7 +22,7 @@ export async function Footer() {
   const t = await getTranslations();
 
   return (
-    <footer className="flex flex-col bg-neutral-100 py-16 sm:py-20">
+    <footer className="flex flex-col bg-neutral-100 dark:bg-neutral-900 py-16 sm:py-20">
       <div className="mx-auto px-4 w-full max-w-[704px] lg:max-w-[1180px]">
         <FooterNav t={t} className="mb-12" />
 
@@ -30,13 +30,13 @@ export async function Footer() {
 
         <IntegrationsList className="mb-8" />
 
-        <div className="mb-6 text-neutral-500 text-sm">
+        <div className="mb-6 text-neutral-500 dark:text-neutral-400 text-sm">
           {t("Pay.Root.footer.copyright", {
             year: String(new Date().getFullYear()),
           })}
         </div>
 
-        <p className="max-w-[1180px] text-neutral-500 text-xs leading-relaxed">
+        <p className="max-w-[1180px] text-neutral-500 dark:text-neutral-400 text-xs leading-relaxed">
           {t("Pay.Root.footer.disclaimer")}
         </p>
       </div>
@@ -59,25 +59,25 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
       )}
     >
       <Link href={ROUTES.home} className="shrink-0">
-        <FooterLogo className="w-auto h-8 text-neutral-900" />
+        <FooterLogo className="w-auto h-8 text-neutral-900 dark:text-neutral" />
       </Link>
 
       <div className="flex flex-wrap lg:flex-1 md:justify-between lg:justify-end gap-x-12 gap-y-10 lg:gap-x-16">
         <div className="flex flex-col gap-4">
-          <span className="font-semibold text-neutral-900 text-base">
+          <span className="font-semibold text-neutral-900 dark:text-neutral text-base">
             {t("Pay.Root.footer.products")}
           </span>
           <ul className="flex flex-col gap-4">
             <li>
               <Link
                 href={ROUTES.pay}
-                className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral text-sm transition-colors"
               >
                 {t("Pay.Root.footer.grxPay")}
               </Link>
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-neutral-600 text-sm">
+              <span className="text-neutral-400 dark:text-neutral-600 text-sm">
                 {t("Pay.Root.footer.grxExchange")}
               </span>
               <ComingSoonBadge variant="neutral">
@@ -85,7 +85,7 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
               </ComingSoonBadge>
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-neutral-600 text-sm">
+              <span className="text-neutral-400 dark:text-neutral-600 text-sm">
                 {t("Pay.Root.footer.grxRwa")}
               </span>
               <ComingSoonBadge variant="neutral">
@@ -96,14 +96,14 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
         </div>
 
         <div className="flex flex-col gap-4">
-          <span className="font-semibold text-neutral-900 text-base">
+          <span className="font-semibold text-neutral-900 dark:text-neutral text-base">
             {t("Pay.Root.footer.grxPaySection")}
           </span>
           <ul className="flex flex-col gap-4">
             <li>
               <Link
                 href={ROUTES.payPricing}
-                className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral text-sm transition-colors"
               >
                 {t("Pay.Root.footer.pricing")}
               </Link>
@@ -111,7 +111,7 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
             <li>
               <Link
                 href={ROUTES.payPartnerProgram}
-                className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral text-sm transition-colors"
               >
                 {t("Pay.Root.footer.partners")}
               </Link>
@@ -119,7 +119,7 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
             <li>
               <Link
                 href={ROUTES.payFaq}
-                className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral text-sm transition-colors"
               >
                 {t("Pay.Root.footer.faq")}
               </Link>
@@ -127,7 +127,7 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
             <li>
               <Link
                 href={ROUTES.payAboutUs}
-                className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral text-sm transition-colors"
               >
                 {t("Pay.Root.footer.aboutGrxPay")}
               </Link>
@@ -136,14 +136,14 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
         </div>
 
         <div className="flex flex-col gap-4">
-          <span className="font-semibold text-neutral-900 text-base">
+          <span className="font-semibold text-neutral-900 dark:text-neutral text-base">
             {t("Pay.Root.footer.aboutSection")}
           </span>
           <ul className="flex flex-col gap-4">
             <li>
               <Link
                 href={ROUTES.aboutUs}
-                className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral text-sm transition-colors"
               >
                 {t("Pay.Root.footer.aboutGrx")}
               </Link>
@@ -154,7 +154,7 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
                   interestedIn: ["grxPay"],
                 }}
               >
-                <button className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors cursor-pointer">
+                <button className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral text-sm transition-colors cursor-pointer">
                   {t("Pay.Root.footer.contactGrx")}
                 </button>
               </ContactUsModal>
@@ -163,14 +163,14 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
         </div>
 
         <div className="flex flex-col gap-4">
-          <span className="font-semibold text-neutral-900 text-base">
+          <span className="font-semibold text-neutral-900 dark:text-neutral text-base">
             {t("Pay.Root.footer.legal")}
           </span>
           <ul className="flex flex-col gap-4">
             <li>
               <Link
                 href={ROUTES.privacyPolicy}
-                className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral text-sm transition-colors"
               >
                 {t("Pay.Root.footer.privacyPolicy")}
               </Link>
@@ -178,7 +178,7 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
             <li>
               <Link
                 href={ROUTES.termsOfUse}
-                className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral text-sm transition-colors"
               >
                 {t("Pay.Root.footer.termsOfUse")}
               </Link>
@@ -186,7 +186,7 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
             <li>
               <Link
                 href={ROUTES.cookiePolicy}
-                className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral text-sm transition-colors"
               >
                 {t("Pay.Root.footer.cookiePolicy")}
               </Link>
@@ -194,7 +194,7 @@ const FooterNav = memo(({ t, className }: FooterNavProps) => {
             <li>
               <Link
                 href={ROUTES.amlPolicy}
-                className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral text-sm transition-colors"
               >
                 {t("Pay.Root.footer.amlPolicy")}
               </Link>
@@ -216,7 +216,7 @@ function AcceptCryptoList({ t, className }: AcceptCryptoListProps) {
   return (
     <div
       className={clsx(
-        "flex flex-wrap items-center gap-x-3 gap-y-1 text-neutral-500 text-sm",
+        "flex flex-wrap items-center gap-x-3 gap-y-1 text-neutral-500 dark:text-neutral-400 text-sm",
         className
       )}
     >
@@ -226,7 +226,7 @@ function AcceptCryptoList({ t, className }: AcceptCryptoListProps) {
           <Fragment key={crypto}>
             <span>{crypto}</span>
             {index !== array.length - 1 && (
-              <span className="text-neutral-300">|</span>
+              <span className="text-neutral-300 dark:text-neutral-700">|</span>
             )}
           </Fragment>
         )
@@ -243,7 +243,7 @@ function IntegrationsList({ className }: IntegrationsListProps) {
   return (
     <div
       className={clsx(
-        "flex flex-wrap items-center gap-6 sm:gap-8 text-neutral-400",
+        "flex flex-wrap items-center gap-6 sm:gap-8 text-neutral-400 dark:text-neutral-600",
         className
       )}
     >

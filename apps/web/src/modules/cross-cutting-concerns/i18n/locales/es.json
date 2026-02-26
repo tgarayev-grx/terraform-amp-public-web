@@ -148,6 +148,11 @@
         "title": "Escalable y flexible",
         "description": "Arquitectura API-first para integraciones rápidas."
       }
+    },
+    "buildCta": {
+      "title": "¡Construyamos algo increíble juntos!",
+      "subtitle": "Un socio confiable para llevar ideas ambiciosas del concepto a la producción.",
+      "getInTouch": "Contáctanos"
     }
   },
   "Root": {

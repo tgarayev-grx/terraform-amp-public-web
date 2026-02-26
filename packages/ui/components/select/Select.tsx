@@ -32,7 +32,6 @@ export type SingleSelectRootProps = ComponentPropsWithoutRef<
 
 export const SingleSelectRoot = SelectPrimitive.Root;
 
-// --- Trigger ---
 export type SingleSelectTriggerProps = ComponentPropsWithoutRef<
   typeof SelectPrimitive.Trigger
 > & {
@@ -57,7 +56,7 @@ const SingleSelectTrigger = forwardRef<
         className={clsx(
           "p-[11px] rounded-xl text-sm",
           "group",
-          "flex w-full items-center justify-between gap-2 border border-neutral-300 text-left text-neutral-1000 outline-none data-[placeholder]:text-neutral-600 [&>span]:line-clamp-1 focus-visible:border-neutral-900",
+          "flex w-full items-center justify-between gap-2 border border-neutral-300 dark:border-neutral-600 text-left text-neutral-1000 dark:text-neutral dark:bg-neutral-900 outline-none data-[placeholder]:text-neutral-600 dark:data-[placeholder]:text-neutral-500 [&>span]:line-clamp-1 focus-visible:border-neutral-900 dark:focus-visible:border-neutral-400",
           "[&>[data-value]]:flex-grow",
           {
             "border-red-500 focus-visible:border-red-500": hasError,
@@ -85,8 +84,6 @@ const SingleSelectTrigger = forwardRef<
 );
 SingleSelectTrigger.displayName = "SingleSelect.Trigger";
 
-// --- Content ---
-
 export type SingleSelectContentProps = ComponentPropsWithoutRef<
   typeof SelectPrimitive.Content
 >;
@@ -103,7 +100,7 @@ const SingleSelectContent = forwardRef<
       <SelectPrimitive.Content
         ref={ref}
         className={clsx(
-          "z-[200] bg-neutral shadow-lg p-2 border border-neutral-200 rounded-xl overflow-hidden max-h-[var(--radix-select-content-available-height)] [transform-origin:var(--radix-select-content-transform-origin)] data-[state=closed]:animate-popover-out data-[state=open]:animate-popover-in min-w-[var(--radix-select-trigger-width)]",
+          "z-[200] bg-neutral dark:bg-neutral-900 shadow-lg p-2 border border-neutral-200 dark:border-neutral-700 rounded-xl overflow-hidden max-h-[var(--radix-select-content-available-height)] [transform-origin:var(--radix-select-content-transform-origin)] data-[state=closed]:animate-popover-out data-[state=open]:animate-popover-in min-w-[var(--radix-select-trigger-width)]",
           className
         )}
         position={position}
@@ -117,8 +114,6 @@ const SingleSelectContent = forwardRef<
 );
 SingleSelectContent.displayName = "SingleSelect.Content";
 
-// --- Item ---
-
 export type SingleSelectItemProps = ComponentPropsWithoutRef<
   typeof SelectPrimitive.Item
 >;
@@ -130,7 +125,7 @@ const SingleSelectItem = forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={clsx(
-      "relative flex items-center data-[highlighted]:bg-neutral-100 data-[state=checked]:bg-neutral-100 hover:bg-neutral-100 px-3 py-2.5 rounded-lg outline-none text-neutral-1000 text-base cursor-pointer select-none",
+      "relative flex items-center data-[highlighted]:bg-neutral-100 dark:data-[highlighted]:bg-neutral-800 data-[state=checked]:bg-neutral-100 dark:data-[state=checked]:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2.5 rounded-lg outline-none text-neutral-1000 dark:text-neutral text-base cursor-pointer select-none",
       className
     )}
     {...rest}
@@ -139,8 +134,6 @@ const SingleSelectItem = forwardRef<
   </SelectPrimitive.Item>
 ));
 SingleSelectItem.displayName = "SingleSelect.Item";
-
-// --- Compound export ---
 
 export const SingleSelect = Object.assign(SingleSelectRoot, {
   Root: SingleSelectRoot,

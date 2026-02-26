@@ -48,3 +48,34 @@
 .rootHasDisabled > textarea::placeholder {
   color: var(--color-neutral-400);
 }
+
+:global(.dark) .root {
+  border-color: var(--color-neutral-600);
+  color: var(--color-neutral);
+  background-color: var(--color-neutral-900);
+}
+
+:global(.dark) .root > input::placeholder,
+:global(.dark) .root > textarea::placeholder {
+  color: var(--color-neutral-500);
+}
+
+:global(.dark) .root:hover {
+  border-color: var(--color-neutral-400);
+}
+
+:global(.dark) .root:focus-within {
+  border-color: var(--color-neutral-400);
+}
+
+:global(.dark) .rootHasDisabled,
+:global(.dark) .rootHasDisabled:hover,
+:global(.dark) .rootHasDisabled:focus-within {
+  background-color: var(--color-neutral-800);
+  border-color: var(--color-neutral-700);
+}
+
+:global(.dark) .rootHasDisabled > input::placeholder,
+:global(.dark) .rootHasDisabled > textarea::placeholder {
+  color: var(--color-neutral-600);
+}

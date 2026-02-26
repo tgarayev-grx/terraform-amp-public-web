@@ -1,6 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
+import { headers } from "next/headers";
 import { Nunito_Sans, Unbounded } from "next/font/google";
 import { Metadata } from "next";
 import clsx from "clsx";
@@ -43,15 +44,26 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
 
+  const headersList = await headers();
+  const isDark = headersList.get("x-force-theme") === "dark";
+
   return (
     <html
       lang={locale}
-      className={clsx(nunitoSans.variable, unbounded.variable)}
+      suppressHydrationWarning
+      className={clsx(nunitoSans.variable, unbounded.variable, {
+        dark: isDark,
+      })}
     >
       <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var p=location.pathname;var d=p==='/'||p==='/about-us'||p==='/about-us/'||/^\\/[a-z]{2}(\\/about-us)?\\/?\$/.test(p);if(d)document.documentElement.classList.add('dark');})();`,
+          }}
+        />
         <NextIntlClientProvider>
           <ToastProvider>
-            <CommonHeader theme="light" />
+            <CommonHeader />
             {children}
             <Footer />
 

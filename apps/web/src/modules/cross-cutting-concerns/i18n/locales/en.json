@@ -148,6 +148,11 @@
         "title": "Scalable & Flexible",
         "description": "API-first architecture for fast integrations."
       }
+    },
+    "buildCta": {
+      "title": "Let's build something great together!",
+      "subtitle": "A reliable partner to take ambitious ideas from concept to production.",
+      "getInTouch": "Get in touch"
     }
   },
   "Root": {

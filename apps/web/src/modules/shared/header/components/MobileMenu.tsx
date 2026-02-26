@@ -14,32 +14,10 @@ import { ROUTES } from "../routes";
 import clsx from "clsx";
 import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
 
-export type HeaderTheme = "light" | "dark";
-
-const themeClasses = {
-  light: {
-    navLinkMobile: "text-neutral-700 hover:text-neutral-900",
-    dropdownItemDisabled: "text-neutral-500 cursor-not-allowed",
-    sidebar: "bg-neutral border-neutral-200",
-    logo: "text-neutral-900",
-  },
-  dark: {
-    navLinkMobile: "text-neutral-300 hover:text-neutral",
-    dropdownItemDisabled: "text-neutral-500 cursor-not-allowed",
-    sidebar: "bg-neutral-900 border-neutral-800",
-    logo: "text-neutral",
-  },
-} as const;
-
-interface MobileMenuProps {
-  theme: HeaderTheme;
-}
-
-export function MobileMenu({ theme }: MobileMenuProps) {
+export function MobileMenu() {
   const t = useTranslations();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const tc = themeClasses[theme];
 
   useEffect(() => {
     setOpen(false);
@@ -48,12 +26,7 @@ export function MobileMenu({ theme }: MobileMenuProps) {
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
-        <button
-          className={clsx(
-            "flex justify-center items-center w-10 h-10 transition-colors",
-            tc.navLinkMobile
-          )}
-        >
+        <button className="flex justify-center items-center w-10 h-10 transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral">
           <MenuIcon className="w-6 h-6" />
         </button>
       </Dialog.Trigger>
@@ -63,7 +36,7 @@ export function MobileMenu({ theme }: MobileMenuProps) {
           className={clsx(
             "top-0 right-0 z-50 fixed flex flex-col shadow-lg w-full max-w-[375px] h-full overflow-y-auto",
             "data-[state=closed]:animate-slide-out-to-right data-[state=open]:animate-slide-in-from-right",
-            tc.sidebar
+            "bg-neutral dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800"
           )}
           aria-describedby={undefined}
         >
@@ -71,26 +44,16 @@ export function MobileMenu({ theme }: MobileMenuProps) {
             {t("CommonHeader.nav.menu")}
           </Dialog.Title>
           <div className="flex flex-col flex-grow">
-            <div
-              className={clsx(
-                "flex justify-between items-center px-4 py-3 border-b",
-                theme === "light" ? "border-neutral-200" : "border-neutral-800"
-              )}
-            >
+            <div className="flex justify-between items-center px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
               <Link
                 href={ROUTES.pay}
-                className={clsx("flex items-center", tc.logo)}
+                className="flex items-center text-neutral-900 dark:text-neutral"
                 onClick={() => setOpen(false)}
               >
-                <FooterLogo className={clsx("w-auto h-8", tc.logo)} />
+                <FooterLogo className="w-auto h-8 text-neutral-900 dark:text-neutral" />
               </Link>
               <Dialog.Close asChild>
-                <button
-                  className={clsx(
-                    "flex justify-center items-center w-10 h-10 transition-colors",
-                    tc.navLinkMobile
-                  )}
-                >
+                <button className="flex justify-center items-center w-10 h-10 transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral">
                   <CloseIcon className="w-6 h-6" />
                 </button>
               </Dialog.Close>
@@ -100,12 +63,7 @@ export function MobileMenu({ theme }: MobileMenuProps) {
               <Accordion.Root type="single" collapsible>
                 <Accordion.Item value="products" className="group">
                   <Accordion.Header>
-                    <Accordion.Trigger
-                      className={clsx(
-                        "flex items-center justify-between w-full px-2 py-3 font-medium text-sm transition-colors",
-                        tc.navLinkMobile
-                      )}
-                    >
+                    <Accordion.Trigger className="flex items-center justify-between w-full px-2 py-3 font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral">
                       {t("CommonHeader.nav.products")}
                       <ShevronDownIcon className="w-4 h-4 shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180" />
                     </Accordion.Trigger>
@@ -114,20 +72,12 @@ export function MobileMenu({ theme }: MobileMenuProps) {
                     <div className="flex flex-col pl-4 pb-2">
                       <Link
                         href={ROUTES.pay}
-                        className={clsx(
-                          "py-2 font-medium text-sm transition-colors",
-                          tc.navLinkMobile
-                        )}
+                        className="py-2 font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral"
                         onClick={() => setOpen(false)}
                       >
                         GRX Pay
                       </Link>
-                      <div
-                        className={clsx(
-                          "flex items-center gap-2 py-2",
-                          tc.dropdownItemDisabled
-                        )}
-                      >
+                      <div className="flex items-center gap-2 py-2 text-neutral-500 cursor-not-allowed">
                         <span className="font-medium text-sm">
                           GRX Exchange
                         </span>
@@ -135,12 +85,7 @@ export function MobileMenu({ theme }: MobileMenuProps) {
                           {t("CommonHeader.products.comingSoon")}
                         </ComingSoonBadge>
                       </div>
-                      <div
-                        className={clsx(
-                          "flex items-center gap-2 py-2",
-                          tc.dropdownItemDisabled
-                        )}
-                      >
+                      <div className="flex items-center gap-2 py-2 text-neutral-500 cursor-not-allowed">
                         <span className="font-medium text-sm">GRX RWA</span>
                         <ComingSoonBadge>
                           {t("CommonHeader.products.comingSoon")}
@@ -152,53 +97,36 @@ export function MobileMenu({ theme }: MobileMenuProps) {
               </Accordion.Root>
               <Link
                 href={ROUTES.payPricing}
-                className={clsx(
-                  "px-2 py-3 font-medium text-sm transition-colors",
-                  tc.navLinkMobile
-                )}
+                className="px-2 py-3 font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral"
                 onClick={() => setOpen(false)}
               >
                 {t("CommonHeader.nav.pricing")}
               </Link>
               <Link
                 href={ROUTES.payPartnerProgram}
-                className={clsx(
-                  "px-2 py-3 font-medium text-sm transition-colors",
-                  tc.navLinkMobile
-                )}
+                className="px-2 py-3 font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral"
                 onClick={() => setOpen(false)}
               >
                 {t("CommonHeader.nav.partners")}
               </Link>
               <Link
                 href={ROUTES.aboutUs}
-                className={clsx(
-                  "px-2 py-3 font-medium text-sm transition-colors",
-                  tc.navLinkMobile
-                )}
+                className="px-2 py-3 font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral"
                 onClick={() => setOpen(false)}
               >
                 {t("CommonHeader.nav.aboutUs")}
               </Link>
               <Link
                 href={ROUTES.payFaq}
-                className={clsx(
-                  "px-2 py-3 font-medium text-sm transition-colors",
-                  tc.navLinkMobile
-                )}
+                className="px-2 py-3 font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral"
                 onClick={() => setOpen(false)}
               >
                 {t("CommonHeader.nav.faq")}
               </Link>
             </nav>
 
-            <div
-              className={clsx(
-                "flex flex-col gap-6 px-2 pt-4 pb-6 border-t",
-                theme === "light" ? "border-neutral-200" : "border-neutral-800"
-              )}
-            >
-              <LocalizationSelect theme={theme} />
+            <div className="flex flex-col gap-6 px-2 pt-4 pb-6 border-t border-neutral-200 dark:border-neutral-800">
+              <LocalizationSelect />
 
               <div className="flex flex-col gap-3">
                 <ButtonRoot
