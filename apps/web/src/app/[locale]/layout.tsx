@@ -59,7 +59,7 @@ export default async function LocaleLayout({
       <body>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var p=location.pathname;var d=p==='/'||p==='/about-us'||p==='/about-us/'||/^\\/[a-z]{2}(\\/about-us)?\\/?\$/.test(p)||p==='/pay/faq'||p.startsWith('/pay/faq/')||/^\\/[a-z]{2}\\/pay\\/faq(\\/|$)/.test(p);if(d)document.documentElement.classList.add('dark');})();`,
+            __html: `(function(){var p=location.pathname;var legal=/^\\/(cookie-policy|privacy-policy|terms-of-use|aml-policy)(\\/|$)/.test(p)||/^\\/[a-z]{2}\\/(cookie-policy|privacy-policy|terms-of-use|aml-policy)(\\/|$)/.test(p);var d=p==='/'||p==='/about-us'||p==='/about-us/'||/^\\/[a-z]{2}(\\/about-us)?\\/?$/.test(p)||p==='/pay/faq'||p.startsWith('/pay/faq/')||/^\\/[a-z]{2}\\/pay\\/faq(\\/|$)/.test(p)||legal;if(d)document.documentElement.classList.add('dark');})();`,
           }}
         />
         <NextIntlClientProvider>
