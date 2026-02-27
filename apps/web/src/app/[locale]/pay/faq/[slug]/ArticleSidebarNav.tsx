@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useCallback, useState } from "react";
+import { useEffect, useCallback, useMemo, useState } from "react";
+import clsx from "clsx";
 import { headingToId, type ArticleSection } from "./article-content";
 
 const ACTIVE_TOP_OFFSET = 120;
+const SIDEBAR_INDICATOR_OFFSET_LEFT = 13;
 
 function getActiveSectionId(ids: string[]): string | null {
   if (ids.length === 0) return null;
@@ -31,7 +33,10 @@ export function ArticleSidebarNav({
 }: {
   sections: ArticleSection[];
 }) {
-  const ids = sections.map((s) => headingToId(s.heading));
+  const ids = useMemo(
+    () => sections.map((s) => headingToId(s.heading)),
+    [sections]
+  );
   const [activeId, setActiveId] = useState<string | null>(ids[0] ?? null);
 
   const updateActive = useCallback(() => {
@@ -39,8 +44,7 @@ export function ArticleSidebarNav({
       const next = getActiveSectionId(ids);
       return next === prev ? prev : next;
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ids.join(",")]);
+  }, [ids]);
 
   useEffect(() => {
     updateActive();
@@ -59,16 +63,19 @@ export function ArticleSidebarNav({
           <a
             key={id}
             href={`#${id}`}
-            className={`relative flex items-center self-stretch py-2 px-2 text-sm leading-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 rounded ${
+            className={clsx(
+              "relative flex items-center self-stretch py-2 pr-2 text-sm leading-5 rounded",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2",
               isActive
-                ? "pl-3 font-medium text-neutral-1000"
-                : "font-normal text-neutral-500 hover:text-neutral-1000"
-            }`}
+                ? "font-medium text-neutral-1000 dark:text-neutral"
+                : "font-normal text-neutral-500 dark:text-neutral-400 hover:text-neutral-1000 dark:hover:text-neutral"
+            )}
             aria-current={isActive ? "location" : undefined}
           >
             {isActive && (
               <span
-                className="top-1/2 left-0 absolute bg-gold-500 rounded-r-full w-[3px] h-5 -translate-y-1/2"
+                className="top-1/2 absolute bg-gold-500 rounded-r-full w-[3px] h-5 -translate-y-1/2"
+                style={{ left: -SIDEBAR_INDICATOR_OFFSET_LEFT }}
                 aria-hidden
               />
             )}

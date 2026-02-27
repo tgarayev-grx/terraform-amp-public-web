@@ -14,11 +14,11 @@ export function FaqHero() {
       <div className="mx-auto w-full max-w-[980px] px-4 text-center sm:px-8">
         <h1
           id={HERO_HEADING_ID}
-          className="font-unbounded font-bold text-[28px] leading-[32px] text-neutral-1000 sm:text-[36px] sm:leading-[40px]"
+          className="font-unbounded font-bold text-[28px] leading-[32px] text-neutral-1000 dark:text-neutral sm:text-[36px] sm:leading-[40px]"
         >
           {HERO.title}
         </h1>
-        <p className="mt-4 font-medium text-base leading-6 text-neutral-700 sm:text-[20px] sm:leading-[26px]">
+        <p className="mt-4 font-medium text-base leading-6 text-neutral-700 dark:text-neutral-400 sm:text-[20px] sm:leading-[26px]">
           {HERO.subtitle}
         </p>
       </div>
