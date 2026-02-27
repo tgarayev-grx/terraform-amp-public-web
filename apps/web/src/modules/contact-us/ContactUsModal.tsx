@@ -25,7 +25,7 @@ export function ContactUsModal({
 
         <Modal.Content
           aria-describedby={undefined}
-          className="dark:!bg-[#1E1E1E] sm:!rounded-[10px] max-sm:rounded-t-[10px]"
+          className="dark:!bg-neutral-825 sm:!rounded-[10px] max-sm:rounded-t-[10px]"
         >
           <div className="px-8 pt-8 text-center shrink-0">
             <Modal.Title className="font-bold text-[20px] text-neutral-1000 dark:text-neutral leading-[24px] tracking-[0.02px]">
