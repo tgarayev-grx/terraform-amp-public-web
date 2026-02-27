@@ -34,6 +34,11 @@
 
   --primary: var(--color-gold-500);
   --primary-foreground: var(--color-neutral-1000);
+
+  --Text-text-subtle-700: #d4d4d4;
+  --BG-bg-muted-50: #1d1d1d;
+  --Stroke-stroke-soft-200: #404040;
+  --Text-text-strong-1000: #ffffff;
 }
 
 html {
