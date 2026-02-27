@@ -14,6 +14,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
         "data-[state=checked]:border-neutral-1000 data-[state=checked]:bg-neutral data-[state=checked]:text-neutral-1000",
         "dark:data-[state=checked]:border-neutral-400 dark:data-[state=checked]:bg-neutral-1000 dark:data-[state=checked]:text-neutral",
         "focus-visible:ring-4 focus-visible:ring-offset-[2px] focus-visible:ring-neutral-200 focus-visible:text-neutral-200 focus-visible:border-neutral-200",
+        "dark:focus-visible:ring-neutral-500 dark:focus-visible:ring-offset-neutral-825",
         "hover:border-neutral-400 dark:hover:border-neutral-400 hover:data-[state=checked]:text-neutral-500 hover:data-[state=checked]:border-neutral-500",
         "active:border-neutral-1000 active:data-[state=checked]:text-neutral-700 active:data-[state=checked]:border-neutral-700",
         "outline-none",

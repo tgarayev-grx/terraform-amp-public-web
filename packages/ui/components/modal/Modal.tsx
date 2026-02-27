@@ -40,7 +40,7 @@ const Content = forwardRef<
     <Dialog.Content
       ref={ref}
       className={clsx(
-        "fixed flex flex-col bg-neutral dark:bg-neutral-900 rounded-2xl focus:outline-none text-neutral-1000 dark:text-neutral",
+        "fixed flex flex-col bg-neutral dark:bg-neutral-900 rounded-2xl outline-none focus:outline-none focus-visible:outline-none focus-visible:ring-0 text-neutral-1000 dark:text-neutral",
         "max-sm:top-8 sm:top-1/2 right-0 bottom-0 sm:bottom-auto left-0 sm:left-1/2 z-[101] w-full sm:max-w-[600px] max-h-[100dvh] sm:-translate-x-1/2 sm:-translate-y-1/2 rounded-t-2xl sm:rounded-2xl data-[state=closed]:animate-out data-[state=open]:animate-in duration-200 data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 max-sm:data-[state=closed]:slide-out-to-bottom max-sm:data-[state=open]:slide-in-from-bottom sm:data-[state=closed]:slide-out-to-top-[48%] sm:data-[state=closed]:slide-out-to-left-1/2 sm:data-[state=open]:slide-in-from-left-1/2 sm:data-[state=open]:slide-in-from-top-[48%] sm:data-[state=closed]:zoom-out-95 sm:data-[state=open]:zoom-in-95",
         className
       )}
