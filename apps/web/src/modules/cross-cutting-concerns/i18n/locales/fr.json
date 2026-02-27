@@ -622,8 +622,8 @@
         "privacyPolicy": "Politique de confidentialité",
         "cookiePolicy": "Politique des cookies",
         "amlPolicy": "Politique AML",
-        "acceptCrypto": "Accepter les crypto",
-        "copyright": "© GRX {year}. Tous droits réservés",
+        "acceptCrypto": "Accepter les crypto:",
+        "copyright": "© {year} GRX. Tous droits réservés",
         "disclaimer": "Les services GRX et le contenu de ce site sont fournis à titre informatif uniquement. Les actifs numériques impliquent des risques. GRX ne fournit pas de conseils financiers, d'investissement, juridiques ou fiscaux. La disponibilité des services peut varier selon les juridictions. Les performances passées ne garantissent pas les résultats futurs. Le chiffre des actifs sous gestion mis à jour pour la dernière fois en juin 2025."
       }
     },

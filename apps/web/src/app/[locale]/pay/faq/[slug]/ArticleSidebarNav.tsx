@@ -37,6 +37,7 @@ export function ArticleSidebarNav({
     () => sections.map((s) => headingToId(s.heading)),
     [sections]
   );
+  const idsKey = ids.join(",");
   const [activeId, setActiveId] = useState<string | null>(ids[0] ?? null);
 
   const updateActive = useCallback(() => {
@@ -44,7 +45,7 @@ export function ArticleSidebarNav({
       const next = getActiveSectionId(ids);
       return next === prev ? prev : next;
     });
-  }, [ids]);
+  }, [idsKey]);
 
   useEffect(() => {
     updateActive();
@@ -67,8 +68,8 @@ export function ArticleSidebarNav({
               "relative flex items-center self-stretch py-2 pr-2 text-sm leading-5 rounded",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2",
               isActive
-                ? "font-medium text-neutral-1000 dark:text-neutral"
-                : "font-normal text-neutral-500 dark:text-neutral-400 hover:text-neutral-1000 dark:hover:text-neutral"
+                ? "-ml-3 pl-3 font-medium text-neutral-1000 dark:text-neutral"
+                : "-ml-2 font-normal text-neutral-500 dark:text-neutral-400 hover:text-neutral-1000 dark:hover:text-neutral"
             )}
             aria-current={isActive ? "location" : undefined}
           >

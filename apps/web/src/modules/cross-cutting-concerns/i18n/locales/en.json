@@ -622,9 +622,9 @@
         "privacyPolicy": "Privacy policy",
         "cookiePolicy": "Cookie policy",
         "amlPolicy": "AML policy",
-        "acceptCrypto": "Accept crypto",
-        "copyright": "© GRX {year}. All rights reserved",
-        "disclaimer": "GRX Services and the content on this site are provided for informational purposes only. Digital assets involve risks. GRX does not provide financial, investment, legal, or tax advice. Availability of services may vary by jurisdiction. Past performance does not guarantee future results. Assets under management figure last updated June, 2025."
+        "acceptCrypto": "Accept crypto:",
+        "copyright": "© {year} GRX. All rights reserved",
+        "disclaimer": "All or part of the GRX Services, some features thereof, or some Digital Assets, are not available in certain jurisdictions, including where restrictions or limitations may apply, as indicated on the GRX Platform and in the relevant general terms and conditions. While the nature of digital assets is unique, and when considering digital assets in the context of wealth enhancement, any such reference is for a general understanding of GRX's offerings. Materials related to GRX's services should not be treated as a guarantee of future results or as financial advice. When terms such as \u201Cup to\u201D or \u201Cfrom\u201D are used to denote limits, achieving these maximum or minimum thresholds may be conditional on additional actions or fulfilment of certain criteria and requirements that may not be attainable by all clients. This material is for general information purposes only and is not intended to provide and should not be relied on for tax, legal or accounting advice. You should consult a qualified professional, as this material is not tailored to your specific circumstances. When referencing digital assets as potential investments, any similarities with the traditional concept of investments are entirely circumstantial, therefore any parallels between them should not be interpreted as deliberate or intended. Assets under management figure last updated June, 2025."
       }
     },
     "AboutUs": {

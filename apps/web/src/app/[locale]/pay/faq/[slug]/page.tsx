@@ -44,10 +44,13 @@ function ArticleSidebar({ sections }: { sections: ArticleSection[] }) {
 
   return (
     <aside
-      className="hidden w-full flex-shrink-0 flex-col self-start md:flex md:w-[161px] lg:w-[260px] md:sticky md:top-24"
+      className="hidden w-full flex-shrink-0 flex-col self-start md:flex md:w-[161px] lg:w-[260px] md:sticky md:top-24 md:-ml-4"
       aria-label="Article navigation"
     >
-      <nav className="flex flex-col self-stretch" aria-label="On this page">
+      <nav
+        className="flex flex-col self-stretch pl-4"
+        aria-label="On this page"
+      >
         <ArticleSidebarNav sections={sections} />
       </nav>
     </aside>

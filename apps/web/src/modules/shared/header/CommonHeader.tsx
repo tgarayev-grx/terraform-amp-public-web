@@ -16,62 +16,64 @@ export function CommonHeader() {
 
   return (
     <header className="top-0 z-50 sticky border-b w-full bg-neutral dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-neutral">
-      <div className="flex justify-between items-center mx-auto px-4 max-w-[1180px] h-16">
-        <Link
-          href={ROUTES.home}
-          className="flex items-center text-neutral-900 dark:text-neutral"
-        >
-          <FooterLogo className="w-auto h-8 text-neutral-900 dark:text-neutral" />
-        </Link>
-
-        <nav className="hidden lg:flex justify-center items-center gap-8">
-          <ProductsDropdown />
-
+      <div className="px-4 sm:px-8">
+        <div className="flex justify-between items-center mx-auto max-w-[1180px] h-16">
           <Link
-            href={ROUTES.payPricing}
-            className="font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral"
+            href={ROUTES.home}
+            className="flex items-center text-neutral-900 dark:text-neutral"
           >
-            {t("CommonHeader.nav.pricing")}
+            <FooterLogo className="w-auto h-8 text-neutral-900 dark:text-neutral" />
           </Link>
-          <Link
-            href={ROUTES.payPartnerProgram}
-            className="font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral"
-          >
-            {t("CommonHeader.nav.partners")}
-          </Link>
-          <Link
-            href={ROUTES.aboutUs}
-            className="font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral"
-          >
-            {t("CommonHeader.nav.aboutUs")}
-          </Link>
-        </nav>
 
-        <div className="hidden lg:flex justify-end items-center gap-6">
-          <LocalizationSelect />
+          <nav className="hidden lg:flex justify-center items-center gap-8">
+            <ProductsDropdown />
 
-          <div className="flex items-center gap-3">
-            <ButtonRoot
-              asChild
-              palette="secondary"
-              variant="contained"
-              size="sm"
+            <Link
+              href={ROUTES.payPricing}
+              className="font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral"
             >
-              <Link href={EXTERNAL_LINKS.Pay.signIn.href} target="_blank">
-                <ButtonText>{t("CommonHeader.nav.signIn")}</ButtonText>
-              </Link>
-            </ButtonRoot>
+              {t("CommonHeader.nav.pricing")}
+            </Link>
+            <Link
+              href={ROUTES.payPartnerProgram}
+              className="font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral"
+            >
+              {t("CommonHeader.nav.partners")}
+            </Link>
+            <Link
+              href={ROUTES.aboutUs}
+              className="font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral"
+            >
+              {t("CommonHeader.nav.aboutUs")}
+            </Link>
+          </nav>
 
-            <ButtonRoot asChild palette="primary" variant="contained" size="sm">
-              <Link href={EXTERNAL_LINKS.Pay.signUp.href} target="_blank">
-                <ButtonText>{t("CommonHeader.nav.createAccount")}</ButtonText>
-              </Link>
-            </ButtonRoot>
+          <div className="hidden lg:flex justify-end items-center gap-6">
+            <LocalizationSelect />
+
+            <div className="flex items-center gap-3">
+              <ButtonRoot
+                asChild
+                palette="secondary"
+                variant="contained"
+                size="sm"
+              >
+                <Link href={EXTERNAL_LINKS.Pay.signIn.href} target="_blank">
+                  <ButtonText>{t("CommonHeader.nav.signIn")}</ButtonText>
+                </Link>
+              </ButtonRoot>
+
+              <ButtonRoot asChild palette="primary" variant="contained" size="sm">
+                <Link href={EXTERNAL_LINKS.Pay.signUp.href} target="_blank">
+                  <ButtonText>{t("CommonHeader.nav.createAccount")}</ButtonText>
+                </Link>
+              </ButtonRoot>
+            </div>
           </div>
-        </div>
 
-        <div className="lg:hidden flex justify-end">
-          <MobileMenu />
+          <div className="lg:hidden flex justify-end">
+            <MobileMenu />
+          </div>
         </div>
       </div>
     </header>
