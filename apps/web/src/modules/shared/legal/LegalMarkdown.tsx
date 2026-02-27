@@ -2,23 +2,26 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { Components } from "react-markdown";
 
-const linkClassName = "text-blue-600 hover:text-blue-500 underline";
+const linkClassName =
+  "text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300 underline";
 
 export const baseLegalComponents: Components = {
   p: ({ children }) => (
-    <p className="text-base text-neutral-700 leading-6 mb-4 last:mb-0">
+    <p className="text-base text-neutral-700 dark:text-[var(--Text-text-subtle-700)] leading-6 mb-4 last:mb-0">
       {children}
     </p>
   ),
 
   h2: ({ children }) => (
-    <h2 className="font-bold text-2xl leading-7 text-neutral-1000 mt-10 mb-4 first:mt-0">
+    <h2 className="font-bold text-2xl leading-7 text-neutral-1000 dark:text-[var(--Text-text-strong-1000)] mt-10 mb-4 first:mt-0">
       {children}
     </h2>
   ),
 
   strong: ({ children }) => (
-    <strong className="font-semibold text-neutral-1000">{children}</strong>
+    <strong className="font-semibold text-neutral-1000 dark:text-[var(--Text-text-strong-1000)]">
+      {children}
+    </strong>
   ),
 
   a: ({ href, children }) => {
@@ -36,11 +39,15 @@ export const baseLegalComponents: Components = {
   },
 
   ul: ({ children }) => (
-    <ul className="list-disc pl-5 space-y-2 my-4">{children}</ul>
+    <ul className="list-disc pl-5 space-y-2 my-4 text-neutral-700 dark:text-[var(--Text-text-subtle-700)]">
+      {children}
+    </ul>
   ),
 
   ol: ({ children }) => (
-    <ol className="list-decimal pl-5 space-y-2 my-4">{children}</ol>
+    <ol className="list-decimal pl-5 space-y-2 my-4 text-neutral-700 dark:text-[var(--Text-text-subtle-700)]">
+      {children}
+    </ol>
   ),
 
   li: ({ children }) => <li className="pl-1">{children}</li>,
@@ -50,24 +57,30 @@ export const baseLegalComponents: Components = {
 
 export const baseLegalTableComponents: Components = {
   table: ({ children }) => (
-    <div className="overflow-x-auto rounded-lg border border-neutral-200 my-2 w-full">
-      <table className="w-full border-collapse text-sm text-neutral-600">
+    <div className="overflow-x-auto rounded-lg border border-neutral-200 dark:border-[var(--Stroke-stroke-soft-200)] my-2 w-full">
+      <table className="w-full border-collapse text-sm text-neutral-600 dark:text-[var(--Text-text-subtle-700)]">
         {children}
       </table>
     </div>
   ),
-  thead: ({ children }) => <thead className="bg-neutral-100">{children}</thead>,
+  thead: ({ children }) => (
+    <thead className="bg-neutral-100 dark:bg-[var(--BG-bg-muted-50)]">
+      {children}
+    </thead>
+  ),
   tbody: ({ children }) => <tbody>{children}</tbody>,
   tr: ({ children }) => (
-    <tr className="border-b border-neutral-200 last:border-0">{children}</tr>
+    <tr className="border-b border-neutral-200 dark:border-[var(--Stroke-stroke-soft-200)] last:border-0">
+      {children}
+    </tr>
   ),
   th: ({ children }) => (
-    <th className="relative text-left font-semibold text-[14px] leading-5 text-neutral-1000 px-4 py-4 whitespace-nowrap [&:not(:last-child)]:after:absolute [&:not(:last-child)]:after:right-0 [&:not(:last-child)]:after:top-4 [&:not(:last-child)]:after:bottom-4 [&:not(:last-child)]:after:w-px [&:not(:last-child)]:after:bg-neutral-200">
+    <th className="relative text-left font-semibold text-[14px] leading-5 text-neutral-1000 dark:text-[var(--Text-text-strong-1000)] px-4 py-4 whitespace-nowrap [&:not(:last-child)]:after:absolute [&:not(:last-child)]:after:right-0 [&:not(:last-child)]:after:top-4 [&:not(:last-child)]:after:bottom-4 [&:not(:last-child)]:after:w-px [&:not(:last-child)]:after:bg-neutral-200 dark:[&:not(:last-child)]:after:bg-[var(--Stroke-stroke-soft-200)]">
       {children}
     </th>
   ),
   td: ({ children }) => (
-    <td className="px-4 py-4 text-[14px] leading-5 align-top first:w-[160px] [&:nth-child(2)]:w-[160px]">
+    <td className="px-4 py-4 text-[14px] leading-5 align-top first:w-[160px] [&:nth-child(2)]:w-[160px] text-neutral-600 dark:text-[var(--Text-text-subtle-700)]">
       {children}
     </td>
   ),
