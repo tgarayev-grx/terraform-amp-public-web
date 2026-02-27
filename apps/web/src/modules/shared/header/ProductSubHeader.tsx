@@ -7,6 +7,7 @@ import {
   usePathname,
 } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { useScrollDirection } from "./useScrollDirection";
+import { isPayFaqPath } from "@/lib/dark-theme";
 import clsx from "clsx";
 
 export type HeaderTheme = "light" | "dark";
@@ -37,7 +38,7 @@ const themeClasses = {
     linkActive: "text-neutral-900 font-medium border-b-2 border-neutral-900",
   },
   dark: {
-    bar: "bg-neutral-1000 border-neutral-800",
+    bar: "bg-neutral-900 border-neutral-800",
     link: "text-neutral-300 hover:text-neutral",
     linkActive: "text-neutral font-medium border-b-2 border-neutral",
   },
@@ -54,7 +55,8 @@ export function ProductSubHeader({
   const pathname = usePathname();
   const scrollDirection = useScrollDirection();
   const [isAtTop, setIsAtTop] = useState(true);
-  const tc = themeClasses[theme];
+  const effectiveTheme = isPayFaqPath(pathname) ? "dark" : theme;
+  const tc = themeClasses[effectiveTheme];
 
   useEffect(() => {
     const checkScrollTop = () => {
@@ -90,8 +92,7 @@ export function ProductSubHeader({
           {items.map((item) => {
             const isActive = item.exact
               ? pathname === item.href
-              : pathname === item.href ||
-                pathname.startsWith(item.href + "/");
+              : pathname === item.href || pathname.startsWith(item.href + "/");
             return (
               <Link
                 key={item.href}
