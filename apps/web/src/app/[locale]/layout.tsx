@@ -14,6 +14,7 @@ import { routing } from "@/modules/cross-cutting-concerns/i18n/routing";
 import { CookieBanner } from "@/modules/cross-cutting-concerns/cookie-preference";
 import { CommonHeader } from "@/modules/shared/header";
 import { Footer } from "./Footer";
+import { DarkThemeSync } from "@/components/theme/DarkThemeSync";
 
 export const metadata: Metadata = {
   title: "Golden Ratio Exchange",
@@ -58,10 +59,11 @@ export default async function LocaleLayout({
       <body>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var p=location.pathname;var d=p==='/'||p==='/about-us'||p==='/about-us/'||/^\\/[a-z]{2}(\\/about-us)?\\/?\$/.test(p);if(d)document.documentElement.classList.add('dark');})();`,
+            __html: `(function(){var p=location.pathname;var d=p==='/'||p==='/about-us'||p==='/about-us/'||/^\\/[a-z]{2}(\\/about-us)?\\/?\$/.test(p)||p==='/pay/faq'||p.startsWith('/pay/faq/')||/^\\/[a-z]{2}\\/pay\\/faq(\\/|$)/.test(p);if(d)document.documentElement.classList.add('dark');})();`,
           }}
         />
         <NextIntlClientProvider>
+          <DarkThemeSync />
           <ToastProvider>
             <CommonHeader />
             {children}

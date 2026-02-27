@@ -2,27 +2,14 @@ import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
 
 import { routing } from "@/modules/cross-cutting-concerns/i18n/routing";
+import { isDarkThemePath } from "@/lib/dark-theme";
 
 const intlMiddleware = createMiddleware(routing);
-
-const DARK_THEME_BASE_PATHS = new Set(["/", "/about-us"]);
-
-function isDarkThemeRoute(pathname: string): boolean {
-  const nonDefaultLocales = routing.locales.filter(
-    (l) => l !== routing.defaultLocale
-  );
-
-  if (DARK_THEME_BASE_PATHS.has(pathname)) return true;
-
-  return nonDefaultLocales.some(
-    (locale) => pathname === `/${locale}` || pathname === `/${locale}/about-us`
-  );
-}
 
 export default function middleware(request: NextRequest) {
   const intlResponse = intlMiddleware(request);
 
-  if (!isDarkThemeRoute(request.nextUrl.pathname)) {
+  if (!isDarkThemePath(request.nextUrl.pathname)) {
     return intlResponse;
   }
 
