@@ -3,6 +3,7 @@ import type { Config } from "tailwindcss";
 import {
   tailwindConfigColors,
   tailwindConfigShadows,
+  tailwindConfigTypography,
 } from "../../packages/ui/theme/tailwind.theme";
 
 const config: Config = {
@@ -11,34 +12,15 @@ const config: Config = {
     // TODO: Remove this once we have a proper external package for components
     "../../packages/ui/components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: "class",
+  darkMode: ["selector", "[data-theme=dark]"],
   theme: {
     extend: {
       fontFamily: {
         unbounded: ["var(--font-unbounded)", "sans-serif"],
       },
-      colors: {
-        ...tailwindConfigColors,
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        muted: {
-          DEFAULT: "var(--muted)",
-          foreground: "var(--muted-foreground)",
-        },
-        card: {
-          DEFAULT: "var(--card)",
-          foreground: "var(--card-foreground)",
-        },
-        border: "var(--border)",
-        input: "var(--input)",
-        primary: {
-          DEFAULT: "var(--primary)",
-          foreground: "var(--primary-foreground)",
-        },
-      },
-      boxShadow: {
-        ...tailwindConfigShadows,
-      },
+      colors: tailwindConfigColors,
+      boxShadow: tailwindConfigShadows,
+      fontSize: tailwindConfigTypography,
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

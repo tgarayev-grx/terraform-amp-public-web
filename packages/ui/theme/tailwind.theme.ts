@@ -239,17 +239,286 @@ export const tailwindConfigColors = {
     800: "var(--color-purple-800)",
     900: "var(--color-purple-900)",
   },
+
+  primary: {
+    gold: "var(--primary-gold)",
+    "dark-700": "var(--primary-dark-700)",
+    "darker-800": "var(--primary-darker-800)",
+    "base-1000": "var(--primary-base-1000)",
+    "subtle-300": "var(--primary-subtle-300)",
+    "soft-200": "var(--primary-soft-200)",
+    "weak-100": "var(--primary-weak-100)",
+  },
+  surface: {
+    canvas: "var(--surface-canvas)",
+    base: "var(--surface-base)",
+    floating: "var(--surface-floating)",
+  },
+  bg: {
+    "base-1000": "var(--bg-base-1000)",
+    "strong-800": "var(--bg-strong-800)",
+    "emphasis-700": "var(--bg-emphasis-700)",
+    "emphasis-400": "var(--bg-emphasis-400)",
+    "subtle-300": "var(--bg-subtle-300)",
+    "soft-200": "var(--bg-soft-200)",
+    "weak-100": "var(--bg-weak-100)",
+    "muted-50": "var(--bg-muted-50)",
+    base: "var(--bg-base)",
+  },
+  stroke: {
+    "stronger-900": "var(--stroke-stronger-900)",
+    "strong-500": "var(--stroke-strong-500)",
+    "base-300": "var(--stroke-base-300)",
+    "soft-200": "var(--stroke-soft-200)",
+    disabled: "var(--stroke-disabled)",
+  },
+  text: {
+    "strong-1000": "var(--text-strong-1000)",
+    "subtle-700": "var(--text-subtle-700)",
+    "soft-500": "var(--text-soft-500)",
+    disabled: "var(--text-disabled)",
+    inverce: "var(--text-inverce)",
+    "on-accent": "var(--text-on-accent)",
+  },
+  icon: {
+    "strong-1000": "var(--icon-strong-1000)",
+    "subtle-700": "var(--icon-subtle-700)",
+    "base-500": "var(--icon-base-500)",
+    disabled: "var(--icon-disabled)",
+    inverce: "var(--icon-inverce)",
+    "on-accent": "var(--icon-on-accent)",
+  },
+  error: {
+    "strong-800": "var(--error-strong-800)",
+    "base-600": "var(--error-base-600)",
+    "subtle-500": "var(--error-subtle-500)",
+    "soft-400": "var(--error-soft-400)",
+    "light-200": "var(--error-light-200)",
+    "lighter-100": "var(--error-lighter-100)",
+    "muted-50": "var(--error-muted-50)",
+  },
+  warning: {
+    "strong-800": "var(--warning-strong-800)",
+    "base-600": "var(--warning-base-600)",
+    "subtle-500": "var(--warning-subtle-500)",
+    "soft-400": "var(--warning-soft-400)",
+    "muted-50": "var(--warning-muted-50)",
+  },
+  success: {
+    "strong-800": "var(--success-strong-800)",
+    "base-600": "var(--success-base-600)",
+    "subtle-500": "var(--success-subtle-500)",
+    "soft-400": "var(--success-soft-400)",
+    "light-200": "var(--success-light-200)",
+    "lighter-100": "var(--success-lighter-100)",
+    "muted-50": "var(--success-muted-50)",
+  },
+  info: {
+    "strong-800": "var(--info-strong-800)",
+    "base-600": "var(--info-base-600)",
+    "subtle-500": "var(--info-subtle-500)",
+    "soft-400": "var(--info-soft-400)",
+    "light-200": "var(--info-light-200)",
+    "muted-50": "var(--info-muted-50)",
+  },
+  add: {
+    "cyan-50": "var(--add-cyan-50)",
+    "cyan-300": "var(--add-cyan-300)",
+    "cyan-900": "var(--add-cyan-900)",
+    "sky-50": "var(--add-sky-50)",
+    "sky-300": "var(--add-sky-300)",
+    "sky-900": "var(--add-sky-900)",
+    "indigo-50": "var(--add-indigo-50)",
+    "indigo-300": "var(--add-indigo-300)",
+    "indigo-900": "var(--add-indigo-900)",
+    "purple-50": "var(--add-purple-50)",
+    "purple-300": "var(--add-purple-300)",
+    "purple-900": "var(--add-purple-900)",
+    "fuchsia-50": "var(--add-fuchsia-50)",
+    "fuchsia-300": "var(--add-fuchsia-300)",
+    "fuchsia-900": "var(--add-fuchsia-900)",
+    "pink-50": "var(--add-pink-50)",
+    "pink-300": "var(--add-pink-300)",
+    "pink-900": "var(--add-pink-900)",
+    "orange-50": "var(--add-orange-50)",
+    "orange-300": "var(--add-orange-300)",
+    "orange-900": "var(--add-orange-900)",
+    "amber-50": "var(--add-amber-50)",
+    "amber-300": "var(--add-amber-300)",
+    "amber-900": "var(--add-amber-900)",
+    "pea-50": "var(--add-pea-50)",
+    "pea-300": "var(--add-pea-300)",
+    "pea-900": "var(--add-pea-900)",
+    "emerald-50": "var(--add-emerald-50)",
+    "emerald-300": "var(--add-emerald-300)",
+    "emerald-900": "var(--add-emerald-900)",
+    "red-50": "var(--add-red-50)",
+    "red-300": "var(--add-red-300)",
+    "red-900": "var(--add-red-900)",
+    "green-50": "var(--add-green-50)",
+    "green-300": "var(--add-green-300)",
+    "green-900": "var(--add-green-900)",
+    "blue-50": "var(--add-blue-50)",
+    "blue-300": "var(--add-blue-300)",
+    "blue-900": "var(--add-blue-900)",
+    "yellow-50": "var(--add-yellow-50)",
+    "yellow-300": "var(--add-yellow-300)",
+    "yellow-900": "var(--add-yellow-900)",
+  },
 } as const;
 
 export const tailwindConfigShadows = {
-  "light-xs": "var(--shadow-light-xs)",
-  "light-sm": "var(--shadow-light-sm)",
-  "light-md": "var(--shadow-light-md)",
-  "light-lg": "var(--shadow-light-lg)",
-  "light-xl": "var(--shadow-light-xl)",
-  "dark-xs": "var(--shadow-dark-xs)",
-  "dark-sm": "var(--shadow-dark-sm)",
-  "dark-md": "var(--shadow-dark-md)",
-  "dark-lg": "var(--shadow-dark-lg)",
-  "dark-xl": "var(--shadow-dark-xl)",
+  xs: "var(--shadow-xs)",
+  sm: "var(--shadow-sm)",
+  md: "var(--shadow-md)",
+  lg: "var(--shadow-lg)",
+  xl: "var(--shadow-xl)",
 } as const;
+
+export const tailwindConfigTypography = {
+  "display-xxl": [
+    "64px",
+    { lineHeight: "72px", letterSpacing: "0.32px", fontWeight: "700" },
+  ],
+  "display-xl": [
+    "56px",
+    { lineHeight: "64px", letterSpacing: "0.28px", fontWeight: "700" },
+  ],
+  "display-lg": [
+    "48px",
+    { lineHeight: "56px", letterSpacing: "0", fontWeight: "700" },
+  ],
+  "display-md": [
+    "36px",
+    { lineHeight: "40px", letterSpacing: "0", fontWeight: "700" },
+  ],
+  "display-sm": [
+    "28px",
+    { lineHeight: "28px", letterSpacing: "0", fontWeight: "700" },
+  ],
+
+  "heading-h1": [
+    "48px",
+    { lineHeight: "56px", letterSpacing: "0", fontWeight: "700" },
+  ],
+  "heading-h2": [
+    "40px",
+    { lineHeight: "44px", letterSpacing: "0", fontWeight: "700" },
+  ],
+  "heading-h3": [
+    "36px",
+    { lineHeight: "40px", letterSpacing: "0", fontWeight: "700" },
+  ],
+  "heading-h4": [
+    "32px",
+    { lineHeight: "36px", letterSpacing: "0", fontWeight: "700" },
+  ],
+  "heading-h5": [
+    "28px",
+    { lineHeight: "32px", letterSpacing: "0", fontWeight: "700" },
+  ],
+
+  "title-lg": [
+    "24px",
+    { lineHeight: "28px", letterSpacing: "0", fontWeight: "700" },
+  ],
+  "title-lg-semibold": [
+    "24px",
+    { lineHeight: "28px", letterSpacing: "0", fontWeight: "600" },
+  ],
+  "title-md": [
+    "20px",
+    { lineHeight: "24px", letterSpacing: "0.08px", fontWeight: "700" },
+  ],
+  "title-md-semibold": [
+    "20px",
+    { lineHeight: "24px", letterSpacing: "0.08px", fontWeight: "600" },
+  ],
+  "title-sm": [
+    "18px",
+    { lineHeight: "22px", letterSpacing: "0.08px", fontWeight: "700" },
+  ],
+  "title-sm-semibold": [
+    "18px",
+    { lineHeight: "22px", letterSpacing: "0.08px", fontWeight: "600" },
+  ],
+
+  "body-xl-regular": [
+    "20px",
+    { lineHeight: "26px", letterSpacing: "0", fontWeight: "400" },
+  ],
+  "body-xl-medium": [
+    "20px",
+    { lineHeight: "26px", letterSpacing: "0", fontWeight: "500" },
+  ],
+  "body-lg-regular": [
+    "16px",
+    { lineHeight: "24px", letterSpacing: "0", fontWeight: "400" },
+  ],
+  "body-lg-medium": [
+    "16px",
+    { lineHeight: "24px", letterSpacing: "0", fontWeight: "500" },
+  ],
+  "body-lg-semibold": [
+    "16px",
+    { lineHeight: "24px", letterSpacing: "0", fontWeight: "600" },
+  ],
+  "body-md-regular": [
+    "14px",
+    { lineHeight: "20px", letterSpacing: "0", fontWeight: "400" },
+  ],
+  "body-md-medium": [
+    "14px",
+    { lineHeight: "20px", letterSpacing: "0", fontWeight: "500" },
+  ],
+  "body-md-semibold": [
+    "14px",
+    { lineHeight: "20px", letterSpacing: "0", fontWeight: "600" },
+  ],
+  "body-sm-regular": [
+    "12px",
+    { lineHeight: "16px", letterSpacing: "0", fontWeight: "400" },
+  ],
+  "body-sm-medium": [
+    "12px",
+    { lineHeight: "16px", letterSpacing: "0", fontWeight: "500" },
+  ],
+  "body-sm-semibold": [
+    "12px",
+    { lineHeight: "16px", letterSpacing: "0", fontWeight: "600" },
+  ],
+
+  "caption-sm-regular": [
+    "11px",
+    { lineHeight: "12px", letterSpacing: "0", fontWeight: "400" },
+  ],
+  "caption-sm-medium": [
+    "11px",
+    { lineHeight: "12px", letterSpacing: "0", fontWeight: "500" },
+  ],
+  "caption-sm-semibold": [
+    "11px",
+    { lineHeight: "12px", letterSpacing: "0", fontWeight: "600" },
+  ],
+
+  "caption-xs-regular": [
+    "10px",
+    { lineHeight: "12px", letterSpacing: "0", fontWeight: "400" },
+  ],
+  "caption-xs-medium": [
+    "10px",
+    { lineHeight: "12px", letterSpacing: "0", fontWeight: "500" },
+  ],
+  "caption-xs-semibold": [
+    "10px",
+    { lineHeight: "12px", letterSpacing: "0", fontWeight: "600" },
+  ],
+} satisfies TailwindConfigTypography;
+
+type TailwindConfigTypography = Record<
+  string,
+  [
+    fontSize: string,
+    { lineHeight: string; letterSpacing: string; fontWeight: string },
+  ]
+>;
