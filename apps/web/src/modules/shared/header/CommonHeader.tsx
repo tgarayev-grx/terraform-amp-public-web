@@ -1,15 +1,17 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { ButtonRoot, ButtonText } from "@grx/ui";
+
+import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
+import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
+import { ThemeSwitcher } from "@/modules/cross-cutting-concerns/theme";
+
 import { FooterLogo } from "../icons";
 import { MobileMenu } from "./components/MobileMenu";
 import { ProductsDropdown } from "./components/ProductsDropdown";
 import { LocalizationSelect } from "./components/LocalizationSelect";
 import { ROUTES } from "./routes";
-import clsx from "clsx";
-import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
 
 export function CommonHeader() {
   const t = useTranslations();
@@ -50,6 +52,7 @@ export function CommonHeader() {
 
           <div className="hidden lg:flex justify-end items-center gap-6">
             <LocalizationSelect />
+            <ThemeSwitcher />
 
             <div className="flex items-center gap-3">
               <ButtonRoot variant="secondary" size="sm" asChild>

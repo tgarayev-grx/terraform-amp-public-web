@@ -3,15 +3,18 @@
 import * as Accordion from "@radix-ui/react-accordion";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useTranslations } from "next-intl";
-import { usePathname } from "@/modules/cross-cutting-concerns/i18n/navigation";
-import { useEffect, useState } from "react";
-import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
-import { ButtonRoot, ButtonText } from "@grx/ui";
-import { CloseIcon, FooterLogo, MenuIcon, ShevronDownIcon } from "../../icons";
-import { LocalizationSelect } from "./LocalizationSelect";
-import { ROUTES } from "../routes";
 import clsx from "clsx";
+import { useEffect, useState } from "react";
+
+import { ButtonRoot, ButtonText } from "@grx/ui";
+import { usePathname } from "@/modules/cross-cutting-concerns/i18n/navigation";
+import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
+import { ThemeSwitcher } from "@/modules/cross-cutting-concerns/theme";
+
+import { CloseIcon, FooterLogo, MenuIcon, ShevronDownIcon } from "../../icons";
+import { ROUTES } from "../routes";
+import { LocalizationSelect } from "./LocalizationSelect";
 import {
   ProductItem,
   ProductItemContainer,
@@ -133,7 +136,11 @@ export function MobileMenu() {
             </nav>
 
             <div className="flex flex-col gap-6 px-2 pt-4 pb-6">
-              <LocalizationSelect />
+              <div className="flex justify-between items-center gap-3">
+                <LocalizationSelect />
+
+                <ThemeSwitcher />
+              </div>
 
               <div className="flex flex-col gap-3">
                 <ButtonRoot asChild variant="primary" size="md">
