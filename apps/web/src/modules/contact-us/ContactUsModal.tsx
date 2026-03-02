@@ -40,7 +40,7 @@ export function ContactUsModal({
           <Modal.Close aria-label={t("ContactUs.modal.closeAriaLabel")} />
 
           <ContactUsForm
-            className="flex-1 px-8 min-w-0 min-h-0"
+            className="flex-1 px-8 min-w-0 min-h-0 max-h-[500px]"
             classes={{
               root: "flex-1 min-h-0",
               fields: "flex-1 min-h-0 overflow-y-auto pr-8 -mr-8",
