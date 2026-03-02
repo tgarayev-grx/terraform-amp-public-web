@@ -1,9 +1,17 @@
 "use client";
 
-import { SVGProps, useEffect, useState } from "react";
+import { ButtonHTMLAttributes, SVGProps, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import { twMerge } from "tailwind-merge";
 
-export function ThemeSwitcher() {
+type ThemeSwitcherProps = Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  "children"
+> & {
+  className?: string;
+};
+
+export function ThemeSwitcher({ className, ...props }: ThemeSwitcherProps) {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -23,10 +31,18 @@ export function ThemeSwitcher() {
 
   return (
     <button
-      className="w-5 h-5 text-icon-base-500 hover:text-icon-strong-1000"
+      className={twMerge(
+        "flex justify-center items-center text-icon-base-500 hover:text-icon-subtle-700 transition-colors",
+        className
+      )}
       onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
+      {...props}
     >
-      {resolvedTheme === "light" ? <DarkThemeIcon /> : <LightThemeIcon />}
+      {resolvedTheme === "light" ? (
+        <DarkThemeIcon className="w-5 h-5" />
+      ) : (
+        <LightThemeIcon className="w-5 h-5" />
+      )}
     </button>
   );
 }
