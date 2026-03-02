@@ -14,14 +14,14 @@ import { ComingSoonBadge } from "@/modules/shared/header/components/ComingSoonBa
 export async function EcosystemSection() {
   const t = await getTranslations("Home");
   return (
-    <section className="flex flex-col items-center px-4 sm:px-8 py-20 sm:py-24">
+    <section className="flex flex-col items-center bg-bg-base px-4 sm:px-8 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col gap-4 mb-14 text-center">
-          <h3 className="mx-auto max-w-[580px] font-unbounded font-bold text-[28px] sm:text-4xl leading-[32px] sm:leading-[40px]">
+          <h3 className="mx-auto max-w-[580px] font-unbounded text-display-sm text-text-strong-1000 sm:text-display-md">
             {t("ecosystem.title")}
           </h3>
 
-          <h4 className="font-medium text-neutral-700 sm:text-[20px] dark:text-neutral-400 text-base sm:leading-[26px]">
+          <h4 className="text-body-lg-medium text-text-subtle-700 md:text-body-lg-medium">
             {t("ecosystem.subtitle")}
           </h4>
         </div>
@@ -34,10 +34,10 @@ export async function EcosystemSection() {
             imageAlt={t("ecosystem.grxPay.imageAlt")}
             action={
               <ButtonRoot
+                className="min-w-[142px]"
                 variant="secondary"
-                size="md"
+                size="lg"
                 asChild
-                className="rounded-[10px]"
               >
                 <Link href={ROUTES.pay}>
                   <ButtonText>{t("ecosystem.grxPay.exploreGrxPay")}</ButtonText>
@@ -49,7 +49,7 @@ export async function EcosystemSection() {
 
           <FeatureCard
             prepend={
-              <ComingSoonBadge variant="yellow">
+              <ComingSoonBadge variant="yellow" size="md">
                 {t("ecosystem.comingSoon")}
               </ComingSoonBadge>
             }
@@ -59,10 +59,10 @@ export async function EcosystemSection() {
             imageAlt={t("ecosystem.grxExchange.imageAlt")}
             action={
               <Button
+                className="min-w-[142px]"
                 variant="secondary"
-                size="md"
+                size="lg"
                 disabled
-                className="rounded-[10px]"
               >
                 {t("ecosystem.comingSoon")}
               </Button>
@@ -71,7 +71,7 @@ export async function EcosystemSection() {
           />
           <FeatureCard
             prepend={
-              <ComingSoonBadge variant="yellow">
+              <ComingSoonBadge variant="yellow" size="md">
                 {t("ecosystem.comingSoon")}
               </ComingSoonBadge>
             }
@@ -81,10 +81,10 @@ export async function EcosystemSection() {
             imageAlt={t("ecosystem.grxRwa.imageAlt")}
             action={
               <Button
+                className="min-w-[142px]"
                 variant="secondary"
-                size="md"
+                size="lg"
                 disabled
-                className="rounded-[10px]"
               >
                 {t("ecosystem.comingSoon")}
               </Button>
@@ -128,37 +128,27 @@ const FeatureCard = memo(
       >
         {!!start && (
           <Image
-            className="row-start-1 md:row-start-auto shadow-light-sm rounded-2xl h-full max-h-[320px] md:max-h-none object-cover"
+            className="row-start-1 md:row-start-auto shadow-sm rounded-2xl h-full max-h-[320px] md:max-h-none object-cover"
             src={start}
             alt={imageAlt}
           />
         )}
 
-        <div
-          className={clsx(
-            "flex flex-col gap-10 dark:bg-card shadow-light-sm dark:shadow-dark-sm p-6 rounded-2xl min-h-[320px]"
-          )}
-        >
-          <div
-            className={clsx("flex flex-col flex-grow justify-between gap-4")}
-          >
+        <div className="flex flex-col gap-10 bg-surface-floating shadow-sm p-6 rounded-2xl min-h-[320px]">
+          <div className="flex flex-col flex-grow justify-between gap-4">
             <div className="flex flex-col flex-grow gap-4">
               <div className="flex flex-col gap-2">
                 <div>{prepend}</div>
 
-                <h2 className="font-bold text-[18px] text-neutral-400 md:text-[24px] dark:text-neutral-500 leading-[22px] md:leading-[28px] tracking-[0.072px]">
+                <h2 className="text-text-disabled text-title-sm md:text-title-lg-semibold">
                   {product}
                 </h2>
               </div>
-              <h3 className={clsx("font-bold text-[24px] leading-[28px]")}>
+              <h3 className="text-text-strong-1000 text-title-lg md:text-heading-h4">
                 {title}
               </h3>
 
-              <div
-                className={clsx(
-                  "text-neutral-500 dark:text-neutral-400 text-base"
-                )}
-              >
+              <div className="text-body-lg-medium text-text-soft-500">
                 {description}
               </div>
             </div>
@@ -169,7 +159,7 @@ const FeatureCard = memo(
 
         {!!end && (
           <Image
-            className="row-start-1 md:row-start-auto shadow-light-sm rounded-2xl h-full max-h-[320px] md:max-h-none object-cover"
+            className="row-start-1 md:row-start-auto shadow-sm rounded-2xl h-full max-h-[320px] md:max-h-none object-cover"
             src={end}
             alt={imageAlt}
           />

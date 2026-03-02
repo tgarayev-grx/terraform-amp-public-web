@@ -37,7 +37,7 @@ function BenefitCard({
   return (
     <div
       className={clsx(
-        "flex flex-col gap-4 bg-white shadow-light-sm p-6 rounded-2xl",
+        "flex flex-col gap-4 bg-white shadow-sm p-6 rounded-2xl",
         !isSmall && "items-center",
         className
       )}

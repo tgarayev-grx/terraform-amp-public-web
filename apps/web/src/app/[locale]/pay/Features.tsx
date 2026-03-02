@@ -65,7 +65,7 @@ type FeatureCardProps = {
 
 function FeatureCard({ title, description, img, action }: FeatureCardProps) {
   return (
-    <div className="flex flex-col gap-4 shadow-light-sm p-1 rounded-2xl">
+    <div className="flex flex-col gap-4 shadow-sm p-1 rounded-2xl">
       <div className="bg-gradient-to-r from-neutral-50 hover:from-[#FDEDCD] to-neutral-50 hover:to-[#FFFBF4] rounded-xl overflow-hidden transition-all duration-300">
         <Image
           className="w-full h-full object-cover hover:scale-105 transition-all duration-300"

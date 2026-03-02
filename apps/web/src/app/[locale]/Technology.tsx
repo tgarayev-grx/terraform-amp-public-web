@@ -9,13 +9,14 @@ import { ZoomOutIcon } from "./pay/(icons)/ZoomOutIcon";
 export async function TechnologySection() {
   const t = await getTranslations("Home");
   return (
-    <section className="flex flex-col items-center px-4 sm:px-8 py-20 sm:py-24">
+    <section className="flex flex-col items-center bg-bg-base px-4 sm:px-8 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col gap-4 mb-14 text-center">
-          <h3 className="mx-auto max-w-[580px] font-unbounded font-bold text-[28px] sm:text-4xl leading-[32px] sm:leading-[40px]">
+          <h3 className="mx-auto max-w-[580px] font-unbounded text-display-sm text-text-strong-1000 md:text-display-md">
             {t("technology.title")}
           </h3>
-          <h4 className="font-medium text-neutral-700 dark:text-neutral-400 sm:text-[20px] text-base sm:leading-[26px]">
+
+          <h4 className="text-body-lg-medium text-text-subtle-700 md:text-body-xl-medium">
             {t("technology.subtitle")}
           </h4>
         </div>
@@ -60,14 +61,14 @@ const FeatureCard = memo(
     return (
       <div
         className={clsx(
-          "flex flex-col items-center gap-10 shadow-light-sm dark:shadow-none dark:border dark:border-neutral-700 p-10 rounded-2xl min-h-[292px]",
+          "flex flex-col items-center gap-10 shadow-sm border-stroke-soft-200 p-10 border rounded-2xl min-h-[292px]",
           classes?.root,
           className
         )}
       >
         <div
           className={clsx(
-            "flex justify-center items-center bg-neutral-100 dark:bg-neutral-800 rounded-xl w-12 h-12 text-neutral-500 dark:text-neutral-400",
+            "flex justify-center items-center bg-bg-weak-100 rounded-xl w-12 h-12 text-icon-base-500",
             classes?.icon
           )}
         >
@@ -79,7 +80,7 @@ const FeatureCard = memo(
         >
           <h3
             className={clsx(
-              "font-bold text-[24px] text-center leading-[28px]",
+              "text-text-strong-1000 text-title-sm md:text-title-lg",
               classes?.title
             )}
           >
@@ -88,7 +89,7 @@ const FeatureCard = memo(
 
           <div
             className={clsx(
-              "text-neutral-500 dark:text-neutral-400 text-base text-center",
+              "text-body-md-regular text-text-soft-500 md:text-body-lg-regular text-center",
               classes?.description
             )}
           >

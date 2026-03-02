@@ -42,7 +42,7 @@ export async function CaseStudiesSection() {
               description={t("Pay.Root.caseStudies.descriptions.2")}
               icon={<Company3LogoIcon />}
             />
-            <div className="flex flex-col justify-between gap-4 shadow-light-sm p-6 rounded-2xl min-h-[356px] xl:min-h-[306px]">
+            <div className="flex flex-col justify-between gap-4 shadow-sm p-6 rounded-2xl min-h-[356px] xl:min-h-[306px]">
               <Image className="w-[195px]" src={caseStudiesPng} alt="" />
 
               <ButtonRoot size="md" variant="secondary" asChild>
@@ -78,7 +78,7 @@ function CaseStudyCard({
   return (
     <div
       className={clsx(
-        "flex flex-col justify-between shadow-light-sm p-6 rounded-2xl min-h-[356px] md:min-h-[306px]",
+        "flex flex-col justify-between shadow-sm p-6 rounded-2xl min-h-[356px] md:min-h-[306px]",
         className
       )}
     >

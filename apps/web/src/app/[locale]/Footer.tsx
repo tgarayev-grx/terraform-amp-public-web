@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { Fragment } from "react";
+import { Fragment, PropsWithChildren, ReactNode } from "react";
 
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { ROUTES } from "@/modules/shared/header/routes";
@@ -34,7 +34,7 @@ export async function Footer() {
   const t = await getTranslations();
 
   return (
-    <footer className="flex flex-col bg-neutral-100 dark:bg-neutral-900 py-16 sm:py-20">
+    <footer className="flex flex-col bg-bg-weak-100 py-16 sm:py-20">
       <div className="px-4 sm:px-8">
         <div className="mx-auto w-full max-w-[1180px]">
           <FooterNav t={t} className="mb-10" />
@@ -43,13 +43,13 @@ export async function Footer() {
 
           <IntegrationsList className="mb-10" />
 
-          <div className="mb-10 text-sm font-normal leading-5 text-neutral-500 dark:text-neutral-400">
+          <div className="mb-10 text-body-md-regular text-text-soft-500">
             {t("Pay.Root.footer.copyright", {
               year: String(new Date().getFullYear()),
             })}
           </div>
 
-          <p className="w-full max-w-[1180px] text-left text-sm font-normal leading-5 tracking-normal text-neutral-500 dark:text-neutral-400">
+          <p className="w-full max-w-[1180px] text-body-md-regular text-text-soft-500">
             {t("Pay.Root.footer.disclaimer")}
           </p>
         </div>
@@ -62,13 +62,6 @@ type FooterNavProps = {
   t: FooterT;
   className?: string;
 };
-
-const navHeadingClass =
-  "text-base font-semibold leading-6 text-neutral-1000 dark:text-neutral";
-const navLinkClass =
-  "text-sm font-normal leading-5 text-neutral-500 dark:text-neutral-400 transition-colors hover:text-neutral-1000 dark:hover:text-neutral";
-const navLinkComingSoonClass =
-  "text-sm font-normal leading-5 text-neutral-400 dark:text-neutral-600";
 
 function FooterNav({ t, className }: FooterNavProps) {
   return (
@@ -84,123 +77,94 @@ function FooterNav({ t, className }: FooterNavProps) {
         className="flex items-center gap-2 shrink-0"
         aria-label="GRX - Golden Ratio Exchange"
       >
-        <FooterLogoIcon className="h-9 w-auto shrink-0 text-neutral-1000 dark:text-neutral" />
-        <span className="font-unbounded text-[18px] font-medium leading-[0.98] tracking-[-0.36px] text-neutral-1000 dark:text-neutral">
+        <FooterLogoIcon className="w-auto h-9 text-text-strong-1000 shrink-0" />
+        <span className="font-unbounded font-medium text-[18px] text-text-strong-1000 leading-[0.98] tracking-[-0.36px]">
           <span className="block">GOLDEN RATIO</span>
           <span className="block">EXCHANGE</span>
         </span>
       </Link>
 
-      <div className="flex flex-wrap gap-x-[53px] gap-y-10 md:justify-between lg:flex-1 lg:justify-end lg:gap-x-20">
-        <div className="flex flex-col gap-4">
-          <span className={navHeadingClass}>
-            {t("Pay.Root.footer.products")}
-          </span>
-          <ul className="flex flex-col gap-4">
-            <li>
-              <Link href={ROUTES.pay} className={navLinkClass}>
-                {t("Pay.Root.footer.grxPay")}
-              </Link>
-            </li>
-            <li className="flex items-center gap-2">
-              <span className={navLinkComingSoonClass}>
-                {t("Pay.Root.footer.grxExchange")}
-              </span>
-              <ComingSoonBadge variant="neutral">
-                {t("Pay.Root.footer.comingSoon")}
-              </ComingSoonBadge>
-            </li>
-            <li className="flex items-center gap-2">
-              <span className={navLinkComingSoonClass}>
-                {t("Pay.Root.footer.grxRwa")}
-              </span>
-              <ComingSoonBadge variant="neutral">
-                {t("Pay.Root.footer.comingSoon")}
-              </ComingSoonBadge>
-            </li>
-          </ul>
-        </div>
+      <div className="flex flex-wrap lg:flex-1 md:justify-between lg:justify-end gap-x-[53px] gap-y-10 lg:gap-x-20">
+        <FooterNavRoot>
+          <FooterNavTitle>{t("Pay.Root.footer.products")}</FooterNavTitle>
 
-        <div className="flex flex-col gap-4">
-          <span className={navHeadingClass}>
-            {t("Pay.Root.footer.grxPaySection")}
-          </span>
-          <ul className="flex flex-col gap-4">
-            <li>
-              <Link href={ROUTES.payPricing} className={navLinkClass}>
-                {t("Pay.Root.footer.pricing")}
-              </Link>
-            </li>
-            <li>
-              <Link href={ROUTES.payPartnerProgram} className={navLinkClass}>
-                {t("Pay.Root.footer.partners")}
-              </Link>
-            </li>
-            <li>
-              <Link href={ROUTES.payFaq} className={navLinkClass}>
-                {t("Pay.Root.footer.faq")}
-              </Link>
-            </li>
-            <li>
-              <Link href={ROUTES.payAboutUs} className={navLinkClass}>
-                {t("Pay.Root.footer.aboutGrxPay")}
-              </Link>
-            </li>
-          </ul>
-        </div>
+          <FooterNavList>
+            <FooterNavItemLink href={ROUTES.pay}>
+              {t("Pay.Root.footer.grxPay")}
+            </FooterNavItemLink>
 
-        <div className="flex flex-col gap-4">
-          <span className={navHeadingClass}>
-            {t("Pay.Root.footer.aboutSection")}
-          </span>
-          <ul className="flex flex-col gap-4">
-            <li>
-              <Link href={ROUTES.aboutUs} className={navLinkClass}>
-                {t("Pay.Root.footer.aboutGrx")}
-              </Link>
-            </li>
-            <li>
-              <ContactUsModal
-                defaultValues={{
-                  interestedIn: ["grxPay"],
-                }}
-              >
-                <button
-                  type="button"
-                  className={clsx(navLinkClass, "cursor-pointer")}
-                >
-                  {t("Pay.Root.footer.contactGrx")}
-                </button>
-              </ContactUsModal>
-            </li>
-          </ul>
-        </div>
+            <FooterNavItemComingSoon t={t}>
+              {t("Pay.Root.footer.grxExchange")}
+            </FooterNavItemComingSoon>
 
-        <div className="flex flex-col gap-4">
-          <span className={navHeadingClass}>{t("Pay.Root.footer.legal")}</span>
-          <ul className="flex flex-col gap-4">
-            <li>
-              <Link href={ROUTES.privacyPolicy} className={navLinkClass}>
-                {t("Pay.Root.footer.privacyPolicy")}
-              </Link>
-            </li>
-            <li>
-              <Link href={ROUTES.termsOfUse} className={navLinkClass}>
-                {t("Pay.Root.footer.termsOfUse")}
-              </Link>
-            </li>
-            <li>
-              <Link href={ROUTES.cookiePolicy} className={navLinkClass}>
-                {t("Pay.Root.footer.cookiePolicy")}
-              </Link>
-            </li>
-            <li>
-              <Link href={ROUTES.amlPolicy} className={navLinkClass}>
-                {t("Pay.Root.footer.amlPolicy")}
-              </Link>
-            </li>
-          </ul>
-        </div>
+            <FooterNavItemComingSoon t={t}>
+              {t("Pay.Root.footer.grxRwa")}
+            </FooterNavItemComingSoon>
+          </FooterNavList>
+        </FooterNavRoot>
+
+        <FooterNavRoot>
+          <FooterNavTitle>{t("Pay.Root.footer.grxPaySection")}</FooterNavTitle>
+
+          <FooterNavList>
+            <FooterNavItemLink href={ROUTES.payPricing}>
+              {t("Pay.Root.footer.pricing")}
+            </FooterNavItemLink>
+
+            <FooterNavItemLink href={ROUTES.payPartnerProgram}>
+              {t("Pay.Root.footer.partners")}
+            </FooterNavItemLink>
+
+            <FooterNavItemLink href={ROUTES.payFaq}>
+              {t("Pay.Root.footer.faq")}
+            </FooterNavItemLink>
+
+            <FooterNavItemLink href={ROUTES.payAboutUs}>
+              {t("Pay.Root.footer.aboutGrxPay")}
+            </FooterNavItemLink>
+          </FooterNavList>
+        </FooterNavRoot>
+
+        <FooterNavRoot>
+          <FooterNavTitle>{t("Pay.Root.footer.aboutSection")}</FooterNavTitle>
+
+          <FooterNavList>
+            <FooterNavItemLink href={ROUTES.aboutUs}>
+              {t("Pay.Root.footer.aboutGrx")}
+            </FooterNavItemLink>
+
+            <ContactUsModal
+              defaultValues={{
+                interestedIn: ["grxPay"],
+              }}
+            >
+              <FooterNavItemButton>
+                {t("Pay.Root.footer.contactGrx")}
+              </FooterNavItemButton>
+            </ContactUsModal>
+          </FooterNavList>
+        </FooterNavRoot>
+
+        <FooterNavRoot>
+          <FooterNavTitle>{t("Pay.Root.footer.legal")}</FooterNavTitle>
+          <FooterNavList>
+            <FooterNavItemLink href={ROUTES.privacyPolicy}>
+              {t("Pay.Root.footer.privacyPolicy")}
+            </FooterNavItemLink>
+
+            <FooterNavItemLink href={ROUTES.termsOfUse}>
+              {t("Pay.Root.footer.termsOfUse")}
+            </FooterNavItemLink>
+
+            <FooterNavItemLink href={ROUTES.cookiePolicy}>
+              {t("Pay.Root.footer.cookiePolicy")}
+            </FooterNavItemLink>
+
+            <FooterNavItemLink href={ROUTES.amlPolicy}>
+              {t("Pay.Root.footer.amlPolicy")}
+            </FooterNavItemLink>
+          </FooterNavList>
+        </FooterNavRoot>
       </div>
     </div>
   );
@@ -216,7 +180,7 @@ function AcceptCryptoList({ t, className }: AcceptCryptoListProps) {
     <div
       className={clsx(
         "flex flex-wrap items-center gap-x-3 gap-y-1",
-        "text-xs font-normal leading-4 text-neutral-500 dark:text-neutral-400",
+        "text-text-soft-500 text-body-sm-regular",
         className
       )}
     >
@@ -224,12 +188,10 @@ function AcceptCryptoList({ t, className }: AcceptCryptoListProps) {
       {ACCEPTED_CRYPTO_LIST.map((crypto, index, array) => (
         <Fragment key={crypto}>
           <span>{crypto}</span>
+
           {index !== array.length - 1 && (
-            <span
-              className="shrink-0 text-neutral-200 dark:text-neutral-700"
-              aria-hidden
-            >
-              <VerticalDividerIcon className="h-4 w-px" />
+            <span className="text-stroke-soft-200 shrink-0" aria-hidden>
+              <VerticalDividerIcon className="w-px h-4" />
             </span>
           )}
         </Fragment>
@@ -246,7 +208,7 @@ function IntegrationsList({ className }: IntegrationsListProps) {
   return (
     <div
       className={clsx(
-        "flex flex-wrap items-center gap-6 text-neutral-400 dark:text-neutral-600 sm:gap-8",
+        "flex flex-wrap items-center gap-6 sm:gap-8 text-icon-disabled",
         className
       )}
     >
@@ -259,3 +221,69 @@ function IntegrationsList({ className }: IntegrationsListProps) {
     </div>
   );
 }
+
+const FooterNavRoot = ({ children }: PropsWithChildren) => {
+  return <div className="flex flex-col gap-4">{children}</div>;
+};
+
+const FooterNavTitle = ({ children }: PropsWithChildren) => {
+  return (
+    <span className="text-body-lg-semibold text-text-strong-1000">
+      {children}
+    </span>
+  );
+};
+
+const FooterNavList = ({ children }: PropsWithChildren) => {
+  return <ul className="flex flex-col gap-4">{children}</ul>;
+};
+
+const FooterNavItemLink = ({
+  href,
+  children,
+}: PropsWithChildren & {
+  href: string;
+}) => {
+  return (
+    <li>
+      <Link
+        className="text-body-md-regular text-text-soft-500 hover:text-text-strong-1000 transition-colors"
+        href={href}
+      >
+        {children}
+      </Link>
+    </li>
+  );
+};
+
+const FooterNavItemButton = ({ children }: PropsWithChildren) => {
+  return (
+    <li>
+      <button
+        className="text-body-md-regular text-text-soft-500 hover:text-text-strong-1000 transition-colors"
+        type="button"
+      >
+        {children}
+      </button>
+    </li>
+  );
+};
+
+const FooterNavItemComingSoon = ({
+  children,
+  t,
+}: PropsWithChildren & {
+  t: FooterT;
+}) => {
+  return (
+    <li className="flex items-center gap-2">
+      <span className="text-body-md-regular text-text-disabled">
+        {children}
+      </span>
+
+      <ComingSoonBadge variant="neutral" size="sm">
+        {t("Pay.Root.footer.comingSoon")}
+      </ComingSoonBadge>
+    </li>
+  );
+};

@@ -98,7 +98,9 @@ export const ProductItemComingSoon = memo(() => {
   const t = useTranslations();
 
   return (
-    <ComingSoonBadge>{t("CommonHeader.products.comingSoon")}</ComingSoonBadge>
+    <ComingSoonBadge size="sm">
+      {t("CommonHeader.products.comingSoon")}
+    </ComingSoonBadge>
   );
 });
 ProductItemComingSoon.displayName = "ProductItemComingSoon";

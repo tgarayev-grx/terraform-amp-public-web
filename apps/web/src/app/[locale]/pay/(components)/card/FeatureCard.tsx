@@ -19,7 +19,7 @@ export const FeatureCard = memo(
     return (
       <div
         className={clsx(
-          "flex flex-col gap-4 shadow-light-sm p-6 rounded-2xl min-h-[292px]",
+          "flex flex-col gap-4 shadow-sm p-6 rounded-2xl min-h-[292px]",
           classes?.root,
           className
         )}

@@ -11,10 +11,10 @@ import scalabilityAndInnovationImg from "./(assets)/foundation-scalability-and-i
 export async function FoundationSection() {
   const t = await getTranslations("Home");
   return (
-    <section className="flex flex-col items-center px-4 sm:px-8 py-20 sm:py-24">
+    <section className="flex flex-col items-center bg-bg-base px-4 sm:px-8 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col gap-4 mb-14 text-center">
-          <h3 className="mx-auto max-w-[580px] font-unbounded font-bold text-[28px] sm:text-4xl leading-[32px] sm:leading-[40px]">
+          <h3 className="mx-auto max-w-[580px] font-unbounded text-display-sm text-text-strong-1000 sm:text-display-md">
             {t("foundation.title")}
           </h3>
         </div>
@@ -75,9 +75,11 @@ const FeatureCard = memo(
         )}
 
         <div className="flex flex-col flex-grow md:justify-center gap-2">
-          <h3 className="font-bold text-[36px] leading-[40px]">{title}</h3>
+          <h3 className="text-heading-h5 text-text-strong-1000 md:text-heading-h3">
+            {title}
+          </h3>
 
-          <div className="max-w-[680px] text-[20px] text-neutral-500 dark:text-neutral-400 leading-[26px]">
+          <div className="max-w-[680px] text-body-lg-medium text-text-soft-500 md:text-body-xl-medium">
             {description}
           </div>
         </div>

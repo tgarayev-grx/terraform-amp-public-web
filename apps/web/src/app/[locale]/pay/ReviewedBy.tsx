@@ -64,7 +64,7 @@ function ReviewedByCard({
   return (
     <div
       className={clsx(
-        "flex flex-col justify-between gap-10 shadow-light-sm p-4 rounded-xl min-h-[256px] sm:min-h-[316px]",
+        "flex flex-col justify-between gap-10 shadow-sm p-4 rounded-xl min-h-[256px] sm:min-h-[316px]",
         className
       )}
     >

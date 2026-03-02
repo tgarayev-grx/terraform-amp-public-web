@@ -54,6 +54,7 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider>
           <ThemeProvider
+            themes={["light", "dark"]}
             attribute="data-theme"
             defaultTheme="system"
             enableSystem

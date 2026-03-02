@@ -18,7 +18,7 @@ export async function WhatWeBuildSection() {
           <h3 className="mx-auto max-w-[500px] font-unbounded font-bold text-[28px] lg:text-4xl leading-[32px]">
             {t("AboutUsPage.whatWeBuild.title")}
           </h3>
-          <h4 className="font-medium text-neutral-700 dark:text-neutral-400 lg:text-[20px] text-base lg:leading-[26px]">
+          <h4 className="font-medium text-neutral-700 lg:text-[20px] dark:text-neutral-400 text-base lg:leading-[26px]">
             {t("AboutUsPage.whatWeBuild.subtitle")}
           </h4>
         </div>
@@ -106,7 +106,7 @@ const WhatWeBuildCardRoot = memo(
     return (
       <div
         className={clsx(
-          "flex flex-col justify-center items-center gap-6 shadow-light-sm dark:shadow-dark-sm p-6 rounded-2xl min-h-[266px] md:min-h-[320px]",
+          "flex flex-col justify-center items-center gap-6 shadow-sm dark:shadow-dark-sm p-6 rounded-2xl min-h-[266px] md:min-h-[320px]",
           !className?.includes("bg-") && "bg-neutral dark:bg-card",
           className
         )}

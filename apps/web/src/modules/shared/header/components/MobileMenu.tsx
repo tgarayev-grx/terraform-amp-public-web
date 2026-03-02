@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { ButtonRoot, ButtonText } from "@grx/ui";
 import { CloseIcon, FooterLogo, MenuIcon, ShevronDownIcon } from "../../icons";
-import { ComingSoonBadge } from "./ComingSoonBadge";
 import { LocalizationSelect } from "./LocalizationSelect";
 import { ROUTES } from "../routes";
 import clsx from "clsx";

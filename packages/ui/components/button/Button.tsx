@@ -56,16 +56,16 @@ export const ButtonRoot = forwardRef(
             size === "xl" && "px-6 py-4 rounded-xl",
 
             variant === "primary" &&
-              "bg-primary-base-1000 text-text-inverce hover:bg-primary-darker-800 active:not(:disabled):bg-primary-dark-700 disabled:bg-bg-weak-100 disabled:text-text-disabled-400",
+              "bg-primary-base-1000 text-text-inverce hover:bg-primary-darker-800 active:not(:disabled):bg-primary-dark-700 disabled:bg-bg-weak-100 disabled:text-text-disabled",
 
             variant === "secondary" &&
-              "bg-primary-weak-100 text-primary-base-1000 hover:bg-primary-soft-200 active:not(:disabled):bg-primary-subtle-300 disabled:bg-bg-weak-100 disabled:text-text-disabled-400",
+              "bg-primary-weak-100 text-primary-base-1000 hover:bg-primary-soft-200 active:not(:disabled):bg-primary-subtle-300 disabled:bg-bg-weak-100 disabled:text-text-disabled",
 
             variant === "outlined" &&
-              "border border-primary-base-1000 text-primary-base-1000 hover:not(:disabled):bg-primary-weak-100 active:not(:disabled):bg-primary-soft-200 disabled:border-stroke-disabled disabled:text-text-disabled-400",
+              "border border-primary-base-1000 text-primary-base-1000 hover:not(:disabled):bg-primary-weak-100 active:not(:disabled):bg-primary-soft-200 disabled:border-stroke-disabled disabled:text-text-disabled",
 
             variant === "text" &&
-              "text-primary-base-1000 hover:text-primary-weak-100 active:not(:disabled):text-primary-soft-200 disabled:text-text-disabled-400",
+              "text-primary-base-1000 hover:text-primary-weak-100 active:not(:disabled):text-primary-soft-200 disabled:text-text-disabled",
 
             className
           )}

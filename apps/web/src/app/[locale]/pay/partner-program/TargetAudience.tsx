@@ -25,19 +25,19 @@ function TargetAudienceCard({
   return (
     <div
       className={clsx(
-        "flex flex-col gap-6 rounded-2xl bg-white p-6 min-h-[272px] sm:h-full shadow-light-sm",
+        "flex flex-col gap-6 bg-white shadow-sm p-6 rounded-2xl sm:h-full min-h-[272px]",
         className
       )}
     >
-      <div className="flex items-center justify-center w-12 h-12 bg-neutral-100 rounded-[10px] flex-shrink-0">
+      <div className="flex flex-shrink-0 justify-center items-center bg-neutral-100 rounded-[10px] w-12 h-12">
         {icon}
       </div>
 
       <div className="flex flex-col gap-2">
-        <h3 className="font-bold text-neutral-900 text-[18px] leading-[22px] md:text-[24px] md:leading-[28px]">
+        <h3 className="font-bold text-[18px] text-neutral-900 md:text-[24px] leading-[22px] md:leading-[28px]">
           {title}
         </h3>
-        <p className="text-neutral-700 text-sm leading-[20px] md:text-base md:leading-[24px]">
+        <p className="text-neutral-700 text-sm md:text-base leading-[20px] md:leading-[24px]">
           {description}
         </p>
       </div>
@@ -88,18 +88,18 @@ export async function TargetAudienceSection() {
   ];
 
   return (
-    <section className="flex flex-col items-center px-4 sm:px-8 py-20 sm:py-20 lg:py-24 bg-white">
+    <section className="flex flex-col items-center bg-white px-4 sm:px-8 py-20 sm:py-20 lg:py-24">
       <div className="mx-auto w-full max-w-[980px]">
-        <div className="flex flex-col gap-4 items-center text-center mb-12 sm:mb-14">
-          <h2 className="font-unbounded font-bold text-[28px] sm:text-[36px] leading-[32px] sm:leading-[40px] text-neutral-900 max-w-[780px]">
+        <div className="flex flex-col items-center gap-4 mb-12 sm:mb-14 text-center">
+          <h2 className="max-w-[780px] font-unbounded font-bold text-[28px] text-neutral-900 sm:text-[36px] leading-[32px] sm:leading-[40px]">
             {t("Pay.PartnerProgram.targetAudience.title")}
           </h2>
-          <p className="font-medium text-neutral-700 text-base sm:text-xl leading-[24px] sm:leading-[26px] max-w-full">
+          <p className="max-w-full font-medium text-neutral-700 text-base sm:text-xl leading-[24px] sm:leading-[26px]">
             {t("Pay.PartnerProgram.targetAudience.subtitle")}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 auto-rows-fr gap-5">
+        <div className="gap-5 grid grid-cols-1 sm:grid-cols-2 auto-rows-fr">
           {audiences.map((audience) => (
             <TargetAudienceCard key={audience.title} {...audience} />
           ))}

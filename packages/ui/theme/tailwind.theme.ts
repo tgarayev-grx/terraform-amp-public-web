@@ -376,7 +376,7 @@ export const tailwindConfigShadows = {
 } as const;
 
 export const tailwindConfigTypography = {
-  "display-xxl": [
+  "display-2xl": [
     "64px",
     { lineHeight: "72px", letterSpacing: "0.32px", fontWeight: "700" },
   ],
