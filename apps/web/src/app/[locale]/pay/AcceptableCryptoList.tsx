@@ -31,13 +31,13 @@ const iconProps = {
 export async function AcceptableCryptoList() {
   const t = await getTranslations();
   return (
-    <section className="flex flex-col items-center px-4 sm:px-8 py-20 sm:py-24">
+    <section className="flex flex-col items-center bg-bg-base px-4 sm:px-8 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col gap-4 mb-14 text-center">
-          <h3 className="mx-auto max-w-[500px] font-unbounded font-bold text-[28px] sm:text-4xl leading-[32px] sm:leading-[40px]">
+          <h3 className="mx-auto max-w-[500px] font-unbounded text-display-sm text-text-strong-1000 sm:text-display-md">
             {t("Pay.Root.acceptableCrypto.title")}
           </h3>
-          <h4 className="font-medium text-neutral-700 sm:text-[20px] text-base sm:leading-[26px]">
+          <h4 className="text-body-lg-medium text-text-subtle-700 sm:text-body-xl-medium">
             {t("Pay.Root.acceptableCrypto.subtitle")}
           </h4>
         </div>

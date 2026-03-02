@@ -10,17 +10,18 @@ import featureInvoicesPng from "./(assets)/features-invoices.png";
 import featureIncomePng from "./(assets)/features-income.png";
 import featurePayoutsPng from "./(assets)/features-payouts.png";
 import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
+import clsx from "clsx";
 
 export async function FeaturesSection() {
   const t = await getTranslations();
   return (
-    <section className="flex flex-col items-center px-4 sm:px-8 py-20 sm:py-24">
+    <section className="flex flex-col items-center bg-bg-base px-4 sm:px-8 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col gap-4 mb-14 text-center">
-          <h3 className="mx-auto max-w-[580px] font-unbounded font-bold text-[28px] sm:text-4xl leading-[32px] sm:leading-[40px]">
+          <h3 className="mx-auto max-w-[580px] font-unbounded text-display-sm text-text-strong-1000 sm:text-display-md">
             {t("Pay.Root.features.title")}
           </h3>
-          <h4 className="font-medium text-neutral-700 sm:text-[20px] text-base sm:leading-[26px]">
+          <h4 className="text-body-lg-medium text-text-subtle-700 sm:text-body-xl-medium">
             {t("Pay.Root.features.subtitle")}
           </h4>
         </div>
@@ -65,8 +66,14 @@ type FeatureCardProps = {
 
 function FeatureCard({ title, description, img, action }: FeatureCardProps) {
   return (
-    <div className="flex flex-col gap-4 shadow-sm p-1 rounded-2xl">
-      <div className="bg-gradient-to-r from-neutral-50 hover:from-[#FDEDCD] to-neutral-50 hover:to-[#FFFBF4] rounded-xl overflow-hidden transition-all duration-300">
+    <div className="flex flex-col justify-between gap-4 bg-surface-floating shadow-sm p-1 rounded-2xl">
+      <div
+        className={clsx(
+          "bg-gradient-to-r rounded-xl overflow-hidden transition-all duration-300",
+          "from-bg-weak-100 to-bg-weak-100",
+          " hover:from-[#FDEDCD] hover:to-[#FFFBF4]"
+        )}
+      >
         <Image
           className="w-full h-full object-cover hover:scale-105 transition-all duration-300"
           src={img}
@@ -74,16 +81,19 @@ function FeatureCard({ title, description, img, action }: FeatureCardProps) {
         />
       </div>
 
-      <div className="flex flex-col gap-8 px-5 py-6">
-        <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-[18px] leading-[22px] tracking-[0.4%]">
+      <div className="flex flex-col flex-grow justify-between gap-8 px-5 py-6">
+        <div className="flex flex-col flex-grow gap-2">
+          <h3 className="text-text-strong-1000 text-title-sm md:text-title-lg">
             {title}
           </h3>
-          <p className="text-neutral-500 text-sm">{description}</p>
+
+          <p className="text-body-md-regular text-text-soft-500 md:text-body-lg-regular">
+            {description}
+          </p>
         </div>
 
         <div className="flex justify-start">
-          <ButtonRoot variant="secondary" size="md" asChild>
+          <ButtonRoot variant="secondary" size="lg" asChild>
             <Link href={EXTERNAL_LINKS.Pay.signIn.href} target="_blank">
               <ButtonText>{action}</ButtonText>
 

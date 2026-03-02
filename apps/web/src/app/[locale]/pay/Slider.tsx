@@ -386,7 +386,7 @@ export const SliderDots = memo(
       >
         <div
           className={clsx(
-            "z-[2] absolute bg-neutral-1000 rounded-full pointer-events-none",
+            "z-[2] absolute bg-primary-base-1000 rounded-full pointer-events-none",
             classes?.pill
           )}
           style={{
@@ -410,7 +410,7 @@ export const SliderDots = memo(
               type="button"
               onClick={() => goTo(slideForSlot(i))}
               className={clsx(
-                "flex-shrink-0 bg-neutral-300 hover:bg-neutral-400 rounded-full w-2 h-2 transition-colors",
+                "flex-shrink-0 bg-bg-soft-200 hover:bg-bg-subtle-300 rounded-full w-2 h-2 transition-colors",
                 classes?.dot
               )}
               style={{

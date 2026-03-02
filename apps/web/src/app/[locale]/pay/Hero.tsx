@@ -17,7 +17,7 @@ export async function HeroSection() {
   return (
     <section
       className={clsx(
-        "relative flex flex-col bg-neutral-50 pt-[80px] sm:pt-[112px] md:pt-[200px] pb-12 min-h-[800px] overflow-hidden sm:text-left text-center"
+        "relative flex flex-col bg-bg-base pt-[80px] sm:pt-[112px] md:pt-[200px] pb-12 min-h-[800px] overflow-hidden sm:text-left text-center"
       )}
     >
       <div
@@ -28,11 +28,11 @@ export async function HeroSection() {
       />
       <div className="relative flex flex-col flex-grow sm:justify-between gap-8 mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col px-2 sm:px-8">
-          <h1 className="mb-4 sm:max-w-[580px] font-unbounded font-bold text-[36px] sm:text-[56px] leading-[40px] sm:leading-[64px] tracking-[0.5%] tracking-0">
+          <h1 className="mb-4 sm:max-w-[580px] font-unbounded text-display-md text-text-strong-1000 sm:text-display-xl">
             {t("Pay.Root.hero.title")}
           </h1>
 
-          <h2 className="mb-8 sm:max-w-[410px] font-medium text-[16px] text-neutral-700 sm:text-[20px] leading-[24px] sm:leading-[26px]">
+          <h2 className="mb-8 sm:max-w-[410px] text-body-lg-medium text-text-subtle-700 sm:text-body-xl-medium">
             {t("Pay.Root.hero.subtitle")}
           </h2>
 
@@ -40,7 +40,7 @@ export async function HeroSection() {
             <ButtonRoot
               className="min-[425px]:min-w-[186px]"
               variant="primary"
-              size="lg"
+              size="xl"
               asChild
             >
               <Link href={EXTERNAL_LINKS.Pay.signIn.href} target="_blank">
@@ -56,19 +56,19 @@ export async function HeroSection() {
               <Button
                 className="min-[425px]:min-w-[186px]"
                 variant="outlined"
-                size="lg"
+                size="xl"
               >
                 {t("Pay.Root.hero.contactSales")}
               </Button>
             </ContactUsModal>
           </div>
 
-          <h3 className="font-medium text-neutral-500 text-xs">
+          <h3 className="text-body-sm-medium text-text-soft-500">
             {t("Pay.Root.hero.tagline")}
           </h3>
         </div>
 
-        <div className="flex flex-wrap justify-center items-center gap-x-5 gap-y-2.5 mx-auto sm:mx-0 px-4 max-w-[360px] text-neutral-400">
+        <div className="flex flex-wrap justify-center items-center gap-x-5 gap-y-2.5 fill-bg-base mx-auto sm:mx-0 px-4 max-w-[360px] text-bg-emphasis-400">
           <Sponsor1 />
           <Sponsor2 />
           <Sponsor3 />
@@ -96,16 +96,19 @@ function Sponsor1() {
           fill="currentColor"
         />
         <path
+          className="text-bg-base"
           d="M20.0551 10.7228H17.6639C17.7283 10.3476 17.9607 10.1377 18.4311 9.89965L18.8707 9.67565C19.6575 9.27245 20.0775 8.81605 20.0775 8.07125C20.0775 7.60365 19.8955 7.23405 19.5343 6.96805C19.1731 6.70205 18.7475 6.57045 18.2491 6.57045C17.8635 6.56592 17.485 6.67393 17.1599 6.88125C16.8323 7.08285 16.5887 7.34325 16.4375 7.66805L17.1291 8.36245C17.3979 7.81925 17.7871 7.55325 18.2995 7.55325C18.7335 7.55325 18.9995 7.77725 18.9995 8.08805C18.9995 8.34845 18.8707 8.56405 18.3723 8.81605L18.0895 8.95325C17.4763 9.26405 17.0507 9.61965 16.8043 10.0228C16.5579 10.426 16.4375 10.9328 16.4375 11.546V11.714H20.0551V10.7228Z"
-          fill="white"
+          fill="currentColor"
         />
         <path
+          className="text-bg-base"
           d="M19.7357 12.8594H15.7765L13.7969 16.2866H17.7561L19.7357 19.7166L21.7153 16.2866L19.7357 12.8594Z"
-          fill="white"
+          fill="currentColor"
         />
         <path
+          className="text-bg-base"
           d="M14.1402 18.572C11.6202 18.572 9.56782 16.5196 9.56782 13.9996C9.56782 11.4796 11.6202 9.4272 14.1402 9.4272L15.7054 6.154C15.19 6.0515 14.6657 5.99992 14.1402 6C9.72183 6 6.14062 9.5812 6.14062 13.9996C6.14062 18.418 9.72183 21.9992 14.1402 21.9992C15.8334 22.0024 17.4834 21.4648 18.8498 20.4648L17.1194 17.4632C16.2916 18.1783 15.2342 18.5719 14.1402 18.572Z"
-          fill="white"
+          fill="currentColor"
         />
       </g>
       <defs>
@@ -205,8 +208,9 @@ function Sponsor3() {
           fill="currentColor"
         />
         <path
+          className="text-bg-base"
           d="M7.72191 19.1625L3.74829 16.8665C3.58969 16.7747 3.45801 16.6428 3.36644 16.4841C3.27487 16.3253 3.22663 16.1453 3.22656 15.9621V11.3849C3.22663 11.2016 3.27487 11.0216 3.36644 10.8629C3.45801 10.7041 3.58969 10.5723 3.74829 10.4805L7.64597 8.22885C7.70636 8.19231 7.77545 8.17264 7.84603 8.1719C7.91661 8.17115 7.9861 8.18936 8.04725 8.22462C8.1084 8.25988 8.15897 8.3109 8.19369 8.37236C8.2284 8.43382 8.24599 8.50347 8.24462 8.57404V11.089C8.24453 11.2023 8.21469 11.3136 8.15809 11.4117C8.1015 11.5098 8.02013 11.5914 7.92212 11.6482L6.65084 12.382C6.55299 12.4388 6.47185 12.5204 6.41558 12.6186C6.35931 12.7168 6.3299 12.828 6.3303 12.9412V14.4048C6.3301 14.5181 6.35981 14.6295 6.41643 14.7277C6.47306 14.8259 6.5546 14.9074 6.65281 14.964L7.92409 15.6987C8.02229 15.7554 8.13369 15.7853 8.24709 15.7853C8.36048 15.7853 8.47188 15.7554 8.57009 15.6987L9.84137 14.964C9.93939 14.9073 10.0506 14.8774 10.1639 14.8774C10.2771 14.8774 10.3884 14.9073 10.4864 14.964L12.666 16.2195C12.7277 16.2536 12.7791 16.3036 12.8148 16.3643C12.8506 16.425 12.8695 16.4942 12.8695 16.5647C12.8695 16.6351 12.8506 16.7043 12.8148 16.765C12.7791 16.8257 12.7277 16.8757 12.666 16.9099L8.76734 19.1625C8.60835 19.254 8.42809 19.3022 8.24462 19.3022C8.06115 19.3022 7.8809 19.254 7.72191 19.1625Z"
-          fill="white"
+          fill="currentColor"
         />
         <path
           opacity="0.21"
@@ -230,12 +234,14 @@ function Sponsor3() {
         />
         <g opacity="0.5">
           <path
+            className="text-bg-base"
             d="M7.93412 15.6964L6.6875 14.9764C6.71517 14.9987 6.74451 15.0188 6.77528 15.0366L8.04656 15.7713C8.14476 15.828 8.25616 15.8579 8.36956 15.8579C8.48295 15.8579 8.59435 15.828 8.69255 15.7713L9.96384 15.0366C10.0619 14.9799 10.1731 14.95 10.2863 14.95C10.3996 14.95 10.5108 14.9799 10.6088 15.0366L12.7461 16.2644C12.7248 16.2447 12.7013 16.2275 12.676 16.2132L10.4964 14.9577C10.3984 14.901 10.2871 14.8711 10.1739 14.8711C10.0607 14.8711 9.94942 14.901 9.8514 14.9577L8.58012 15.6924C8.48226 15.7497 8.37105 15.7802 8.25765 15.7809C8.14425 15.7816 8.03267 15.7525 7.93412 15.6964Z"
-            fill="white"
+            fill="currentColor"
           />
           <path
+            className="text-bg-base"
             d="M3.339 16.035V11.4578C3.33937 11.2741 3.38816 11.0938 3.48045 10.9351C3.57274 10.7763 3.70527 10.6446 3.86467 10.5534L7.7584 8.30179C7.81296 8.2698 7.87442 8.2514 7.93758 8.24814C8.00075 8.24488 8.06377 8.25685 8.12134 8.28305C8.05922 8.22287 7.97905 8.18476 7.89315 8.17461C7.80726 8.16445 7.72041 8.1828 7.64597 8.22684L3.74829 10.4785C3.58969 10.5703 3.45801 10.7021 3.36644 10.8609C3.27487 11.0196 3.22663 11.1996 3.22656 11.3828V15.9601C3.22678 16.1427 3.27477 16.322 3.36578 16.4803C3.45679 16.6387 3.58764 16.7704 3.74533 16.8625C3.61881 16.7648 3.51638 16.6395 3.44593 16.496C3.37549 16.3525 3.3389 16.1948 3.339 16.035Z"
-            fill="white"
+            fill="currentColor"
           />
         </g>
         <path

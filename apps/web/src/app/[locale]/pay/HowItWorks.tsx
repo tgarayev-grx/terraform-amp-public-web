@@ -29,20 +29,20 @@ const SLIDE_IMAGE_MAP = [
 export const HowItWorksSection = memo(function HowItWorksSection() {
   const t = useTranslations();
   return (
-    <section className="flex flex-col items-center px-4 lg:px-8 py-20 lg:py-24">
+    <section className="flex flex-col items-center bg-bg-base px-4 lg:px-8 py-20 lg:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col gap-4 mb-14 text-center">
-          <h3 className="mx-auto max-w-[500px] font-unbounded font-bold text-[28px] lg:text-4xl leading-[32px]">
+          <h3 className="mx-auto max-w-[500px] font-unbounded text-display-sm text-text-strong-1000 sm:text-display-md">
             {t("Pay.Root.howItWorks.title")}
           </h3>
-          <h4 className="font-medium text-neutral-700 lg:text-[20px] text-base lg:leading-[26px]">
+          <h4 className="text-body-lg-medium text-text-subtle-700 sm:text-body-xl-medium">
             {t("Pay.Root.howItWorks.subtitle")}
           </h4>
         </div>
 
         <SliderRoot totalSlides={SLIDE_IMAGE_MAP.length}>
           <SliderContainer
-            className="relative flex lg:flex-row flex-col justify-between lg:gap-0 bg-neutral-100 rounded-3xl min-h-[300px] md:min-h-[700px] lg:min-h-[400px] overflow-hidden touch-pan-y cursor-grab active:cursor-grabbing select-none"
+            className="relative flex lg:flex-row flex-col justify-between lg:gap-0 bg-bg-weak-100 rounded-3xl min-h-[300px] md:min-h-[700px] lg:min-h-[400px] overflow-hidden touch-pan-y cursor-grab active:cursor-grabbing select-none"
             style={{ touchAction: "pan-y" }}
           >
             {/* Mobile: dots first, then text, then image. Desktop: text + dots left, image right */}
@@ -95,10 +95,10 @@ function HowItWorksSlideContent() {
   const t = useTranslations();
   return (
     <>
-      <h5 className="font-unbounded font-bold text-neutral-1000 text-xl lg:text-2xl">
+      <h5 className="text-text-strong-1000 text-title-lg lg:text-heading-h4 text-xl">
         {t(`Pay.Root.howItWorks.slides.${currentIndex as 0 | 1 | 2 | 3}.title`)}
       </h5>
-      <p className="text-neutral-700 text-base lg:text-lg leading-relaxed">
+      <p className="text-body-md-regular text-text-subtle-700 lg:text-body-lg-regular">
         {t(
           `Pay.Root.howItWorks.slides.${currentIndex as 0 | 1 | 2 | 3}.description`
         )}

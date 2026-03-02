@@ -19,14 +19,14 @@ export const FeatureCard = memo(
     return (
       <div
         className={clsx(
-          "flex flex-col gap-4 shadow-sm p-6 rounded-2xl min-h-[292px]",
+          "flex flex-col gap-4 bg-surface-floating shadow-sm p-6 rounded-2xl min-h-[292px]",
           classes?.root,
           className
         )}
       >
         <div
           className={clsx(
-            "flex justify-center items-center bg-neutral-100 rounded-xl w-12 h-12 text-neutral-500",
+            "flex justify-center items-center bg-bg-weak-100 rounded-xl w-12 h-12 text-icon-base-500",
             classes?.icon
           )}
         >
@@ -36,7 +36,7 @@ export const FeatureCard = memo(
         <div className={clsx("flex flex-col gap-2", classes?.content)}>
           <h3
             className={clsx(
-              "font-bold text-[24px] leading-[28px]",
+              "text-text-strong-1000 text-title-lg",
               classes?.title
             )}
           >
@@ -44,7 +44,10 @@ export const FeatureCard = memo(
           </h3>
 
           <div
-            className={clsx("text-neutral-500 text-base", classes?.description)}
+            className={clsx(
+              "text-body-lg-regular text-text-soft-500",
+              classes?.description
+            )}
           >
             {description}
           </div>

@@ -23,16 +23,24 @@ export const FAQSection = memo(function FAQSection({
 }: FAQSectionProps) {
   const t = useTranslations();
   return (
-    <section className="flex flex-col items-center px-4 sm:px-8 py-20 sm:py-24">
+    <section className="flex flex-col items-center bg-bg-base px-4 sm:px-8 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col gap-4 mb-14 text-center">
-          <h3 className="mx-auto max-w-[580px] font-unbounded font-bold text-[28px] sm:text-4xl leading-[32px] sm:leading-[40px]">
+          <h3 className="mx-auto max-w-[580px] font-unbounded text-display-sm text-text-strong-1000 sm:text-display-md">
             {t("Pay.Root.faq.title")}
           </h3>
-          <h4 className="font-medium text-neutral-700 sm:text-[20px] text-base sm:leading-[26px]">
+
+          <h4 className="text-body-lg-medium text-text-subtle-700 sm:text-body-xl-medium">
             {t.rich("Pay.Root.faq.subtitle", {
               ...defaultRichComponents,
-              here: (chunks) => <Link href="/pay/faq">{chunks}</Link>,
+              here: (chunks) => (
+                <Link
+                  className="text-info-base-600 hover:text-info-subtle-500"
+                  href="/pay/faq"
+                >
+                  {chunks}
+                </Link>
+              ),
             })}
           </h4>
         </div>
@@ -45,18 +53,18 @@ export const FAQSection = memo(function FAQSection({
           {questions.map((item) => (
             <Accordion.Item
               key={item.value}
+              className="rounded-xl overflow-hidden"
               value={item.value}
-              className="bg-white data-[state=open]:border-neutral-300 rounded-xl overflow-hidden"
             >
               <Accordion.Trigger
                 className="group flex justify-between items-center gap-4 px-4 sm:px-6 py-4 w-full text-neutral-900 hover:text-neutral-700 transition-colors"
                 id={item.value}
               >
-                <span className="font-medium text-base sm:text-lg text-left">
+                <span className="text-text-strong-1000 text-title-sm-semibold md:text-title-md-semibold text-left">
                   {item.question}
                 </span>
 
-                <div className="relative flex flex-shrink-0 justify-center items-center self-start bg-neutral-100 rounded-[6px] w-6 h-6 text-neutral-1000">
+                <div className="relative flex flex-shrink-0 justify-center items-center self-start bg-bg-weak-100 rounded-[6px] w-6 h-6 text-text-strong-1000">
                   <PlusIcon
                     className="absolute opacity-100 group-data-[state=open]:opacity-0 w-4 h-4 transition-opacity duration-200 ease-in-out"
                     aria-hidden
@@ -67,8 +75,9 @@ export const FAQSection = memo(function FAQSection({
                   />
                 </div>
               </Accordion.Trigger>
+
               <Accordion.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                <div className="px-4 sm:px-6 pt-0 pb-4 text-neutral-600 text-sm sm:text-base leading-relaxed">
+                <div className="px-4 sm:px-6 pt-0 pb-4 text-body-md-regular text-text-subtle-700 md:text-body-lg-regular">
                   {item.answer}
                 </div>
               </Accordion.Content>

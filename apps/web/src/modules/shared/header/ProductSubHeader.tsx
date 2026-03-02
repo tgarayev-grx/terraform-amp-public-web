@@ -54,7 +54,7 @@ export function ProductSubHeader({
     <div
       className={clsx(
         "top-16 z-40 sticky border-b w-full transition-transform duration-300 ease-out",
-        "bg-neutral border-neutral-200",
+        "bg-bg-base border-stroke-soft-200",
         !isVisible && "-translate-y-full"
       )}
     >
@@ -70,7 +70,6 @@ export function ProductSubHeader({
           aria-label="Product navigation"
         >
           {items.map((item) => {
-            console.log(item.href, pathname);
             const isActive = item.exact
               ? pathname === item.href
               : pathname === item.href || pathname.startsWith(item.href + "/");
@@ -79,10 +78,10 @@ export function ProductSubHeader({
                 key={item.href}
                 href={item.href}
                 className={clsx(
-                  "py-1 border-transparent border-b-2 font-medium text-sm whitespace-nowrap transition-colors",
+                  "py-1 whitespace-nowrap transition-colors",
                   isActive
-                    ? "text-neutral-900 font-medium border-b-2 border-neutral-900"
-                    : "text-neutral-700 hover:text-neutral-900"
+                    ? "text-body-md-semibold text-text-strong-1000 "
+                    : "text-body-md-medium text-text-subtle-700  hover:text-text-strong-1000"
                 )}
               >
                 {item.labelKey === "ProductSubHeader.aboutProduct"
