@@ -10,9 +10,11 @@ import {
 } from "react";
 import * as Slot from "@radix-ui/react-slot";
 import { clsx } from "clsx";
+import { cva, VariantProps } from "class-variance-authority";
 
-export type ButtonVariant = "primary" | "secondary" | "outlined" | "text";
-export type ButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
+type ButtonVariants = Required<VariantProps<typeof button>>;
+export type ButtonVariant = NonNullable<ButtonVariants["variant"]>;
+export type ButtonSize = NonNullable<ButtonVariants["size"]>;
 
 const ButtonContext = createContext<{
   size: ButtonSize;
@@ -43,32 +45,7 @@ export const ButtonRoot = forwardRef(
       <ButtonContext.Provider value={{ size }}>
         <Root
           ref={ref}
-          className={clsx(
-            "flex justify-center items-center gap-2",
-            "outline-none focus-visible:ring-4 focus-visible:ring-neutral-200 focus-visible:ring-offset-[2px]",
-            "transition-colors",
-            "disabled:cursor-not-allowed",
-
-            size === "xs" && "px-2 py-1 rounded-md",
-            size === "sm" && "px-3 py-1.5 rounded-lg",
-            size === "md" && "px-4 py-2.5 rounded-[10px]",
-            size === "lg" && "px-4 py-2.5 rounded-[10px]",
-            size === "xl" && "px-6 py-4 rounded-xl",
-
-            variant === "primary" &&
-              "bg-primary-base-1000 text-text-inverce hover:bg-primary-darker-800 active:not(:disabled):bg-primary-dark-700 disabled:bg-bg-weak-100 disabled:text-text-disabled",
-
-            variant === "secondary" &&
-              "bg-primary-weak-100 text-primary-base-1000 hover:bg-primary-soft-200 active:not(:disabled):bg-primary-subtle-300 disabled:bg-bg-weak-100 disabled:text-text-disabled",
-
-            variant === "outlined" &&
-              "border border-primary-base-1000 text-primary-base-1000 hover:not(:disabled):bg-primary-weak-100 active:not(:disabled):bg-primary-soft-200 disabled:border-stroke-disabled disabled:text-text-disabled",
-
-            variant === "text" &&
-              "text-primary-base-1000 hover:text-primary-weak-100 active:not(:disabled):text-primary-soft-200 disabled:text-text-disabled",
-
-            className
-          )}
+          className={clsx(button({ size, variant }), className)}
           {...props}
         >
           {children}
@@ -97,15 +74,7 @@ export const ButtonText = forwardRef(
     return (
       <Text
         ref={ref}
-        className={clsx(
-          "text-center",
-          size === "xs" && "text-body-sm-semibold",
-          size === "sm" && "text-body-md-semibold",
-          size === "md" && "text-body-md-semibold",
-          size === "lg" && "text-body-lg-semibold",
-          size === "xl" && "text-body-lg-semibold",
-          className
-        )}
+        className={clsx(buttonText({ size }), className)}
         {...props}
       >
         {children}
@@ -135,3 +104,47 @@ export const Button = forwardRef(
 );
 
 Button.displayName = "Button";
+
+const button = cva(
+  clsx(
+    "flex justify-center items-center gap-2",
+    "outline-none focus-visible:ring-4 focus-visible:ring-neutral-200 focus-visible:ring-offset-[2px]",
+    "transition-colors",
+    "disabled:cursor-not-allowed"
+  ),
+  {
+    variants: {
+      size: {
+        xs: "px-2 py-1 rounded-md",
+        sm: "px-3 py-1.5 rounded-lg",
+        md: "px-4 py-2.5 rounded-[10px]",
+        lg: "px-4 py-2.5 rounded-[10px]",
+        xl: "px-6 py-4 rounded-xl",
+      },
+      variant: {
+        primary:
+          "bg-primary-base-1000 text-text-inverce hover:bg-primary-darker-800 active:not(:disabled):bg-primary-dark-700 disabled:bg-bg-weak-100 disabled:text-text-disabled",
+
+        secondary:
+          "bg-primary-weak-100 text-primary-base-1000 hover:bg-primary-soft-200 active:not(:disabled):bg-primary-subtle-300 disabled:bg-bg-weak-100 disabled:text-text-disabled",
+
+        outlined:
+          "border border-primary-base-1000 text-primary-base-1000 hover:not(:disabled):bg-primary-weak-100 active:not(:disabled):bg-primary-soft-200 disabled:border-stroke-disabled disabled:text-text-disabled",
+
+        text: "text-primary-base-1000 hover:text-primary-weak-100 active:not(:disabled):text-primary-soft-200 disabled:text-text-disabled",
+      },
+    },
+  }
+);
+
+const buttonText = cva("text-center", {
+  variants: {
+    size: {
+      xs: "text-body-sm-semibold",
+      sm: "text-body-md-semibold",
+      md: "text-body-md-semibold",
+      lg: "text-body-lg-semibold",
+      xl: "text-body-lg-semibold",
+    },
+  },
+});

@@ -86,7 +86,7 @@ function CryptoAcquiringTabContent() {
                   interestedIn: ["grxPay"],
                 }}
               >
-                <Theme theme="" asChild>
+                <Theme theme="light" asChild>
                   <Button
                     className="max-w-[180px] xl:max-w-full"
                     variant="primary"
@@ -240,7 +240,7 @@ function CryptoProcessingTabContent() {
                   interestedIn: ["grxPay"],
                 }}
               >
-                <Theme theme="" asChild>
+                <Theme theme="light" asChild>
                   <Button
                     className="max-w-[180px] xl:max-w-full"
                     variant="primary"

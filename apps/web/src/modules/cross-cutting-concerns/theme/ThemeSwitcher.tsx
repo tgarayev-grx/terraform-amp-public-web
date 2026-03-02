@@ -20,13 +20,13 @@ export function ThemeSwitcher({ className, ...props }: ThemeSwitcherProps) {
   }, []);
 
   if (!mounted) {
-    return <div className="w-5 h-5" />;
+    return <div className={twMerge("w-5 h-5", className)} />;
   }
 
   if (resolvedTheme !== "light" && resolvedTheme !== "dark") {
     console.error(`Unknown theme: ${resolvedTheme}`);
 
-    return <div className="w-5 h-5" />;
+    return <div className={twMerge("w-5 h-5", className)} />;
   }
 
   return (

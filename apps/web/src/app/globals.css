@@ -2,45 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: var(--color-neutral);
-  --foreground: var(--color-neutral-1000);
-
-  --muted: var(--color-neutral-100);
-  --muted-foreground: var(--color-neutral-500);
-
-  --card: var(--color-neutral);
-  --card-foreground: var(--color-neutral-1000);
-
-  --border: var(--color-neutral-200);
-  --input: var(--color-neutral-200);
-
-  --primary: var(--color-gold-500);
-  --primary-foreground: var(--color-neutral-1000);
-}
-
-.dark {
-  --background: var(--color-neutral-1000);
-  --foreground: var(--color-neutral);
-
-  --muted: var(--color-neutral-900);
-  --muted-foreground: var(--color-neutral-400);
-
-  --card: #1d1d1d;
-  --card-foreground: var(--color-neutral);
-
-  --border: var(--color-neutral-600);
-  --input: var(--color-neutral-800);
-
-  --primary: var(--color-gold-500);
-  --primary-foreground: var(--color-neutral-1000);
-
-  --Text-text-subtle-700: #d4d4d4;
-  --BG-bg-muted-50: #1d1d1d;
-  --Stroke-stroke-soft-200: #404040;
-  --Text-text-strong-1000: #ffffff;
-}
-
 html {
   scroll-behavior: smooth;
 }

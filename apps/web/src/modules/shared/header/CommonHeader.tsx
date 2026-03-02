@@ -31,20 +31,22 @@ export function CommonHeader() {
             <ProductsDropdown />
 
             <Link
-              href={ROUTES.payPricing}
               className="text-body-md-medium text-text-subtle-700 hover:text-text-strong-1000 transition-colors"
+              href={ROUTES.payPricing}
             >
               {t("CommonHeader.nav.pricing")}
             </Link>
+
             <Link
-              href={ROUTES.payPartnerProgram}
               className="text-body-md-medium text-text-subtle-700 hover:text-text-strong-1000 transition-colors"
+              href={ROUTES.payPartnerProgram}
             >
               {t("CommonHeader.nav.partners")}
             </Link>
+
             <Link
-              href={ROUTES.aboutUs}
               className="text-body-md-medium text-text-subtle-700 hover:text-text-strong-1000 transition-colors"
+              href={ROUTES.aboutUs}
             >
               {t("CommonHeader.nav.aboutUs")}
             </Link>
@@ -61,7 +63,7 @@ export function CommonHeader() {
                 </Link>
               </ButtonRoot>
 
-              <ButtonRoot asChild variant="primary" size="sm">
+              <ButtonRoot variant="primary" size="sm" asChild>
                 <Link href={EXTERNAL_LINKS.Pay.signUp.href} target="_blank">
                   <ButtonText>{t("CommonHeader.nav.createAccount")}</ButtonText>
                 </Link>

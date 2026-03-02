@@ -139,9 +139,7 @@ export function MobileMenu() {
             </nav>
 
             <div className="flex flex-col gap-6 px-2 pt-4 pb-6">
-              <div className="flex justify-between items-center gap-3">
-                <LocalizationSelect />
-              </div>
+              <LocalizationSelect />
 
               <div className="flex flex-col gap-3">
                 <ButtonRoot asChild variant="primary" size="md">
