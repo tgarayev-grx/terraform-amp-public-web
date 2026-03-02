@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import { twMerge } from "tailwind-merge";
 
 import { Logo } from "@grx/ui/icons/brand/logo";
 import { ShieldIcon } from "../pay/(icons)/ShieldIcon";
@@ -7,18 +8,17 @@ import { HTMLAttributes, memo, ReactNode } from "react";
 import { GoldIcon } from "../pay/(icons)/GoldIcon";
 import { GlobeIcon } from "../pay/(icons)/GlobeIcon";
 import { LockIcon } from "../pay/(icons)/LockIcon";
-import clsx from "clsx";
 
 export async function WhatWeBuildSection() {
   const t = await getTranslations();
   return (
-    <section className="flex flex-col items-center bg-neutral-100 dark:bg-neutral-800 px-4 sm:px-8 py-20 sm:py-24">
+    <section className="flex flex-col items-center bg-bg-weak-100 px-4 sm:px-8 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col gap-4 mb-14 text-center">
-          <h3 className="mx-auto max-w-[500px] font-unbounded font-bold text-[28px] lg:text-4xl leading-[32px]">
+          <h3 className="mx-auto max-w-[500px] font-unbounded text-display-sm text-text-strong-1000 md:text-display-md text-ellipsis">
             {t("AboutUsPage.whatWeBuild.title")}
           </h3>
-          <h4 className="font-medium text-neutral-700 lg:text-[20px] dark:text-neutral-400 text-base lg:leading-[26px]">
+          <h4 className="text-body-lg-medium text-text-subtle-700 md:text-body-xl-medium">
             {t("AboutUsPage.whatWeBuild.subtitle")}
           </h4>
         </div>
@@ -30,39 +30,29 @@ export async function WhatWeBuildSection() {
 
           <WhatWeBuildCard
             title={t("AboutUsPage.whatWeBuild.bankingCustody")}
-            icon={
-              <BankIcon className="w-6 h-6 text-neutral-700 dark:text-neutral-400" />
-            }
+            icon={<BankIcon className="w-6 h-6" />}
           />
           <WhatWeBuildCard
             title={t("AboutUsPage.whatWeBuild.complianceAudit")}
-            icon={
-              <ShieldIcon className="w-6 h-6 text-neutral-700 dark:text-neutral-400" />
-            }
+            icon={<ShieldIcon className="w-6 h-6" />}
           />
           <WhatWeBuildCard
             title={t("AboutUsPage.whatWeBuild.assetTokenization")}
             description={t(
               "AboutUsPage.whatWeBuild.assetTokenizationDescription"
             )}
-            icon={
-              <GoldIcon className="w-6 h-6 text-neutral-700 dark:text-neutral-400" />
-            }
+            icon={<GoldIcon className="w-6 h-6" />}
           />
           <WhatWeBuildCard
             title={t("AboutUsPage.whatWeBuild.distributionRails")}
             description={t(
               "AboutUsPage.whatWeBuild.distributionRailsDescription"
             )}
-            icon={
-              <GlobeIcon className="w-6 h-6 text-neutral-700 dark:text-neutral-400" />
-            }
+            icon={<GlobeIcon className="w-6 h-6" />}
           />
           <WhatWeBuildCard
             title={t("AboutUsPage.whatWeBuild.digitalAssetsAccess")}
-            icon={
-              <LockIcon className="w-6 h-6 text-neutral-700 dark:text-neutral-400" />
-            }
+            icon={<LockIcon className="w-6 h-6" />}
           />
         </div>
       </div>
@@ -80,17 +70,17 @@ const WhatWeBuildCard = memo(
   ({ title, description, icon }: WhatWeBuildCardProps) => {
     return (
       <WhatWeBuildCardRoot>
-        <div className="flex justify-center items-center bg-neutral-100 dark:bg-neutral-800 rounded-[10px] w-12 h-12">
+        <div className="flex justify-center items-center bg-bg-weak-100 rounded-[10px] w-12 h-12 text-icon-base-500">
           {icon}
         </div>
 
         <div>
-          <h4 className="font-bold text-[18px] md:text-[24px] text-center leading-[22px] md:leading-[28px] tracking-[-0.072px] md:tracking-[0]">
+          <h4 className="text-text-strong-1000 text-title-sm md:text-title-lg text-center">
             {title}
           </h4>
 
           {!!description && (
-            <h5 className="text-[20px] text-neutral-700 dark:text-neutral-400 text-center leading-[26px]">
+            <h5 className="text-body-lg-medium text-text-subtle-700 md:text-body-xl-medium text-center">
               {description}
             </h5>
           )}
@@ -105,9 +95,8 @@ const WhatWeBuildCardRoot = memo(
   ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {
     return (
       <div
-        className={clsx(
-          "flex flex-col justify-center items-center gap-6 shadow-sm dark:shadow-dark-sm p-6 rounded-2xl min-h-[266px] md:min-h-[320px]",
-          !className?.includes("bg-") && "bg-neutral dark:bg-card",
+        className={twMerge(
+          "flex flex-col justify-center items-center gap-6 bg-surface-floating shadow-sm p-6 rounded-2xl min-h-[266px] md:min-h-[320px]",
           className
         )}
         {...props}

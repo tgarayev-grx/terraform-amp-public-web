@@ -8,7 +8,7 @@ export async function WhoAreWeSection() {
   const t = await getTranslations();
 
   return (
-    <section className="flex flex-col text-center">
+    <section className="flex flex-col bg-bg-base text-center">
       <div className="relative flex flex-col flex-grow sm:justify-between items-center gap-5 lg:grid lg:grid-cols-2 mx-auto px-4 md:px-8 xl:px-0 py-20 md:py-24 w-full max-w-[1180px]">
         <div className="flex flex-col gap-5 w-full">
           <DescriptionCard
@@ -37,12 +37,12 @@ type DescriptionCardProps = {
 
 const DescriptionCard = memo(({ title, description }: DescriptionCardProps) => {
   return (
-    <div className="flex flex-col gap-4 dark:bg-card shadow-sm dark:shadow-dark-sm p-6 rounded-2xl text-left">
-      <h2 className="font-bold text-[28px] md:text-[32px] leading-[32px] md:leading-[36px]">
+    <div className="flex flex-col gap-4 bg-surface-floating shadow-sm p-6 rounded-2xl text-left">
+      <h2 className="text-heading-h5 text-text-strong-1000 md:text-heading-h4">
         {title}
       </h2>
 
-      <p className="text-neutral-700 md:text-[18px] dark:text-neutral-400 text-base md:leading-[26px] whitespace-pre-wrap">
+      <p className="text-body-lg-medium text-text-subtle-700 md:text-body-xl-medium whitespace-pre-wrap">
         {description}
       </p>
     </div>

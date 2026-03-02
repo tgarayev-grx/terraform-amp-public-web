@@ -235,7 +235,7 @@ export function ContactUsForm({
                         }}
                       />
 
-                      <span className="font-medium text-neutral-1000 dark:text-neutral text-sm">
+                      <span className="text-body-sm-medium text-text-strong-1000">
                         {t(`field.interestedIn.options.${option}`)}
                       </span>
                     </label>
@@ -268,14 +268,10 @@ export function ContactUsForm({
           <form.Subscribe selector={(state) => state.isSubmitting}>
             {(isSubmitting) => (
               <Button
-                className={clsx(
-                  "mt-14 rounded-[10px] w-full",
-                  "dark:bg-neutral dark:text-neutral-1000 dark:hover:bg-neutral-100",
-                  classes?.submit
-                )}
+                className={clsx("mt-14 w-full", classes?.submit)}
                 type="submit"
                 variant="primary"
-                size="md"
+                size="lg"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? t("submitting") : t("submit")}
@@ -283,12 +279,12 @@ export function ContactUsForm({
             )}
           </form.Subscribe>
 
-          <p className="mt-4 font-medium text-neutral-500 dark:text-neutral-400 text-xs text-center">
+          <p className="mt-4 text-body-sm-medium text-text-soft-500 text-center">
             {t.rich("footer", {
               linkTerms: (chunks) => (
                 <Link
                   href={ROUTES.termsOfUse}
-                  className="text-blue-600 hover:text-blue-500 dark:hover:text-blue-300 dark:text-blue-400"
+                  className="text-info-base-600 hover:text-info-subtle-500"
                   target="_blank"
                 >
                   {chunks}
@@ -297,7 +293,7 @@ export function ContactUsForm({
               linkPrivacy: (chunks) => (
                 <Link
                   href={ROUTES.privacyPolicy}
-                  className="text-blue-600 hover:text-blue-500 dark:hover:text-blue-300 dark:text-blue-400"
+                  className="text-info-base-600 hover:text-info-subtle-500"
                   target="_blank"
                 >
                   {chunks}

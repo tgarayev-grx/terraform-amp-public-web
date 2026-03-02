@@ -10,13 +10,13 @@ import clsx from "clsx";
 export async function OurTeamSection() {
   const t = await getTranslations();
   return (
-    <section className="flex flex-col items-center px-4 sm:px-8 py-20 sm:py-24">
+    <section className="flex flex-col items-center bg-bg-base px-4 sm:px-8 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col gap-4 mb-14 text-center">
-          <h3 className="mx-auto max-w-[500px] font-unbounded font-bold text-[28px] lg:text-4xl leading-[32px]">
+          <h3 className="mx-auto max-w-[500px] font-unbounded text-display-sm text-text-strong-1000 md:text-display-md">
             {t("AboutUsPage.ourTeam.title")}
           </h3>
-          <h4 className="font-medium text-neutral-700 dark:text-neutral-400 lg:text-[20px] text-base lg:leading-[26px]">
+          <h4 className="text-body-lg-medium text-text-subtle-700 md:text-body-xl-medium">
             {t("AboutUsPage.ourTeam.subtitle")}
           </h4>
         </div>
@@ -95,17 +95,17 @@ const OurTeamCard = memo(({ className, name, role, img }: OurTeamCardProps) => {
   return (
     <div className={clsx("flex flex-col gap-4", className)}>
       <Image
-        className="bg-neutral-100 dark:bg-neutral-800 rounded-2xl w-full sm:h-[280px] object-cover"
+        className="bg-bg-weak-100 rounded-2xl w-full sm:h-[280px] object-cover"
         src={img}
         alt={name}
       />
 
       <div className="flex flex-col gap-2">
-        <h4 className="font-bold text-[20px] leading-[24px] tracking-[-0.08px]">
+        <h4 className="text-text-strong-1000 text-title-md md:text-title-lg">
           {name}
         </h4>
 
-        <h5 className="text-[16px] text-neutral-500 dark:text-neutral-400 leading-[20px]">
+        <h5 className="text-body-md-regular text-text-soft-500 md:text-body-lg-regular">
           {role}
         </h5>
       </div>

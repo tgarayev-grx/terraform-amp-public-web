@@ -6,14 +6,14 @@ export async function GetInTouchSection() {
   return (
     <section
       id="contact-us"
-      className="flex flex-col items-center bg-neutral-50 dark:bg-card px-4 sm:px-8 py-20 sm:py-24 text-neutral-1000 dark:text-neutral"
+      className="flex flex-col items-center bg-bg-muted-50 px-4 sm:px-8 py-20 sm:py-24 text-neutral-1000 dark:text-neutral"
     >
       <div className="mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col gap-4 mb-14 text-center">
-          <h3 className="mx-auto max-w-[500px] font-unbounded font-bold text-[28px] lg:text-4xl leading-[32px]">
+          <h3 className="mx-auto max-w-[500px] font-unbounded text-display-sm text-text-strong-1000 md:text-display-md">
             {t("title")}
           </h3>
-          <h4 className="font-medium text-neutral-700 dark:text-neutral-400 lg:text-[20px] text-base lg:leading-[26px]">
+          <h4 className="text-body-lg-medium text-text-subtle-700 md:text-body-xl-medium text-center">
             {t("subtitle")}
           </h4>
         </div>

@@ -57,8 +57,8 @@ export default async function LocaleLayout({
             themes={["light", "dark"]}
             attribute="data-theme"
             defaultTheme="system"
+            enableColorScheme
             enableSystem
-            disableTransitionOnChange
             storageKey={LOCAL_STORAGE_KEYS.THEME}
           >
             <ToastProvider>
