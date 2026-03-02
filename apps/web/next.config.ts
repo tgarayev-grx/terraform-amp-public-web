@@ -9,8 +9,6 @@ const withNextIntl = createNextIntlPlugin({
   },
 });
 
-const SERVER_EXTERNAL_PACKAGES = ["http", "https", "pino", "pino-pretty"];
-
 // K8s/Docker: output "standalone" for Node.js server (pnpm start).
 const nextConfig: NextConfig = {
   output: "standalone",
@@ -20,19 +18,6 @@ const nextConfig: NextConfig = {
   },
   transpilePackages: ["@grx/ui"],
   trailingSlash: true,
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      if (Array.isArray(config.externals)) {
-        config.externals.push(...SERVER_EXTERNAL_PACKAGES);
-      } else {
-        config.externals = [...SERVER_EXTERNAL_PACKAGES];
-      }
-    }
-    return config;
-  },
-  // For some reason, this option doesn't work
-  // even worse, it breaks webpack patch
-  // serverExternalPackages: SERVER_EXTERNAL_PACKAGES,
 };
 
 export default withNextIntl(nextConfig);
