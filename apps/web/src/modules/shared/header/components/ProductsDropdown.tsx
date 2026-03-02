@@ -4,11 +4,19 @@ import * as Popover from "@radix-ui/react-popover";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
+import clsx from "clsx";
+
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
-import { ComingSoonBadge } from "./ComingSoonBadge";
+
 import { ShevronDownIcon } from "../../icons";
 import { ROUTES } from "../routes";
-import clsx from "clsx";
+import {
+  ProductItem,
+  ProductItemRoot,
+  ProductItemTitle,
+  ProductItemDescription,
+  ProductItemContainer,
+} from "./ProductItem";
 
 export function ProductsDropdown() {
   const t = useTranslations();
@@ -22,57 +30,46 @@ export function ProductsDropdown() {
   return (
     <Popover.Root open={open} onOpenChange={setOpen}>
       <Popover.Trigger asChild>
-        <button className="group flex items-center gap-1.5 font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral">
+        <button className="group flex items-center gap-1.5 text-body-md-medium text-text-subtle-700 hover:text-text-strong-1000 transition-colors">
           {t("CommonHeader.nav.products")}
-          <ShevronDownIcon className="w-4 h-4 group-data-[state=open]:rotate-180 transition-transform" />
+
+          <ShevronDownIcon className="w-4 h-4 text-icon-base-500 group-hover:text-icon-strong-1000 group-data-[state=open]:rotate-180 transition-transform" />
         </button>
       </Popover.Trigger>
 
       <Popover.Portal>
         <Popover.Content
           className={clsx(
-            "z-50 shadow-lg p-2 border rounded-xl min-w-[280px] [transform-origin:var(--radix-popover-content-transform-origin)]",
+            "z-50 shadow-sm p-2 border rounded-xl min-w-[280px] [transform-origin:var(--radix-popover-content-transform-origin)]",
             "data-[state=closed]:animate-popover-out data-[state=open]:animate-popover-in",
-            "bg-neutral dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800"
+            "bg-surface-floating border-stroke-soft-200"
           )}
           sideOffset={8}
           align="start"
         >
-          <Link
-            href={ROUTES.pay}
-            className="flex flex-col gap-0.5 p-3 rounded-lg cursor-pointer outline-none transition-colors block hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-1000 dark:text-neutral"
-          >
-            <div className="flex items-center gap-2">
-              <span className="font-medium">GRX Pay</span>
-            </div>
-            <span className="text-sm opacity-80">
-              {t("CommonHeader.products.grxPay.description")}
-            </span>
-          </Link>
+          <ProductItemRoot asChild>
+            <Link href={ROUTES.pay}>
+              <ProductItemContainer>
+                <ProductItemTitle>GRX Pay</ProductItemTitle>
+              </ProductItemContainer>
 
-          <div className="flex flex-col gap-0.5 p-3 rounded-lg text-neutral-500 cursor-not-allowed">
-            <div className="flex items-center gap-2">
-              <span className="font-medium">GRX Exchange</span>
-              <ComingSoonBadge>
-                {t("CommonHeader.products.comingSoon")}
-              </ComingSoonBadge>
-            </div>
-            <span className="text-sm opacity-80">
-              {t("CommonHeader.products.grxExchange.description")}
-            </span>
-          </div>
+              <ProductItemDescription>
+                {t("CommonHeader.products.grxPay.description")}
+              </ProductItemDescription>
+            </Link>
+          </ProductItemRoot>
 
-          <div className="flex flex-col gap-0.5 p-3 rounded-lg text-neutral-500 cursor-not-allowed">
-            <div className="flex items-center gap-2">
-              <span className="font-medium">GRX RWA (Real World Assets)</span>
-              <ComingSoonBadge>
-                {t("CommonHeader.products.comingSoon")}
-              </ComingSoonBadge>
-            </div>
-            <span className="text-sm opacity-80">
-              {t("CommonHeader.products.grxRwa.description")}
-            </span>
-          </div>
+          <ProductItem
+            title="GRX Exchange"
+            description={t("CommonHeader.products.grxExchange.description")}
+            comingSoon
+          />
+
+          <ProductItem
+            title="GRX RWA (Real World Assets)"
+            description={t("CommonHeader.products.grxRwa.description")}
+            comingSoon
+          />
         </Popover.Content>
       </Popover.Portal>
     </Popover.Root>

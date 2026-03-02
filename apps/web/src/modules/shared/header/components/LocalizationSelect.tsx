@@ -19,16 +19,21 @@ export function LocalizationSelect() {
     { code: "en", name: t("CommonHeader.languages.en"), flag: <FlagEn /> },
     { code: "bg", name: t("CommonHeader.languages.bg"), flag: <FlagBg /> },
   ] as const;
+
   const currentLanguage =
     languages.find((lang) => lang.code === locale) || languages[0];
 
   return (
     <Popover.Root>
       <Popover.Trigger asChild>
-        <button className="group flex items-center gap-2 text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral">
-          <GlobeIcon className="w-6 h-6" />
-          <span className="uppercase">{currentLanguage.code}</span>
-          <ShevronDownIcon className="w-4 h-4 group-data-[state=open]:rotate-180 transition-transform" />
+        <button className="group flex items-center gap-2 transition-colors">
+          <GlobeIcon className="w-6 h-6 text-icon-base-500" />
+
+          <span className="text-body-md-regular text-text-strong-1000 uppercase">
+            {currentLanguage.code}
+          </span>
+
+          <ShevronDownIcon className="w-4 h-4 text-icon-base-500 group-hover:text-icon-strong-1000 group-data-[state=open]:rotate-180 transition-transform" />
         </button>
       </Popover.Trigger>
 
@@ -45,14 +50,14 @@ export function LocalizationSelect() {
           {languages.map((lang) => (
             <Link
               key={lang.code}
-              className="flex items-center gap-3 p-2 rounded-lg w-full transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-1000 dark:text-neutral"
+              className="flex items-center gap-3 hover:bg-bg-weak-100 p-2 rounded-lg w-full text-text-strong-1000 transition-colors"
               href={pathname}
               locale={lang.code}
             >
               <div className="flex justify-center items-center rounded-full w-6 h-6">
                 {lang.flag}
               </div>
-              <span className="text-sm">
+              <span className="text-body-md-regular">
                 {lang.name} ({lang.code.toUpperCase()})
               </span>
             </Link>
