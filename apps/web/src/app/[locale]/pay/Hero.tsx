@@ -39,10 +39,9 @@ export async function HeroSection() {
           <div className="flex justify-center sm:justify-start gap-4 mb-4">
             <ButtonRoot
               className="min-[425px]:min-w-[186px]"
-              asChild
-              palette="primary"
-              variant="contained"
+              variant="primary"
               size="lg"
+              asChild
             >
               <Link href={EXTERNAL_LINKS.Pay.signIn.href} target="_blank">
                 <ButtonText>{t("Pay.Root.hero.getStarted")}</ButtonText>
@@ -56,7 +55,6 @@ export async function HeroSection() {
             >
               <Button
                 className="min-[425px]:min-w-[186px]"
-                palette="primary"
                 variant="outlined"
                 size="lg"
               >

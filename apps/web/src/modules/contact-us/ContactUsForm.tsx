@@ -269,13 +269,12 @@ export function ContactUsForm({
             {(isSubmitting) => (
               <Button
                 className={clsx(
-                  "mt-14 w-full rounded-[10px]",
+                  "mt-14 rounded-[10px] w-full",
                   "dark:bg-neutral dark:text-neutral-1000 dark:hover:bg-neutral-100",
                   classes?.submit
                 )}
                 type="submit"
-                palette="primary"
-                variant="contained"
+                variant="primary"
                 size="md"
                 disabled={isSubmitting}
               >
@@ -289,7 +288,7 @@ export function ContactUsForm({
               linkTerms: (chunks) => (
                 <Link
                   href={ROUTES.termsOfUse}
-                  className="text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
+                  className="text-blue-600 hover:text-blue-500 dark:hover:text-blue-300 dark:text-blue-400"
                   target="_blank"
                 >
                   {chunks}
@@ -298,7 +297,7 @@ export function ContactUsForm({
               linkPrivacy: (chunks) => (
                 <Link
                   href={ROUTES.privacyPolicy}
-                  className="text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
+                  className="text-blue-600 hover:text-blue-500 dark:hover:text-blue-300 dark:text-blue-400"
                   target="_blank"
                 >
                   {chunks}

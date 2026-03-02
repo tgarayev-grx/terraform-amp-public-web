@@ -45,12 +45,7 @@ export async function CaseStudiesSection() {
             <div className="flex flex-col justify-between gap-4 shadow-light-sm p-6 rounded-2xl min-h-[356px] xl:min-h-[306px]">
               <Image className="w-[195px]" src={caseStudiesPng} alt="" />
 
-              <ButtonRoot
-                palette="secondary"
-                size="md"
-                variant="contained"
-                asChild
-              >
+              <ButtonRoot size="md" variant="secondary" asChild>
                 <Link href="/pay/cases">
                   <ButtonText>
                     {t("Pay.Root.caseStudies.moreCaseStudies")}

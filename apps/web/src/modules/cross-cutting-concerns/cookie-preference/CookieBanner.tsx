@@ -56,8 +56,7 @@ export const CookieBanner = memo(() => {
 
       <div className="flex flex-col gap-4 px-8 py-8">
         <Button
-          palette="primary"
-          variant="contained"
+          variant="primary"
           size="md"
           onClick={cookiePreferences.acceptAll}
         >
@@ -65,7 +64,7 @@ export const CookieBanner = memo(() => {
         </Button>
 
         <ManageCookiesModal cookiePreferences={cookiePreferences}>
-          <Button palette="primary" variant="outlined" size="md">
+          <Button variant="outlined" size="md">
             {t("CookieBanner.banner.manageOrReject")}
           </Button>
         </ManageCookiesModal>
@@ -88,14 +87,14 @@ export const ManageCookiesModal = memo(
     const [open, setOpen] = useState(false);
     const [functional, setFunctional] = useState(
       cookiePreferences.value?.functional ??
-      DEFAULT_COOKIE_PREFERENCES.functional
+        DEFAULT_COOKIE_PREFERENCES.functional
     );
     const [analytics, setAnalytics] = useState(
       cookiePreferences.value?.analytics ?? DEFAULT_COOKIE_PREFERENCES.analytics
     );
     const [advertisement, setAdvertisement] = useState(
       cookiePreferences.value?.advertisement ??
-      DEFAULT_COOKIE_PREFERENCES.advertisement
+        DEFAULT_COOKIE_PREFERENCES.advertisement
     );
 
     cookiePreferences.useOnUpdate(
@@ -223,7 +222,6 @@ export const ManageCookiesModal = memo(
             <div className="flex sm:flex-row flex-col gap-3 mt-6 px-8 pb-8 shrink-0">
               <Button
                 className="w-full"
-                palette="primary"
                 variant="outlined"
                 size="md"
                 onClick={() => {
@@ -236,8 +234,7 @@ export const ManageCookiesModal = memo(
 
               <Button
                 className="w-full"
-                palette="primary"
-                variant="contained"
+                variant="primary"
                 size="md"
                 onClick={() => {
                   cookiePreferences.savePreferences({

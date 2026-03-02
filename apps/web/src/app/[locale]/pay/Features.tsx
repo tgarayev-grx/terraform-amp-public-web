@@ -83,7 +83,7 @@ function FeatureCard({ title, description, img, action }: FeatureCardProps) {
         </div>
 
         <div className="flex justify-start">
-          <ButtonRoot palette="secondary" variant="contained" size="md" asChild>
+          <ButtonRoot variant="secondary" size="md" asChild>
             <Link href={EXTERNAL_LINKS.Pay.signIn.href} target="_blank">
               <ButtonText>{action}</ButtonText>
 

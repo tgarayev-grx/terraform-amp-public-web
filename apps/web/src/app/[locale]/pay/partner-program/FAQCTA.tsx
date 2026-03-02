@@ -27,12 +27,7 @@ export async function FAQCTASection() {
             interestedIn: ["grxPay"],
           }}
         >
-          <Button
-            className="min-w-[240px]"
-            palette="primary"
-            variant="contained"
-            size="md"
-          >
+          <Button className="min-w-[240px]" variant="primary" size="md">
             {t("Pay.PartnerProgram.faqCta.contactUs")}
           </Button>
         </ContactUsModal>

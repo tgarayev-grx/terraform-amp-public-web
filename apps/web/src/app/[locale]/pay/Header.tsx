@@ -61,18 +61,13 @@ export function Header() {
           <LocalizationSelect />
 
           <div className="flex items-center gap-3">
-            <ButtonRoot
-              asChild
-              palette="secondary"
-              variant="contained"
-              size="sm"
-            >
+            <ButtonRoot asChild variant="secondary" size="sm">
               <Link href={EXTERNAL_LINKS.Pay.signIn.href} target="_blank">
                 <ButtonText>{t("Pay.Root.header.nav.signIn")}</ButtonText>
               </Link>
             </ButtonRoot>
 
-            <ButtonRoot asChild palette="primary" variant="contained" size="sm">
+            <ButtonRoot asChild variant="primary" size="sm">
               <Link href="/create-account" target="_blank">
                 <ButtonText>
                   {t("Pay.Root.header.nav.createAccount")}
@@ -150,12 +145,7 @@ function MobileMenu() {
               <LocalizationSelect />
 
               <div className="flex flex-col gap-3">
-                <ButtonRoot
-                  asChild
-                  palette="primary"
-                  variant="contained"
-                  size="md"
-                >
+                <ButtonRoot variant="primary" size="md" asChild>
                   <Link href="/create-account" target="_blank">
                     <ButtonText>
                       {t("Pay.Root.header.nav.createAccount")}
@@ -163,12 +153,7 @@ function MobileMenu() {
                   </Link>
                 </ButtonRoot>
 
-                <ButtonRoot
-                  asChild
-                  palette="secondary"
-                  variant="contained"
-                  size="md"
-                >
+                <ButtonRoot variant="secondary" size="md" asChild>
                   <Link href={EXTERNAL_LINKS.Pay.signIn.href} target="_blank">
                     <ButtonText>{t("Pay.Root.header.nav.signIn")}</ButtonText>
                   </Link>

@@ -32,12 +32,7 @@ export async function EmpowerCtaSection() {
               interestedIn: ["grxPay"],
             }}
           >
-            <Button
-              className="min-w-[160px]"
-              variant="contained"
-              palette="secondary"
-              size="lg"
-            >
+            <Button className="min-w-[160px]" variant="secondary" size="lg">
               {t("Pay.AboutUs.empowerCta.contactSales")}
             </Button>
           </ContactUsModal>

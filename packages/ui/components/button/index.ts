@@ -1,9 +1,8 @@
 export { Button, ButtonRoot, ButtonText } from "./Button";
 export type {
-  ButtonPalette,
+  ButtonVariant,
   ButtonProps,
   ButtonRootProps,
   ButtonTextProps,
   ButtonSize,
-  ButtonVariant,
 } from "./Button";

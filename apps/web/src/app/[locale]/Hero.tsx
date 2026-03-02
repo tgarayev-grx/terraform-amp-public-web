@@ -37,8 +37,7 @@ export async function HeroSection() {
             <ButtonRoot
               className="min-[425px]:min-w-[186px]"
               asChild
-              palette="secondary"
-              variant="contained"
+              variant="secondary"
               size="lg"
             >
               <Link href={ROUTES.pay}>
@@ -53,7 +52,6 @@ export async function HeroSection() {
             >
               <Button
                 className="min-[425px]:min-w-[184px]"
-                palette="secondary"
                 variant="outlined"
                 size="lg"
               >

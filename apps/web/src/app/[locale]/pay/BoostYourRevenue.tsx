@@ -36,8 +36,7 @@ export function BoostYourRevenueSection() {
           <div className="flex justify-center mb-4">
             <ButtonRoot
               className="min-w-[180px]"
-              palette="secondary"
-              variant="contained"
+              variant="secondary"
               size="md"
               asChild
             >

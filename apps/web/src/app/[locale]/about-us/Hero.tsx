@@ -29,8 +29,7 @@ export async function HeroSection() {
 
           <ButtonRoot
             className="min-w-[180px]"
-            palette="secondary"
-            variant="contained"
+            variant="secondary"
             size="lg"
             asChild
           >

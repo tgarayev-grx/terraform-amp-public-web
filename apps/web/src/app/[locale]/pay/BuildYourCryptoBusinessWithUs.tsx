@@ -30,12 +30,7 @@ export async function BuildYourCryptoBusinessWithUsSection() {
                 interestedIn: ["grxPay"],
               }}
             >
-              <Button
-                className="min-w-[180px]"
-                palette="primary"
-                variant="contained"
-                size="md"
-              >
+              <Button className="min-w-[180px]" variant="primary" size="md">
                 {t("Pay.Root.buildYourBusiness.contactSales")}
               </Button>
             </ContactUsModal>

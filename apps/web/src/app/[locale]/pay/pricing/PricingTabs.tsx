@@ -95,8 +95,7 @@ function CryptoAcquiringTabContent() {
             </div>
             <ButtonRoot
               className="max-w-[180px] xl:max-w-full"
-              palette="primary"
-              variant="contained"
+              variant="primary"
               size="md"
               asChild
             >
@@ -138,8 +137,7 @@ function CryptoAcquiringTabContent() {
             >
               <Button
                 className="max-w-[180px] xl:max-w-full"
-                palette="secondary"
-                variant="contained"
+                variant="secondary"
                 size="md"
               >
                 {t("Pay.Pricing.contactSales")}
@@ -181,8 +179,7 @@ function CryptoProcessingTabContent() {
             </div>
             <ButtonRoot
               className="max-w-[180px] xl:max-w-full"
-              palette="primary"
-              variant="contained"
+              variant="primary"
               size="md"
               asChild
             >
@@ -224,8 +221,7 @@ function CryptoProcessingTabContent() {
             >
               <Button
                 className="max-w-[180px] xl:max-w-full"
-                palette="secondary"
-                variant="contained"
+                variant="secondary"
                 size="md"
               >
                 {t("Pay.Pricing.contactSales")}

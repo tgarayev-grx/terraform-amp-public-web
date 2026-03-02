@@ -16,12 +16,7 @@ function ContactUsButton({
 }) {
   return (
     <ContactUsModal defaultValues={{ interestedIn: ["grxPay"] }}>
-      <Button
-        className={className}
-        palette="primary"
-        variant="contained"
-        size="lg"
-      >
+      <Button className={className} variant="primary" size="lg">
         {children}
       </Button>
     </ContactUsModal>

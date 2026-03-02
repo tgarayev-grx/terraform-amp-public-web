@@ -80,8 +80,7 @@ export async function HowItWorksSection() {
           >
             <Button
               className="w-full sm:w-[180px]"
-              palette="secondary"
-              variant="contained"
+              variant="secondary"
               size="lg"
             >
               {t("Pay.PartnerProgram.howItWorks.contactUs")}
