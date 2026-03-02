@@ -10,15 +10,24 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     <CheckboxPrimitive.Root
       ref={ref}
       className={clsx(
-        "flex justify-center items-center border-2 border-neutral-300 dark:border-neutral-600 rounded w-5 h-5 shrink-0 dark:bg-neutral-825",
-        "data-[state=checked]:border-neutral-1000 data-[state=checked]:bg-neutral data-[state=checked]:text-neutral-1000",
-        "dark:data-[state=checked]:border-neutral-400 dark:data-[state=checked]:bg-neutral-1000 dark:data-[state=checked]:text-neutral",
-        "focus-visible:ring-4 focus-visible:ring-offset-[2px] focus-visible:ring-neutral-200 focus-visible:text-neutral-200 focus-visible:border-neutral-200",
-        "dark:focus-visible:ring-neutral-500 dark:focus-visible:ring-offset-neutral-825",
-        "hover:border-neutral-400 dark:hover:border-neutral-400 hover:data-[state=checked]:text-neutral-500 hover:data-[state=checked]:border-neutral-500",
-        "active:border-neutral-1000 active:data-[state=checked]:text-neutral-700 active:data-[state=checked]:border-neutral-700",
+        "flex justify-center items-center border-2 rounded-md w-5 h-5 shrink-0",
+        // border-radius: 6px; is here to match background and icon roundedness
+        "rounded-md",
+
+        // "outline-none focus:ring-4 focus:ring-offset-[2px] ring-offset-transparent",
         "outline-none",
-        "disabled:border-neutral-200 dark:disabled:border-neutral-700 disabled:pointer-events-none disabled:data-[state=checked]:border-neutral-200 dark:disabled:data-[state=checked]:border-neutral-700",
+
+        "data-[state=unchecked]:border-stroke-base-300",
+        "hover:data-[state=unchecked]:border-stroke-strong-500 focus-visible:data-[state=unchecked]:border-stroke-strong-500",
+        "active:data-[state=unchecked]:border-primary-base-1000",
+        "disabled:data-[state=unchecked]:border-stroke-disabled",
+
+        "data-[state=checked]:text-primary-base-1000",
+        "hover:data-[state=checked]:text-primary-darker-800 focus-visible:data-[state=checked]:text-primary-darker-800",
+        "active:data-[state=checked]:text-primary-dark-700",
+        "disabled:data-[state=checked]:text-bg-soft-200",
+
+        "disabled:border-stroke-disabled  disabled:pointer-events-none disabled:data-[state=checked]:border-stroke-disabled",
         className
       )}
       checked={checked}

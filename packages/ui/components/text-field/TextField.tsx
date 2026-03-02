@@ -10,8 +10,6 @@ import { clsx } from "clsx";
 import * as Slot from "@radix-ui/react-slot";
 import { useFieldId } from "../field";
 
-import styles from "./text-field.module.css";
-
 // --- Control ---
 
 export type TextFieldControlProps = ComponentPropsWithoutRef<"div"> & {
@@ -40,12 +38,17 @@ const TextFieldControl = forwardRef<HTMLDivElement, TextFieldControlProps>(
     return (
       <Root
         ref={ref}
-        className={clsx(styles.root, className, {
-          [styles.rootVariantInput]: variant === "input",
-          [styles.rootVariantTextarea]: variant === "textarea",
-          [styles.rootHasError]: hasError,
-          [styles.rootHasDisabled]: hasDisabled,
-        })}
+        className={clsx(
+          className,
+          "rounded-[10px] border border-stroke-base-300 text-body-md-regular text-text-strong-1000",
+          variant === "input" && "p-[11px]",
+          variant === "textarea" && "p-[11px] pb-[9px]",
+          "hover:border-stroke-strong-500 hover:bg-bg-weak-100",
+          "focus-within:border-stroke-stronger-900",
+          hasError && "border-error-base-600",
+          hasDisabled &&
+            "bg-bg-weak-100 border-stroke-disabled text-text-disabled"
+        )}
         {...rest}
       >
         {children}
@@ -68,7 +71,7 @@ const TextFieldInput = forwardRef<HTMLInputElement, TextFieldInputProps>(
         ref={ref}
         id={inputId}
         className={clsx(
-          "flex-1 bg-transparent border-0 outline-none w-full min-w-0 min-h-0 text-inherit placeholder:text-neutral-600",
+          "flex-1 bg-transparent border-0 outline-none w-full min-w-0 min-h-0 text-inherit placeholder:text-text-soft-500",
           className
         )}
         {...rest}
@@ -95,7 +98,7 @@ const TextFieldTextArea = forwardRef<
         ref={ref}
         id={textareaId}
         className={clsx(
-          "flex-1 bg-transparent pb-6 border-0 outline-none w-full min-w-0 min-h-[80px] text-inherit placeholder:text-neutral-600 resize-y",
+          "flex-1 bg-transparent pb-6 border-0 outline-none w-full min-w-0 min-h-[80px] text-inherit placeholder:text-text-soft-500 resize-y",
           className
         )}
         {...props}

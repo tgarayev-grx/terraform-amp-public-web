@@ -67,7 +67,8 @@ const FieldLabel = forwardRef<HTMLLabelElement, FieldLabelProps>(
       <Root
         ref={ref}
         className={clsx(
-          "min-h-[20px] font-medium text-neutral-700 dark:text-neutral-400 text-sm",
+          //TODO: Different styles for default/focus states
+          "min-h-[20px] font-medium text-text-strong-1000 text-sm",
           className
         )}
         {...rest}
