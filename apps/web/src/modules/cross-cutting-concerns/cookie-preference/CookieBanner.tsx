@@ -1,10 +1,9 @@
 "use client";
 
 import { Button } from "@grx/ui/index";
-import * as Switch from "@radix-ui/react-switch";
 import { useTranslations } from "next-intl";
-import { memo, ReactElement, useCallback, useState } from "react";
-import { Modal } from "@grx/ui";
+import { memo, ReactElement, ReactNode, useCallback, useState } from "react";
+import { Modal, Badge, Switch } from "@grx/ui";
 import { defaultRichComponents } from "@/modules/cross-cutting-concerns/i18n/components/Rich/defaultRichComponents";
 import { CookieIcon } from "./CookieIcon";
 import {
@@ -24,7 +23,7 @@ export const CookieBanner = memo(() => {
     return (
       <ManageCookiesModal cookiePreferences={cookiePreferences}>
         <button
-          className="bottom-6 left-6 z-10 fixed flex flex-col justify-center items-center bg-neutral-1000 hover:bg-neutral-800 active:bg-neutral-700 p-2.5 rounded-[12px] text-neutral"
+          className="bottom-6 left-6 z-10 fixed flex flex-col justify-center items-center bg-primary-base-1000 hover:bg-primary-dark-700 active:bg-primary-darker-800 p-2.5 rounded-[12px] text-text-inverce"
           style={{
             boxShadow:
               "0 20px 48px -4px rgba(16, 24, 40, 0.08), 0 8px 16px -4px rgba(16, 24, 40, 0.03)",
@@ -38,18 +37,18 @@ export const CookieBanner = memo(() => {
 
   return (
     <div
-      className="right-0 sm:right-6 bottom-0 sm:bottom-6 z-10 fixed flex flex-col bg-neutral rounded-2xl max-w-full sm:max-w-[440px]"
+      className="right-0 sm:right-6 bottom-0 sm:bottom-6 z-10 fixed flex flex-col bg-surface-floating rounded-2xl max-w-full sm:max-w-[440px]"
       style={{
         boxShadow:
           "0 20px 48px -4px rgba(16, 24, 40, 0.08), 0 8px 16px -4px rgba(16, 24, 40, 0.03)",
       }}
     >
       <div className="flex flex-col gap-4 px-8 pt-8 text-neutral-1000">
-        <h6 className="font-bold text-[20px] leading-[24px] tracking-[0.02px]">
+        <h6 className="text-text-strong-1000 text-title-md">
           {t("CookieBanner.banner.title")}
         </h6>
 
-        <p className="text-neutral-700 text-sm">
+        <p className="text-body-md-regular text-text-subtle-700">
           {t.rich("CookieBanner.banner.description", defaultRichComponents)}
         </p>
       </div>
@@ -57,14 +56,14 @@ export const CookieBanner = memo(() => {
       <div className="flex flex-col gap-4 px-8 py-8">
         <Button
           variant="primary"
-          size="md"
+          size="lg"
           onClick={cookiePreferences.acceptAll}
         >
           {t("CookieBanner.banner.acceptAll")}
         </Button>
 
         <ManageCookiesModal cookiePreferences={cookiePreferences}>
-          <Button variant="outlined" size="md">
+          <Button variant="outlined" size="lg">
             {t("CookieBanner.banner.manageOrReject")}
           </Button>
         </ManageCookiesModal>
@@ -114,107 +113,81 @@ export const ManageCookiesModal = memo(
 
           <Modal.Content>
             <div className="px-8 pt-8 shrink-0">
-              <Modal.Title className="font-semibold text-lg">
+              <Modal.Title className="pb-6 text-title-md">
                 {t("CookieBanner.modal.title")}
               </Modal.Title>
             </div>
 
             <div className="flex-1 px-8 min-h-0 sm:max-h-[500px] overflow-y-auto">
-              <Modal.Description className="mb-10 whitespace-pre-wrap">
+              <Modal.Description className="mb-10 text-body-lg-regular text-text-strong-1000 whitespace-pre-wrap">
                 {t.rich(
                   "CookieBanner.modal.description",
                   defaultRichComponents
                 )}
               </Modal.Description>
+
               <div>
-                <div className="mb-6 font-bold text-[18px] leading-[22px]">
+                <div className="mb-6 text-text-strong-1000 text-title-sm">
                   {t("CookieBanner.modal.sectionTitle")}
                 </div>
 
                 <ul className="flex flex-col gap-4">
-                  <li className="flex flex-col gap-2">
-                    <div className="flex justify-between items-center">
-                      <div className="font-semibold text-base">
-                        {t("CookieBanner.categories.necessary.title")}
-                      </div>
-                      <div className="bg-green-50 px-2 py-1 rounded text-green-600 text-xs">
+                  <CookiePreferenceItem
+                    title={t("CookieBanner.categories.necessary.title")}
+                    description={t(
+                      "CookieBanner.categories.necessary.description"
+                    )}
+                    control={
+                      <Badge size="md" palette="success" variant="light">
                         {t("CookieBanner.categories.necessary.alwaysActive")}
-                      </div>
-                    </div>
+                      </Badge>
+                    }
+                  />
 
-                    <div className="text-neutral-700 text-base">
-                      {t("CookieBanner.categories.necessary.description")}
-                    </div>
-                  </li>
+                  <CookiePreferenceItemSeparator />
 
-                  <li aria-hidden>
-                    <div className="bg-neutral-200 h-[1px]" />
-                  </li>
-
-                  <li className="flex flex-col gap-2">
-                    <div className="flex justify-between items-center">
-                      <div className="font-semibold text-base">
-                        {t("CookieBanner.categories.functional.title")}
-                      </div>
-                      <Switch.Root
+                  <CookiePreferenceItem
+                    title={t("CookieBanner.categories.functional.title")}
+                    description={t(
+                      "CookieBanner.categories.functional.description"
+                    )}
+                    control={
+                      <Switch
                         checked={functional}
                         onCheckedChange={setFunctional}
-                        className="bg-neutral-300 data-[state=checked]:bg-neutral-1000 rounded-full w-10 h-6 transition-colors"
-                      >
-                        <Switch.Thumb className="block bg-neutral rounded-full w-[22px] h-[22px] transition-transform translate-x-[1px] data-[state=checked]:translate-x-[17px] pointer-events-none" />
-                      </Switch.Root>
-                    </div>
+                      />
+                    }
+                  />
 
-                    <div className="text-neutral-700 text-base">
-                      {t("CookieBanner.categories.functional.description")}
-                    </div>
-                  </li>
+                  <CookiePreferenceItemSeparator />
 
-                  <li aria-hidden>
-                    <div className="bg-neutral-200 h-[1px]" />
-                  </li>
-
-                  <li className="flex flex-col gap-2">
-                    <div className="flex justify-between items-center">
-                      <div className="font-semibold text-base">
-                        {t("CookieBanner.categories.analytics.title")}
-                      </div>
-                      <Switch.Root
+                  <CookiePreferenceItem
+                    title={t("CookieBanner.categories.analytics.title")}
+                    description={t(
+                      "CookieBanner.categories.analytics.description"
+                    )}
+                    control={
+                      <Switch
                         checked={analytics}
                         onCheckedChange={setAnalytics}
-                        className="bg-neutral-300 data-[state=checked]:bg-neutral-1000 rounded-full w-10 h-6 transition-colors"
-                      >
-                        <Switch.Thumb className="block bg-neutral rounded-full w-[22px] h-[22px] transition-transform translate-x-[1px] data-[state=checked]:translate-x-[17px] pointer-events-none" />
-                      </Switch.Root>
-                    </div>
+                      />
+                    }
+                  />
 
-                    <div className="text-neutral-700 text-base">
-                      {t("CookieBanner.categories.analytics.description")}
-                    </div>
-                  </li>
+                  <CookiePreferenceItemSeparator />
 
-                  <li aria-hidden>
-                    <div className="bg-neutral-200 h-[1px]" />
-                  </li>
-
-                  <li className="flex flex-col gap-2">
-                    <div className="flex justify-between items-center">
-                      <div className="font-semibold text-base">
-                        {t("CookieBanner.categories.advertisement.title")}
-                      </div>
-                      <Switch.Root
+                  <CookiePreferenceItem
+                    title={t("CookieBanner.categories.advertisement.title")}
+                    description={t(
+                      "CookieBanner.categories.advertisement.description"
+                    )}
+                    control={
+                      <Switch
                         checked={advertisement}
                         onCheckedChange={setAdvertisement}
-                        className="bg-neutral-300 data-[state=checked]:bg-neutral-1000 rounded-full w-10 h-6 transition-colors"
-                      >
-                        <Switch.Thumb className="block bg-neutral rounded-full w-[22px] h-[22px] transition-transform translate-x-[1px] data-[state=checked]:translate-x-[17px] pointer-events-none" />
-                      </Switch.Root>
-                    </div>
-
-                    <div className="text-neutral-700 text-base">
-                      {t("CookieBanner.categories.advertisement.description")}
-                    </div>
-                  </li>
+                      />
+                    }
+                  />
                 </ul>
               </div>
             </div>
@@ -257,3 +230,38 @@ export const ManageCookiesModal = memo(
   }
 );
 ManageCookiesModal.displayName = "ManageCookiesModal";
+
+type CookiePreferenceItemProps = {
+  title: string;
+  description: string;
+  control: ReactNode;
+};
+const CookiePreferenceItem = memo(
+  ({ title, description, control }: CookiePreferenceItemProps) => {
+    return (
+      <li className="flex flex-col gap-2">
+        <div className="flex justify-between items-center">
+          <div className="text-body-lg-semibold text-text-strong-1000">
+            {title}
+          </div>
+
+          {control}
+        </div>
+
+        <div className="text-body-lg-regular text-text-subtle-700">
+          {description}
+        </div>
+      </li>
+    );
+  }
+);
+CookiePreferenceItem.displayName = "CookiePreferenceItem";
+
+const CookiePreferenceItemSeparator = memo(() => {
+  return (
+    <li aria-hidden>
+      <div className="bg-stroke-soft-200 h-[1px]" />
+    </li>
+  );
+});
+CookiePreferenceItemSeparator.displayName = "CookiePreferenceItemSeparator";

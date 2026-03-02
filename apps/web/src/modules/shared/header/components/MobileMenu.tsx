@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 
-import { ButtonRoot, ButtonText } from "@grx/ui";
+import { ButtonRoot, ButtonText, Modal } from "@grx/ui";
 import { usePathname } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
@@ -33,15 +33,15 @@ export function MobileMenu() {
   }, [pathname]);
 
   return (
-    <Dialog.Root open={open} onOpenChange={setOpen}>
-      <Dialog.Trigger asChild>
-        <button className="flex justify-center items-center w-10 h-10 text-text-subtle-700 hover:text-text-strong-1000 transition-colors">
+    <Modal.Root open={open} onOpenChange={setOpen}>
+      <Modal.Trigger asChild>
+        <button className="flex justify-center items-center w-10 h-10 text-icon-base-500 hover:text-icon-subtle-700 transition-colors">
           <MenuIcon className="w-6 h-6" />
         </button>
-      </Dialog.Trigger>
+      </Modal.Trigger>
 
-      <Dialog.Portal>
-        <Dialog.Overlay className="z-50 fixed inset-0 bg-neutral-1000/40 backdrop-blur-sm" />
+      <Modal.Portal>
+        <Modal.Overlay />
 
         <Dialog.Content
           className={clsx(
@@ -51,9 +51,10 @@ export function MobileMenu() {
           )}
           aria-describedby={undefined}
         >
-          <Dialog.Title className="sr-only">
+          <Modal.Title className="sr-only">
             {t("CommonHeader.nav.menu")}
-          </Dialog.Title>
+          </Modal.Title>
+
           <div className="flex flex-col flex-grow">
             <div className="flex justify-between items-center px-4 py-3 border-neutral-200 dark:border-neutral-800 border-b">
               <Link
@@ -63,22 +64,21 @@ export function MobileMenu() {
               >
                 <FooterLogo className="w-auto h-8 text-neutral-900 dark:text-neutral" />
               </Link>
-              <Dialog.Close asChild>
-                <button className="flex justify-center items-center w-10 h-10 text-neutral-700 hover:text-neutral-900 dark:hover:text-neutral dark:text-neutral-300 transition-colors">
-                  <CloseIcon className="w-6 h-6" />
-                </button>
-              </Dialog.Close>
+
+              <Modal.Close className="relative inset-0 w-10 *:w-6 h-10 *:h-6" />
             </div>
 
             <nav className="flex flex-col flex-grow px-2 pt-6">
               <Accordion.Root type="single" collapsible>
                 <Accordion.Item value="products" className="group">
                   <Accordion.Header>
-                    <Accordion.Trigger className="flex justify-between items-center px-2 py-3 w-full font-medium text-neutral-700 hover:text-neutral-900 dark:hover:text-neutral dark:text-neutral-300 text-sm transition-colors">
+                    <Accordion.Trigger className="flex justify-between items-center px-2 py-3 outline-none w-full text-body-md-medium text-text-strong-1000 hover:text-text-subtle-700 transition-colors">
                       {t("CommonHeader.nav.products")}
+
                       <ShevronDownIcon className="w-4 h-4 group-data-[state=open]:rotate-180 transition-transform duration-200 shrink-0" />
                     </Accordion.Trigger>
                   </Accordion.Header>
+
                   <Accordion.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
                     <div className="flex flex-col pb-2 pl-4">
                       <ProductItemRoot asChild>
@@ -112,23 +112,26 @@ export function MobileMenu() {
                   </Accordion.Content>
                 </Accordion.Item>
               </Accordion.Root>
+
               <Link
                 href={ROUTES.payPricing}
-                className="px-2 py-3 font-medium text-neutral-700 hover:text-neutral-900 dark:hover:text-neutral dark:text-neutral-300 text-sm transition-colors"
+                className="px-2 py-3 text-body-md-medium text-text-strong-1000 hover:text-text-subtle-700 transition-colors"
                 onClick={() => setOpen(false)}
               >
                 {t("CommonHeader.nav.pricing")}
               </Link>
+
               <Link
                 href={ROUTES.payPartnerProgram}
-                className="px-2 py-3 font-medium text-neutral-700 hover:text-neutral-900 dark:hover:text-neutral dark:text-neutral-300 text-sm transition-colors"
+                className="px-2 py-3 text-body-md-medium text-text-strong-1000 hover:text-text-subtle-700 transition-colors"
                 onClick={() => setOpen(false)}
               >
                 {t("CommonHeader.nav.partners")}
               </Link>
+
               <Link
                 href={ROUTES.aboutUs}
-                className="px-2 py-3 font-medium text-neutral-700 hover:text-neutral-900 dark:hover:text-neutral dark:text-neutral-300 text-sm transition-colors"
+                className="px-2 py-3 text-body-md-medium text-text-strong-1000 hover:text-text-subtle-700 transition-colors"
                 onClick={() => setOpen(false)}
               >
                 {t("CommonHeader.nav.aboutUs")}
@@ -138,8 +141,6 @@ export function MobileMenu() {
             <div className="flex flex-col gap-6 px-2 pt-4 pb-6">
               <div className="flex justify-between items-center gap-3">
                 <LocalizationSelect />
-
-                <ThemeSwitcher />
               </div>
 
               <div className="flex flex-col gap-3">
@@ -160,7 +161,7 @@ export function MobileMenu() {
             </div>
           </div>
         </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog.Root>
+      </Modal.Portal>
+    </Modal.Root>
   );
 }

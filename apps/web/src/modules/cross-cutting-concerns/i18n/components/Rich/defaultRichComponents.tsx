@@ -15,24 +15,24 @@ export const defaultRichComponents = {
   span: (chunks) => <span>{chunks}</span>,
   // Specific anchors: href and link text come from config, not from message (use empty tag in .json)
   "contact-support": () => (
-    <a href={SUPPORT_EMAIL_HREF} className="text-neutral-700">
+    <a href={SUPPORT_EMAIL_HREF} className="text-text-subtle-700">
       {SUPPORT_EMAIL}
     </a>
   ),
   "contact-sales": () => (
-    <a href={SALES_EMAIL_HREF} className="text-neutral-700">
+    <a href={SALES_EMAIL_HREF} className="text-text-subtle-700">
       {SALES_EMAIL}
     </a>
   ),
   "link-privacy-policy": (chunks) => (
-    <Link href="/pay/privacy-policy" className="text-neutral-700">
+    <Link href="/pay/privacy-policy" className="text-text-subtle-700">
       {chunks}
     </Link>
   ),
   "link-cookie-policy": (chunks) => (
     <Link
       href="/pay/cookie-policy"
-      className="text-blue-600 hover:text-blue-500"
+      className="text-info-base-600 hover:text-info-strong-800"
     >
       {chunks}
     </Link>
