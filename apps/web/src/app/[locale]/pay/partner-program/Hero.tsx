@@ -7,29 +7,13 @@ import { ContactUsModal } from "@/modules/contact-us";
 import partnerProgramHeroImage from "./(assets)/partner-program-hero.png";
 import partnerProgramCoinImage from "./(assets)/partner-program-coin.png";
 
-function ContactUsButton({
-  className,
-  children,
-}: {
-  className?: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <ContactUsModal defaultValues={{ interestedIn: ["grxPay"] }}>
-      <Button className={className} variant="primary" size="lg">
-        {children}
-      </Button>
-    </ContactUsModal>
-  );
-}
-
 export async function HeroSection() {
   const t = await getTranslations();
 
   return (
     <section
       className={clsx(
-        "relative flex flex-col bg-neutral-50 pt-[80px] pb-16 overflow-hidden text-center",
+        "relative flex flex-col bg-surface-canvas pt-[80px] pb-16 overflow-hidden text-center",
         "sm:pt-[112px] sm:pb-20 sm:text-left",
         "md:pt-24 md:pb-24",
         "2xl:pt-[110px] 2xl:pb-[110px]"
@@ -40,7 +24,7 @@ export async function HeroSection() {
           <div className="z-10 flex flex-col flex-shrink-0 gap-8 lg:max-w-[650px]">
             <h1
               className={clsx(
-                "font-unbounded font-bold text-neutral-900 tracking-[0.5%]",
+                "font-unbounded text-display-md text-text-strong-1000 md:text-display-lg",
                 "text-[36px] leading-[40px]",
                 "sm:text-[42px] sm:leading-[50px]",
                 "md:text-[48px] md:leading-[56px]"
@@ -48,9 +32,11 @@ export async function HeroSection() {
             >
               {t("Pay.PartnerProgram.hero.title")}
             </h1>
-            <p className="font-medium text-neutral-700 text-base sm:text-lg lg:text-xl leading-[24px] lg:leading-[26px]">
+
+            <p className="text-body-lg-medium text-text-subtle-700 md:text-body-xl-medium">
               {t("Pay.PartnerProgram.hero.subtitle")}
             </p>
+
             <div className="hidden lg:flex justify-center md:justify-start">
               <ContactUsButton className="w-[180px]">
                 {t("Pay.PartnerProgram.hero.contactUs")}
@@ -89,5 +75,21 @@ export async function HeroSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+function ContactUsButton({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <ContactUsModal defaultValues={{ interestedIn: ["grxPay"] }}>
+      <Button className={className} variant="primary" size="xl">
+        {children}
+      </Button>
+    </ContactUsModal>
   );
 }

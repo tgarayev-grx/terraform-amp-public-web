@@ -1,39 +1,4 @@
 import { getTranslations } from "next-intl/server";
-import { Button } from "@grx/ui/components/button/Button";
-import { ContactUsModal } from "@/modules/contact-us";
-
-type StepCardProps = {
-  number: number;
-  title: string;
-  description: string;
-  isLast?: boolean;
-};
-
-function StepCard({ number, title, description, isLast }: StepCardProps) {
-  return (
-    <div className="relative flex items-center gap-4 sm:gap-8 md:gap-10 w-full">
-      <div className="relative flex flex-col flex-shrink-0 items-center">
-        <div className="flex justify-center items-center bg-[#1d1d1d] shadow-dark-sm rounded-full w-16 sm:w-[84px] md:w-[108px] h-16 sm:h-[84px] md:h-[108px]">
-          <span className="font-unbounded font-bold text-[24px] text-white sm:text-[30px] md:text-[36px] leading-[32px] sm:leading-[34px] md:leading-[40px]">
-            {number}
-          </span>
-        </div>
-        {!isLast && (
-          <div className="top-[64px] sm:top-[84px] md:top-[108px] left-1/2 absolute bg-yellow-500 w-[2px] h-[calc(100%+48px)] sm:h-[calc(100%+32px)] md:h-[calc(100%+48px)] -translate-x-1/2" />
-        )}
-      </div>
-
-      <div className="flex flex-col flex-1 gap-2 bg-[#1d1d1d] shadow-dark-sm sm:p-5 md:p-6 px-3 py-4 rounded-2xl">
-        <h3 className="font-bold text-[18px] text-white sm:text-[22px] md:text-[24px] leading-[22px] sm:leading-[26px] md:leading-[28px]">
-          {title}
-        </h3>
-        <p className="text-neutral-300 sm:text-[15px] text-sm md:text-base leading-[20px] sm:leading-[22px] md:leading-[24px]">
-          {description}
-        </p>
-      </div>
-    </div>
-  );
-}
 
 export async function HowItWorksSection() {
   const t = await getTranslations();
@@ -54,9 +19,9 @@ export async function HowItWorksSection() {
   ];
 
   return (
-    <section className="flex flex-col items-center bg-neutral-1000 px-4 sm:px-8 py-20 sm:py-20 lg:py-24">
+    <section className="flex flex-col items-center bg-bg-weak-100 px-4 sm:px-8 py-20 sm:py-20 lg:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
-        <h2 className="mb-12 sm:mb-14 font-unbounded font-bold text-[28px] text-white sm:text-[36px] text-center leading-[32px] sm:leading-[40px]">
+        <h2 className="mb-12 sm:mb-14 font-unbounded text-display-sm text-text-strong-1000 md:text-display-md text-center">
           {t("Pay.PartnerProgram.howItWorks.title")}
         </h2>
 
@@ -71,23 +36,42 @@ export async function HowItWorksSection() {
             />
           ))}
         </div>
-
-        <div className="flex justify-center">
-          <ContactUsModal
-            defaultValues={{
-              interestedIn: ["grxPay"],
-            }}
-          >
-            <Button
-              className="w-full sm:w-[180px]"
-              variant="secondary"
-              size="lg"
-            >
-              {t("Pay.PartnerProgram.howItWorks.contactUs")}
-            </Button>
-          </ContactUsModal>
-        </div>
       </div>
     </section>
+  );
+}
+
+type StepCardProps = {
+  number: number;
+  title: string;
+  description: string;
+  isLast?: boolean;
+};
+
+function StepCard({ number, title, description, isLast }: StepCardProps) {
+  return (
+    <div className="relative flex items-center gap-4 sm:gap-8 md:gap-10 w-full">
+      <div className="relative flex flex-col flex-shrink-0 items-center">
+        <div className="flex justify-center items-center bg-surface-floating shadow-sm rounded-full w-16 sm:w-[84px] md:w-[108px] h-16 sm:h-[84px] md:h-[108px]">
+          <span className="font-unbounded text-text-strong-1000 text-title-lg md:text-display-md">
+            {number}
+          </span>
+        </div>
+
+        {!isLast && (
+          <div className="top-[64px] sm:top-[84px] md:top-[108px] left-1/2 absolute bg-primary-gold w-[2px] h-[calc(100%+48px)] sm:h-[calc(100%+32px)] md:h-[calc(100%+48px)] -translate-x-1/2" />
+        )}
+      </div>
+
+      <div className="flex flex-col flex-1 gap-2 bg-surface-floating shadow-sm sm:p-5 md:p-6 px-3 py-4 rounded-2xl">
+        <h3 className="text-text-strong-1000 text-title-sm md:text-title-lg">
+          {title}
+        </h3>
+
+        <p className="text-body-md-regular text-text-subtle-700 md:text-body-lg-regular">
+          {description}
+        </p>
+      </div>
+    </div>
   );
 }

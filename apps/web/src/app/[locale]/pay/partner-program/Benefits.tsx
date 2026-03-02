@@ -6,6 +6,7 @@ import { ArrowRightIcon } from "../(icons)/ArrowRightIcon";
 import benefitsPercentImage from "./(assets)/benefits-percent.png";
 import benefitsPayoutsImage from "./(assets)/benefits-payouts.png";
 import benefitsCreativeLibraryImage from "./(assets)/benefits-creative-library.png";
+import { ButtonRoot, ButtonText } from "@grx/ui/index";
 
 type BenefitItem = {
   title: string;
@@ -37,7 +38,7 @@ function BenefitCard({
   return (
     <div
       className={clsx(
-        "flex flex-col gap-4 bg-white shadow-sm p-6 rounded-2xl",
+        "flex flex-col gap-4 bg-surface-floating shadow-sm p-6 rounded-2xl",
         !isSmall && "items-center",
         className
       )}
@@ -64,20 +65,21 @@ function BenefitCard({
         <div className={clsx("flex flex-col", isSmall ? "gap-2" : "gap-4")}>
           <h3
             className={clsx(
-              "font-bold text-neutral-900",
+              "text-text-strong-1000",
               isSmall
-                ? "text-[18px] leading-[22px] md:text-[24px] md:leading-[28px]"
-                : "text-[24px] leading-[28px] md:text-[32px] md:leading-[36px]"
+                ? "text-title-sm md:text-title-lg"
+                : "text-title-lg md:text-heading-h4"
             )}
           >
             {title}
           </h3>
+
           <p
             className={clsx(
-              "text-neutral-700",
+              "text-text-subtle-700",
               isSmall
-                ? "text-sm leading-[20px] md:text-base md:leading-[24px]"
-                : "font-medium text-base leading-[24px] md:text-xl md:leading-[26px]"
+                ? "text-body-md-medium md:text-body-lg-medium"
+                : "text-body-lg-medium md:text-body-xl-medium"
             )}
           >
             {description}
@@ -85,13 +87,17 @@ function BenefitCard({
         </div>
 
         {button && (
-          <Link
-            className="inline-flex items-center gap-1.5 bg-neutral-100 hover:bg-neutral-200 px-4 py-2.5 rounded-[10px] w-fit font-semibold text-neutral-900 text-base leading-6 transition-colors"
-            href={button.href}
+          <ButtonRoot
+            className="max-w-[180px]"
+            variant="secondary"
+            size="lg"
+            asChild
           >
-            <span>{button.text}</span>
-            <ArrowRightIcon className="w-6 h-6" />
-          </Link>
+            <Link href={button.href}>
+              <ButtonText>{button.text}</ButtonText>
+              <ArrowRightIcon className="w-6 h-6" />
+            </Link>
+          </ButtonRoot>
         )}
       </div>
     </div>
@@ -137,9 +143,9 @@ export async function BenefitsSection() {
   ];
 
   return (
-    <section className="flex flex-col items-center bg-white px-4 sm:px-8 py-16 sm:py-20 lg:py-24">
+    <section className="flex flex-col items-center bg-surface-canvas px-4 sm:px-8 py-16 sm:py-20 lg:py-24">
       <div className="mx-auto w-full max-w-[980px]">
-        <h2 className="mb-12 sm:mb-14 font-unbounded font-bold text-[28px] text-neutral-900 sm:text-[36px] text-center leading-[32px] sm:leading-[40px]">
+        <h2 className="mb-12 sm:mb-14 font-unbounded text-display-sm text-text-strong-1000 sm:text-display-md text-center">
           {t("Pay.PartnerProgram.benefits.title")}
         </h2>
 
