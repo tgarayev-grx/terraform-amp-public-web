@@ -7,10 +7,7 @@ import {
   usePathname,
 } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { useScrollDirection } from "./useScrollDirection";
-import { isPayFaqPath } from "@/lib/dark-theme";
 import clsx from "clsx";
-
-export type HeaderTheme = "light" | "dark";
 
 export type ProductSubHeaderLabelKey =
   | "ProductSubHeader.overview"
@@ -26,28 +23,13 @@ interface ProductSubHeaderItem {
 }
 
 interface ProductSubHeaderProps {
-  theme?: HeaderTheme;
   productName: string;
   items: Array<ProductSubHeaderItem>;
 }
 
-const themeClasses = {
-  light: {
-    bar: "bg-neutral border-neutral-200",
-    link: "text-neutral-700 hover:text-neutral-900",
-    linkActive: "text-neutral-900 font-medium border-b-2 border-neutral-900",
-  },
-  dark: {
-    bar: "bg-neutral-900 border-neutral-800",
-    link: "text-neutral-300 hover:text-neutral",
-    linkActive: "text-neutral font-medium border-b-2 border-neutral",
-  },
-} as const;
-
 const SCROLL_TOP_THRESHOLD = 20;
 
 export function ProductSubHeader({
-  theme = "light",
   productName,
   items,
 }: ProductSubHeaderProps) {
@@ -55,8 +37,6 @@ export function ProductSubHeader({
   const pathname = usePathname();
   const scrollDirection = useScrollDirection();
   const [isAtTop, setIsAtTop] = useState(true);
-  const effectiveTheme = isPayFaqPath(pathname) ? "dark" : theme;
-  const tc = themeClasses[effectiveTheme];
 
   useEffect(() => {
     const checkScrollTop = () => {
@@ -73,15 +53,15 @@ export function ProductSubHeader({
   return (
     <div
       className={clsx(
-        "sticky top-16 z-40 w-full border-b transition-transform duration-300 ease-out",
-        tc.bar,
+        "top-16 z-40 sticky border-b w-full transition-transform duration-300 ease-out",
+        "bg-neutral border-neutral-200",
         !isVisible && "-translate-y-full"
       )}
     >
       <div className="mx-auto max-w-[1180px]">
         <nav
           className={clsx(
-            "flex items-center gap-8 py-3 px-4",
+            "flex items-center gap-8 px-4 py-3",
             "overflow-x-auto overflow-y-hidden scrollbar-none",
             "md:overflow-x-visible md:flex-wrap md:justify-start",
             "scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none]"
@@ -90,6 +70,7 @@ export function ProductSubHeader({
           aria-label="Product navigation"
         >
           {items.map((item) => {
+            console.log(item.href, pathname);
             const isActive = item.exact
               ? pathname === item.href
               : pathname === item.href || pathname.startsWith(item.href + "/");
@@ -98,8 +79,10 @@ export function ProductSubHeader({
                 key={item.href}
                 href={item.href}
                 className={clsx(
-                  "whitespace-nowrap font-medium text-sm transition-colors py-1 border-b-2 border-transparent",
-                  isActive ? tc.linkActive : tc.link
+                  "py-1 border-transparent border-b-2 font-medium text-sm whitespace-nowrap transition-colors",
+                  isActive
+                    ? "text-neutral-900 font-medium border-b-2 border-neutral-900"
+                    : "text-neutral-700 hover:text-neutral-900"
                 )}
               >
                 {item.labelKey === "ProductSubHeader.aboutProduct"
