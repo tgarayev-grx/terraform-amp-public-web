@@ -9,22 +9,24 @@ const STILL_HAVE_QUESTIONS = {
 export function StillHaveQuestions() {
   return (
     <section
-      className="px-4 pt-[56px] pb-24 sm:px-8 sm:pb-32"
+      className="px-4 sm:px-8 pt-[56px] pb-24 sm:pb-32"
       aria-labelledby="still-have-questions-heading"
     >
-      <div className="mx-auto w-full max-w-[980px] rounded-2xl bg-neutral-100 dark:bg-card p-6 sm:p-10">
+      <div className="bg-bg-weak-100 mx-auto p-6 sm:p-10 rounded-2xl w-full max-w-[980px]">
         <h2
-          className="font-bold text-[18px] leading-[22px] tracking-[0.4px] text-neutral-1000 dark:text-neutral sm:text-[24px] sm:leading-[28px] sm:tracking-normal"
+          className="text-text-strong-1000 text-title-sm md:text-title-lg"
           id="still-have-questions-heading"
         >
           {STILL_HAVE_QUESTIONS.heading}
         </h2>
-        <p className="mt-2 font-normal text-sm leading-5 text-neutral-700 dark:text-neutral-400 sm:text-base sm:leading-6">
+
+        <p className="mt-2 text-body-md-regular text-text-subtle-700 md:text-body-lg-regular">
           {STILL_HAVE_QUESTIONS.description}
         </p>
+
         <p className="mt-4">
           <a
-            className="font-normal text-sm leading-5 text-blue-600 dark:text-blue-400 underline underline-offset-2 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded sm:text-base sm:leading-6"
+            className="text-info-base-600 hover:text-info-subtle-500"
             href={`mailto:${SUPPORT_EMAIL}`}
           >
             {SUPPORT_EMAIL}

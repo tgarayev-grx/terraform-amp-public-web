@@ -8,17 +8,18 @@ const HERO_HEADING_ID = "faq-hero-heading";
 export function FaqHero() {
   return (
     <section
-      className="flex flex-col items-center pt-20 pb-14 sm:pt-24"
+      className="flex flex-col items-center pt-20 sm:pt-24 pb-14"
       aria-labelledby={HERO_HEADING_ID}
     >
-      <div className="mx-auto w-full max-w-[980px] px-4 text-center sm:px-8">
+      <div className="mx-auto px-4 sm:px-8 w-full max-w-[980px] text-center">
         <h1
           id={HERO_HEADING_ID}
-          className="font-unbounded font-bold text-[28px] leading-[32px] text-neutral-1000 dark:text-neutral sm:text-[36px] sm:leading-[40px]"
+          className="font-unbounded text-display-sm text-text-strong-1000 md:text-display-md"
         >
           {HERO.title}
         </h1>
-        <p className="mt-4 font-medium text-base leading-6 text-neutral-700 dark:text-neutral-400 sm:text-[20px] sm:leading-[26px]">
+
+        <p className="mt-4 text-body-lg-medium text-text-subtle-700 md:text-body-xl-medium">
           {HERO.subtitle}
         </p>
       </div>

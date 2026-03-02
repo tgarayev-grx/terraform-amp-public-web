@@ -65,17 +65,16 @@ export function ArticleSidebarNav({
             key={id}
             href={`#${id}`}
             className={clsx(
-              "relative flex items-center self-stretch py-2 pr-2 text-sm leading-5 rounded",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2",
+              "relative flex items-center self-stretch py-2 pr-2 rounded text-sm leading-5",
               isActive
-                ? "-ml-3 pl-3 font-medium text-neutral-1000 dark:text-neutral"
-                : "-ml-2 font-normal text-neutral-500 dark:text-neutral-400 hover:text-neutral-1000 dark:hover:text-neutral"
+                ? "-ml-3 pl-1 text-text-strong-1000 text-body-md-medium"
+                : "-ml-2 text-text-soft-500 hover:text-text-subtle-700 text-body-md-medium"
             )}
             aria-current={isActive ? "location" : undefined}
           >
             {isActive && (
               <span
-                className="top-1/2 absolute bg-gold-500 rounded-r-full w-[3px] h-5 -translate-y-1/2"
+                className="top-1/2 absolute bg-primary-gold rounded-r-full w-[3px] h-5 -translate-y-1/2"
                 style={{ left: -SIDEBAR_INDICATOR_OFFSET_LEFT }}
                 aria-hidden
               />

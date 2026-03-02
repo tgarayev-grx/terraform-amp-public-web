@@ -44,7 +44,7 @@ function ArticleSidebar({ sections }: { sections: ArticleSection[] }) {
 
   return (
     <aside
-      className="hidden w-full flex-shrink-0 flex-col self-start md:flex md:w-[161px] lg:w-[260px] md:sticky md:top-24 md:-ml-4"
+      className="hidden md:top-24 md:sticky md:flex flex-col flex-shrink-0 self-start md:-ml-4 w-full md:w-[161px] lg:w-[260px]"
       aria-label="Article navigation"
     >
       <nav
@@ -65,14 +65,11 @@ function ArticleBreadcrumbs({
   grxPayLabel: string;
 }) {
   return (
-    <nav
-      className="flex items-center gap-[6px] font-normal text-[14px] leading-5 text-neutral-500 dark:text-neutral-400"
-      aria-label="Breadcrumb"
-    >
-      <ol className="flex list-none flex-wrap items-center gap-[6px] p-0">
+    <nav className="flex items-center gap-[6px]" aria-label="Breadcrumb">
+      <ol className="flex flex-wrap items-center gap-[6px] p-0 list-none">
         <li className="flex items-center gap-[6px]">
           <Link
-            className="text-neutral-1000 dark:text-neutral-400 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded-sm dark:hover:text-neutral"
+            className="text-body-md-regular text-text-soft-500 hover:text-text-subtle-700"
             href="/pay"
           >
             {grxPayLabel}
@@ -80,13 +77,13 @@ function ArticleBreadcrumbs({
         </li>
         <li className="flex items-center gap-[6px]" aria-hidden>
           <DirectionRightIcon
-            className="size-4 shrink-0 text-neutral-400"
+            className="size-4 text-neutral-400 shrink-0"
             aria-hidden
           />
         </li>
         <li className="flex items-center gap-[6px]">
           <Link
-            className="text-neutral-1000 dark:text-neutral-400 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded-sm dark:hover:text-neutral"
+            className="text-body-md-regular text-text-soft-500 hover:text-text-subtle-700"
             href="/pay/faq"
           >
             FAQ
@@ -94,11 +91,14 @@ function ArticleBreadcrumbs({
         </li>
         <li className="flex items-center gap-[6px]" aria-hidden>
           <DirectionRightIcon
-            className="size-4 shrink-0 text-neutral-400"
+            className="size-4 text-neutral-400 shrink-0"
             aria-hidden
           />
         </li>
-        <li className="text-neutral-1000 dark:text-neutral" aria-current="page">
+        <li
+          className="text-body-md-medium text-text-strong-1000"
+          aria-current="page"
+        >
           {topicTitle}
         </li>
       </ol>
@@ -114,7 +114,7 @@ function renderInlinePart(part: InlinePart, index: number): ReactNode {
       return (
         <Link
           key={index}
-          className="text-blue-600 dark:text-blue-400 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded-sm"
+          className="text-info-base-600 hover:text-info-subtle-500"
           href={part.href}
         >
           {part.text}
@@ -122,7 +122,7 @@ function renderInlinePart(part: InlinePart, index: number): ReactNode {
       );
     case "bold":
       return (
-        <strong key={index} className="font-bold">
+        <strong key={index} className="font-bold text-text-strong-1000">
           {part.text}
         </strong>
       );
@@ -142,9 +142,10 @@ function ArticleBody({ sections }: { sections: ArticleSection[] }) {
           id={headingToId(section.heading)}
           className="flex flex-col gap-6 scroll-mt-24"
         >
-          <h2 className="font-bold text-[24px] leading-7 text-neutral-1000 dark:text-neutral">
+          <h2 className="text-text-strong-1000 text-title-sm md:text-title-lg">
             {section.heading}
           </h2>
+
           <div className="flex flex-col [&>*:last-child]:mb-0">
             {section.blocks.map((block, bIndex) => {
               switch (block.type) {
@@ -152,7 +153,7 @@ function ArticleBody({ sections }: { sections: ArticleSection[] }) {
                   return (
                     <h3
                       key={`${section.heading}-sub-${block.text}`}
-                      className="mb-0 font-bold text-base leading-6 text-neutral-1000 dark:text-neutral"
+                      className="text-body-md-semibold text-text-strong-1000"
                     >
                       {block.text}
                     </h3>
@@ -161,7 +162,7 @@ function ArticleBody({ sections }: { sections: ArticleSection[] }) {
                   return (
                     <p
                       key={`${section.heading}-p-${bIndex}`}
-                      className="mb-6 font-normal text-sm leading-5 text-neutral-700 dark:text-neutral-300 md:text-base md:leading-6"
+                      className="mb-6 text-body-md-regular text-text-subtle-700"
                     >
                       {typeof block.content === "string"
                         ? block.content
@@ -172,7 +173,7 @@ function ArticleBody({ sections }: { sections: ArticleSection[] }) {
                   return (
                     <ul
                       key={`${section.heading}-list-${block.items[0]?.slice(0, 20) ?? bIndex}`}
-                      className="mb-6 list-inside list-disc space-y-0 pl-2 font-normal text-sm leading-5 text-neutral-700 dark:text-neutral-300 md:text-base md:leading-6"
+                      className="space-y-0 mb-6 pl-2 text-body-md-regular text-text-subtle-700 list-disc list-inside"
                     >
                       {block.items.map((item, i) => (
                         <li key={i}>{item}</li>
@@ -199,13 +200,13 @@ export default async function FaqArticlePage({ params }: ArticlePageProps) {
 
   if (!article) {
     return (
-      <main className="w-full py-16 dark:bg-neutral-900">
-        <div className="mx-auto w-full max-w-[1180px] px-4">
+      <main className="dark:bg-neutral-900 py-16 w-full">
+        <div className="mx-auto px-4 w-full max-w-[1180px]">
           <p className="font-medium text-neutral-700 dark:text-neutral-400">
             {t("Pay.Faq.article.not_found")}
           </p>
           <Link
-            className="mt-4 inline-block font-medium text-blue-600 dark:text-blue-400 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded-sm"
+            className="inline-block hover:opacity-80 mt-4 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 font-medium text-blue-600 dark:text-blue-400"
             href="/pay/faq"
           >
             {t("Pay.Faq.article.back_link")}
@@ -219,19 +220,19 @@ export default async function FaqArticlePage({ params }: ArticlePageProps) {
   const grxPayLabel = (await getTranslations("Faq.breadcrumbs"))("grxPay");
 
   return (
-    <main className="w-full pt-10 pb-16 dark:bg-neutral-900">
-      <div className="mx-auto flex w-full max-w-[1180px] flex-col gap-12 px-4 md:flex-row md:gap-8 lg:gap-10">
+    <main className="dark:bg-neutral-900 pt-10 pb-16 w-full">
+      <div className="flex md:flex-row flex-col gap-12 md:gap-8 lg:gap-10 mx-auto px-4 w-full max-w-[1180px]">
         <ArticleSidebar sections={sections} />
-        <article className="mx-auto flex min-w-0 w-full max-w-[343px] flex-col items-start gap-0 md:mx-0 md:max-w-none md:w-[523px] md:flex-none lg:gap-8 lg:w-[880px] lg:flex-none">
+        <article className="flex flex-col md:flex-none lg:flex-none items-start gap-0 lg:gap-8 mx-auto md:mx-0 w-full md:w-[523px] lg:w-[880px] min-w-0 max-w-[343px] md:max-w-none">
           <ArticleBreadcrumbs
             topicTitle={article.title}
             grxPayLabel={grxPayLabel}
           />
-          <div className="mt-10 mb-8 flex flex-col items-start gap-2 md:mt-10 md:mb-8 lg:mt-0 lg:mb-0">
-            <h1 className="font-bold text-[36px] leading-[40px] text-neutral-1000 dark:text-neutral">
+          <div className="flex flex-col items-start gap-2 mt-10 md:mt-10 lg:mt-0 mb-8 md:mb-8 lg:mb-0">
+            <h1 className="font-bold text-[36px] text-neutral-1000 dark:text-neutral leading-[40px]">
               {article.title}
             </h1>
-            <p className="font-normal text-xs leading-4 text-neutral-500 dark:text-neutral-400">
+            <p className="font-normal text-neutral-500 dark:text-neutral-400 text-xs leading-4">
               Last updated {getArticleLastUpdated(slug)}
             </p>
           </div>
