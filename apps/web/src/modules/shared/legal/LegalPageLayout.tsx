@@ -10,14 +10,13 @@ export function LegalPageLayout({
   children,
 }: LegalPageLayoutProps) {
   return (
-    <main className="flex flex-col items-center w-full dark:bg-neutral-900">
-      <div className="w-full px-4 sm:px-8 py-20 lg:py-24">
-        <div className="flex flex-col gap-10 w-full max-w-[780px] mx-auto">
+    <main className="flex flex-col items-center bg-surface-base w-full">
+      <div className="px-4 sm:px-8 py-20 lg:py-24 w-full">
+        <div className="flex flex-col gap-10 mx-auto w-full max-w-[780px]">
           <header className="flex flex-col gap-2">
-            <h1 className="font-bold text-4xl leading-10 text-neutral-1000 dark:text-[var(--Text-text-strong-1000)]">
-              {title}
-            </h1>
-            <p className="text-xs text-neutral-500 leading-4 dark:text-[var(--Text-text-subtle-700)]">
+            <h1 className="text-heading-h3 text-text-strong-1000">{title}</h1>
+
+            <p className="text-body-sm-regular text-text-soft-500">
               {lastUpdated}
             </p>
           </header>

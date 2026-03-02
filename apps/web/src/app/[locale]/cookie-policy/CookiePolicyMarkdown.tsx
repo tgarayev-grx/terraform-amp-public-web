@@ -10,9 +10,6 @@ import {
   baseLegalTableComponents,
 } from "@/modules/shared/legal/LegalMarkdown";
 
-const linkClassName =
-  "text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300 underline transition-colors duration-150";
-
 type CookiePolicyMarkdownProps = {
   content: string;
 };
@@ -25,7 +22,9 @@ function cookieOverrides(
       if (href === "#cookie-settings") {
         return (
           <ManageCookiesModal cookiePreferences={cookiePreferences}>
-            <button className={linkClassName}>{children}</button>
+            <button className="text-info-base-600 hover:text-info-subtle-500">
+              {children}
+            </button>
           </ManageCookiesModal>
         );
       }
@@ -33,17 +32,20 @@ function cookieOverrides(
       if (isExternal) {
         return (
           <a
+            className="text-info-base-600 hover:text-info-subtle-500"
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className={linkClassName}
           >
             {children}
           </a>
         );
       }
       return (
-        <Link href={href ?? "#"} className={linkClassName}>
+        <Link
+          className="text-info-base-600 hover:text-info-subtle-500"
+          href={href ?? "#"}
+        >
           {children}
         </Link>
       );
