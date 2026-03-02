@@ -1,2 +1,1 @@
-export * from './tailwind.theme';
-export * from './theme';
+export * from "./tailwind.theme";

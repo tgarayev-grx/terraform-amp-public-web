@@ -1,15 +1,5 @@
 import { routing } from "@/modules/cross-cutting-concerns/i18n/routing";
 
-const DARK_THEME_BASE_PATHS = new Set([
-  "/",
-  "/about-us",
-  "/pay/faq",
-  "/cookie-policy",
-  "/privacy-policy",
-  "/terms-of-use",
-  "/aml-policy",
-]);
-
 const LEGAL_PATH_SEGMENTS = [
   "cookie-policy",
   "privacy-policy",
@@ -43,16 +33,4 @@ export function isLegalPath(pathname: string): boolean {
         pathname.startsWith(`/${locale}/${s}/`)
     )
   );
-}
-
-export function isDarkThemePath(pathname: string): boolean {
-  if (DARK_THEME_BASE_PATHS.has(pathname)) return true;
-  if (isPayFaqPath(pathname)) return true;
-  if (isLegalPath(pathname)) return true;
-  return routing.locales
-    .filter((l) => l !== routing.defaultLocale)
-    .some(
-      (locale) =>
-        pathname === `/${locale}` || pathname === `/${locale}/about-us`
-    );
 }
