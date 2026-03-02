@@ -9,7 +9,7 @@ export async function EmpowerCtaSection() {
   const t = await getTranslations();
 
   return (
-    <section className="relative flex flex-col justify-center min-h-[480px] sm:min-h-[560px] overflow-hidden">
+    <section className="relative flex flex-col justify-center bg-surface-canvas min-h-[480px] sm:min-h-[560px] overflow-hidden">
       <Image
         src={empowerJpeg}
         alt={t("Pay.AboutUs.empowerCta.imageAlt")}
@@ -18,12 +18,14 @@ export async function EmpowerCtaSection() {
         sizes="100vw"
         priority
       />
+
       <div className="z-10 relative flex flex-col justify-center px-4 sm:px-8 py-16 sm:py-20">
         <div className="flex flex-col items-start mx-auto w-full max-w-[1180px] text-left">
-          <h2 className="mb-4 max-w-[640px] font-unbounded font-bold text-[28px] text-white sm:text-[40px] leading-[32px] sm:leading-[48px]">
+          <h2 className="mb-4 max-w-[640px] font-unbounded text-heading-h3 text-text-strong-1000 sm:text-heading-h1">
             {t("Pay.AboutUs.empowerCta.title")}
           </h2>
-          <p className="mb-8 max-w-[520px] font-medium text-[16px] text-white sm:text-[18px] leading-[24px] sm:leading-[26px]">
+
+          <p className="mb-8 max-w-[520px] text-body-lg-medium text-text-subtle-700 md:text-body-xl-medium">
             {t("Pay.AboutUs.empowerCta.subtitle")}
           </p>
 
@@ -32,7 +34,7 @@ export async function EmpowerCtaSection() {
               interestedIn: ["grxPay"],
             }}
           >
-            <Button className="min-w-[160px]" variant="secondary" size="lg">
+            <Button className="min-w-[180px]" variant="primary" size="lg">
               {t("Pay.AboutUs.empowerCta.contactSales")}
             </Button>
           </ContactUsModal>
