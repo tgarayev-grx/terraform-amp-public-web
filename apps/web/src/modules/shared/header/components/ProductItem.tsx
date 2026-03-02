@@ -1,8 +1,9 @@
 import { memo, PropsWithChildren } from "react";
 import * as Slot from "@radix-ui/react-slot";
-import { ComingSoonBadge } from "./ComingSoonBadge";
 import { useTranslations } from "next-intl";
 import clsx from "clsx";
+
+import { Badge } from "@grx/ui";
 
 type ProductItemProps = PropsWithChildren & {
   title: string;
@@ -98,9 +99,9 @@ export const ProductItemComingSoon = memo(() => {
   const t = useTranslations();
 
   return (
-    <ComingSoonBadge size="sm">
+    <Badge palette="warning" variant="light" size="sm">
       {t("CommonHeader.products.comingSoon")}
-    </ComingSoonBadge>
+    </Badge>
   );
 });
 ProductItemComingSoon.displayName = "ProductItemComingSoon";

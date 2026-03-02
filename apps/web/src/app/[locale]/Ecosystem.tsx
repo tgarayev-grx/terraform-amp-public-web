@@ -9,7 +9,7 @@ import grxRwaImg from "./(assets)/ecosystem-grx-rwa.webp";
 import { Button, ButtonRoot, ButtonText } from "@grx/ui/components/button";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { ROUTES } from "@/modules/shared/header/routes";
-import { ComingSoonBadge } from "@/modules/shared/header/components/ComingSoonBadge";
+import { Badge } from "@grx/ui/index";
 
 export async function EcosystemSection() {
   const t = await getTranslations("Home");
@@ -49,9 +49,14 @@ export async function EcosystemSection() {
 
           <FeatureCard
             prepend={
-              <ComingSoonBadge variant="yellow" size="md">
+              <Badge
+                className="w-fit"
+                palette="warning"
+                variant="light"
+                size="md"
+              >
                 {t("ecosystem.comingSoon")}
-              </ComingSoonBadge>
+              </Badge>
             }
             product={t("ecosystem.grxExchange.product")}
             title={t("ecosystem.grxExchange.title")}
@@ -71,9 +76,14 @@ export async function EcosystemSection() {
           />
           <FeatureCard
             prepend={
-              <ComingSoonBadge variant="yellow" size="md">
+              <Badge
+                className="w-fit"
+                palette="warning"
+                variant="light"
+                size="md"
+              >
                 {t("ecosystem.comingSoon")}
-              </ComingSoonBadge>
+              </Badge>
             }
             product={t("ecosystem.grxRwa.product")}
             title={t("ecosystem.grxRwa.title")}

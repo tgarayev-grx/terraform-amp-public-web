@@ -15,4 +15,5 @@ export * from "./components/select";
 export * from "./components/checkbox";
 export * from "./components/modal";
 export * from "./components/toast";
+export * from "./components/badge";
 export * from "./form";

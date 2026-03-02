@@ -9,12 +9,12 @@ import { ROUTES } from "@/modules/shared/header/routes";
 import gdprPng from "./pay/(assets)/gdpr.png";
 import { ChainAnalysisLogo } from "./pay/(icons)/ChainAnalysisLogo";
 import { FooterLogoIcon, VerticalDividerIcon } from "@/modules/shared/icons";
-import { ComingSoonBadge } from "@/modules/shared/header/components/ComingSoonBadge";
 import { MasterCardLogo } from "./pay/(icons)/MasterCardLogo";
 import { SEPALogo } from "./pay/(icons)/SEPALogo";
 import { VISALogo } from "./pay/(icons)/VISALogo";
 import { ZENLogo } from "./pay/(icons)/ZENLogo";
 import { ContactUsModal } from "@/modules/contact-us";
+import { Badge } from "@grx/ui";
 
 const ACCEPTED_CRYPTO_LIST = [
   "USDT",
@@ -281,9 +281,9 @@ const FooterNavItemComingSoon = ({
         {children}
       </span>
 
-      <ComingSoonBadge variant="neutral" size="sm">
+      <Badge palette="neutral" variant="light" size="sm">
         {t("Pay.Root.footer.comingSoon")}
-      </ComingSoonBadge>
+      </Badge>
     </li>
   );
 };

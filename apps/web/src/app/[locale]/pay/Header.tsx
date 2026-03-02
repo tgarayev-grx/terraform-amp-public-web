@@ -95,8 +95,10 @@ function MobileMenu() {
           <MenuIcon className="w-6 h-6" />
         </button>
       </Dialog.Trigger>
+
       <Dialog.Portal>
         <Dialog.Overlay className="z-50 fixed inset-0 bg-black/50 data-[state=closed]:animate-fade-out data-[state=open]:animate-fade-in" />
+
         <Dialog.Content
           className="top-0 right-0 z-50 fixed flex flex-col bg-neutral shadow-lg w-full max-w-[375px] h-full overflow-y-auto data-[state=closed]:animate-slide-out-to-right data-[state=open]:animate-slide-in-from-right"
           aria-describedby={undefined}
@@ -104,9 +106,11 @@ function MobileMenu() {
           <Dialog.Title className="sr-only">
             {t("Pay.Root.header.nav.menu")}
           </Dialog.Title>
+
           <div className="flex flex-col flex-grow">
             <div className="flex justify-between items-center px-4 py-3 border-neutral-200 border-b">
               <LogoPay className="w-auto h-8 text-neutral-900" />
+
               <Dialog.Close asChild>
                 <button className="flex justify-center items-center w-10 h-10 text-neutral-700 hover:text-neutral-900 transition-colors">
                   <CloseIcon className="w-6 h-6" />
