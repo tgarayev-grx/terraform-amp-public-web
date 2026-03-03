@@ -54,7 +54,7 @@ export function CommonHeader() {
 
           <div className="hidden lg:flex justify-end items-center gap-3">
             <LocalizationSelect />
-            <ThemeSwitcher className="w-10 h-10" />
+            {/* <ThemeSwitcher className="w-10 h-10" /> */}
 
             <div className="flex items-center gap-3">
               <ButtonRoot variant="secondary" size="sm" asChild>
@@ -72,7 +72,7 @@ export function CommonHeader() {
           </div>
 
           <div className="lg:hidden flex justify-end items-center gap-1">
-            <ThemeSwitcher className="w-10 h-10" />
+            {/* <ThemeSwitcher className="w-10 h-10" /> */}
 
             <MobileMenu />
           </div>
