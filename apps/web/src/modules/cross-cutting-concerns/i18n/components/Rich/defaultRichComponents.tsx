@@ -1,6 +1,7 @@
 import { RichTagsFunction } from "next-intl";
 import { Link } from "../../navigation";
 import { SALES_EMAIL, SUPPORT_EMAIL } from "@/config/emails";
+import { ROUTES } from "@/modules/shared/header/routes";
 
 const SUPPORT_EMAIL_HREF = `mailto:${SUPPORT_EMAIL}`;
 const SALES_EMAIL_HREF = `mailto:${SALES_EMAIL}`;
@@ -33,7 +34,7 @@ export const defaultRichComponents = {
   "link-privacy-policy": (chunks) => (
     <Link
       className="text-info-base-600 hover:text-info-strong-800"
-      href="/pay/privacy-policy"
+      href={ROUTES.privacyPolicy}
     >
       {chunks}
     </Link>
@@ -41,7 +42,7 @@ export const defaultRichComponents = {
   "link-cookie-policy": (chunks) => (
     <Link
       className="text-info-base-600 hover:text-info-strong-800"
-      href="/pay/cookie-policy"
+      href={ROUTES.cookiePolicy}
     >
       {chunks}
     </Link>
