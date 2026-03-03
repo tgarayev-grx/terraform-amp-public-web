@@ -35,37 +35,35 @@ function Toast({ id, message, type }: ToastProps) {
     <div className="flex justify-center items-center">
       <div
         className={clsx(
-          "flex justify-between items-center gap-2 bg-white p-[11px] border border-solid rounded-[10px] max-[600px]:w-full",
+          "flex justify-between items-center gap-2 bg-bg-base shadow-xs p-[11px] border border-solid rounded-[10px] max-[600px]:w-full",
           {
-            "border-green-400": type === "success",
-            "border-red-400": type === "error",
-            "border-yellow-400": type === "warning",
-            "border-blue-400": type === "info",
+            "border-success-soft-400": type === "success",
+            "border-error-soft-400": type === "error",
+            "border-warning-soft-400": type === "warning",
+            "border-info-soft-400": type === "info",
           }
         )}
-        style={{
-          boxShadow:
-            "0 0 0.5px 0 rgba(0, 0, 0, 0.50), 0 0.5px 0 0 rgba(255, 255, 255, 0.10) inset, 0 0 0.5px 0 rgba(255, 255, 255, 0.30) inset, 0 1px 3px 0 rgba(0, 0, 0, 0.40)",
-        }}
       >
         <div
           className={clsx(
             "flex justify-center items-center self-start w-4 h-4",
             {
-              "text-green-500": type === "success",
-              "text-red-500": type === "error",
-              "text-yellow-500": type === "warning",
-              "text-blue-500": type === "info",
+              "text-success-subtle-500": type === "success",
+              "text-error-subtle-500": type === "error",
+              "text-warning-subtle-500": type === "warning",
+              "text-info-subtle-500": type === "info",
             }
           )}
         >
           <ToastIcon type={type} />
         </div>
 
-        <span className="text-xs">{message}</span>
+        <span className="text-body-md-regular text-text-strong-1000">
+          {message}
+        </span>
 
         <button
-          className="flex justify-center items-center self-start w-4 h-4 text-neutral-500 shrink-0"
+          className="flex justify-center items-center self-start w-4 h-4 text-icon-base-500 hover:text-icon-subtle-700 shrink-0"
           onClick={() => sonnerToast.dismiss(id)}
         >
           <RemoveIcon className="w-4 h-4" />
