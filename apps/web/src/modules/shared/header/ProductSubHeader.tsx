@@ -29,6 +29,9 @@ interface ProductSubHeaderProps {
 
 const SCROLL_TOP_THRESHOLD = 20;
 
+const removeTrailingSlash = (path: string) =>
+  path.endsWith("/") && path !== "/" ? path.slice(0, -1) : path;
+
 export function ProductSubHeader({
   productName,
   items,
@@ -50,6 +53,8 @@ export function ProductSubHeader({
   const isVisible =
     isAtTop || scrollDirection === null || scrollDirection === "up";
 
+  const normalizedPathname = removeTrailingSlash(pathname);
+
   return (
     <div
       className={clsx(
@@ -70,9 +75,11 @@ export function ProductSubHeader({
           aria-label="Product navigation"
         >
           {items.map((item) => {
+            const normalizedHref = removeTrailingSlash(item.href);
             const isActive = item.exact
-              ? pathname === item.href
-              : pathname === item.href || pathname.startsWith(item.href + "/");
+              ? normalizedPathname === normalizedHref
+              : normalizedPathname === normalizedHref ||
+                normalizedPathname.startsWith(normalizedHref + "/");
             return (
               <Link
                 key={item.href}

@@ -178,8 +178,6 @@ function LocalizationSelect() {
   const languages = [
     { code: "en", name: t("Pay.Root.header.languages.en"), flag: <FlagEn /> },
     { code: "bg", name: t("Pay.Root.header.languages.bg"), flag: <FlagBg /> },
-    { code: "fr", name: t("Pay.Root.header.languages.fr"), flag: <FlagFr /> },
-    { code: "es", name: t("Pay.Root.header.languages.es"), flag: <FlagEs /> },
   ] as const;
   const currentLanguage =
     languages.find((lang) => lang.code === locale) || languages[0];

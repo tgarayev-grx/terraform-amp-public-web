@@ -45,7 +45,7 @@ export function ArticleSidebarNav({
       const next = getActiveSectionId(ids);
       return next === prev ? prev : next;
     });
-  }, [idsKey]);
+  }, [ids]);
 
   useEffect(() => {
     updateActive();

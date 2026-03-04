@@ -1,5 +1,4 @@
-import { formats } from "@/modules/cross-cutting-concerns/i18n/request";
-import { routing } from "@/modules/cross-cutting-concerns/i18n/routing";
+import type { Locale } from "@/modules/cross-cutting-concerns/i18n/config";
 import messages from "@/modules/cross-cutting-concerns/i18n/locales/en.json";
 
 declare module "*.png" {
@@ -14,8 +13,7 @@ declare module "*.svg" {
 
 declare module "next-intl" {
   interface AppConfig {
-    Locale: (typeof routing.locales)[number];
-    Formats: typeof formats;
+    Locale: Locale;
     Messages: typeof messages;
   }
 }

@@ -1,0 +1,9 @@
+/** Supported locales — single source of truth for the entire app. */
+export const LOCALES = ["en", "bg"] as const;
+
+export type Locale = (typeof LOCALES)[number];
+
+export const DEFAULT_LOCALE: Locale = "en";
+
+/** Cookie name used by next-intl middleware to persist the user's locale choice. */
+export const LOCALE_COOKIE_NAME = "APP_LOCALE";

@@ -1,7 +1,13 @@
 import { defineRouting } from "next-intl/routing";
 
+import { DEFAULT_LOCALE, LOCALE_COOKIE_NAME, LOCALES } from "./config";
+
 export const routing = defineRouting({
-  locales: ["en", "bg", "fr", "es"],
-  defaultLocale: "en",
+  locales: [...LOCALES],
+  defaultLocale: DEFAULT_LOCALE,
   localePrefix: "as-needed",
+  localeDetection: true,
+  localeCookie: {
+    name: LOCALE_COOKIE_NAME,
+  },
 });

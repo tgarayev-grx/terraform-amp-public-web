@@ -70,13 +70,13 @@ For a comprehensive list of the cookies used by or on behalf of GRX, please cons
 
 **Table #3. List of Preferences Cookies**
 
-| Cookie Name                                  | Expiry   | Purpose                                                                                                                                            |
-| -------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| YSC                                          | Session  | This cookie is used by YouTube to remember user input and associate a user's actions. This cookie lasts for as long as you keep your browser open. |
-| OGPC                                         | 2 days   | These cookies are used by Google to store user preferences and information while viewing Google mapped pages.                                      |
-| NID (provider: .google.com)                  | 6 months | Contains a unique ID Google uses to remember your preferences and other information, such as your preferred language (e.g. English).               |
-| NEXT_LOCALE (provider: goldenratio.exchange) | 1 year   | Stores your preferred language/locale for the website. Set by next-intl for internationalization.                                                  |
-| theme (provider: goldenratio.exchange)       | Session  | This Cookie is used for determining which mode of our Website you prefer (dark or light).                                                          |
+| Cookie Name                                 | Expiry   | Purpose                                                                                                                                            |
+| ------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| YSC                                         | Session  | This cookie is used by YouTube to remember user input and associate a user's actions. This cookie lasts for as long as you keep your browser open. |
+| OGPC                                        | 2 days   | These cookies are used by Google to store user preferences and information while viewing Google mapped pages.                                      |
+| NID (provider: .google.com)                 | 6 months | Contains a unique ID Google uses to remember your preferences and other information, such as your preferred language (e.g. English).               |
+| APP_LOCALE (provider: goldenratio.exchange) | 1 year   | Stores your preferred language/locale for the website. Set by next-intl for internationalization.                                                  |
+| APP_THEME (provider: goldenratio.exchange)  | Session  | This cookie is used for determining which mode of our website you prefer (dark or light).                                                          |
 
 **Table #4. List of Marketing Cookies**
 
