@@ -122,7 +122,7 @@ jobs:
         run: |
           argocd app sync public-web-prod \
             --auth-token ${{ secrets.ARGO_TOKEN_PROD }} \
-            --server ${{ secrets.ARGOCD_SERVER_PROD }} \
+            --server argocd-prod.nyx-infra.com \
             --timeout 300 \
             --grpc-web
         continue-on-error: true
