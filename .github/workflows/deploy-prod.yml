@@ -1,0 +1,128 @@
+# Build and deploy public-web to prod (K8s + Argo CD).
+# Flow: create branch release/DD.MM.YYYY-N from master → open PR to prod → tests (test-changes.yml) + build+push on PR → merge → update gitops.prod + sync Argo CD.
+# Requires: branch `prod`, gitops.prod has infrastructure/public-web/deployment.yaml, secrets ARGO_TOKEN_PROD, ARGOCD_SERVER_PROD.
+# Runners: ubuntu-arm-2204-kuna. Image: AWS ECR. Manifests: gitops.prod.
+name: Build and deploy to prod
+
+on:
+  pull_request:
+    branches: [prod]
+    types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches: [prod]
+
+env:
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Tests run in test-changes.yml (triggered on PR to master and PR to prod).
+  # --- PR and push: build and push image to ECR (prod tag: *-arm-prod) ---
+  build-and-push:
+    runs-on: [self-hosted, ubuntu-arm-2204-kuna]
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      ecr_registry: ${{ steps.ecr_registry.outputs.ecr_registry }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+
+      - name: Version
+        id: version
+        run: |
+          SHA=$(git rev-parse --short=8 HEAD)
+          v="${SHA}-arm-prod"
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+
+      - name: Get ECR registry URL
+        id: ecr_registry
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.INFRA_ECR_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.INFRA_ECR_AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.INFRA_ECR_AWS_DEFAULT_REGION }}
+        run: |
+          ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+          REGION="${{ secrets.INFRA_ECR_AWS_DEFAULT_REGION }}"
+          ECR_REGISTRY="${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com"
+          echo "ecr_registry=${ECR_REGISTRY}" >> "$GITHUB_OUTPUT"
+
+      - name: Docker login (ECR)
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.INFRA_ECR_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.INFRA_ECR_AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.INFRA_ECR_AWS_DEFAULT_REGION }}
+        run: |
+          ECR_REGISTRY="${{ steps.ecr_registry.outputs.ecr_registry }}"
+          aws ecr get-login-password --region $AWS_DEFAULT_REGION | \
+            docker login --username AWS --password-stdin "$ECR_REGISTRY"
+
+      - name: Build image
+        run: |
+          ECR_REGISTRY="${{ steps.ecr_registry.outputs.ecr_registry }}"
+          docker build -f Dockerfile \
+            -t "${ECR_REGISTRY}/nyx-playground/public-web:${{ steps.version.outputs.version }}" \
+            .
+
+      - name: Push image to ECR
+        run: |
+          docker push ${{ steps.ecr_registry.outputs.ecr_registry }}/nyx-playground/public-web:${{ steps.version.outputs.version }}
+
+  # --- push only: update gitops.prod and sync Argo CD ---
+  update-gitops:
+    runs-on: [self-hosted, ubuntu-arm-2204-kuna]
+    needs: build-and-push
+    if: github.event_name == 'push' && github.ref == 'refs/heads/prod'
+    steps:
+      - name: Checkout gitops.prod
+        uses: actions/checkout@v4
+        with:
+          repository: NYX-ENGINEERS/gitops.prod
+          token: ${{ secrets.PLAT13748_SUPERMAN }}
+          ref: master
+
+      - name: Get ECR registry URL
+        id: ecr_registry
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.INFRA_ECR_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.INFRA_ECR_AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.INFRA_ECR_AWS_DEFAULT_REGION }}
+        run: |
+          ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+          REGION="${{ secrets.INFRA_ECR_AWS_DEFAULT_REGION }}"
+          ECR_REGISTRY="${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com"
+          echo "ecr_registry=${ECR_REGISTRY}" >> "$GITHUB_OUTPUT"
+
+      - name: Update image tag
+        env:
+          ECR_REGISTRY: ${{ steps.ecr_registry.outputs.ecr_registry }}
+          VERSION: ${{ needs.build-and-push.outputs.version }}
+        run: |
+          sed -i "s|image: .*nyx-playground/public-web.*|image: ${ECR_REGISTRY}/nyx-playground/public-web:${VERSION}|" \
+            infrastructure/public-web/deployment.yaml
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add infrastructure/public-web/deployment.yaml
+          git diff --staged --quiet || git commit -m "[public-web] deploy prod ${{ needs.build-and-push.outputs.version }}"
+          git push origin master
+
+  sync-argocd:
+    runs-on: [self-hosted, ubuntu-arm-2204-kuna]
+    needs: update-gitops
+    if: github.event_name == 'push' && github.ref == 'refs/heads/prod'
+    steps:
+      - name: Sync Argo CD app
+        run: |
+          argocd app sync public-web-prod \
+            --auth-token ${{ secrets.ARGO_TOKEN_PROD }} \
+            --server ${{ secrets.ARGOCD_SERVER_PROD }} \
+            --timeout 300 \
+            --grpc-web
+        continue-on-error: true

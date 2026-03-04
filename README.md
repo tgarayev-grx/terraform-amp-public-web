@@ -80,8 +80,29 @@ We run a **Node.js server** in the cluster: the Dockerfile builds the app with `
 - `INFRA_ECR_AWS_SECRET_ACCESS_KEY` — AWS secret key for ECR.
 - `PLAT13748_SUPERMAN` — GitHub token with write access to **gitops.dev** (for updating image tag).
 - `ARGO_TOKEN_DEV` — (optional) Argo CD token for `argocd app sync public-web-dev` after deploy.
+- **Prod:** `ARGO_TOKEN_PROD`, `ARGOCD_SERVER_PROD` — for `argocd app sync public-web-prod` after prod deploy.
 
 ECR registry URL is derived from `aws sts get-caller-identity` + region (no `INFRA_ECR_REGISTRY` needed).
+
+## Deploy to production
+
+Production uses the same ECR repo and GitOps flow as dev; the image tag suffix is `-arm-prod` and manifests live in [gitops.prod](https://github.com/NYX-ENGINEERS/gitops.prod).
+
+1. **Create a release branch** from `master`:
+   - Name: `release/{release-date}-{count-today}`
+   - Example: `release/04.03.2025-1`
+
+2. **Open a Pull Request** from that branch into the **`prod`** branch.
+
+3. **CI runs on the PR** (`.github/workflows/deploy-prod.yml` and `test-changes.yml`):
+   - **Tests** (same as dev): build packages and run tests (`.github/workflows/test-changes.yml`, triggered on PR to `prod`).
+   - **Build and push**: build the image and push to ECR with tag `{sha}-arm-prod` (`.github/workflows/deploy-prod.yml`).
+
+4. **Get approval and resolve conflicts**, then **merge into `prod`**.
+
+5. **After merge**: the workflow runs again on push to `prod`: builds the image for the merged commit, updates `infrastructure/public-web/deployment.yaml` in **gitops.prod** with the new image tag, commits and pushes, then runs `argocd app sync public-web-prod`.
+
+**Requirements:** branch `prod` must exist; gitops.prod must have `infrastructure/public-web/deployment.yaml` and the Argo CD app `public-web-prod`. Configure branch protection on `prod` so that “Test changes” and “Build and deploy to prod” (or at least tests) must pass before merging.
 ### Local build and run (Docker)
 
 ```bash
