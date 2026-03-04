@@ -80,10 +80,10 @@
   "Home": {
     "hero": {
       "title": "Bridging Traditional Finance and <highlight>Digital Assets</highlight>",
-      "subtitle": "Borderless transactions. Secure exchange.",
+      "subtitle": "GRX is a next-generation fintech ecosystem. Start processing seamless global payments today, and prepare for the future of retail trading and tokenized assets.",
       "subtitleLine2": "Real‑world assets on‑chain.",
-      "exploreGrxPay": "Explore GRX Pay",
-      "contactUs": "Contact us"
+      "exploreGrxPay": "Get Started with GRX Pay",
+      "otherPlatforms": "Explore our upcoming <exchange>Exchange</exchange> & <rwa>RWA</rwa> platforms"
     },
     "foundation": {
       "title": "The foundation of GRX",
@@ -112,6 +112,7 @@
       "title": "The GRX Ecosystem",
       "subtitle": "Explore products built on the GRX platform",
       "comingSoon": "Coming soon",
+      "underDevelopment": "Under development",
       "grxPay": {
         "product": "GRX Pay",
         "title": "Global payments. Seamless integration.",
@@ -123,13 +124,15 @@
         "product": "GRX Exchange",
         "title": "Trade with confidence. Anytime. Anywhere.",
         "description": "A high-performance trading platform built for both beginners and professional traders.",
-        "imageAlt": "GRX Exchange — trading platform"
+        "imageAlt": "GRX Exchange — trading platform",
+        "exploreGrxExchange": "Explore GRX Exchange"
       },
       "grxRwa": {
         "product": "GRX RWA",
         "title": "Bringing real-world assets on-chain",
         "description": "Unlock liquidity and investment opportunities with tokenized real-world assets (RWA).",
-        "imageAlt": "GRX RWA — real-world assets on-chain"
+        "imageAlt": "GRX RWA — real-world assets on-chain",
+        "exploreGrxRwa": "Explore GRX RWA"
       }
     },
     "technology": {
@@ -771,7 +774,10 @@
         },
         "developer": {
           "title": "Robust developer platform and third-party integrations",
-          "items": ["API documentation", "Seamless integration"]
+          "items": [
+            "API documentation",
+            "Seamless integration"
+          ]
         },
         "support": {
           "title": "24/7 support team",
@@ -787,15 +793,15 @@
       "faqItems": {
         "commission": {
           "question": "What is the commission for GRX Pay?",
-          "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+          "answer": "Our crypto payments service has specific fees: 2.5% for invoices, 0.5% for fiat withdrawals, and 5 EUR for crypto withdrawals. Auto-conversion is free (0% fee)."
         },
         "feesApplied": {
           "question": "How are the fees applied?",
-          "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+          "answer": "Fees are automatically deducted from the transaction amount at the time of processing. By default, the commission is paid by the merchant. If users wish to change this arrangement, they can contact our support team for assistance via support@goldenratio.exchange."
         },
         "volumeDiscounts": {
           "question": "Are there volume-based discounts available for high-frequency users?",
-          "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+          "answer": "We may offer volume-based discounts for high-frequency users. Please contact our sales team via a chat bot for personalized assistance and information on potential discounts."
         }
       }
     },

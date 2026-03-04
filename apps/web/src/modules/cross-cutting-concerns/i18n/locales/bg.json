@@ -80,10 +80,10 @@
   "Home": {
     "hero": {
       "title": "Мост между традиционните финанси и <highlight>дигиталните активи</highlight>",
-      "subtitle": "Транзакции без граници. Сигурна размяна.",
+      "subtitle": "GRX е финтех екосистема от следващо поколение. Започнете да обработвате безпроблемни глобални плащания още днес и се подгответе за бъдещето на търговията на дребно и токенизираните активи.",
       "subtitleLine2": "Реални активи в блокчейна.",
-      "exploreGrxPay": "Разгледайте GRX Pay",
-      "contactUs": "Свържете се с нас"
+      "exploreGrxPay": "Започнете с GRX Pay",
+      "otherPlatforms": "Разгледайте нашите предстоящи платформи <exchange>Exchange</exchange> и <rwa>RWA</rwa>"
     },
     "foundation": {
       "title": "Основата на GRX",
@@ -112,6 +112,7 @@
       "title": "Екосистемата GRX",
       "subtitle": "Разгледайте продукти, изградени върху платформата GRX",
       "comingSoon": "Очаквайте скоро",
+      "underDevelopment": "В разработка",
       "grxPay": {
         "product": "GRX Pay",
         "title": "Глобални плащания. Лесна интеграция.",
@@ -123,13 +124,15 @@
         "product": "GRX Exchange",
         "title": "Търгувайте с увереност. По всяко време. Навсякъде.",
         "description": "Високопроизводителна търговска платформа за начинаещи и професионални търговци.",
-        "imageAlt": "GRX Exchange — търговска платформа"
+        "imageAlt": "GRX Exchange — търговска платформа",
+        "exploreGrxExchange": "Разгледайте GRX Exchange"
       },
       "grxRwa": {
         "product": "GRX RWA",
         "title": "Реални активи в блокчейна",
         "description": "Ликвидност и инвестиционни възможности с токенизирани реални активи (RWA).",
-        "imageAlt": "GRX RWA — реални активи в блокчейна"
+        "imageAlt": "GRX RWA — реални активи в блокчейна",
+        "exploreGrxRwa": "Разгледайте GRX RWA"
       }
     },
     "technology": {
@@ -787,15 +790,15 @@
       "faqItems": {
         "commission": {
           "question": "Каква е комисионната за GRX Pay?",
-          "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+          "answer": "Нашата услуга за крипто плащания има конкретни такси: 2,5% за фактури, 0,5% за тегления във фиат и 5 EUR за тегления в крипто. Автоматичното конвертиране е безплатно (такса 0%)."
         },
         "feesApplied": {
           "question": "Как се прилагат таксите?",
-          "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+          "answer": "Таксите се удържат автоматично от сумата на транзакцията в момента на обработката. По подразбиране комисионата се заплаща от търговеца. Ако потребителите желаят да променят това, могат да се свържат с нашия екип за поддръжка за съдействие на support@goldenratio.exchange."
         },
         "volumeDiscounts": {
           "question": "Има ли отстъпки при обем за потребители с висока честота?",
-          "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+          "answer": "Можем да предложим отстъпки според обема за потребители с висока честота на транзакции. Моля, свържете се с нашия търговски екип чрез чатбот за персонализирана помощ и информация относно възможните отстъпки."
         }
       }
     },

@@ -6,7 +6,7 @@ import clsx from "clsx";
 import grxPayImg from "./(assets)/ecosystem-grx-pay.webp";
 import grxExchangeImg from "./(assets)/ecosystem-grx-exchange.webp";
 import grxRwaImg from "./(assets)/ecosystem-grx-rwa.webp";
-import { Button, ButtonRoot, ButtonText } from "@grx/ui/components/button";
+import { ButtonRoot, ButtonText } from "@grx/ui/components/button";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { ROUTES } from "@/modules/shared/header/routes";
 import { Badge } from "@grx/ui/index";
@@ -63,14 +63,16 @@ export async function EcosystemSection() {
             description={t("ecosystem.grxExchange.description")}
             imageAlt={t("ecosystem.grxExchange.imageAlt")}
             action={
-              <Button
+              <ButtonRoot
                 className="min-w-[142px]"
                 variant="secondary"
                 size="lg"
-                disabled
+                asChild
               >
-                {t("ecosystem.comingSoon")}
-              </Button>
+                <Link href={ROUTES.exchange}>
+                  <ButtonText>{t("ecosystem.grxExchange.exploreGrxExchange")}</ButtonText>
+                </Link>
+              </ButtonRoot>
             }
             end={grxExchangeImg}
           />
@@ -78,11 +80,11 @@ export async function EcosystemSection() {
             prepend={
               <Badge
                 className="w-fit"
-                palette="warning"
+                palette="info"
                 variant="light"
                 size="md"
               >
-                {t("ecosystem.comingSoon")}
+                {t("ecosystem.underDevelopment")}
               </Badge>
             }
             product={t("ecosystem.grxRwa.product")}
@@ -90,14 +92,16 @@ export async function EcosystemSection() {
             description={t("ecosystem.grxRwa.description")}
             imageAlt={t("ecosystem.grxRwa.imageAlt")}
             action={
-              <Button
+              <ButtonRoot
                 className="min-w-[142px]"
                 variant="secondary"
                 size="lg"
-                disabled
+                asChild
               >
-                {t("ecosystem.comingSoon")}
-              </Button>
+                <Link href={ROUTES.rwa}>
+                  <ButtonText>{t("ecosystem.grxRwa.exploreGrxRwa")}</ButtonText>
+                </Link>
+              </ButtonRoot>
             }
             start={grxRwaImg}
           />
