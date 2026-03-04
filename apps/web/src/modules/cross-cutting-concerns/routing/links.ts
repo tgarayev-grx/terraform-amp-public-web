@@ -1,4 +1,4 @@
-const PAY_BASE_URL = "https://merchant-front-pay.goldenratio.exchange";
+const PAY_BASE_URL = "https://merchant.goldenratio.exchange";
 
 export const EXTERNAL_LINKS = {
   Pay: {

@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 
-import { ButtonRoot, ButtonText } from "@grx/ui";
+import { ButtonRoot, ButtonText, Modal } from "@grx/ui";
 import { usePathname } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
@@ -15,18 +15,20 @@ import { CloseIcon, FooterLogo, MenuIcon, ShevronDownIcon } from "../../icons";
 import { LocalizationSelect } from "./LocalizationSelect";
 import { ProductItem } from "./ProductItem";
 import { ROUTES } from "../routes";
+import { useSelectedLayoutSegment } from "next/navigation";
 
 export function MobileMenu() {
   const t = useTranslations();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const segment = useSelectedLayoutSegment();
 
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
   return (
-    <Dialog.Root open={open} onOpenChange={setOpen}>
+    <Modal.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
         <button className="flex justify-center items-center w-10 h-10 text-icon-base-500 hover:text-icon-subtle-700 transition-colors">
           <MenuIcon className="w-6 h-6" />
@@ -34,12 +36,13 @@ export function MobileMenu() {
       </Dialog.Trigger>
 
       <Dialog.Portal>
-        <Dialog.Overlay className="z-50 fixed inset-0 bg-black/50 data-[state=closed]:animate-fade-out data-[state=open]:animate-fade-in" />
+        <Modal.Overlay />
+
         <Dialog.Content
           className={clsx(
             "top-0 right-0 z-50 fixed flex flex-col shadow-lg w-full max-w-[375px] h-full overflow-y-auto",
             "data-[state=closed]:animate-slide-out-to-right data-[state=open]:animate-slide-in-from-right",
-            "bg-bg-base border-neutral-200 dark:border-neutral-800"
+            "bg-bg-base"
           )}
           aria-describedby={undefined}
         >
@@ -48,7 +51,7 @@ export function MobileMenu() {
           </Dialog.Title>
 
           <div className="flex flex-col flex-grow">
-            <div className="flex justify-between items-center px-4 py-3 border-neutral-200 dark:border-neutral-800 border-b">
+            <div className="flex justify-between items-center border-stroke-soft-200 px-4 py-3 border-b">
               <Link
                 href={ROUTES.home}
                 className="flex items-center text-neutral-900 dark:text-neutral"
@@ -76,26 +79,32 @@ export function MobileMenu() {
                   </Accordion.Header>
 
                   <Accordion.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                    <div className="flex flex-col pl-4 pb-2">
+                    <div className="flex flex-col pb-2 pl-4">
                       <ProductItem
-                        title="GRX Pay"
                         href={ROUTES.pay}
+                        title="GRX Pay"
+                        description={t(
+                          "CommonHeader.products.grxPay.description"
+                        )}
                         onClick={() => setOpen(false)}
-                        className="py-2 p-0 rounded-none"
                       />
                       <ProductItem
-                        title="GRX Exchange"
-                        comingSoon
                         href={ROUTES.exchange}
+                        title="GRX Exchange"
+                        description={t(
+                          "CommonHeader.products.grxExchange.description"
+                        )}
                         onClick={() => setOpen(false)}
-                        className="py-2 p-0 rounded-none"
+                        comingSoon
                       />
                       <ProductItem
-                        title="GRX RWA"
-                        underDevelopment
                         href={ROUTES.rwa}
+                        title="GRX RWA"
+                        description={t(
+                          "CommonHeader.products.grxRwa.description"
+                        )}
                         onClick={() => setOpen(false)}
-                        className="py-2 p-0 rounded-none"
+                        underDevelopment
                       />
                     </div>
                   </Accordion.Content>
@@ -114,25 +123,27 @@ export function MobileMenu() {
             <div className="flex flex-col gap-6 px-2 pt-4 pb-6">
               <LocalizationSelect />
 
-              <div className="flex flex-col gap-3">
-                <ButtonRoot asChild variant="primary" size="md">
-                  <Link href={EXTERNAL_LINKS.Pay.signUp.href} target="_blank">
-                    <ButtonText>
-                      {t("CommonHeader.nav.createAccount")}
-                    </ButtonText>
-                  </Link>
-                </ButtonRoot>
+              {segment === "pay" && (
+                <div className="flex flex-col gap-3">
+                  <ButtonRoot asChild variant="primary" size="md">
+                    <Link href={EXTERNAL_LINKS.Pay.signUp.href} target="_blank">
+                      <ButtonText>
+                        {t("CommonHeader.nav.createAccount")}
+                      </ButtonText>
+                    </Link>
+                  </ButtonRoot>
 
-                <ButtonRoot variant="secondary" size="md" asChild>
-                  <Link href={EXTERNAL_LINKS.Pay.signIn.href} target="_blank">
-                    <ButtonText>{t("CommonHeader.nav.signIn")}</ButtonText>
-                  </Link>
-                </ButtonRoot>
-              </div>
+                  <ButtonRoot variant="secondary" size="md" asChild>
+                    <Link href={EXTERNAL_LINKS.Pay.signIn.href} target="_blank">
+                      <ButtonText>{t("CommonHeader.nav.signIn")}</ButtonText>
+                    </Link>
+                  </ButtonRoot>
+                </div>
+              )}
             </div>
           </div>
         </Dialog.Content>
       </Dialog.Portal>
-    </Dialog.Root>
+    </Modal.Root>
   );
 }

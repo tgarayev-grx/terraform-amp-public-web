@@ -15,54 +15,6 @@ import { SEPALogo } from "./pay/(icons)/SEPALogo";
 import { VISALogo } from "./pay/(icons)/VISALogo";
 import { ZENLogo } from "./pay/(icons)/ZENLogo";
 
-const FooterNavRoot = ({ children }: PropsWithChildren) => {
-  return <div className="flex flex-col gap-4">{children}</div>;
-};
-
-const FooterNavTitle = ({ children }: PropsWithChildren) => {
-  return (
-    <span className="text-body-lg-semibold text-text-strong-1000">
-      {children}
-    </span>
-  );
-};
-
-const FooterNavList = ({ children }: PropsWithChildren) => {
-  return <ul className="flex flex-col gap-4">{children}</ul>;
-};
-
-const FooterNavItemLink = ({
-  href,
-  children,
-}: PropsWithChildren<{ href: string }>) => {
-  return (
-    <li>
-      <Link
-        className="text-body-md-regular text-text-soft-500 hover:text-text-strong-1000 transition-colors"
-        href={href}
-      >
-        {children}
-      </Link>
-    </li>
-  );
-};
-
-const FooterNavItemComingSoon = ({
-  children,
-  t,
-}: PropsWithChildren<{ t: FooterT }>) => {
-  return (
-    <li className="flex items-center gap-2">
-      <span className="text-body-md-regular text-text-disabled">
-        {children}
-      </span>
-      <Badge palette="neutral" variant="light" size="sm">
-        {t("Pay.Root.footer.comingSoon")}
-      </Badge>
-    </li>
-  );
-};
-
 const ACCEPTED_CRYPTO_LIST = [
   "USDT",
   "BTC",
@@ -81,22 +33,22 @@ export async function Footer() {
   const t = await getTranslations();
 
   return (
-    <footer className="bg-neutral-800 py-16 sm:py-20 lg:py-24">
+    <footer className="bg-bg-weak-100 py-16 sm:py-20 lg:py-24">
       <div className="px-4 sm:px-8 lg:px-[130px]">
-        <div className="mx-auto flex w-full max-w-[1180px] flex-col gap-10">
+        <div className="flex flex-col gap-10 mx-auto w-full max-w-[1180px]">
           <FooterNav t={t} />
 
           <AcceptCryptoList t={t} />
 
           <IntegrationsList />
 
-          <p className="text-sm font-normal leading-5 text-neutral-400">
+          <p className="text-body-md-regular text-text-soft-500">
             {t("Pay.Root.footer.copyright", {
               year: String(new Date().getFullYear()),
             })}
           </p>
 
-          <p className="w-full text-sm font-normal leading-5 tracking-normal text-neutral-400">
+          <p className="w-full max-w-[1180px] text-body-md-regular text-text-soft-500">
             {t("Pay.Root.footer.disclaimer")}
           </p>
         </div>
@@ -114,7 +66,7 @@ function FooterNav({ t, className }: FooterNavProps) {
   return (
     <div
       className={clsx(
-        "flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between",
+        "flex lg:flex-row flex-col lg:justify-between lg:items-start gap-10",
         className
       )}
     >
@@ -123,8 +75,9 @@ function FooterNav({ t, className }: FooterNavProps) {
         className="flex items-center gap-2 shrink-0"
         aria-label="GRX - Golden Ratio Exchange"
       >
-        <FooterLogoIcon className="h-9 w-auto shrink-0 text-text-strong-1000" />
-        <span className="font-unbounded text-[18px] font-medium leading-[0.98] tracking-[-0.36px] text-text-strong-1000">
+        <FooterLogoIcon className="w-auto h-9 text-text-strong-1000 shrink-0" />
+
+        <span className="font-unbounded font-medium text-[18px] text-text-strong-1000 leading-[0.98] tracking-[-0.36px]">
           <span className="block">GOLDEN RATIO</span>
           <span className="block">EXCHANGE</span>
         </span>
@@ -190,18 +143,19 @@ function AcceptCryptoList({ t, className }: AcceptCryptoListProps) {
     <div
       className={clsx(
         "flex flex-wrap items-center gap-x-3 gap-y-1",
-        "text-xs font-normal leading-4 text-neutral-400",
+        "text-text-soft-500 text-body-sm-regular",
         className
       )}
     >
       <span>{t("Pay.Root.footer.acceptCrypto")}</span>
+
       {ACCEPTED_CRYPTO_LIST.map((crypto, index, array) => (
         <Fragment key={crypto}>
           <span>{crypto}</span>
 
           {index !== array.length - 1 && (
-            <span className="shrink-0 text-neutral-700" aria-hidden>
-              <VerticalDividerIcon className="h-4 w-px" />
+            <span className="text-stroke-soft-200 shrink-0" aria-hidden>
+              <VerticalDividerIcon className="w-px h-4" />
             </span>
           )}
         </Fragment>
@@ -210,16 +164,11 @@ function AcceptCryptoList({ t, className }: AcceptCryptoListProps) {
   );
 }
 
-type IntegrationsListProps = {
-  className?: string;
-};
-
-function IntegrationsList({ className }: IntegrationsListProps) {
+function IntegrationsList() {
   return (
     <div
       className={clsx(
-        "flex flex-wrap items-center gap-6 text-neutral-600 sm:gap-8",
-        className
+        "flex flex-wrap items-center gap-6 sm:gap-8 text-icon-disabled"
       )}
     >
       <ChainAnalysisLogo />
@@ -231,3 +180,35 @@ function IntegrationsList({ className }: IntegrationsListProps) {
     </div>
   );
 }
+
+const FooterNavRoot = ({ children }: PropsWithChildren) => {
+  return <div className="flex flex-col gap-4">{children}</div>;
+};
+
+const FooterNavTitle = ({ children }: PropsWithChildren) => {
+  return (
+    <span className="text-body-lg-semibold text-text-strong-1000">
+      {children}
+    </span>
+  );
+};
+
+const FooterNavList = ({ children }: PropsWithChildren) => {
+  return <ul className="flex flex-col gap-4">{children}</ul>;
+};
+
+const FooterNavItemLink = ({
+  href,
+  children,
+}: PropsWithChildren<{ href: string }>) => {
+  return (
+    <li>
+      <Link
+        className="text-body-md-regular text-text-soft-500 hover:text-text-strong-1000 transition-colors"
+        href={href}
+      >
+        {children}
+      </Link>
+    </li>
+  );
+};

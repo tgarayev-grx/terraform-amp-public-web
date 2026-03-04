@@ -20,15 +20,20 @@ const Description = Dialog.Description;
 const Overlay = forwardRef<
   ComponentRef<typeof Dialog.Overlay>,
   ComponentPropsWithoutRef<typeof Dialog.Overlay>
->(function ModalOverlay({ className, ...props }, ref) {
+>(function ModalOverlay({ className, style = {}, ...props }, ref) {
   return (
     <Dialog.Overlay
       ref={ref}
-      className={twMerge(
-        "z-50 fixed inset-0 bg-neutral-1000/40 backdrop-blur-sm",
+      className={clsx(
+        "z-50 fixed inset-0 backdrop-blur-sm",
         "data-[state=closed]:animate-out data-[state=open]:animate-in data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
         className
       )}
+      style={{
+        // Tailwind can't handle bg-neutral-1000/40, because its specified in hex
+        background: "rgba(10, 10, 10, 0.4)",
+        ...style,
+      }}
       {...props}
     />
   );

@@ -6,7 +6,6 @@ import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 import clsx from "clsx";
 
-import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { ProductItem } from "./ProductItem";
 import { ShevronDownIcon } from "../../icons";
 import { ROUTES } from "../routes";
@@ -33,34 +32,34 @@ export function ProductsDropdown() {
       <Popover.Portal>
         <Popover.Content
           className={clsx(
-            "z-50 min-w-[342px] shadow-lg p-2 border rounded-xl [transform-origin:var(--radix-popover-content-transform-origin)]",
+            "z-50 shadow-sm p-2 rounded-xl min-w-[342px] [transform-origin:var(--radix-popover-content-transform-origin)]",
             "data-[state=closed]:animate-popover-out data-[state=open]:animate-popover-in",
-            "bg-neutral dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800"
+            "bg-surface-floating "
           )}
           sideOffset={8}
           align="start"
         >
           <ProductItem
+            className="hover:bg-neutral-800 dark:hover:bg-neutral-800 mt-0.5 rounded-xl outline-none text-neutral transition-colors"
+            href={ROUTES.pay}
             title="GRX Pay"
             description={t("CommonHeader.products.grxPay.description")}
-            href={ROUTES.pay}
-            className="mt-0.5 rounded-xl text-neutral outline-none transition-colors hover:bg-neutral-800 dark:hover:bg-neutral-800"
           />
 
           <ProductItem
+            className="hover:bg-neutral-800 dark:hover:bg-neutral-800 mt-0.5 rounded-xl outline-none text-neutral transition-colors"
+            href={ROUTES.exchange}
             title="GRX Exchange"
             description={t("CommonHeader.products.grxExchange.description")}
             comingSoon
-            href={ROUTES.exchange}
-            className="mt-0.5 rounded-xl text-neutral outline-none transition-colors hover:bg-neutral-800 dark:hover:bg-neutral-800"
           />
 
           <ProductItem
+            className="hover:bg-neutral-800 dark:hover:bg-neutral-800 mt-0.5 rounded-xl outline-none text-neutral transition-colors"
+            href={ROUTES.rwa}
             title="GRX RWA (Real World Assets)"
             description={t("CommonHeader.products.grxRwa.description")}
             underDevelopment
-            href={ROUTES.rwa}
-            className="mt-0.5 rounded-xl text-neutral outline-none transition-colors hover:bg-neutral-800 dark:hover:bg-neutral-800"
           />
         </Popover.Content>
       </Popover.Portal>
