@@ -4,7 +4,7 @@
       "products": "Products",
       "pricing": "Pricing",
       "partners": "Partners",
-      "aboutUs": "About us",
+      "aboutUs": "About GRX",
       "faq": "FAQ",
       "signIn": "Sign in",
       "createAccount": "Create account",
@@ -12,6 +12,7 @@
     },
     "products": {
       "comingSoon": "Coming soon",
+      "underDevelopment": "Under development",
       "grxPay": {
         "description": "Global payments. Seamless integration."
       },
@@ -30,11 +31,9 @@
     }
   },
   "ProductSubHeader": {
-    "overview": "Overview",
+    "forMerchants": "For Merchants",
     "pricing": "Pricing",
-    "partners": "Partners",
-    "faq": "FAQ",
-    "aboutProduct": "About {product}"
+    "apiDocumentation": "API Documentation"
   },
   "Faq": {
     "breadcrumbs": {

@@ -1,27 +1,18 @@
 "use client";
 
 import * as Accordion from "@radix-ui/react-accordion";
-import * as Dialog from "@radix-ui/react-dialog";
 import { useTranslations } from "next-intl";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 
-import { ButtonRoot, ButtonText, Modal } from "@grx/ui";
+import { Badge, ButtonRoot, ButtonText, Modal } from "@grx/ui";
 import { usePathname } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
-import { ThemeSwitcher } from "@/modules/cross-cutting-concerns/theme";
 
-import { CloseIcon, FooterLogo, MenuIcon, ShevronDownIcon } from "../../icons";
-import { ROUTES } from "../routes";
+import { FooterLogo, MenuIcon, ShevronDownIcon } from "../../icons";
 import { LocalizationSelect } from "./LocalizationSelect";
-import {
-  ProductItem,
-  ProductItemContainer,
-  ProductItemRoot,
-  ProductItemTitle,
-  ProductItemDescription,
-} from "./ProductItem";
+import { ROUTES } from "../routes";
 
 export function MobileMenu() {
   const t = useTranslations();
@@ -43,7 +34,7 @@ export function MobileMenu() {
       <Modal.Portal>
         <Modal.Overlay />
 
-        <Dialog.Content
+        <Modal.Content
           className={clsx(
             "top-0 right-0 z-50 fixed flex flex-col shadow-lg w-full max-w-[375px] h-full overflow-y-auto",
             "data-[state=closed]:animate-slide-out-to-right data-[state=open]:animate-slide-in-from-right",
@@ -58,7 +49,7 @@ export function MobileMenu() {
           <div className="flex flex-col flex-grow">
             <div className="flex justify-between items-center px-4 py-3 border-neutral-200 dark:border-neutral-800 border-b">
               <Link
-                href={ROUTES.pay}
+                href={ROUTES.home}
                 className="flex items-center text-neutral-900 dark:text-neutral"
                 onClick={() => setOpen(false)}
               >
@@ -80,54 +71,38 @@ export function MobileMenu() {
                   </Accordion.Header>
 
                   <Accordion.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                    <div className="flex flex-col pb-2 pl-4">
-                      <ProductItemRoot asChild>
-                        <Link href={ROUTES.pay} onClick={() => setOpen(false)}>
-                          <ProductItemContainer>
-                            <ProductItemTitle>GRX Pay</ProductItemTitle>
-                          </ProductItemContainer>
-
-                          <ProductItemDescription>
-                            {t("CommonHeader.products.grxPay.description")}
-                          </ProductItemDescription>
-                        </Link>
-                      </ProductItemRoot>
-
-                      <ProductItem
-                        title="GRX Exchange"
-                        description={t(
-                          "CommonHeader.products.grxExchange.description"
-                        )}
-                        comingSoon
-                      />
-
-                      <ProductItem
-                        title="GRX RWA (Real World Assets)"
-                        description={t(
-                          "CommonHeader.products.grxRwa.description"
-                        )}
-                        comingSoon
-                      />
+                    <div className="flex flex-col pl-4 pb-2">
+                      <Link
+                        href={ROUTES.pay}
+                        className="py-2 font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral"
+                        onClick={() => setOpen(false)}
+                      >
+                        GRX Pay
+                      </Link>
+                      <Link
+                        href={ROUTES.exchange}
+                        className="flex items-center gap-2 py-2 font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral"
+                        onClick={() => setOpen(false)}
+                      >
+                        <span>GRX Exchange</span>
+                        <Badge palette="warning" variant="light" size="sm">
+                          {t("CommonHeader.products.comingSoon")}
+                        </Badge>
+                      </Link>
+                      <Link
+                        href={ROUTES.rwa}
+                        className="flex items-center gap-2 py-2 font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral"
+                        onClick={() => setOpen(false)}
+                      >
+                        <span>GRX RWA</span>
+                        <span className="rounded-[6px] bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-600 dark:bg-blue-950 dark:text-blue-500">
+                          {t("CommonHeader.products.underDevelopment")}
+                        </span>
+                      </Link>
                     </div>
                   </Accordion.Content>
                 </Accordion.Item>
               </Accordion.Root>
-
-              <Link
-                href={ROUTES.payPricing}
-                className="px-2 py-3 text-body-md-medium text-text-strong-1000 hover:text-text-subtle-700 transition-colors"
-                onClick={() => setOpen(false)}
-              >
-                {t("CommonHeader.nav.pricing")}
-              </Link>
-
-              <Link
-                href={ROUTES.payPartnerProgram}
-                className="px-2 py-3 text-body-md-medium text-text-strong-1000 hover:text-text-subtle-700 transition-colors"
-                onClick={() => setOpen(false)}
-              >
-                {t("CommonHeader.nav.partners")}
-              </Link>
 
               <Link
                 href={ROUTES.aboutUs}
@@ -143,7 +118,7 @@ export function MobileMenu() {
 
               <div className="flex flex-col gap-3">
                 <ButtonRoot asChild variant="primary" size="md">
-                  <Link href={EXTERNAL_LINKS.Pay.signUp} target="_blank">
+                  <Link href={EXTERNAL_LINKS.Pay.signUp.href} target="_blank">
                     <ButtonText>
                       {t("CommonHeader.nav.createAccount")}
                     </ButtonText>
@@ -158,7 +133,7 @@ export function MobileMenu() {
               </div>
             </div>
           </div>
-        </Dialog.Content>
+        </Modal.Content>
       </Modal.Portal>
     </Modal.Root>
   );

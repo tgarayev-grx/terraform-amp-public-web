@@ -6,15 +6,14 @@ import {
   Link,
   usePathname,
 } from "@/modules/cross-cutting-concerns/i18n/navigation";
+import { ButtonRoot, ButtonText } from "@grx/ui";
 import { useScrollDirection } from "./useScrollDirection";
+import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
 import clsx from "clsx";
 
 export type ProductSubHeaderLabelKey =
-  | "ProductSubHeader.overview"
-  | "ProductSubHeader.pricing"
-  | "ProductSubHeader.partners"
-  | "ProductSubHeader.faq"
-  | "ProductSubHeader.aboutProduct";
+  | "ProductSubHeader.forMerchants"
+  | "ProductSubHeader.pricing";
 
 interface ProductSubHeaderItem {
   labelKey: ProductSubHeaderLabelKey;
@@ -53,6 +52,14 @@ export function ProductSubHeader({
   const isVisible =
     isAtTop || scrollDirection === null || scrollDirection === "up";
 
+  const grxPayLogoStyle = {
+    background:
+      "linear-gradient(234deg, #F4BC4E -35.16%, #F5A70F 24.2%, #8A5A00 83.56%)",
+    WebkitBackgroundClip: "text",
+    backgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+  } as const;
+
   const normalizedPathname = removeTrailingSlash(pathname);
 
   return (
@@ -63,41 +70,59 @@ export function ProductSubHeader({
         !isVisible && "-translate-y-full"
       )}
     >
-      <div className="mx-auto max-w-[1180px]">
-        <nav
-          className={clsx(
-            "flex items-center gap-8 px-4 py-3",
-            "overflow-x-auto overflow-y-hidden scrollbar-none",
-            "md:overflow-x-visible md:flex-wrap md:justify-start",
-            "scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none]"
-          )}
-          style={{ scrollbarWidth: "none" }}
-          aria-label="Product navigation"
-        >
-          {items.map((item) => {
-            const normalizedHref = removeTrailingSlash(item.href);
-            const isActive = item.exact
-              ? normalizedPathname === normalizedHref
-              : normalizedPathname === normalizedHref ||
-                normalizedPathname.startsWith(normalizedHref + "/");
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={clsx(
-                  "py-1 whitespace-nowrap transition-colors",
-                  isActive
-                    ? "text-body-md-semibold text-text-strong-1000 "
-                    : "text-body-md-medium text-text-subtle-700  hover:text-text-strong-1000"
-                )}
-              >
-                {item.labelKey === "ProductSubHeader.aboutProduct"
-                  ? t("ProductSubHeader.aboutProduct", { product: productName })
-                  : t(item.labelKey)}
+      <div className="px-4 sm:px-8">
+        <div className="mx-auto flex max-w-[1180px] items-center justify-between gap-4 py-3">
+          <nav
+            className={clsx(
+              "flex items-center gap-6 overflow-x-auto overflow-y-hidden whitespace-nowrap",
+              "scroll-smooth [&::-webkit-scrollbar]:hidden"
+            )}
+            style={{ scrollbarWidth: "none" }}
+            aria-label="Product navigation"
+          >
+            <span
+              className="font-unbounded text-sm uppercase tracking-[-0.56px]"
+              style={grxPayLogoStyle}
+            >
+              {productName}
+            </span>
+            {items.map((item) => {
+              const normalizedHref = removeTrailingSlash(item.href);
+              const isActive = item.exact
+                ? normalizedPathname === normalizedHref
+                : normalizedPathname === normalizedHref ||
+                  normalizedPathname.startsWith(normalizedHref + "/");
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={clsx(
+                    "whitespace-nowrap border-b-2 border-transparent px-2 py-1.5 text-sm transition-colors",
+                    isActive
+                      ? "text-body-md-semibold text-text-strong-1000 border-b-2 border-text-strong-1000"
+                      : "text-body-md-medium text-text-subtle-700 hover:text-text-strong-1000"
+                  )}
+                >
+                  {t(item.labelKey)}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <div className="hidden items-center gap-3 md:flex">
+            <ButtonRoot asChild variant="secondary" size="sm">
+              <Link href={EXTERNAL_LINKS.Pay.signIn.href} target="_blank">
+                <ButtonText>{t("CommonHeader.nav.signIn")}</ButtonText>
               </Link>
-            );
-          })}
-        </nav>
+            </ButtonRoot>
+            <ButtonRoot asChild variant="primary" size="sm">
+              <Link href={EXTERNAL_LINKS.Pay.signUp.href} target="_blank">
+                <ButtonText>{t("CommonHeader.nav.createAccount")}</ButtonText>
+              </Link>
+            </ButtonRoot>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,19 +1,14 @@
 import { ReactNode } from "react";
 import { ProductSubHeader } from "@/modules/shared/header";
+import { ROUTES } from "@/modules/shared/header/routes";
 
 const GRX_PAY_SUB_NAV_ITEMS = [
   {
-    labelKey: "ProductSubHeader.overview" as const,
-    href: "/pay/",
+    labelKey: "ProductSubHeader.forMerchants" as const,
+    href: ROUTES.pay,
     exact: true,
   },
-  { labelKey: "ProductSubHeader.pricing" as const, href: "/pay/pricing" },
-  {
-    labelKey: "ProductSubHeader.partners" as const,
-    href: "/pay/partner-program",
-  },
-  { labelKey: "ProductSubHeader.faq" as const, href: "/pay/faq" },
-  { labelKey: "ProductSubHeader.aboutProduct" as const, href: "/pay/about-us" },
+  { labelKey: "ProductSubHeader.pricing" as const, href: ROUTES.payPricing },
 ];
 
 export default function PayLayout({ children }: { children: ReactNode }) {

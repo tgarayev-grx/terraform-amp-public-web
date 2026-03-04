@@ -4,7 +4,7 @@
       "products": "Продукти",
       "pricing": "Цени",
       "partners": "Партньори",
-      "aboutUs": "За нас",
+      "aboutUs": "За GRX",
       "faq": "ЧЗВ",
       "signIn": "Вход",
       "createAccount": "Създаване на акаунт",
@@ -12,6 +12,7 @@
     },
     "products": {
       "comingSoon": "Очаквайте скоро",
+      "underDevelopment": "В разработка",
       "grxPay": {
         "description": "Глобални плащания. Лесна интеграция."
       },
@@ -30,11 +31,9 @@
     }
   },
   "ProductSubHeader": {
-    "overview": "Обзор",
+    "forMerchants": "За търговци",
     "pricing": "Цени",
-    "partners": "Партньори",
-    "faq": "ЧЗВ",
-    "aboutProduct": "За {product}"
+    "apiDocumentation": "API документация"
   },
   "Faq": {
     "breadcrumbs": {
