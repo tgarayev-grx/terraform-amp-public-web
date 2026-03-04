@@ -13,7 +13,7 @@ import { ToastProvider } from "@grx/ui/components/toast";
 import { LOCAL_STORAGE_KEYS } from "@/config/localstorage";
 import { routing } from "@/modules/cross-cutting-concerns/i18n/routing";
 import { CookieBanner } from "@/modules/cross-cutting-concerns/cookie-preference";
-import { CommonHeader } from "@/modules/shared/header";
+import { Header } from "@/modules/shared/header";
 import { Footer } from "./Footer";
 
 export const metadata: Metadata = {
@@ -62,7 +62,7 @@ export default async function LocaleLayout({
             storageKey={LOCAL_STORAGE_KEYS.THEME}
           >
             <ToastProvider>
-              <CommonHeader />
+              <Header />
               {children}
               <Footer />
 

@@ -8,7 +8,7 @@ import { ProductsDropdown } from "./components/ProductsDropdown";
 import { LocalizationSelect } from "./components/LocalizationSelect";
 import { ROUTES } from "./routes";
 
-export function CommonHeader() {
+export function Header() {
   const t = useTranslations();
 
   return (

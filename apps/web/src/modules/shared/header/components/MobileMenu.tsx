@@ -1,17 +1,19 @@
 "use client";
 
 import * as Accordion from "@radix-ui/react-accordion";
+import * as Dialog from "@radix-ui/react-dialog";
 import { useTranslations } from "next-intl";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 
-import { Badge, ButtonRoot, ButtonText, Modal } from "@grx/ui";
+import { ButtonRoot, ButtonText } from "@grx/ui";
 import { usePathname } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
 
-import { FooterLogo, MenuIcon, ShevronDownIcon } from "../../icons";
+import { CloseIcon, FooterLogo, MenuIcon, ShevronDownIcon } from "../../icons";
 import { LocalizationSelect } from "./LocalizationSelect";
+import { ProductItem } from "./ProductItem";
 import { ROUTES } from "../routes";
 
 export function MobileMenu() {
@@ -24,17 +26,16 @@ export function MobileMenu() {
   }, [pathname]);
 
   return (
-    <Modal.Root open={open} onOpenChange={setOpen}>
-      <Modal.Trigger asChild>
+    <Dialog.Root open={open} onOpenChange={setOpen}>
+      <Dialog.Trigger asChild>
         <button className="flex justify-center items-center w-10 h-10 text-icon-base-500 hover:text-icon-subtle-700 transition-colors">
           <MenuIcon className="w-6 h-6" />
         </button>
-      </Modal.Trigger>
+      </Dialog.Trigger>
 
-      <Modal.Portal>
-        <Modal.Overlay />
-
-        <Modal.Content
+      <Dialog.Portal>
+        <Dialog.Overlay className="z-50 fixed inset-0 bg-black/50 data-[state=closed]:animate-fade-out data-[state=open]:animate-fade-in" />
+        <Dialog.Content
           className={clsx(
             "top-0 right-0 z-50 fixed flex flex-col shadow-lg w-full max-w-[375px] h-full overflow-y-auto",
             "data-[state=closed]:animate-slide-out-to-right data-[state=open]:animate-slide-in-from-right",
@@ -42,9 +43,9 @@ export function MobileMenu() {
           )}
           aria-describedby={undefined}
         >
-          <Modal.Title className="sr-only">
+          <Dialog.Title className="sr-only">
             {t("CommonHeader.nav.menu")}
-          </Modal.Title>
+          </Dialog.Title>
 
           <div className="flex flex-col flex-grow">
             <div className="flex justify-between items-center px-4 py-3 border-neutral-200 dark:border-neutral-800 border-b">
@@ -56,7 +57,11 @@ export function MobileMenu() {
                 <FooterLogo className="w-auto h-8 text-neutral-900 dark:text-neutral" />
               </Link>
 
-              <Modal.Close className="relative inset-0 w-10 *:w-6 h-10 *:h-6" />
+              <Dialog.Close asChild>
+                <button className="flex justify-center items-center w-10 h-10 text-icon-base-500 hover:text-icon-subtle-700 transition-colors">
+                  <CloseIcon className="w-6 h-6" />
+                </button>
+              </Dialog.Close>
             </div>
 
             <nav className="flex flex-col flex-grow px-2 pt-6">
@@ -72,33 +77,26 @@ export function MobileMenu() {
 
                   <Accordion.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
                     <div className="flex flex-col pl-4 pb-2">
-                      <Link
+                      <ProductItem
+                        title="GRX Pay"
                         href={ROUTES.pay}
-                        className="py-2 font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral"
                         onClick={() => setOpen(false)}
-                      >
-                        GRX Pay
-                      </Link>
-                      <Link
+                        className="py-2 p-0 rounded-none"
+                      />
+                      <ProductItem
+                        title="GRX Exchange"
+                        comingSoon
                         href={ROUTES.exchange}
-                        className="flex items-center gap-2 py-2 font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral"
                         onClick={() => setOpen(false)}
-                      >
-                        <span>GRX Exchange</span>
-                        <Badge palette="warning" variant="light" size="sm">
-                          {t("CommonHeader.products.comingSoon")}
-                        </Badge>
-                      </Link>
-                      <Link
+                        className="py-2 p-0 rounded-none"
+                      />
+                      <ProductItem
+                        title="GRX RWA"
+                        underDevelopment
                         href={ROUTES.rwa}
-                        className="flex items-center gap-2 py-2 font-medium text-sm transition-colors text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral"
                         onClick={() => setOpen(false)}
-                      >
-                        <span>GRX RWA</span>
-                        <span className="rounded-[6px] bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-600 dark:bg-blue-950 dark:text-blue-500">
-                          {t("CommonHeader.products.underDevelopment")}
-                        </span>
-                      </Link>
+                        className="py-2 p-0 rounded-none"
+                      />
                     </div>
                   </Accordion.Content>
                 </Accordion.Item>
@@ -133,8 +131,8 @@ export function MobileMenu() {
               </div>
             </div>
           </div>
-        </Modal.Content>
-      </Modal.Portal>
-    </Modal.Root>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 }

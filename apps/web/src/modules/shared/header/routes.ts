@@ -4,6 +4,8 @@ export const ROUTES = {
   exchange: "/exchange",
   rwa: "/rwa",
   payPricing: "/pay/pricing",
+  payDemo: "/pay/demo",
+  payDocs: "/pay/docs",
   payPartnerProgram: "/pay/partner-program",
   payFaq: "/pay/faq",
   payAboutUs: "/pay/about-us",

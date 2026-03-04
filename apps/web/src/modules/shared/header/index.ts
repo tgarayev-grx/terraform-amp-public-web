@@ -1,3 +1,3 @@
-export { CommonHeader } from "./CommonHeader";
-export { ProductSubHeader } from "./ProductSubHeader";
+export { Header } from "./Header";
+export { ProductHeader } from "./ProductHeader";
 export { useScrollDirection } from "./useScrollDirection";

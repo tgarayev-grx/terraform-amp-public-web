@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
+import { ROUTES } from "@/modules/shared/header/routes";
 import { defaultRichComponents } from "@/modules/cross-cutting-concerns/i18n/components/Rich/defaultRichComponents";
 
 import smoothIntegrationImage from "./(assets)/smooth-integration.webp";
@@ -25,7 +26,7 @@ export async function SmoothIntegrationSection() {
               ...defaultRichComponents,
               "link-documentation": (chunks) => (
                 <Link
-                  href="/pay/docs"
+                  href={ROUTES.payDocs}
                   className="text-info-base-600 hover:text-info-strong-800"
                 >
                   {chunks}
