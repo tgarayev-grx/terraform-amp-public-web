@@ -1,0 +1,57 @@
+# Dependencies (every level – avoid symlinks like apps/web/node_modules/@grx/ui)
+node_modules
+**/node_modules
+.pnp
+.pnp.js
+.pnpm-store
+
+# Git
+.git
+.gitignore
+
+# Build outputs (rebuilt inside image)
+.next
+**/.next
+out
+build
+dist
+*.tsbuildinfo
+
+# Caches
+.turbo
+
+# Testing (artifacts only)
+coverage
+
+# Logs & debug
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment (inject at runtime)
+.env
+.env.*
+.env*.local
+
+# OS & misc
+.DS_Store
+*.pem
+Thumbs.db
+
+# IDE & editor
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.cursor
+
+# CI / tooling
+.github
+.husky
+.vercel
+
+# Generated
+apps/**/locales/*.d.json.ts
