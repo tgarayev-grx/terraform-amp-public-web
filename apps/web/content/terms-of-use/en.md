@@ -1,6 +1,6 @@
 ---
-title: Terms of Use | GRX Pay
-description: Read our Terms of Use to understand your rights and responsibilities when using GRX Pay services.
+title: Terms of Use
+description: Read our Terms of Use to understand your rights and responsibilities.
 createdAt: 2026-02-16
 lastUpdatedAt: 2026-02-16
 ---
