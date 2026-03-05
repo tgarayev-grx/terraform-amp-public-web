@@ -390,6 +390,34 @@
       "getInTouch": "Get in touch"
     }
   },
+  "Rwa": {
+    "meta": {
+      "title": "GRX RWA — Bringing Real-World Assets On-Chain",
+      "description": "Institutional-grade tokenized real-world assets. Unlock liquidity and investment opportunities with GRX RWA."
+    },
+    "hero": {
+      "badge": "Under development",
+      "product": "GRX RWA",
+      "title": "Bringing real-world assets on-chain",
+      "subtitle": "Institutional-grade tokenized real-world assets",
+      "emailPlaceholder": "Email*",
+      "joinWaitlist": "Join waitlist",
+      "dashboardAlt": "GRX RWA — Institutional Commodities Dashboard",
+      "field": {
+        "email": {
+          "label": "Email",
+          "errors": {
+            "required": "Email is required",
+            "invalidEmail": "Please enter a valid email address"
+          }
+        }
+      },
+      "toast": {
+        "success": "You've been added to the waitlist.",
+        "error": "Something went wrong. Please try again."
+      }
+    }
+  },
   "Root": {
     "header": {
       "nav": {

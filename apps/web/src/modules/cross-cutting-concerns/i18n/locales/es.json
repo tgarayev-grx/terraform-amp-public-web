@@ -154,6 +154,34 @@
       "getInTouch": "Contáctanos"
     }
   },
+  "Rwa": {
+    "meta": {
+      "title": "GRX RWA — Activos del mundo real en la cadena",
+      "description": "Activos del mundo real tokenizados de grado institucional. Desbloquea liquidez y oportunidades de inversión con GRX RWA."
+    },
+    "hero": {
+      "badge": "En desarrollo",
+      "product": "GRX RWA",
+      "title": "Activos del mundo real en la cadena",
+      "subtitle": "Activos del mundo real tokenizados de grado institucional",
+      "emailPlaceholder": "Correo electrónico*",
+      "joinWaitlist": "Únete a la lista de espera",
+      "dashboardAlt": "GRX RWA — Panel de materias primas institucional",
+      "field": {
+        "email": {
+          "label": "Correo electrónico",
+          "errors": {
+            "required": "El correo electrónico es obligatorio",
+            "invalidEmail": "Introduce una dirección de correo válida"
+          }
+        }
+      },
+      "toast": {
+        "success": "Te hemos añadido a la lista de espera.",
+        "error": "Algo ha fallado. Por favor, inténtalo de nuevo."
+      }
+    }
+  },
   "Root": {
     "header": {
       "nav": {

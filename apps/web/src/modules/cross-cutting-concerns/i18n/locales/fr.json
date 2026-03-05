@@ -154,6 +154,34 @@
       "getInTouch": "Nous contacter"
     }
   },
+  "Rwa": {
+    "meta": {
+      "title": "GRX RWA — Des actifs réels sur la chaîne",
+      "description": "Des actifs réels tokenisés de qualité institutionnelle. Débloquez la liquidité et les opportunités d'investissement avec GRX RWA."
+    },
+    "hero": {
+      "badge": "En développement",
+      "product": "GRX RWA",
+      "title": "Des actifs réels sur la chaîne",
+      "subtitle": "Des actifs réels tokenisés de qualité institutionnelle",
+      "emailPlaceholder": "E-mail*",
+      "joinWaitlist": "Rejoindre la liste d'attente",
+      "dashboardAlt": "GRX RWA — Tableau de bord des matières premières institutionnel",
+      "field": {
+        "email": {
+          "label": "E-mail",
+          "errors": {
+            "required": "L'e-mail est requis",
+            "invalidEmail": "Veuillez entrer une adresse e-mail valide"
+          }
+        }
+      },
+      "toast": {
+        "success": "Vous avez été ajouté à la liste d'attente.",
+        "error": "Une erreur s'est produite. Veuillez réessayer."
+      }
+    }
+  },
   "Root": {
     "header": {
       "nav": {
