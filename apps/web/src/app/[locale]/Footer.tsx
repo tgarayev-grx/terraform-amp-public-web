@@ -34,7 +34,7 @@ export async function Footer() {
   const t = await getTranslations();
 
   return (
-    <footer className="bg-bg-weak-100 py-16 sm:py-20 lg:py-24">
+    <footer className="bg-bg-weak-100 py-20 sm:py-24">
       <div className="px-4 sm:px-8 lg:px-[130px]">
         <div className="flex flex-col gap-10 mx-auto w-full max-w-[1180px]">
           <FooterNav t={t} />
@@ -49,7 +49,7 @@ export async function Footer() {
             })}
           </p>
 
-          <p className="w-full max-w-[1180px] text-body-md-regular text-text-soft-500">
+          <p className="w-full max-w-[1180px] text-body-sm-regular sm:text-body-md-regular text-text-soft-500">
             {t("Pay.Root.footer.disclaimer")}
           </p>
         </div>
@@ -67,13 +67,13 @@ function FooterNav({ t, className }: FooterNavProps) {
   return (
     <div
       className={clsx(
-        "flex lg:flex-row flex-col lg:justify-between lg:items-start gap-10",
+        "flex flex-col lg:flex-row lg:justify-between lg:items-start lg:gap-10",
         className
       )}
     >
       <Link
         href={ROUTES.home}
-        className="flex items-center gap-2 shrink-0"
+        className="flex items-center gap-2 shrink-0 mb-10 lg:mb-0"
         aria-label="GRX - Golden Ratio Exchange"
       >
         <FooterLogoIcon className="w-auto h-9 text-text-strong-1000 shrink-0" />
@@ -83,22 +83,25 @@ function FooterNav({ t, className }: FooterNavProps) {
         </span>
       </Link>
 
-      <div className="flex flex-wrap gap-x-14 gap-y-10 lg:gap-x-20">
+      <div className="flex flex-col sm:flex-row sm:justify-between lg:justify-start gap-10 lg:gap-20 w-full lg:w-auto">
         <FooterNavRoot>
           <FooterNavTitle>{t("Pay.Root.footer.grxPaySection")}</FooterNavTitle>
           <FooterNavList>
             <FooterNavItemLink href={ROUTES.pay}>
               {t("Pay.Root.footer.forMerchants")}
             </FooterNavItemLink>
+
             <FooterNavItemLink href={ROUTES.payPricing}>
               {t("Pay.Root.footer.pricing")}
             </FooterNavItemLink>
+
             <FooterNavItemLink href={ROUTES.payDemo}>
               {t("Pay.Root.footer.bookDemo")}
             </FooterNavItemLink>
-            {/* <FooterNavItemLink href={ROUTES.payDocs}>
+
+            <FooterNavItemLink href={ROUTES.payDocs}>
               {t("Pay.Root.footer.apiDocumentation")}
-            </FooterNavItemLink> */}
+            </FooterNavItemLink>
           </FooterNavList>
         </FooterNavRoot>
 
@@ -117,12 +120,15 @@ function FooterNav({ t, className }: FooterNavProps) {
             <FooterNavItemLink href={ROUTES.privacyPolicy}>
               {t("Pay.Root.footer.privacyPolicy")}
             </FooterNavItemLink>
+
             <FooterNavItemLink href={ROUTES.termsOfUse}>
               {t("Pay.Root.footer.termsOfUse")}
             </FooterNavItemLink>
+
             <FooterNavItemLink href={ROUTES.cookiePolicy}>
               {t("Pay.Root.footer.cookiePolicy")}
             </FooterNavItemLink>
+
             <FooterNavItemLink href={ROUTES.amlPolicy}>
               {t("Pay.Root.footer.amlPolicy")}
             </FooterNavItemLink>
@@ -168,7 +174,7 @@ function IntegrationsList() {
   return (
     <div
       className={clsx(
-        "flex flex-wrap items-center gap-6 sm:gap-8 text-icon-disabled"
+        "flex flex-wrap items-center gap-x-8 gap-y-5 sm:gap-8 text-icon-disabled"
       )}
     >
       <ChainAnalysisLogo />

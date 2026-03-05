@@ -22,8 +22,8 @@ export async function register() {
 
   const http = await import("http");
   const https = await import("https");
-  const pino = (await import("pino")).default;
 
+  const pino = (await import("pino")).default;
   const isDev = process.env.NODE_ENV === "development";
   const logger = isDev
     ? pino({

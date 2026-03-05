@@ -14,4 +14,16 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  .gold-gradient-text {
+    background: linear-gradient(
+      189deg,
+      var(--color-gold-400) 35%,
+      var(--color-gold-500) 24%,
+      var(--color-gold-900) 84%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }

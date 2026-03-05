@@ -607,6 +607,42 @@
       }
     }
   },
+  "Exchange": {
+    "hero": {
+      "badge": "Coming soon",
+      "product": "GRX Exchange",
+      "title": "A secure and reliable way to buy and sell crypto",
+      "subtitle": "The high-performance exchange for retail traders",
+      "emailPlaceholder": "Email*",
+      "joinWaitlist": "Join waitlist",
+      "platformPreviewAlt": "GRX Exchange trading platform preview",
+      "toast": {
+        "success": "You're on the list! We'll notify you when GRX Exchange launches.",
+        "error": "Something went wrong. Please try again later."
+      },
+      "field": {
+        "email": {
+          "label": "Email",
+          "errors": {
+            "required": "Email is required",
+            "invalidEmail": "Please enter a valid email address"
+          }
+        }
+      }
+    },
+    "assets": {
+      "title": "All your assets in one place",
+      "subtitle": "Top up your balance in any convenient way. Choose the refferal currency for your.",
+      "phoneMockup1Alt": "GRX Exchange mobile app — asset overview",
+      "phoneMockup2Alt": "GRX Exchange mobile app — your assets",
+      "phoneMockup3Alt": "GRX Exchange mobile app — Bitcoin details"
+    },
+    "cta": {
+      "title": "Let's build something great together!",
+      "subtitle": "A reliable partner to take ambitious ideas from concept to production.",
+      "contactUs": "Contact us"
+    }
+  },
   "Pay": {
     "Root": {
       "meta": {
