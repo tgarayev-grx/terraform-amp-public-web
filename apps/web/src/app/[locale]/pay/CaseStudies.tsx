@@ -1,13 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { ReactNode } from "react";
 import clsx from "clsx";
-import Image from "next/image";
-import { ButtonRoot, ButtonText } from "@grx/ui/index";
 
-import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
-
-import caseStudiesPng from "./(assets)/case-studies.png";
-import { ArrowRightIcon } from "@grx/ui/icons/ArrowRightIcon";
 import { QuoteIcon } from "@grx/ui/icons/QuoteIcon";
 import { Company1LogoIcon } from "@grx/ui/icons/Company1LogoIcon";
 import { Company2LogoIcon } from "@grx/ui/icons/Company2LogoIcon";
@@ -30,9 +24,9 @@ export async function CaseStudiesSection() {
 
         <div className="gap-6 xl:gap-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 xl:grid-rows-2">
           <CaseStudyCard
-            className="md:col-span-2 xl:col-span-1 xl:row-span-2 bg-bg-base-1000 md:min-h-[560px!important]"
+            className="md:col-span-2 xl:col-span-1 xl:row-span-2 bg-gold-500 text-neutral-1000 md:min-h-[560px!important]"
             classes={{
-              quote: "text-gold-500",
+              quote: "w-8 h-8",
               description: "text-text-inverce",
               icon: "text-text-inverce",
             }}
@@ -40,9 +34,10 @@ export async function CaseStudiesSection() {
             icon={<Company1LogoIcon />}
           />
           <CaseStudyCard
-            className="md:col-span-2 xl:col-start-2 xl:row-start-1 bg-gold-500 text-neutral-1000"
+            className="md:col-span-2 xl:col-start-2 xl:row-start-1 bg-surface-floating"
             classes={{
-              quote: "text-neutral-1000",
+              quote: "text-gold-500",
+              icon: "text-text-subtle-700",
             }}
             description={t("Pay.Root.caseStudies.descriptions.1")}
             icon={<Company2LogoIcon />}

@@ -5,10 +5,10 @@ import { ButtonRoot, ButtonText } from "@grx/ui/components/button/Button";
 
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 
-import featureBankAccountsPng from "./(assets)/features-bank-accounts.png";
-import featureInvoicesPng from "./(assets)/features-invoices.png";
-import featureIncomePng from "./(assets)/features-income.png";
-import featurePayoutsPng from "./(assets)/features-payouts.png";
+import featureBankAccountsPng from "./(assets)/features-bank-accounts-dark.png";
+import featureInvoicesPng from "./(assets)/features-invoices-dark.png";
+import featureIncomePng from "./(assets)/features-income-dark.png";
+import featurePayoutsPng from "./(assets)/features-payouts-dark.png";
 import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
 import clsx from "clsx";
 
@@ -69,9 +69,9 @@ function FeatureCard({ title, description, img, action }: FeatureCardProps) {
     <div className="flex flex-col justify-between gap-4 bg-surface-floating shadow-sm p-1 rounded-2xl">
       <div
         className={clsx(
-          "bg-gradient-to-r rounded-xl overflow-hidden transition-all duration-300",
+          "bg-gradient-to-b rounded-xl overflow-hidden transition-all duration-300",
           "from-bg-weak-100 to-bg-weak-100",
-          " hover:from-[#FDEDCD] hover:to-[#FFFBF4]"
+          "hover:from-gold-700 hover:via-gold-800 hover:to-natural-800"
         )}
       >
         <Image

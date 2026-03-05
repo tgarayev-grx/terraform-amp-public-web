@@ -20,9 +20,10 @@ export async function ReviewedBySection() {
 
         <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           <ReviewedByCard
-            className="bg-bg-base-1000 text-text-inverce"
+            className="bg-primary-gold text-text-inverce"
             classes={{
               title: "text-text-inverce",
+              quote: "text-text-inverce",
             }}
             title={t("Pay.Root.reviewedBy.cards.0.title")}
             avatar={avatar1Png.src}
@@ -53,6 +54,7 @@ type ReviewedByCardProps = {
   className?: string;
   classes?: {
     title?: string;
+    quote?: string;
   };
 
   title: string;
@@ -77,7 +79,12 @@ function ReviewedByCard({
       )}
     >
       <div className="flex flex-col gap-4">
-        <QuoteIcon className="flex-shrink-0 w-5 h-5 text-gold-500" />
+        <QuoteIcon
+          className={twMerge(
+            "flex-shrink-0 w-5 h-5 text-gold-500",
+            classes?.quote
+          )}
+        />
 
         <p className="text-body-md-regular md:text-body-lg-regular">{quote}</p>
       </div>
