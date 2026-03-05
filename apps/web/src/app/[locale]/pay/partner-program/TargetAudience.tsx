@@ -1,10 +1,9 @@
 import { getTranslations } from "next-intl/server";
-import clsx from "clsx";
 import { ReactNode } from "react";
-import { OpenFinanceIcon } from "./(icons)/OpenFinanceIcon";
-import { WarehousingIcon } from "./(icons)/WarehousingIcon";
-import { MarketingIcon } from "./(icons)/MarketingIcon";
-import { SoftwareDevelopmentIcon } from "./(icons)/SoftwareDevelopmentIcon";
+import { OpenFinanceIcon } from "@grx/ui/icons/OpenFinanceIcon";
+import { WarehousingIcon } from "@grx/ui/icons/WarehousingIcon";
+import { MarketingIcon } from "@grx/ui/icons/MarketingIcon";
+import { SoftwareDevelopmentIcon } from "@grx/ui/icons/SoftwareDevelopmentIcon";
 import { FeatureCard } from "../(components)/card";
 
 type TargetAudienceItem = {

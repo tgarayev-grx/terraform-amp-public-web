@@ -11,7 +11,11 @@ import { usePathname } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
 
-import { CloseIcon, FooterLogo, MenuIcon, ShevronDownIcon } from "../../icons";
+import { CloseIcon } from "@grx/ui/icons/CloseIcon";
+import { FooterLogo } from "@grx/ui/icons/FooterLogo";
+import { MenuIcon } from "@grx/ui/icons/MenuIcon";
+import { ShevronDownIcon } from "@grx/ui/icons/ShevronDownIcon";
+
 import { LocalizationSelect } from "./LocalizationSelect";
 import { ProductItem } from "./ProductItem";
 import { ROUTES } from "../routes";

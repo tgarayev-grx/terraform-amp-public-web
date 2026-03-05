@@ -1,13 +1,13 @@
 import { getTranslations } from "next-intl/server";
 import { ReactNode } from "react";
 import type { ServerTranslationFn } from "@/modules/cross-cutting-concerns/i18n/types";
-import { ShieldIcon } from "../(icons)/ShieldIcon";
-import { GlobeIcon } from "../(icons)/GlobeIcon";
-import { CheckIcon } from "../(icons)/CheckIcon";
-import { AMLIcon } from "../(icons)/AMLIcon";
-import { ChartWaveIcon } from "../(icons)/ChartWaveIcon";
-import { ChattingIcon } from "../(icons)/ChattingIcon";
-import { PuzzleIcon } from "../(icons)/PuzzleIcon";
+import { ShieldIcon } from "@grx/ui/icons/ShieldIcon";
+import { GlobeIcon } from "@grx/ui/icons/GlobeIcon";
+import { CheckIcon } from "@grx/ui/icons/CheckIcon";
+import { AMLIcon } from "@grx/ui/icons/AMLIcon";
+import { ChartWaveIcon } from "@grx/ui/icons/ChartWaveIcon";
+import { ChattingIcon } from "@grx/ui/icons/ChattingIcon";
+import { PuzzleIcon } from "@grx/ui/icons/PuzzleIcon";
 import { FeatureCard } from "../(components)/card";
 
 type WhatsIncludedFeatureCardProps = {

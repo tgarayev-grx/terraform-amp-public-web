@@ -4,9 +4,8 @@ import * as Accordion from "@radix-ui/react-accordion";
 import { memo } from "react";
 import { useTranslations } from "next-intl";
 import { defaultRichComponents } from "@/modules/cross-cutting-concerns/i18n/components/Rich/defaultRichComponents";
-import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
-import { MinusIcon } from "./(icons)/MinusIcon";
-import { PlusIcon } from "./(icons)/PlusIcon";
+import { MinusIcon } from "@grx/ui/icons/MinusIcon";
+import { PlusIcon } from "@grx/ui/icons/PlusIcon";
 
 export type FAQQuestion = {
   value: string;
@@ -31,17 +30,7 @@ export const FAQSection = memo(function FAQSection({
           </h3>
 
           <h4 className="text-body-lg-medium text-text-subtle-700 sm:text-body-xl-medium">
-            {t.rich("Pay.Root.faq.subtitle", {
-              ...defaultRichComponents,
-              here: (chunks) => (
-                <Link
-                  className="text-info-base-600 hover:text-info-subtle-500"
-                  href="/pay/faq"
-                >
-                  {chunks}
-                </Link>
-              ),
-            })}
+            {t("Pay.Root.faq.subtitle")}
           </h4>
         </div>
 

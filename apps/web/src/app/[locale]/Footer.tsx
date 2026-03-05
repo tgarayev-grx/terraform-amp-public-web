@@ -8,12 +8,13 @@ import { ROUTES } from "@/modules/shared/header/routes";
 import { Badge } from "@grx/ui";
 
 import gdprPng from "./pay/(assets)/gdpr.png";
-import { ChainAnalysisLogo } from "./pay/(icons)/ChainAnalysisLogo";
-import { FooterLogoIcon, VerticalDividerIcon } from "@/modules/shared/icons";
-import { MasterCardLogo } from "./pay/(icons)/MasterCardLogo";
-import { SEPALogo } from "./pay/(icons)/SEPALogo";
-import { VISALogo } from "./pay/(icons)/VISALogo";
-import { ZENLogo } from "./pay/(icons)/ZENLogo";
+import { ChainAnalysisLogo } from "@grx/ui/icons/ChainAnalysisLogo";
+import { FooterLogoIcon } from "@grx/ui/icons/FooterLogoIcon";
+import { VerticalDividerIcon } from "@grx/ui/icons/VerticalDividerIcon";
+import { MasterCardLogo } from "@grx/ui/icons/MasterCardLogo";
+import { SEPALogo } from "@grx/ui/icons/SEPALogo";
+import { VISALogo } from "@grx/ui/icons/VISALogo";
+import { ZENLogo } from "@grx/ui/icons/ZENLogo";
 
 const ACCEPTED_CRYPTO_LIST = [
   "USDT",
@@ -76,7 +77,6 @@ function FooterNav({ t, className }: FooterNavProps) {
         aria-label="GRX - Golden Ratio Exchange"
       >
         <FooterLogoIcon className="w-auto h-9 text-text-strong-1000 shrink-0" />
-
         <span className="font-unbounded font-medium text-[18px] text-text-strong-1000 leading-[0.98] tracking-[-0.36px]">
           <span className="block">GOLDEN RATIO</span>
           <span className="block">EXCHANGE</span>

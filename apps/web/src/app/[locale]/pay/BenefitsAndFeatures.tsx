@@ -1,14 +1,14 @@
 import { getTranslations } from "next-intl/server";
 
-import { ShieldIcon } from "./(icons)/ShieldIcon";
-import { APIAndDocumentationIcon } from "./(icons)/APIAndDocumentationIcon";
-import { AutoConvertIcon } from "./(icons)/AutoConvertIcon";
-import { CustomizeYourSpaceIcon } from "./(icons)/CustomizeYourSpaceIcon";
-import { InstantEuroWithdrawalIcon } from "./(icons)/InstantEuroWithdrawalIcon";
-import { InvoiceIcon } from "./(icons)/InvoiceIcon";
-import { MassPayoutsIcon } from "./(icons)/MassPayoutsIcon";
-import { ReportsIcon } from "./(icons)/ReportsIcon";
-import { RolesAndPermissionsIcon } from "./(icons)/RolesAndPermissionsIcon";
+import { ShieldIcon } from "@grx/ui/icons/ShieldIcon";
+import { APIAndDocumentationIcon } from "@grx/ui/icons/APIAndDocumentationIcon";
+import { AutoConvertIcon } from "@grx/ui/icons/AutoConvertIcon";
+import { CustomizeYourSpaceIcon } from "@grx/ui/icons/CustomizeYourSpaceIcon";
+import { InstantEuroWithdrawalIcon } from "@grx/ui/icons/InstantEuroWithdrawalIcon";
+import { InvoiceIcon } from "@grx/ui/icons/InvoiceIcon";
+import { MassPayoutsIcon } from "@grx/ui/icons/MassPayoutsIcon";
+import { ReportsIcon } from "@grx/ui/icons/ReportsIcon";
+import { RolesAndPermissionsIcon } from "@grx/ui/icons/RolesAndPermissionsIcon";
 import { FeatureCard } from "./(components)/card";
 
 export async function BenefitsAndFeaturesSection() {

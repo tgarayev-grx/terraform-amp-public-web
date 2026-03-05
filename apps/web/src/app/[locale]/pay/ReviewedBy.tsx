@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import * as Avatar from "@radix-ui/react-avatar";
 import clsx from "clsx";
-import { QuoteIcon } from "./(icons)/QuoteIcon";
+import { QuoteIcon } from "@grx/ui/icons/QuoteIcon";
 
 import avatar1Png from "./(assets)/avatar-1.png";
 import avatar2Png from "./(assets)/avatar-2.png";

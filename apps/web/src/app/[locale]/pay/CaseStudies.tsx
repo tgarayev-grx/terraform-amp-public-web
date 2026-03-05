@@ -7,11 +7,11 @@ import { ButtonRoot, ButtonText } from "@grx/ui/index";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 
 import caseStudiesPng from "./(assets)/case-studies.png";
-import { ArrowRightIcon } from "./(icons)/ArrowRightIcon";
-import { QuoteIcon } from "./(icons)/QuoteIcon";
-import { Company1LogoIcon } from "./(icons)/Company1LogoIcon";
-import { Company2LogoIcon } from "./(icons)/Company2LogoIcon";
-import { Company3LogoIcon } from "./(icons)/Company3LogoIcon";
+import { ArrowRightIcon } from "@grx/ui/icons/ArrowRightIcon";
+import { QuoteIcon } from "@grx/ui/icons/QuoteIcon";
+import { Company1LogoIcon } from "@grx/ui/icons/Company1LogoIcon";
+import { Company2LogoIcon } from "@grx/ui/icons/Company2LogoIcon";
+import { Company3LogoIcon } from "@grx/ui/icons/Company3LogoIcon";
 import { twMerge } from "tailwind-merge";
 
 export async function CaseStudiesSection() {

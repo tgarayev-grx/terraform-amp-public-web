@@ -358,10 +358,10 @@
             "selectAtLeastOne": "Selecciona al menos un ámbito de interés"
           },
           "options": {
-            "grxPay": "GRX Pay",
-            "grxExchange": "GRX Exchange",
-            "grxRwa": "GRX RWA",
-            "institutionalSto": "Institutional STO"
+            "GRX_PAY": "GRX Pay",
+            "GRX_EXCHANGE": "GRX Exchange",
+            "GRX_RWA": "GRX RWA",
+            "INSTITUTIONAL_STO": "Institutional STO"
           }
         },
         "message": {
@@ -577,7 +577,7 @@
       },
       "faq": {
         "title": "Preguntas frecuentes",
-        "subtitle": "Puedes encontrar más respuestas a preguntas <here>aquí</here>.",
+        "subtitle": "Puedes encontrar más respuestas a preguntas aquí.",
         "stillHaveQuestions": "¿Aún tienes preguntas? Escríbenos a <contact-support></contact-support>."
       },
       "faqItems": {

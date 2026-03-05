@@ -23,24 +23,21 @@ export function ContactUsModal({
       <Modal.Portal>
         <Modal.Overlay />
 
-        <Modal.Content
-          aria-describedby={undefined}
-          className="dark:!bg-neutral-825 sm:!rounded-[10px] max-sm:rounded-t-[10px]"
-        >
+        <Modal.Content>
           <div className="px-8 pt-8 text-center shrink-0">
             <Modal.Title className="font-bold text-[20px] text-neutral-1000 dark:text-neutral leading-[24px] tracking-[0.02px]">
               {t("ContactUs.getInTouch.title")}
             </Modal.Title>
 
-            <p className="mt-2 text-neutral-700 dark:text-neutral-400 text-sm">
+            <Modal.Description className="mt-2 text-neutral-700 dark:text-neutral-400 text-sm">
               {t("ContactUs.getInTouch.subtitle")}
-            </p>
+            </Modal.Description>
           </div>
 
           <Modal.Close aria-label={t("ContactUs.modal.closeAriaLabel")} />
 
           <ContactUsForm
-            className="flex-1 px-8 min-w-0 min-h-0 max-h-[500px]"
+            className="flex-1 px-8 min-w-0 min-h-0 sm:max-h-[500px]"
             classes={{
               root: "flex-1 min-h-0",
               fields: "flex-1 min-h-0 overflow-y-auto pr-8 -mr-8",

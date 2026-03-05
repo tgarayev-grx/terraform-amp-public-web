@@ -1,7 +1,6 @@
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { FAQ_ARTICLES } from "./data";
-import { DirectionRightIcon } from "../(icons)/DirectionRightIcon";
-import { ArrowRightIcon } from "../(icons)/ArrowRightIcon";
+import { ArrowRightIcon } from "@grx/ui/icons/ArrowRightIcon";
 
 export function ArticleList() {
   return (

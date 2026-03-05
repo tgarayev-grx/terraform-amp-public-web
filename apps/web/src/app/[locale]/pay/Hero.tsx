@@ -50,7 +50,7 @@ export async function HeroSection() {
 
             <ContactUsModal
               defaultValues={{
-                interestedIn: ["grxPay"],
+                interestedIn: ["GRX_PAY"],
               }}
             >
               <Button

@@ -29,7 +29,16 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "**/*.d.ts"
+    "**/*.d.ts",
+    "../../packages/ui/icons/MarketingIcon.tsx",
+    "../../packages/ui/icons/MessageIcon.tsx",
+    "../../packages/ui/icons/OpenFinanceIcon.tsx",
+    "../../packages/ui/icons/SoftwareDevelopmentIcon.tsx",
+    "../../packages/ui/icons/WarehousingIcon.tsx",
+    "src/app/[locale]/pay/partner-program/HowItWorks.tsx",
+    "../../packages/ui/icons/VerticalDividerIcon.tsx",
+    "../../packages/ui/icons/FooterLogoIcon.tsx",
+    "../../packages/ui/icons/HeaderLogo.tsx"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import Image, { StaticImageData } from "next/image";
-import { ArrowRightIcon } from "./(icons)/ArrowRightIcon";
+import { ArrowRightIcon } from "@grx/ui/icons/ArrowRightIcon";
 import { ButtonRoot, ButtonText } from "@grx/ui/components/button/Button";
 
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";

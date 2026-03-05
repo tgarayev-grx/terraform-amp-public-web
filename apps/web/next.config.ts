@@ -20,6 +20,7 @@ const nextConfig: NextConfig = {
   },
   transpilePackages: ["@grx/ui"],
   trailingSlash: true,
+  logging: false,
   webpack: (config, { isServer }) => {
     if (isServer) {
       if (Array.isArray(config.externals)) {

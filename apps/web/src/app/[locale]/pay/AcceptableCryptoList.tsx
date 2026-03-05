@@ -1,25 +1,25 @@
 import { getTranslations } from "next-intl/server";
 
-import { BCHIcon } from "./(icons)/BCHIcon";
-import { BTCIcon } from "./(icons)/BTCIcon";
-import { DASHIcon } from "./(icons)/DASHIcon";
-import { DOGEIcon } from "./(icons)/DOGEIcon";
-import { EOSIcon } from "./(icons)/EOSIcon";
-import { ETHIcon } from "./(icons)/ETHIcon";
-import { ETHWIcon } from "./(icons)/ETHWIcon";
-import { EURIcon } from "./(icons)/EURIcon";
-import { EVERIcon } from "./(icons)/EVERIcon";
-import { LINKIcon } from "./(icons)/LINKIcon";
-import { LTCIcon } from "./(icons)/LTCIcon";
-import { SHIBIcon } from "./(icons)/SHIBIcon";
-import { TRXIcon } from "./(icons)/TRXIcon";
-import { UNIIcon } from "./(icons)/UNIIcon";
-import { USDCIcon } from "./(icons)/USDCIcon";
-import { USDTIcon } from "./(icons)/USDTIcon";
-import { WAVESIcon } from "./(icons)/WAVESIcon";
-import { XLMIcon } from "./(icons)/XLMIcon";
-import { XRPIcon } from "./(icons)/XRPIcon";
-import { ZECIcon } from "./(icons)/ZECIcon";
+import { BCHIcon } from "@grx/ui/icons/BCHIcon";
+import { BTCIcon } from "@grx/ui/icons/BTCIcon";
+import { DASHIcon } from "@grx/ui/icons/DASHIcon";
+import { DOGEIcon } from "@grx/ui/icons/DOGEIcon";
+import { EOSIcon } from "@grx/ui/icons/EOSIcon";
+import { ETHIcon } from "@grx/ui/icons/ETHIcon";
+import { ETHWIcon } from "@grx/ui/icons/ETHWIcon";
+import { EURIcon } from "@grx/ui/icons/EURIcon";
+import { EVERIcon } from "@grx/ui/icons/EVERIcon";
+import { LINKIcon } from "@grx/ui/icons/LINKIcon";
+import { LTCIcon } from "@grx/ui/icons/LTCIcon";
+import { SHIBIcon } from "@grx/ui/icons/SHIBIcon";
+import { TRXIcon } from "@grx/ui/icons/TRXIcon";
+import { UNIIcon } from "@grx/ui/icons/UNIIcon";
+import { USDCIcon } from "@grx/ui/icons/USDCIcon";
+import { USDTIcon } from "@grx/ui/icons/USDTIcon";
+import { WAVESIcon } from "@grx/ui/icons/WAVESIcon";
+import { XLMIcon } from "@grx/ui/icons/XLMIcon";
+import { XRPIcon } from "@grx/ui/icons/XRPIcon";
+import { ZECIcon } from "@grx/ui/icons/ZECIcon";
 
 const iconProps = {
   className: "rounded-full flex-shrink-0",

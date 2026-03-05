@@ -31,7 +31,7 @@ export async function EmpowerCtaSection() {
 
           <ContactUsModal
             defaultValues={{
-              interestedIn: ["grxPay"],
+              interestedIn: ["GRX_PAY"],
             }}
           >
             <Button className="min-w-[180px]" variant="primary" size="lg">

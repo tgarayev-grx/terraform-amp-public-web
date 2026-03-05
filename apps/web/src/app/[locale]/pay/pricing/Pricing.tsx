@@ -3,8 +3,8 @@ import { getTranslations } from "next-intl/server";
 import { ButtonRoot, ButtonText, Button, Theme } from "@grx/ui/index";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { ContactUsModal } from "@/modules/contact-us";
-import { CheckCircleFilledIcon } from "../(icons)/CheckCircleFilledIcon";
-import { InfoCircleFilledIcon } from "../(icons)/InfoCircleFilledIcon";
+import { InfoCircleFilledIcon } from "@grx/ui/icons/InfoCircleFilledIcon";
+import { CheckCircleFilledIcon } from "@grx/ui/icons/CheckCircleFilledIcon";
 import goldGemPng from "./gold-gem.png";
 import blackGemPng from "./black-gem.png";
 
@@ -141,7 +141,7 @@ export async function PricingSection() {
 
                   <ContactUsModal
                     defaultValues={{
-                      interestedIn: ["grxPay"],
+                      interestedIn: ["GRX_PAY"],
                     }}
                   >
                     <Theme theme="light" asChild>

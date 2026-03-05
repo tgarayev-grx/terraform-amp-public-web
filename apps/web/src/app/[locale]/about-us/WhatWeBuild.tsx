@@ -2,12 +2,12 @@ import { getTranslations } from "next-intl/server";
 import { twMerge } from "tailwind-merge";
 
 import { Logo } from "@grx/ui/icons/brand/logo";
-import { ShieldIcon } from "../pay/(icons)/ShieldIcon";
-import { BankIcon } from "../pay/(icons)/BankIcon";
+import { ShieldIcon } from "@grx/ui/icons/ShieldIcon";
+import { BankIcon } from "@grx/ui/icons/BankIcon";
 import { HTMLAttributes, memo, ReactNode } from "react";
-import { GoldIcon } from "../pay/(icons)/GoldIcon";
-import { GlobeIcon } from "../pay/(icons)/GlobeIcon";
-import { LockIcon } from "../pay/(icons)/LockIcon";
+import { GoldIcon } from "@grx/ui/icons/GoldIcon";
+import { GlobeIcon } from "@grx/ui/icons/GlobeIcon";
+import { LockIcon } from "@grx/ui/icons/LockIcon";
 
 export async function WhatWeBuildSection() {
   const t = await getTranslations();

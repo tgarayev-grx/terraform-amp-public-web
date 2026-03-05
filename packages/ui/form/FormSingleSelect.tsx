@@ -27,6 +27,9 @@ export function FormSingleSelect({
   const errorText = useFieldError();
   const hasHelperText = helperText || errorText;
 
+  const selectedOption = options.find((opt) => opt.value === field.state.value);
+  const triggerStart = selectedOption?.start ?? start;
+
   return (
     <Field.Root id={field.name}>
       <Field.Label>{field.state.value ? label : " "}</Field.Label>
@@ -39,12 +42,16 @@ export function FormSingleSelect({
           placeholder={placeholder}
           onBlur={field.handleBlur}
           hasError={!!errorText}
-          start={start}
+          start={triggerStart}
         />
 
         <SingleSelect.Content>
           {options.map((opt) => (
-            <SingleSelect.Item key={opt.value} value={opt.value}>
+            <SingleSelect.Item
+              key={opt.value}
+              value={opt.value}
+              start={opt.start}
+            >
               {opt.label}
             </SingleSelect.Item>
           ))}

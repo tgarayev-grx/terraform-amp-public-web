@@ -29,7 +29,7 @@ export async function BuildYourCryptoBusinessWithUsSection() {
             <div className="flex justify-center mb-4">
               <ContactUsModal
                 defaultValues={{
-                  interestedIn: ["grxPay"],
+                  interestedIn: ["GRX_PAY"],
                 }}
               >
                 <Button className="min-w-[180px]" variant="primary" size="lg">

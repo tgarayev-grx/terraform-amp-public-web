@@ -2,9 +2,9 @@ import { getTranslations } from "next-intl/server";
 import { memo, ReactNode } from "react";
 import clsx from "clsx";
 
-import { ShieldIcon } from "./pay/(icons)/ShieldIcon";
-import { CubeIcon } from "./pay/(icons)/CubeIcon";
-import { ZoomOutIcon } from "./pay/(icons)/ZoomOutIcon";
+import { ShieldIcon } from "@grx/ui/icons/ShieldIcon";
+import { CubeIcon } from "@grx/ui/icons/CubeIcon";
+import { ZoomOutIcon } from "@grx/ui/icons/ZoomOutIcon";
 
 export async function TechnologySection() {
   const t = await getTranslations("Home");

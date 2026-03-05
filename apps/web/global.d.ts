@@ -1,3 +1,5 @@
+import "@total-typescript/ts-reset";
+
 import type { Locale } from "@/modules/cross-cutting-concerns/i18n/config";
 import messages from "@/modules/cross-cutting-concerns/i18n/locales/en.json";
 

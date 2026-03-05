@@ -86,7 +86,7 @@ function ContactUsButton({
   children: React.ReactNode;
 }) {
   return (
-    <ContactUsModal defaultValues={{ interestedIn: ["grxPay"] }}>
+    <ContactUsModal defaultValues={{ interestedIn: ["GRX_PAY"] }}>
       <Button className={className} variant="primary" size="xl">
         {children}
       </Button>

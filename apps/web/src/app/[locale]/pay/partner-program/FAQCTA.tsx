@@ -32,7 +32,7 @@ export async function FAQCTASection() {
 
         <ContactUsModal
           defaultValues={{
-            interestedIn: ["grxPay"],
+            interestedIn: ["GRX_PAY"],
           }}
         >
           <Button className="w-full max-w-[240px]" variant="primary" size="lg">

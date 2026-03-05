@@ -2,40 +2,6 @@ import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { z } from "zod";
 
-export const INTERESTED_IN_PRODUCTS = [
-  "grxPay",
-  "grxExchange",
-  "grxRwa",
-  "institutionalSto",
-] as const;
-
-export const COUNTRY_CODES = [
-  "US",
-  "GB",
-  "DE",
-  "FR",
-  "LT",
-  "PL",
-  "UA",
-  "OTHER",
-] as const;
-
-export const ORGANIZATION_TYPE_VALUES = [
-  "startup",
-  "sme",
-  "enterprise",
-  "financialInstitution",
-  "other",
-] as const;
-
-export const FIRST_NAME_MAX_LENGTH = 100;
-export const LAST_NAME_MAX_LENGTH = 100;
-export const PHONE_NUMBER_MAX_LENGTH = 50;
-export const COMPANY_NAME_MAX_LENGTH = 200;
-export const COUNTRY_MAX_LENGTH = 100;
-export const PRIMARY_ROLE_MAX_LENGTH = 100;
-export const ORGANIZATION_TYPE_MAX_LENGTH = 100;
-export const MESSAGE_MAX_LENGTH = 1000;
 export function createContactFormSchema(
   t:
     | Awaited<ReturnType<typeof getTranslations<"ContactUs.contactForm">>>
@@ -119,3 +85,27 @@ export function createContactFormSchema(
 }
 
 export type ContactFormSchema = ReturnType<typeof createContactFormSchema>;
+
+export const FIRST_NAME_MAX_LENGTH = 100;
+export const LAST_NAME_MAX_LENGTH = 100;
+export const PHONE_NUMBER_MAX_LENGTH = 50;
+export const COMPANY_NAME_MAX_LENGTH = 200;
+export const COUNTRY_MAX_LENGTH = 100;
+export const PRIMARY_ROLE_MAX_LENGTH = 100;
+export const ORGANIZATION_TYPE_MAX_LENGTH = 100;
+export const MESSAGE_MAX_LENGTH = 1000;
+
+export const INTERESTED_IN_PRODUCTS = [
+  "GRX_PAY",
+  "GRX_EXCHANGE",
+  "GRX_RWA",
+  "INSTITUTIONAL_STO",
+] as const;
+
+export const ORGANIZATION_TYPE_VALUES = [
+  "startup",
+  "sme",
+  "enterprise",
+  "financialInstitution",
+  "other",
+] as const;

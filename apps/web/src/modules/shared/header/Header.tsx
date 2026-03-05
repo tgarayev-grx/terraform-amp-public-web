@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
-import { FooterLogo } from "../icons";
+import { HeaderLogo } from "@grx/ui/icons/HeaderLogo";
 import { MobileMenu } from "./components/MobileMenu";
 import { ProductsDropdown } from "./components/ProductsDropdown";
 import { LocalizationSelect } from "./components/LocalizationSelect";
@@ -19,9 +19,9 @@ export function Header() {
           <div className="flex justify-start items-center gap-8">
             <Link
               href={ROUTES.home}
-              className="flex items-center text-text-strong-1000 shrink-0"
+              className="flex items-center text-neutral-900 dark:text-neutral shrink-0"
             >
-              <FooterLogo className="w-auto h-8" />
+              <HeaderLogo className="w-auto h-8 text-neutral-900 dark:text-neutral" />
             </Link>
 
             <nav className="hidden lg:flex justify-center items-center gap-6">

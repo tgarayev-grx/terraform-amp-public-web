@@ -1,22 +1,31 @@
 "use client";
 
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import z from "zod";
 import { Button, Checkbox, useAppForm, Field, toast } from "@grx/ui";
-import { submitContactForm } from "./actions";
+import { submitContactForm } from "./actions/save-contact-info/actions";
+import { getUserCountryCode } from "./actions/detect-user-location/actions";
 import {
   createContactFormSchema,
   INTERESTED_IN_PRODUCTS,
-  COUNTRY_CODES,
   ORGANIZATION_TYPE_VALUES,
 } from "./contactUsSchema";
-import { GlobeIcon } from "@/app/[locale]/pay/(icons)/GlobeIcon";
+import { GlobeIcon } from "@grx/ui/icons/GlobeIcon";
+import * as CountryFlagIcons from "@grx/ui/icons/country-flag";
 import clsx from "clsx";
 import { FieldError } from "@grx/ui/form/FieldError";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { ROUTES } from "@/modules/shared/header/routes";
-import { MESSAGE_MAX_LENGTH } from "./contactUsSchema";
+import { COUNTRY_CODES } from "./config/countries";
+
+function getCountryFlagIcon(
+  code: (typeof COUNTRY_CODES)[number]
+): React.ComponentType<React.SVGProps<SVGSVGElement>> | undefined {
+  return CountryFlagIcons[
+    `IconCountryFlag${code}` as keyof typeof CountryFlagIcons
+  ];
+}
 
 export type ContactUsFormProps = {
   className?: string;
@@ -37,6 +46,7 @@ export function ContactUsForm({
   defaultValues,
 }: ContactUsFormProps) {
   const t = useTranslations("ContactUs.contactForm");
+  const tCommon = useTranslations("Common");
   const contactFormSchema = createContactFormSchema(t);
   const honeypotCapture = useHoneypotCapture();
 
@@ -85,13 +95,40 @@ export function ContactUsForm({
               })
             );
           }
+
+          return;
         }
+
+        console.error("[ContactUsForm] Error submitting form:", result);
+        toast.error(t("toast.error"));
       } catch (error) {
         console.error("[ContactUsForm] Error submitting form:", error);
         toast.error(t("toast.error"));
       }
     },
   });
+
+  useEffect(() => {
+    let mounted = true;
+
+    getUserCountryCode().then((code) => {
+      if (!mounted) {
+        return;
+      }
+
+      if (!code) {
+        return;
+      }
+
+      if (!form.getFieldValue("country")) {
+        form.setFieldValue("country", code);
+      }
+    });
+
+    return () => {
+      mounted = false;
+    };
+  }, [form]);
 
   return (
     <form
@@ -178,10 +215,14 @@ export function ContactUsForm({
               <field.SingleSelect
                 label={t("field.country.label")}
                 placeholder={t("field.country.placeholder")}
-                options={COUNTRY_CODES.map((code) => ({
-                  value: code,
-                  label: t(`field.country.options.${code}`),
-                }))}
+                options={COUNTRY_CODES.map((code) => {
+                  const Icon = getCountryFlagIcon(code);
+                  return {
+                    value: code,
+                    label: tCommon(`countries.${code}`),
+                    start: Icon ? <Icon width={20} height={20} /> : undefined,
+                  };
+                })}
                 start={<GlobeIcon width={20} height={20} />}
               />
             )}

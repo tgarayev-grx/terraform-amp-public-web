@@ -3,8 +3,13 @@
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { forwardRef, ReactNode, type ComponentPropsWithoutRef } from "react";
 import { clsx } from "clsx";
+import { ChevronDownIcon } from "../../icons/ChevronDownIcon";
 
-export type SingleSelectOption = { value: string; label: string };
+export type SingleSelectOption = {
+  value: string;
+  label: string;
+  start?: ReactNode;
+};
 
 const SingleSelectRoot = SelectPrimitive.Root;
 
@@ -53,8 +58,8 @@ const SingleSelectTrigger = forwardRef<
         <SelectPrimitive.Value data-value placeholder={placeholder} />
 
         <SelectPrimitive.Icon asChild>
-          <span className="text-icon-base-500 group-data-[state=open]:rotate-180 transition-transform">
-            <ChevronDownIcon />
+          <span className="text-icon-base-500 group-hover:text-icon-subtle-700 group-data-[state=open]:rotate-180 transition-transform">
+            <ChevronDownIcon className="w-4 h-4 shrink-0" />
           </span>
         </SelectPrimitive.Icon>
       </SelectPrimitive.Trigger>
@@ -95,20 +100,25 @@ SingleSelectContent.displayName = "SingleSelect.Content";
 
 export type SingleSelectItemProps = ComponentPropsWithoutRef<
   typeof SelectPrimitive.Item
->;
+> & {
+  /** Rendered before the label in the list; not shown in the trigger (use option.start in FormSingleSelect so trigger start shows the icon) */
+  start?: ReactNode;
+};
 
 const SingleSelectItem = forwardRef<
   React.ComponentRef<typeof SelectPrimitive.Item>,
   SingleSelectItemProps
->(({ className, children, ...rest }, ref) => (
+>(({ className, children, start, ...rest }, ref) => (
   <SelectPrimitive.Item
     ref={ref}
     className={clsx(
-      "relative flex items-center data-[highlighted]:bg-bg-weak-100 hover:bg-bg-weak-100 px-3 py-2.5 rounded-lg outline-none text-text-strong-1000 text-base cursor-pointer select-none",
+      "relative flex items-center gap-2 data-[highlighted]:bg-bg-weak-100 hover:bg-bg-weak-100 px-3 py-2.5 rounded-lg outline-none text-text-strong-1000 text-base cursor-pointer select-none",
       className
     )}
     {...rest}
   >
+    {!!start && <span className="flex items-center shrink-0">{start}</span>}
+
     <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
   </SelectPrimitive.Item>
 ));
@@ -120,23 +130,3 @@ export const SingleSelect = Object.assign(SingleSelectRoot, {
   Content: SingleSelectContent,
   Item: SingleSelectItem,
 });
-
-function ChevronDownIcon(props: ComponentPropsWithoutRef<"svg">) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-4 h-4 text-neutral-500 shrink-0"
-      {...props}
-    >
-      <path
-        d="M19 9l-7 7-7-7"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}

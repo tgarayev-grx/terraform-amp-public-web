@@ -7,8 +7,8 @@ import { useState, useEffect } from "react";
 import clsx from "clsx";
 
 import { ProductItem } from "./ProductItem";
-import { ShevronDownIcon } from "../../icons";
 import { ROUTES } from "../routes";
+import { ShevronDownIcon } from "@grx/ui/icons/ShevronDownIcon";
 
 export function ProductsDropdown() {
   const t = useTranslations();

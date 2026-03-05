@@ -10,14 +10,12 @@ import {
   usePathname,
 } from "@/modules/cross-cutting-concerns/i18n/navigation";
 
-import { ShevronDownIcon } from "./(icons)/ShevronDownIcon";
-import { GlobeIcon } from "./(icons)/GlobeIcon";
-import { FlagEn } from "./(icons)/FlagEn";
-import { FlagBg } from "./(icons)/FlagBg";
-import { FlagFr } from "./(icons)/FlagFr";
-import { FlagEs } from "./(icons)/FlagEs";
-import { MenuIcon } from "./(icons)/MenuIcon";
-import { CloseIcon } from "./(icons)/CloseIcon";
+import { ShevronDownIcon } from "@grx/ui/icons/ShevronDownIcon";
+import { GlobeIcon } from "@grx/ui/icons/GlobeIcon";
+import { IconCountryFlagGB } from "@grx/ui/icons/country-flag";
+import { IconCountryFlagBG } from "@grx/ui/icons/country-flag";
+import { MenuIcon } from "@grx/ui/icons/MenuIcon";
+import { CloseIcon } from "@grx/ui/icons/CloseIcon";
 import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
 
 export function Header() {
@@ -176,8 +174,16 @@ function LocalizationSelect() {
   const locale = useLocale();
   const pathname = usePathname();
   const languages = [
-    { code: "en", name: t("Pay.Root.header.languages.en"), flag: <FlagEn /> },
-    { code: "bg", name: t("Pay.Root.header.languages.bg"), flag: <FlagBg /> },
+    {
+      code: "en",
+      name: t("Pay.Root.header.languages.en"),
+      flag: <IconCountryFlagGB />,
+    },
+    {
+      code: "bg",
+      name: t("Pay.Root.header.languages.bg"),
+      flag: <IconCountryFlagBG />,
+    },
   ] as const;
   const currentLanguage =
     languages.find((lang) => lang.code === locale) || languages[0];

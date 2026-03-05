@@ -6,18 +6,30 @@ import {
   Link,
   usePathname,
 } from "@/modules/cross-cutting-concerns/i18n/navigation";
-import { GlobeIcon, ShevronDownIcon } from "../../icons";
-import { FlagEn, FlagBg } from "../../icons";
+import { GlobeIcon } from "@grx/ui/icons/GlobeIcon";
+import { ShevronDownIcon } from "@grx/ui/icons/ShevronDownIcon";
+import {
+  IconCountryFlagGB,
+  IconCountryFlagBG,
+} from "@grx/ui/icons/country-flag";
 import clsx from "clsx";
 
 export function LocalizationSelect() {
-  const t = useTranslations();
+  const t = useTranslations("Common");
   const locale = useLocale();
   const pathname = usePathname();
 
   const languages = [
-    { code: "en", name: t("CommonHeader.languages.en"), flag: <FlagEn /> },
-    { code: "bg", name: t("CommonHeader.languages.bg"), flag: <FlagBg /> },
+    {
+      code: "en",
+      name: t("languages.en"),
+      flag: <IconCountryFlagGB />,
+    },
+    {
+      code: "bg",
+      name: t("languages.bg"),
+      flag: <IconCountryFlagBG />,
+    },
   ] as const;
 
   const currentLanguage =

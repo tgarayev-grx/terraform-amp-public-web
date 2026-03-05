@@ -1,9 +1,9 @@
-import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
+import { DirectionRightIcon } from "@grx/ui/icons/DirectionRightIcon";
 import { FAQ_ARTICLES } from "../data";
-import { DirectionRightIcon } from "../../(icons)/DirectionRightIcon";
 import { ArticleSidebarNav } from "./ArticleSidebarNav";
 import {
   getArticleBody,

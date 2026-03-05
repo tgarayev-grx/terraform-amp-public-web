@@ -1,12 +1,12 @@
 import { getTranslations } from "next-intl/server";
 
 import { FeatureCard } from "../(components)/card";
-import { LockIcon } from "../(icons)/LockIcon";
-import { SafeBoxIcon } from "../(icons)/SafeBoxIcon";
-import { ShieldIcon } from "../(icons)/ShieldIcon";
-import { TargetIcon } from "../(icons)/TargetIcon";
-import { AMLIcon } from "../(icons)/AMLIcon";
-import { QRScanIcon } from "../(icons)/QRScanIcon";
+import { LockIcon } from "@grx/ui/icons/LockIcon";
+import { SafeBoxIcon } from "@grx/ui/icons/SafeBoxIcon";
+import { ShieldIcon } from "@grx/ui/icons/ShieldIcon";
+import { TargetIcon } from "@grx/ui/icons/TargetIcon";
+import { AMLIcon } from "@grx/ui/icons/AMLIcon";
+import { QRScanIcon } from "@grx/ui/icons/QRScanIcon";
 
 export async function RobustSecuritySection() {
   const t = await getTranslations();
