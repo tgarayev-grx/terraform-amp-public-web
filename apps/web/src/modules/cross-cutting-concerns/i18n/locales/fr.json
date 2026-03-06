@@ -434,6 +434,91 @@
       }
     }
   },
+  "BookDemo": {
+    "section": {
+      "title": "Réservez une démo avec GRX Pay",
+      "subtitle": "Découvrez comment les marchands modernes traitent les paiements transfrontaliers avec rapidité, conformité et contrôle total."
+    },
+    "steps": {
+      "complianceFirst": {
+        "title": "Architecture axée sur la conformité",
+        "description": "Conçue en tenant compte de l'alignement réglementaire."
+      },
+      "securityInfrastructure": {
+        "title": "Infrastructure de sécurité de niveau entreprise",
+        "description": "La sécurité intégrée à chaque couche du système."
+      },
+      "globalScale": {
+        "title": "Conçu pour une échelle mondiale",
+        "description": "Prêt à accompagner la croissance transfrontalière dès le premier jour."
+      }
+    },
+    "contactForm": {
+      "field": {
+        "firstName": {
+          "label": "Prénom",
+          "placeholder": "Prénom*",
+          "errors": {
+            "required": "Le prénom est obligatoire",
+            "maxLength": "Le prénom doit contenir moins de {maxLength} caractères"
+          }
+        },
+        "lastName": {
+          "label": "Nom",
+          "placeholder": "Nom*",
+          "errors": {
+            "required": "Le nom est obligatoire",
+            "maxLength": "Le nom doit contenir moins de {maxLength} caractères"
+          }
+        },
+        "businessEmail": {
+          "label": "Email professionnel",
+          "placeholder": "Email professionnel*",
+          "errors": {
+            "required": "L'email professionnel est obligatoire",
+            "invalidEmail": "Email invalide"
+          }
+        },
+        "phoneNumber": {
+          "label": "Téléphone",
+          "placeholder": "Téléphone*",
+          "errors": {
+            "required": "Le numéro de téléphone est obligatoire",
+            "maxLength": "Le numéro doit contenir moins de {maxLength} caractères"
+          }
+        },
+        "primaryRole": {
+          "label": "Rôle principal",
+          "placeholder": "Rôle principal",
+          "errors": {
+            "maxLength": "Le rôle doit contenir moins de {maxLength} caractères"
+          }
+        },
+        "country": {
+          "label": "Pays",
+          "placeholder": "Pays*",
+          "errors": {
+            "required": "Le pays est obligatoire",
+            "maxLength": "Le pays doit contenir moins de {maxLength} caractères"
+          }
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Comment pouvons-nous vous aider ?",
+          "errors": {
+            "maxLength": "Le message doit contenir moins de {maxLength} caractères"
+          }
+        }
+      },
+      "submit": "Réserver une démo",
+      "submitting": "Envoi en cours…",
+      "footer": "En soumettant ce formulaire, vous acceptez nos <linkTerms>Conditions d'utilisation</linkTerms> et notre <linkPrivacy>Politique de confidentialité</linkPrivacy>.",
+      "toast": {
+        "success": "Demande reçue. Nous vous recontacterons bientôt.",
+        "error": "Une erreur s'est produite. Veuillez réessayer plus tard."
+      }
+    }
+  },
   "Exchange": {
     "hero": {
       "badge": "Coming soon",

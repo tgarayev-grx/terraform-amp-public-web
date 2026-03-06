@@ -660,6 +660,91 @@
       }
     }
   },
+  "BookDemo": {
+    "section": {
+      "title": "Book a demo with GRX Pay",
+      "subtitle": "See how modern merchants process cross-border payments with speed, compliance, and full control."
+    },
+    "steps": {
+      "complianceFirst": {
+        "title": "Compliance-first architecture",
+        "description": "Designed with regulatory alignment in mind."
+      },
+      "securityInfrastructure": {
+        "title": "Enterprise-grade security infrastructure",
+        "description": "Security embedded at every layer of the system."
+      },
+      "globalScale": {
+        "title": "Built for global scale",
+        "description": "Ready to support cross-border growth from day one."
+      }
+    },
+    "contactForm": {
+      "field": {
+        "firstName": {
+          "label": "First name",
+          "placeholder": "First name*",
+          "errors": {
+            "required": "First name is required",
+            "maxLength": "First name must be less than {maxLength} characters"
+          }
+        },
+        "lastName": {
+          "label": "Last name",
+          "placeholder": "Last name*",
+          "errors": {
+            "required": "Last name is required",
+            "maxLength": "Last name must be less than {maxLength} characters"
+          }
+        },
+        "businessEmail": {
+          "label": "Business email",
+          "placeholder": "Business email*",
+          "errors": {
+            "required": "Business email is required",
+            "invalidEmail": "Invalid email"
+          }
+        },
+        "phoneNumber": {
+          "label": "Phone number",
+          "placeholder": "Phone number*",
+          "errors": {
+            "required": "Phone number is required",
+            "maxLength": "Phone number must be less than {maxLength} characters"
+          }
+        },
+        "primaryRole": {
+          "label": "Primary role",
+          "placeholder": "Primary role",
+          "errors": {
+            "maxLength": "Primary role must be less than {maxLength} characters"
+          }
+        },
+        "country": {
+          "label": "Country",
+          "placeholder": "Country*",
+          "errors": {
+            "required": "Country is required",
+            "maxLength": "Country must be less than {maxLength} characters"
+          }
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "How can we help?",
+          "errors": {
+            "maxLength": "Message must be less than {maxLength} characters"
+          }
+        }
+      },
+      "submit": "Book a demo",
+      "submitting": "Sending…",
+      "footer": "By submitting this form, you agree to our <linkTerms>Terms of Use</linkTerms> and <linkPrivacy>Privacy Policy</linkPrivacy>.",
+      "toast": {
+        "success": "Request received. We'll get back to you soon.",
+        "error": "Something went wrong. Please try again later."
+      }
+    }
+  },
   "Exchange": {
     "hero": {
       "badge": "Coming soon",

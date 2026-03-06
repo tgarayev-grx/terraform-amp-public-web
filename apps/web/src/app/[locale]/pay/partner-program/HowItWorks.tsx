@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import { ReactNode } from "react";
 
 export async function HowItWorksSection() {
   const t = await getTranslations();
@@ -42,13 +43,18 @@ export async function HowItWorksSection() {
 }
 
 type StepCardProps = {
-  number: number;
+  number: ReactNode;
   title: string;
   description: string;
   isLast?: boolean;
 };
 
-function StepCard({ number, title, description, isLast }: StepCardProps) {
+export function StepCard({
+  number,
+  title,
+  description,
+  isLast,
+}: StepCardProps) {
   return (
     <div className="relative flex items-center gap-4 sm:gap-8 md:gap-10 w-full">
       <div className="relative flex flex-col flex-shrink-0 items-center">

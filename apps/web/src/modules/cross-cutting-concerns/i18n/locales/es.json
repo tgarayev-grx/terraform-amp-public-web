@@ -434,6 +434,91 @@
       }
     }
   },
+  "BookDemo": {
+    "section": {
+      "title": "Reserva una demo con GRX Pay",
+      "subtitle": "Descubre cómo los comerciantes modernos procesan pagos transfronterizos con rapidez, cumplimiento y control total."
+    },
+    "steps": {
+      "complianceFirst": {
+        "title": "Arquitectura centrada en el cumplimiento",
+        "description": "Diseñada con la alineación regulatoria en mente."
+      },
+      "securityInfrastructure": {
+        "title": "Infraestructura de seguridad de nivel empresarial",
+        "description": "Seguridad integrada en cada capa del sistema."
+      },
+      "globalScale": {
+        "title": "Construido para escala global",
+        "description": "Listo para apoyar el crecimiento transfronterizo desde el primer día."
+      }
+    },
+    "contactForm": {
+      "field": {
+        "firstName": {
+          "label": "Nombre",
+          "placeholder": "Nombre*",
+          "errors": {
+            "required": "El nombre es obligatorio",
+            "maxLength": "El nombre debe tener menos de {maxLength} caracteres"
+          }
+        },
+        "lastName": {
+          "label": "Apellidos",
+          "placeholder": "Apellidos*",
+          "errors": {
+            "required": "Los apellidos son obligatorios",
+            "maxLength": "Los apellidos deben tener menos de {maxLength} caracteres"
+          }
+        },
+        "businessEmail": {
+          "label": "Email profesional",
+          "placeholder": "Email profesional*",
+          "errors": {
+            "required": "El email profesional es obligatorio",
+            "invalidEmail": "Email no válido"
+          }
+        },
+        "phoneNumber": {
+          "label": "Teléfono",
+          "placeholder": "Teléfono*",
+          "errors": {
+            "required": "El teléfono es obligatorio",
+            "maxLength": "El teléfono debe tener menos de {maxLength} caracteres"
+          }
+        },
+        "primaryRole": {
+          "label": "Rol principal",
+          "placeholder": "Rol principal",
+          "errors": {
+            "maxLength": "El rol debe tener menos de {maxLength} caracteres"
+          }
+        },
+        "country": {
+          "label": "País",
+          "placeholder": "País*",
+          "errors": {
+            "required": "El país es obligatorio",
+            "maxLength": "El país debe tener menos de {maxLength} caracteres"
+          }
+        },
+        "message": {
+          "label": "Mensaje",
+          "placeholder": "¿Cómo podemos ayudarte?",
+          "errors": {
+            "maxLength": "El mensaje debe tener menos de {maxLength} caracteres"
+          }
+        }
+      },
+      "submit": "Reservar demo",
+      "submitting": "Enviando…",
+      "footer": "Al enviar este formulario, aceptas nuestros <linkTerms>Términos de uso</linkTerms> y <linkPrivacy>Política de privacidad</linkPrivacy>.",
+      "toast": {
+        "success": "Solicitud recibida. Nos pondremos en contacto contigo pronto.",
+        "error": "Algo ha ido mal. Por favor, inténtalo de nuevo más tarde."
+      }
+    }
+  },
   "Exchange": {
     "hero": {
       "badge": "Coming soon",

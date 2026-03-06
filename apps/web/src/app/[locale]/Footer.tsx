@@ -45,7 +45,7 @@ export async function Footer() {
             })}
           </p>
 
-          <p className="w-full max-w-[1180px] text-body-sm-regular sm:text-body-md-regular text-text-soft-500">
+          <p className="w-full max-w-[1180px] text-body-sm-regular text-text-soft-500 sm:text-body-md-regular">
             {t("Pay.Root.footer.disclaimer")}
           </p>
         </div>
@@ -63,13 +63,13 @@ function FooterNav({ t, className }: FooterNavProps) {
   return (
     <div
       className={clsx(
-        "flex flex-col lg:flex-row lg:justify-between lg:items-start lg:gap-10",
+        "flex lg:flex-row flex-col lg:justify-between lg:items-start lg:gap-10",
         className
       )}
     >
       <Link
         href={ROUTES.home}
-        className="flex items-center gap-2 shrink-0 mb-10 lg:mb-0"
+        className="flex items-center gap-2 mb-10 lg:mb-0 shrink-0"
         aria-label="GRX - Golden Ratio Exchange"
       >
         <FooterLogoIcon className="w-auto h-9 text-text-strong-1000 shrink-0" />
@@ -79,7 +79,7 @@ function FooterNav({ t, className }: FooterNavProps) {
         </span>
       </Link>
 
-      <div className="flex flex-col sm:flex-row sm:justify-between lg:justify-start gap-10 lg:gap-20 w-full lg:w-auto">
+      <div className="flex sm:flex-row flex-col sm:justify-between lg:justify-start gap-10 lg:gap-20 w-full lg:w-auto">
         <FooterNavRoot>
           <FooterNavTitle>{t("Pay.Root.footer.grxPaySection")}</FooterNavTitle>
           <FooterNavList>
@@ -91,9 +91,9 @@ function FooterNav({ t, className }: FooterNavProps) {
               {t("Pay.Root.footer.pricing")}
             </FooterNavItemLink>
 
-            {/* <FooterNavItemLink href={ROUTES.payDemo}>
+            <FooterNavItemLink href={ROUTES.payDemo}>
               {t("Pay.Root.footer.bookDemo")}
-            </FooterNavItemLink> */}
+            </FooterNavItemLink>
           </FooterNavList>
         </FooterNavRoot>
 
