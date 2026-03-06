@@ -1,2 +1,1 @@
-export { GetInTouchSection } from "./GetInTouchSection";
-export { ContactUsModal } from "./ContactUsModal";
+export { BookDemoForm } from "./BookDemoForm";
