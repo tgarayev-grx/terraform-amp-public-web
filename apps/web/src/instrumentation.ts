@@ -8,7 +8,6 @@ const SKIP_LOG_PATH =
 function shouldLogPath(path: string): boolean {
   return path.length > 0 && !SKIP_LOG_PATH.test(path);
 }
-
 /**
  * Runs once when the Next.js Node.js server starts.
  * Patches the HTTP server to log request/response for pages and API routes only
