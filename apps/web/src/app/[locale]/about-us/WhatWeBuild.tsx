@@ -86,15 +86,15 @@ const WhatWeBuildCard = memo(
           <img src={iconSrc} alt="" className="w-6 h-6" aria-hidden />
         </div>
 
-        <div>
+        <div className="flex flex-col gap-2">
           <h4 className="text-text-strong-1000 text-title-sm md:text-title-lg text-center">
             {title}
           </h4>
 
           {!!description && (
-            <h5 className="text-body-lg-medium text-text-subtle-700 md:text-body-xl-medium text-center">
+            <p className="text-body-xl-regular text-text-soft-500 text-center">
               {description}
-            </h5>
+            </p>
           )}
         </div>
       </WhatWeBuildCardRoot>
@@ -108,7 +108,7 @@ const WhatWeBuildCardRoot = memo(
     return (
       <div
         className={twMerge(
-          "flex flex-col justify-center items-center gap-6 bg-surface-floating shadow-sm p-6 rounded-2xl min-h-72 md:min-h-80",
+          "flex flex-col justify-center items-center gap-10 bg-surface-floating shadow-sm p-6 rounded-2xl min-h-72 md:min-h-80",
           className
         )}
         {...props}
