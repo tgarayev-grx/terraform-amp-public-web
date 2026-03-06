@@ -1,6 +1,6 @@
 ---
-title: Privacy Policy | GRX Pay
-description: Read our Privacy Policy to understand how we collect, use, and protect your personal data when using GRX Pay services.
+title: Политика за поверителност
+description: Прочетете нашата Политика за поверителност, за да разберете как събираме, използваме и защитаваме Вашите лични данни при използване на услугите на GRX Pay.
 createdAt: "2026-02-16"
 lastUpdatedAt: "2026-02-16"
 ---
