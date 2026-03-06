@@ -39,10 +39,6 @@ export async function Footer() {
         <div className="flex flex-col gap-10 mx-auto w-full max-w-[1180px]">
           <FooterNav t={t} />
 
-          <AcceptCryptoList t={t} />
-
-          <IntegrationsList />
-
           <p className="text-body-md-regular text-text-soft-500">
             {t("Pay.Root.footer.copyright", {
               year: String(new Date().getFullYear()),
