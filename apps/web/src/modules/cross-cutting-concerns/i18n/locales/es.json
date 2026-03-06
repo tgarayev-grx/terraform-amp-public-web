@@ -254,8 +254,11 @@
   "AboutUsPage": {
     "hero": {
       "title": "Sobre GRX",
-      "subtitle": "Construyendo infraestructura regulada para activos digitales y del mundo real",
+      "subtitle": "Libertad financiera global: soluciones financieras seguras, transparentes e innovadoras para todos — tanto en el mundo digital como en la economía real.",
       "contactUs": "Contáctanos"
+    },
+    "midStatement": {
+      "text": "Libertad financiera global: <secure>seguro</secure>, <transparent>transparente</transparent> e <innovative>soluciones financieras innovadoras</innovative> para todos — en el mundo digital y en la economía real."
     },
     "whoAreWe": {
       "title": "Quiénes somos",
@@ -266,13 +269,35 @@
     "whatWeBuild": {
       "title": "Qué construimos",
       "subtitle": "Infraestructura de pila completa para activos digitales y del mundo real",
-      "bankingCustody": "Integración bancaria y de custodia",
-      "complianceAudit": "Cumplimiento, auditoría e informes, compatibilidad",
-      "assetTokenization": "Tokenización de activos",
-      "assetTokenizationDescription": "(RWA → instrumentos digitales regulados)",
-      "distributionRails": "Canales de distribución",
-      "distributionRailsDescription": "(clientes, socios, mercados secundarios)",
-      "digitalAssetsAccess": "Acceso opcional a activos digitales sin salir del perímetro bancario"
+      "transparencyCompliance": "Transparencia y cumplimiento",
+      "transparencyComplianceDescription": "apertura de los procesos de negocio y adhesión a las normas regulatorias.",
+      "scalabilityInnovation": "Escalabilidad e innovación",
+      "scalabilityInnovationDescription": "infraestructura tecnológica moderna y resiliente.",
+      "easeOfUse": "Facilidad de uso",
+      "easeOfUseDescription": "interfaces intuitivas para todos los usuarios.",
+      "securityTrust": "Seguridad y confianza",
+      "securityTrustDescription": "protección fiable de los activos y datos de los usuarios.",
+      "opennessForAll": "Apertura para todos",
+      "opennessForAllDescription": "servicios accesibles independientemente del nivel de experiencia."
+    },
+    "compliance": {
+      "title": "Cumplimiento y licencias",
+      "subtitle": "Operar con transparencia y alineación regulatoria en todas las jurisdicciones.",
+      "learnMore": "Saber más",
+      "upcoming": "Próximamente",
+      "vasp": {
+        "title": "Licencia VASP",
+        "description": "Registrado como Proveedor de Servicios de Activos Virtuales (VASP) en Bulgaria, cumpliendo con los requisitos regulatorios para servicios de activos cripto y estándares de supervisión financiera."
+      },
+      "mica": {
+        "titlePart1": "MiCA",
+        "titlePart2": "Cumplimiento",
+        "description": "Nuestra plataforma se está preparando para el cumplimiento del Reglamento de la UE sobre Mercados de Criptoactivos (MiCA) para garantizar transparencia, protección del inversor y alineación regulatoria en la Unión Europea."
+      },
+      "aml": {
+        "title": "Estándares AML y KYC",
+        "description": "Implementamos procedimientos estrictos de lucha contra el blanqueo de capitales (AML) y de conocimiento del cliente (KYC) para un ecosistema financiero seguro y conforme."
+      }
     },
     "ourTeam": {
       "title": "Nuestro equipo",

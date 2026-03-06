@@ -254,11 +254,14 @@
   "AboutUsPage": {
     "hero": {
       "title": "À propos de GRX",
-      "subtitle": "Construire une infrastructure régulée pour les actifs numériques et réels",
+      "subtitle": "Liberté financière mondiale : des solutions financières sûres, transparentes et innovantes pour tous — dans le monde numérique et l'économie réelle.",
       "contactUs": "Nous contacter"
     },
+    "midStatement": {
+      "text": "Liberté financière mondiale : <secure>sûr</secure>, <transparent>transparent</transparent> et <innovative>solutions financières innovantes</innovative> pour tous — dans le monde numérique et l'économie réelle."
+    },
     "whoAreWe": {
-      "title": "Qui sommes-nous",
+      "title": "Qui nous sommes",
       "description": "GRX est un écosystème fintech de nouvelle génération conçu pour rapprocher la finance traditionnelle et l'économie décentralisée\n\nNous croyons en des solutions financières sécurisées, sans frontières et efficaces, accessibles à tous — particuliers, entreprises et institutions.",
       "visionTitle": "Notre vision",
       "visionDescription": "Donner aux particuliers et aux entreprises la liberté des capitaux et de nouvelles opportunités sur les marchés numériques et réels."
@@ -266,13 +269,35 @@
     "whatWeBuild": {
       "title": "Ce que nous construisons",
       "subtitle": "Une infrastructure complète pour les actifs numériques et réels",
-      "bankingCustody": "Intégration bancaire et de garde",
-      "complianceAudit": "Conformité, audit et reporting, compatibilité",
-      "assetTokenization": "Tokenisation d'actifs",
-      "assetTokenizationDescription": "(RWA → instruments numériques régulés)",
-      "distributionRails": "Canaux de distribution",
-      "distributionRailsDescription": "(clients, partenaires, marchés secondaires)",
-      "digitalAssetsAccess": "Accès optionnel aux actifs numériques sans quitter le périmètre bancaire"
+      "transparencyCompliance": "Transparence et conformité",
+      "transparencyComplianceDescription": "ouverture des pratiques commerciales et respect des normes réglementaires.",
+      "scalabilityInnovation": "Évolutivité et innovation",
+      "scalabilityInnovationDescription": "infrastructure technologique moderne et résiliente.",
+      "easeOfUse": "Facilité d'utilisation",
+      "easeOfUseDescription": "interfaces intuitives pour tous les utilisateurs.",
+      "securityTrust": "Sécurité et confiance",
+      "securityTrustDescription": "protection fiable des actifs et des données des utilisateurs.",
+      "opennessForAll": "Ouverture pour tous",
+      "opennessForAllDescription": "services accessibles quel que soit le niveau d'expérience."
+    },
+    "compliance": {
+      "title": "Conformité et licences",
+      "subtitle": "Opérer avec transparence et alignement réglementaire dans toutes les juridictions.",
+      "learnMore": "En savoir plus",
+      "upcoming": "À venir",
+      "vasp": {
+        "title": "Licence VASP",
+        "description": "Enregistré en tant que fournisseur de services d'actifs virtuels (VASP) en Bulgarie, conformément aux exigences réglementaires pour les services d'actifs crypto et les normes de surveillance financière."
+      },
+      "mica": {
+        "titlePart1": "MiCA",
+        "titlePart2": "Conformité",
+        "description": "Notre plateforme se prépare à la conformité avec le règlement européen MiCA (Marchés des actifs cryptographiques) pour assurer la transparence, la protection des investisseurs et l'alignement réglementaire dans l'Union européenne."
+      },
+      "aml": {
+        "title": "Normes AML et KYC",
+        "description": "Nous mettons en œuvre des procédures strictes de lutte contre le blanchiment d'argent (AML) et de connaissance du client (KYC) pour un écosystème financier sûr et conforme."
+      }
     },
     "ourTeam": {
       "title": "Notre équipe",
