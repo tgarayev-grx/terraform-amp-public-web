@@ -9,6 +9,7 @@ import { getUserCountryCode } from "./actions/detect-user-location/actions";
 import {
   createContactFormSchema,
   INTERESTED_IN_PRODUCTS,
+  MESSAGE_MAX_LENGTH,
   ORGANIZATION_TYPE_VALUES,
 } from "./contactUsSchema";
 import { GlobeIcon } from "@grx/ui/icons/GlobeIcon";
@@ -252,6 +253,27 @@ export function ContactUsForm({
             </form.AppField>
           </div>
 
+          <form.AppField name="message">
+            {(field) => (
+              <div className="flex flex-col gap-1">
+                <field.TextAreaField
+                  label={t("field.message.label")}
+                  placeholder={t("field.message.placeholder")}
+                  rows={4}
+                  maxLength={MESSAGE_MAX_LENGTH}
+                />
+                <div className="flex justify-end">
+                  <span
+                    className="text-body-sm-regular text-text-soft-500"
+                    aria-live="polite"
+                  >
+                    {field.state.value?.length ?? 0}/{MESSAGE_MAX_LENGTH}
+                  </span>
+                </div>
+              </div>
+            )}
+          </form.AppField>
+
           <form.AppField name="interestedIn">
             {(field) => (
               <Field.Root className="flex flex-col gap-4" id={field.name}>
@@ -291,16 +313,6 @@ export function ContactUsForm({
                   )}
                 </FieldError>
               </Field.Root>
-            )}
-          </form.AppField>
-
-          <form.AppField name="message">
-            {(field) => (
-              <field.TextAreaField
-                label={t("field.message.label")}
-                placeholder={t("field.message.placeholder")}
-                rows={4}
-              />
             )}
           </form.AppField>
         </div>
