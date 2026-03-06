@@ -3,6 +3,7 @@
 import { z } from "zod";
 import { getTranslations } from "next-intl/server";
 import { createWaitlistSchema, type WaitlistSchema } from "./waitlistSchema";
+import { SlackWaitlistAPI } from "../../../modules/waitlist/slack.api";
 
 export type SubmitWaitlistResult =
   | { success: true }
@@ -38,8 +39,15 @@ export async function submitWaitlist(
     };
   }
 
-  // TODO: Persist to DB or email service. For now we simulate success.
-  await new Promise((r) => setTimeout(r, 500));
+  const api = new SlackWaitlistAPI();
+  const { ok, status } = await api.sendWaitlistSignup({
+    email: parsed.data.email,
+    source: "Exchange",
+  });
+
+  if (!ok) {
+    console.error("[submitWaitlist] Slack notification failed", status);
+  }
 
   return { success: true };
 }
