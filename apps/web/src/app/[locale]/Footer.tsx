@@ -95,13 +95,9 @@ function FooterNav({ t, className }: FooterNavProps) {
               {t("Pay.Root.footer.pricing")}
             </FooterNavItemLink>
 
-            <FooterNavItemLink href={ROUTES.payDemo}>
+            {/* <FooterNavItemLink href={ROUTES.payDemo}>
               {t("Pay.Root.footer.bookDemo")}
-            </FooterNavItemLink>
-
-            <FooterNavItemLink href={ROUTES.payDocs}>
-              {t("Pay.Root.footer.apiDocumentation")}
-            </FooterNavItemLink>
+            </FooterNavItemLink> */}
           </FooterNavList>
         </FooterNavRoot>
 
