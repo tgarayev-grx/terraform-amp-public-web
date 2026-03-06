@@ -748,7 +748,7 @@
         "title": "Accept crypto payments in seconds",
         "subtitle": "All-in-one crypto banking solution: bill customers, receive crypto, and get paid in fiat",
         "getStarted": "Get Started",
-        "contactSales": "Contact Sales",
+        "contactSales": "Contact us",
         "tagline": "One time decision and use forever"
       },
       "features": {
@@ -888,7 +888,7 @@
       "buildYourBusiness": {
         "title": "Build your crypto business with <nowrap>GRX Pay</nowrap>",
         "subtitle": "Get started with {brand} today. What are you waiting for?",
-        "contactSales": "Contact sales"
+        "contactSales": "Contact us"
       },
       "faq": {
         "title": "FAQ",
@@ -1014,7 +1014,7 @@
         "imageAlt": "Background for empower your business with crypto payments",
         "title": "Empower your business with crypto payments using GRX Pay",
         "subtitle": "Get started with GRX Pay today. What are you waiting for?",
-        "contactSales": "Contact sales"
+        "contactSales": "Contact us"
       }
     },
     "Pricing": {
@@ -1039,7 +1039,7 @@
       "fromAmountPerTransaction": "From 15 000 EUR per transaction",
       "custom": "Custom",
       "getStarted": "Get started",
-      "contactSales": "Contact sales",
+      "contactSales": "Contact us",
       "customVolumeMessage": "If you handle significant volumes, our personalized commission structure fits your needs. Contact us for details and let's enhance your experience!",
       "benefits": {
         "unlockCryptoAudience": "Unlock the vast crypto audience of 425 million",

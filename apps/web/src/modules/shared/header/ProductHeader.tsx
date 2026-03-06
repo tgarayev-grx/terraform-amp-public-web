@@ -97,12 +97,12 @@ export function ProductHeader({
 
           <div className="hidden md:flex items-center gap-3">
             <ButtonRoot asChild variant="secondary" size="sm">
-              <Link href={EXTERNAL_LINKS.Pay.signIn} target="_blank">
+              <Link href={EXTERNAL_LINKS.Pay.signIn.href} target="_blank">
                 <ButtonText>{t("CommonHeader.nav.signIn")}</ButtonText>
               </Link>
             </ButtonRoot>
             <ButtonRoot asChild variant="primary" size="sm">
-              <Link href={EXTERNAL_LINKS.Pay.signUp} target="_blank">
+              <Link href={EXTERNAL_LINKS.Pay.signUp.href} target="_blank">
                 <ButtonText>{t("CommonHeader.nav.createAccount")}</ButtonText>
               </Link>
             </ButtonRoot>

@@ -7,6 +7,7 @@ import { InfoCircleFilledIcon } from "@grx/ui/icons/InfoCircleFilledIcon";
 import { CheckCircleFilledIcon } from "@grx/ui/icons/CheckCircleFilledIcon";
 import goldGemPng from "./gold-gem.png";
 import blackGemPng from "./black-gem.png";
+import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
 
 export async function PricingSection() {
   const t = await getTranslations();
@@ -56,7 +57,7 @@ export async function PricingSection() {
                   size="lg"
                   asChild
                 >
-                  <Link href="/sign-up" target="_blank">
+                  <Link href={EXTERNAL_LINKS.Pay.signUp.href} target="_blank">
                     <ButtonText>{t("Pay.Pricing.getStarted")}</ButtonText>
                   </Link>
                 </ButtonRoot>

@@ -8,6 +8,7 @@ import boostYourRevenueImagePng from "./(assets)/boost-your-revenue.png";
 import { TypingEffect } from "./TypingEffect";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { defaultRichComponents } from "@/modules/cross-cutting-concerns/i18n/components/Rich/defaultRichComponents";
+import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing/links";
 
 export function BoostYourRevenueSection() {
   const t = useTranslations();
@@ -40,7 +41,7 @@ export function BoostYourRevenueSection() {
               size="lg"
               asChild
             >
-              <Link href="/sign-up" target="_blank">
+              <Link href={EXTERNAL_LINKS.Pay.signUp.href} target="_blank">
                 <ButtonText>
                   {t("Pay.Root.boostYourRevenue.createAccount")}
                 </ButtonText>
