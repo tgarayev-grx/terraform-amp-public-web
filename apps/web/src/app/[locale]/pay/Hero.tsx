@@ -7,7 +7,7 @@ import {
 } from "@grx/ui/components/button/Button";
 import { ContactUsModal } from "@/modules/contact-us";
 
-import heroBackgroundImagePng from "./(assets)/banner.png";
+import heroBackgroundImagePng from "./(assets)/banner-dark.png";
 import styles from "./hero.module.css";
 import clsx from "clsx";
 import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
@@ -20,12 +20,19 @@ export async function HeroSection() {
         "relative flex flex-col bg-bg-base pt-[80px] sm:pt-[112px] md:pt-[200px] pb-12 min-h-[800px] overflow-hidden sm:text-left text-center"
       )}
     >
-      <div
-        className={clsx(styles.bgImage, "absolute w-full h-full")}
-        style={{
-          backgroundImage: `url(${heroBackgroundImagePng.src})`,
-        }}
-      />
+      <div className={clsx(styles.heroImageWrapper, "absolute inset-0")}>
+        <div className={styles.heroImageBg} aria-hidden />
+        <div className={styles.heroImageContainer}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={heroBackgroundImagePng.src}
+            alt=""
+            className={styles.heroImage}
+            loading="eager"
+            fetchPriority="high"
+          />
+        </div>
+      </div>
       <div className="relative flex flex-col flex-grow sm:justify-between gap-8 mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col px-2 sm:px-8">
           <h1 className="mb-4 sm:max-w-[580px] font-unbounded text-display-md text-text-strong-1000 sm:text-display-xl">

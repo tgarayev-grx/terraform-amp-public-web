@@ -1,74 +1,92 @@
-.bgImage {
+.heroImageWrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.heroImageBg {
+  position: absolute;
+  inset: 0;
+  background-color: #010101;
+}
+
+.heroImageContainer {
+  position: absolute;
   right: 0;
-  bottom: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position-x: 200px;
-  background-position-y: 175px;
-  width: 200%;
-  transform: scale(0.75);
-  transform-origin: bottom right;
+  bottom: 60px;
+  left: 0;
+  width: 100%;
+  height: 559px;
+  overflow: hidden;
+}
 
-  @media (min-width: 375px) {
-    background-position-x: 200px;
-    background-position-y: 125px;
+.heroImage {
+  position: absolute;
+  left: -32.34%;
+  top: 9.3%;
+  width: 171.21%;
+  height: 99.66%;
+  max-width: none;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .heroImageContainer {
+    left: 232px;
+    right: auto;
+    top: 280px;
+    bottom: auto;
+    width: 536px;
+    height: 659px;
   }
 
-  @media (min-width: 400px) {
-    background-position-x: 300px;
-    background-position-y: 125px;
+  .heroImage {
+    left: 0;
+    top: 0;
+    width: 154.1%;
+    height: 108.97%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroImageContainer {
+    left: auto;
+    right: 0;
+    top: 0;
+    bottom: auto;
+    width: 920px;
+    height: 800px;
   }
 
-  @media (min-width: 460px) {
-    background-position-x: 400px;
-    background-position-y: 125px;
-  }
-
-  @media (min-width: 640px) {
-    background-position-x: 825px;
-    background-position-y: 0;
-  }
-
-  @media (min-width: 700px) {
-    background-position-x: 400px;
-    background-position-y: 0;
-    transform: scale(1);
+  .heroImage {
+    left: 0;
+    top: 8.12%;
     width: 100%;
+    height: 100.11%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .heroImageContainer {
+    width: 920px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .heroImageContainer {
+    width: 1127px;
   }
 
-  @media (min-width: 1200px) {
-    background-position-x: 500px;
-    background-position-y: 0;
+  .heroImage {
+    top: -12.38%;
+    height: 122.45%;
   }
+}
 
-  @media (min-width: 1440px) {
-    background-position-x: 600px;
-    background-position-y: 0;
-  }
-
-  @media (min-width: 1600px) {
-    background-size: contain;
-    background-position-x: 800px;
-    background-position-y: 0;
-  }
-
-  @media (min-width: 1920px) {
-    background-position-x: 1000px;
-    background-position-y: 0;
-  }
-
-  @media (min-width: 2200px) {
-    background-position-x: 1200px;
-    background-position-y: 0;
-  }
-
-  @media (min-width: 2560px) {
-    background-position-x: 1500px;
-    background-position-y: 0;
-  }
-
-  @media (min-width: 3200px) {
-    background-position-x: 1800px;
-    background-position-y: 0;
+@media (min-width: 2560px) {
+  .heroImageContainer {
+    left: 1194px;
+    right: auto;
   }
 }
