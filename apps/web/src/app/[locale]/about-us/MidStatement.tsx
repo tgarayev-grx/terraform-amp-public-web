@@ -26,7 +26,7 @@ export async function MidStatementSection() {
 
         <div className="hidden lg:block shrink-0 pt-36 -mt-36">
           <div className="relative w-[480px] h-[400px]">
-            <div className="absolute -translate-x-1/2 bottom-[14.56%] left-[calc(50%+64px)] top-[-33.07%] flex items-center justify-center w-[367px] h-[367px]">
+            <div className="absolute -translate-x-1/2 bottom-[6%] left-[calc(50%+48px)] top-[-26.07%] flex items-center justify-center w-[367px] h-[367px]">
               <div className="rotate-[20.92deg] w-[367px] h-[367px] overflow-hidden relative shrink-0">
                 <Image
                   className="object-cover"
