@@ -1,16 +1,12 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
-import {
-  Button,
-  ButtonRoot,
-  ButtonText,
-} from "@grx/ui/components/button/Button";
-import { ContactUsModal } from "@/modules/contact-us";
+import { ButtonRoot, ButtonText } from "@grx/ui/components/button/Button";
 
 import heroBackgroundImagePng from "./(assets)/banner-dark.png";
 import styles from "./hero.module.css";
 import clsx from "clsx";
 import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
+import { ROUTES } from "@/modules/shared/header";
 
 export async function HeroSection() {
   const t = await getTranslations();
@@ -55,19 +51,16 @@ export async function HeroSection() {
               </Link>
             </ButtonRoot>
 
-            <ContactUsModal
-              defaultValues={{
-                interestedIn: ["GRX_PAY"],
-              }}
+            <ButtonRoot
+              className="min-[425px]:min-w-[186px]"
+              variant="outlined"
+              size="xl"
+              asChild
             >
-              <Button
-                className="min-[425px]:min-w-[186px]"
-                variant="outlined"
-                size="xl"
-              >
-                {t("Pay.Root.hero.contactSales")}
-              </Button>
-            </ContactUsModal>
+              <Link href={ROUTES.payDemo}>
+                <ButtonText>{t("Pay.Root.hero.bookADemo")}</ButtonText>
+              </Link>
+            </ButtonRoot>
           </div>
 
           <h3 className="text-body-sm-medium text-text-soft-500">
