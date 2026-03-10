@@ -10,7 +10,7 @@ const LEGAL_NAMESPACES = [
   "Pay.PrivacyPolicy",
   "Pay.TermsOfUse",
   "Pay.AmlPolicy",
-  "Pay.CookiePolicy",
+  "Pay.Imprint",
 ] as const;
 
 type LegalPageConfig = {

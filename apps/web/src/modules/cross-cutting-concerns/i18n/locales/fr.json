@@ -1083,6 +1083,14 @@
       },
       "title": "Conditions d'utilisation",
       "lastUpdated": "Dernière mise à jour le {lastUpdated}"
+    },
+    "Imprint": {
+      "meta": {
+        "title": "Imprint",
+        "description": "Company details, contact information, registration data, and legal notice for GRX Europe Ltd."
+      },
+      "title": "Imprint",
+      "lastUpdated": "Last updated on {lastUpdated}"
     }
   }
 }

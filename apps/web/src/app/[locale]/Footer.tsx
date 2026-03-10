@@ -124,6 +124,10 @@ function FooterNav({ t, className }: FooterNavProps) {
             <FooterNavItemLink href={ROUTES.amlPolicy}>
               {t("Pay.Root.footer.amlPolicy")}
             </FooterNavItemLink>
+
+            <FooterNavItemLink href={ROUTES.imprint}>
+              {t("Pay.Root.footer.imprint")}
+            </FooterNavItemLink>
           </FooterNavList>
         </FooterNavRoot>
       </div>

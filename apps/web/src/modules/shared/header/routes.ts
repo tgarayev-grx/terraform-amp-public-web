@@ -14,4 +14,5 @@ export const ROUTES = {
   termsOfUse: "/terms-of-use/",
   amlPolicy: "/aml-policy/",
   cookiePolicy: "/cookie-policy/",
+  imprint: "/imprint/",
 } as const;
