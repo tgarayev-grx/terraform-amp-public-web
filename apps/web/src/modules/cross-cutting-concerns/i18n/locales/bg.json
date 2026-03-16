@@ -1309,7 +1309,9 @@
         "description": "Прочетете нашите Условия за ползване, за да разберете вашите права и задължения при използване на услугите на GRX Pay."
       },
       "title": "Условия за ползване",
-      "lastUpdated": "Последна актуализация на {lastUpdated}"
+      "lastUpdated": "Последна актуализация на {lastUpdated}",
+      "prevVersion": "Предходна версия: {prevVersion}",
+      "currentVersion": "Настояща версия: {lastUpdated}"
     },
     "Imprint": {
       "meta": {

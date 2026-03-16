@@ -8,6 +8,7 @@ export type MarkdownFrontMatter = {
   description?: string;
   createdAt?: string;
   lastUpdatedAt?: string;
+  prevVersion?: string;
 };
 
 export type ParsedMarkdown = {

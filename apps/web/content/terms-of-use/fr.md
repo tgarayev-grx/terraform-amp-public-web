@@ -3,6 +3,7 @@ title: Conditions d'utilisation | GRX Pay
 description: Consultez nos Conditions d'utilisation pour comprendre vos droits et responsabilités lors de l'utilisation des services GRX Pay.
 createdAt: 2026-02-16
 lastUpdatedAt: 2026-02-16
+prevVersion: 2026-02-16
 ---
 
 Les présentes Conditions d'utilisation constituent un accord public électronique juridiquement contraignant entre vous et GRX EUROPE ltd., enregistrée en vertu du droit bulgare, sous le numéro d'enregistrement 208080324 (ci-après «**la Société**», «**Nous**» ou «**Notre société**»), régissant votre accès et votre utilisation de ce site web, de l'application mobile et de tout autre service fourni par nos soins. En accédant et en utilisant nos Services, vous reconnaissez avoir lu, compris et accepté d'être lié par les présentes Conditions d'utilisation, ainsi que par tous les termes additionnels, politiques ou directives qui y sont incorporés par référence ou qui s'appliquent à des parties spécifiques de nos Services, tels que notre Politique de confidentialité et notre Politique AML.

@@ -58,16 +58,27 @@ export async function LegalPage({
       `Legal document at ${config.contentDir} is missing lastUpdatedAt and createdAt`
     );
   }
-  const formattedDate = format.dateTime(new Date(lastUpdatedAt), {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+
+  const getFormattedDate = (date: string) =>
+    format.dateTime(new Date(date), {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
 
   return (
     <LegalPageLayout
       title={data.title ?? t("title")}
-      lastUpdated={t("lastUpdated", { lastUpdated: formattedDate })}
+      lastUpdated={t(data.prevVersion ? "currentVersion" : "lastUpdated", {
+        lastUpdated: getFormattedDate(lastUpdatedAt),
+      })}
+      prevVersion={
+        data.prevVersion
+          ? t("prevVersion", {
+              prevVersion: getFormattedDate(data.prevVersion),
+            })
+          : undefined
+      }
     >
       <MarkdownComponent content={content} />
     </LegalPageLayout>

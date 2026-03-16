@@ -1082,7 +1082,9 @@
         "description": "Lee nuestros Términos de uso para comprender tus derechos y responsabilidades al utilizar los servicios de GRX Pay."
       },
       "title": "Términos de uso",
-      "lastUpdated": "Última actualización el {lastUpdated}"
+      "lastUpdated": "Última actualización el {lastUpdated}",
+      "prevVersion": "Previous version: {prevVersion}",
+      "currentVersion": "Current version: {lastUpdated}"
     },
     "Imprint": {
       "meta": {

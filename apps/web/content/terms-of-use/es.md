@@ -3,6 +3,7 @@ title: Términos de uso | GRX Pay
 description: Lea nuestros Términos de uso para comprender sus derechos y responsabilidades cuando utiliza los servicios de GRX Pay.
 createdAt: 2026-02-16
 lastUpdatedAt: 2026-02-16
+prevVersion: 2026-02-16
 ---
 
 Estos Términos de uso constituyen un acuerdo electrónico público legalmente vinculante entre usted y GRX EUROPE ltd., registrada bajo la ley de Bulgaria, con número de registro 208080324 (en adelante "**la Empresa**", "**Nosotros**" o "**Nosotros**"), que rige su acceso y uso de este sitio web, la aplicación móvil y cualquier otro servicio proporcionado por nosotros. Al acceder y utilizar nuestros Servicios, usted reconoce que ha leído, comprendido y acepta estar sujeto a estos Términos de uso, así como a cualquier término, política o directiva adicional incorporada por referencia o que aplique a partes específicas de nuestros Servicios, como nuestra Política de privacidad y Política AML.

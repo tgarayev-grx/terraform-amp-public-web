@@ -1,12 +1,14 @@
 type LegalPageLayoutProps = {
   title: string;
   lastUpdated: string;
+  prevVersion?: string;
   children: React.ReactNode;
 };
 
 export function LegalPageLayout({
   title,
   lastUpdated,
+  prevVersion,
   children,
 }: LegalPageLayoutProps) {
   return (
@@ -16,9 +18,20 @@ export function LegalPageLayout({
           <header className="flex flex-col gap-2">
             <h1 className="text-heading-h3 text-text-strong-1000">{title}</h1>
 
-            <p className="text-body-sm-regular text-text-soft-500">
-              {lastUpdated}
-            </p>
+            {prevVersion ? (
+              <>
+                <p className="text-body-sm-regular text-text-soft-500">
+                  {lastUpdated}
+                </p>
+                <p className="text-body-sm-regular text-text-soft-500">
+                  {prevVersion}
+                </p>
+              </>
+            ) : (
+              <p className="text-body-sm-regular text-text-soft-500">
+                {lastUpdated}
+              </p>
+            )}
           </header>
 
           <section className="flex flex-col gap-6">{children}</section>

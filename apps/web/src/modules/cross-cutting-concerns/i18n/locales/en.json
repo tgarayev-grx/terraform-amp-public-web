@@ -1310,7 +1310,9 @@
         "description": "Read our Terms of Use to understand your rights and responsibilities when using GRX Pay services."
       },
       "title": "Terms of Use",
-      "lastUpdated": "Last updated on {lastUpdated}"
+      "lastUpdated": "Last updated on {lastUpdated}",
+      "prevVersion": "Previous version: {prevVersion}",
+      "currentVersion": "Current version: {lastUpdated}"
     },
     "Imprint": {
       "meta": {
