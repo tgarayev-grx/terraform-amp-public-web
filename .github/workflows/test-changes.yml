@@ -31,6 +31,7 @@ jobs:
 
   run-tests:
     name: 🧪 Run tests
+    needs: build-packages
     runs-on: [self-hosted, ubuntu-arm-2204-kuna]
     steps:
       - name: 🛒 Checkout changes
