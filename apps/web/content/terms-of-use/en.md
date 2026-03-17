@@ -55,7 +55,7 @@ Please note that in case the change to the Terms of Use is made under mandatory 
 - Complaints handling procedure
 - AML Policy – [accessible here](/aml-policy)
 
-  1.5. Upon accepting these Terms of Use and concluding a contract with the Company you accept the above policies. In case of changes to the policies, the Company will notify you thereof – and the changes will apply to you from the date of receiving the notification. Upon request the Company shall provide access to summaries of these policies.
+1.5. Upon accepting these Terms of Use and concluding a contract with the Company you accept the above policies. In case of changes to the policies, the Company will notify you thereof – and the changes will apply to you from the date of receiving the notification. Upon request the Company shall provide access to summaries of these policies.
 
 ---
 
@@ -396,9 +396,9 @@ All transactions, including payments, deposits, withdrawals, and others, are rec
 
 7. other reasons that constitute a violation of these Terms of Use and the Applicable Law.
 
-   12.5. We may, but are not obliged to, notify the User about the reasons for their account suspension. Assets from the account will be withdrawn to wallets, information about which the User shall provide to the customer support.
+12.5. We may, but are not obliged to, notify the User about the reasons for their account suspension. Assets from the account will be withdrawn to wallets, information about which the User shall provide to the customer support.
 
-   12.6. In the event of account closing or suspension, the User will still be liable for all applicable fees. The Company is not liable for any losses suffered due to the User's account closure or suspension.
+12.6. In the event of account closing or suspension, the User will still be liable for all applicable fees. The Company is not liable for any losses suffered due to the User's account closure or suspension.
 
 ---
 
@@ -418,9 +418,9 @@ Violation of any of the intellectual property rights of The Company is strictly 
 
 2. the User Content will not violate any agreements or confidentiality obligations, and the User Content will not violate, infringe, or misappropriate any intellectual property right or other proprietary right, including the right of publicity or privacy, of any person or entity.
 
-   13.5. The User is responsible for maintaining the confidentiality of the User Content and any of its non-public information. Furthermore, the User is entirely responsible for any and all activities that occur under the Account. The User agrees to notify The Company immediately of any unauthorized use of the User Content, the Account, or any other breach of security. The Company will not be responsible or liable for any loss or damages that the User may incur as a result of someone else using the User Content or the Account, either with or without the User's knowledge. However, the User could be held liable for losses, expenses, and costs incurred by The Company or another party due to someone else using the User Content or the Account. The User may not use anyone else's content or account at any time without the permission of such person or entity.
+13.5. The User is responsible for maintaining the confidentiality of the User Content and any of its non-public information. Furthermore, the User is entirely responsible for any and all activities that occur under the Account. The User agrees to notify The Company immediately of any unauthorized use of the User Content, the Account, or any other breach of security. The Company will not be responsible or liable for any loss or damages that the User may incur as a result of someone else using the User Content or the Account, either with or without the User's knowledge. However, the User could be held liable for losses, expenses, and costs incurred by The Company or another party due to someone else using the User Content or the Account. The User may not use anyone else's content or account at any time without the permission of such person or entity.
 
-   13.6. By posting, uploading, inputting, providing or submitting the User Content to The Company, the User grants The Company and any necessary sub-licensees a non-exclusive, worldwide, perpetual, right and permission to use, reproduce, copy, edit, modify, translate, reformat, create derivative works from, distribute, transmit, publicly perform and publicly display the User Content and sub license such rights to others.
+13.6. By posting, uploading, inputting, providing or submitting the User Content to The Company, the User grants The Company and any necessary sub-licensees a non-exclusive, worldwide, perpetual, right and permission to use, reproduce, copy, edit, modify, translate, reformat, create derivative works from, distribute, transmit, publicly perform and publicly display the User Content and sub license such rights to others.
 
 Although the Company has no obligation to screen, edit, or monitor the User Content. However, the Company reserves the right to remove any User Content in case of receiving a notice that there is infringement of third party intellectual property rights. The User agrees that The Company may, in its sole discretion, review and delete any User Content that violates these Terms or that might be offensive, illegal, or that might violate the rights of, harm, or threaten the safety of other Users or any third party.
 
@@ -436,29 +436,29 @@ Although the Company has no obligation to screen, edit, or monitor the User Cont
 
 5. protect the rights, property, or safety of The Company, its Users, and the public.
 
-   13.8. The User understands that the technical processing and transmission of the Website, including User Content, may involve:
+13.8. The User understands that the technical processing and transmission of the Website, including User Content, may involve:
 
-6. transmissions over various networks;
+1. transmissions over various networks;
 
-7. and changes to conform and adapt to the technical requirements of connecting networks or devices.
+2. and changes to conform and adapt to the technical requirements of connecting networks or devices.
 
-   13.9. We do not endorse any User Content or any opinion, recommendation, or advice expressed therein, and We expressly disclaim any and all liability in connection with User Content. We do not permit copyright-infringing activities and infringement of intellectual property rights on the Website, and We will remove all User Content if properly notified that such User Content infringes on another's intellectual property rights. We reserve the right to remove User Content without prior notice.
+13.9. We do not endorse any User Content or any opinion, recommendation, or advice expressed therein, and We expressly disclaim any and all liability in connection with User Content. We do not permit copyright-infringing activities and infringement of intellectual property rights on the Website, and We will remove all User Content if properly notified that such User Content infringes on another's intellectual property rights. We reserve the right to remove User Content without prior notice.
 
-   13.10. If the User believes that its work has been copied in a way that constitutes copyright infringement, or that its intellectual property rights have been otherwise violated, the User should notify us of its infringement claim at [legal@goldenratio.exchange](mailto:legal@goldenratio.exchange).
+13.10. If the User believes that its work has been copied in a way that constitutes copyright infringement, or that its intellectual property rights have been otherwise violated, the User should notify us of its infringement claim at [legal@goldenratio.exchange](mailto:legal@goldenratio.exchange).
 
-   13.11. The Company respects the intellectual property rights of others and expects its Users to do the same. We will respond to notices of alleged copyright infringement that comply with applicable law and are properly provided to us. If the User believes that its Content has been copied in a way that constitutes copyright infringement, please provide The Company with the following information:
+13.11. The Company respects the intellectual property rights of others and expects its Users to do the same. We will respond to notices of alleged copyright infringement that comply with applicable law and are properly provided to us. If the User believes that its Content has been copied in a way that constitutes copyright infringement, please provide The Company with the following information:
 
-8. a physical or electronic signature of the copyright owner or a person authorized to act on their behalf;
+1. a physical or electronic signature of the copyright owner or a person authorized to act on their behalf;
 
-9. identification of the copyrighted work claimed to have been infringed;
+2. identification of the copyrighted work claimed to have been infringed;
 
-10. identification of the material that is claimed to be infringing or to be the subject of infringing activity and that is to be removed or access to which is to be disabled, and information reasonably sufficient to permit The Company to locate the material;
+3. identification of the material that is claimed to be infringing or to be the subject of infringing activity and that is to be removed or access to which is to be disabled, and information reasonably sufficient to permit The Company to locate the material;
 
-11. the User's contact information, including address, telephone number, and email address; a statement by the User that the User has a good faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law; and a statement that the information in the notification is accurate, and, under penalty of perjury, that the User is authorized to act on behalf of the copyright owner.
+4. the User's contact information, including address, telephone number, and email address; a statement by the User that the User has a good faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law; and a statement that the information in the notification is accurate, and, under penalty of perjury, that the User is authorized to act on behalf of the copyright owner.
 
-    13.12. Any User Content submitted by the User may be accessed by The Company globally. Except for the User Content and The Company's communications and all materials therein or transferred thereby, including, without limitation, software, technology, code, images, text, graphics, illustrations, logos, patents, trademarks, service marks, copyrights, photographs, audio, videos, music, and content belonging to other Users (the "**The Company's Content**"), and all Intellectual Property Rights (defined below) related thereto, are the The Company's exclusive property and The Company's licensors. Except as explicitly provided herein or in any applicable additional terms and conditions, nothing in this Terms shall be deemed to create a license in or under any such Intellectual Property Rights, and the User agrees not to sell, modify, reverse engineer, license, rent, distribute, copy, reproduce, transmit, publicly display, publicly perform, publish, adapt, edit or create derivative works from any of The Company's Content, absent specific consent in writing from Us. Use of The Company's Content for any purpose not expressly permitted by these Terms is strictly prohibited.
+13.12. Any User Content submitted by the User may be accessed by The Company globally. Except for the User Content and The Company's communications and all materials therein or transferred thereby, including, without limitation, software, technology, code, images, text, graphics, illustrations, logos, patents, trademarks, service marks, copyrights, photographs, audio, videos, music, and content belonging to other Users (the "**The Company's Content**"), and all Intellectual Property Rights (defined below) related thereto, are the The Company's exclusive property and The Company's licensors. Except as explicitly provided herein or in any applicable additional terms and conditions, nothing in this Terms shall be deemed to create a license in or under any such Intellectual Property Rights, and the User agrees not to sell, modify, reverse engineer, license, rent, distribute, copy, reproduce, transmit, publicly display, publicly perform, publish, adapt, edit or create derivative works from any of The Company's Content, absent specific consent in writing from Us. Use of The Company's Content for any purpose not expressly permitted by these Terms is strictly prohibited.
 
-    13.13. We grant the User a non-exclusive, limited, non-transferable, freely revocable license, subject to these Terms, to access and use the Services, and related content, materials, information (collectively, the "**Content**") solely for approved purposes as permitted by Us from time to time. Any other use of the Content is expressly prohibited, and all other right, title, and interest in the Content is exclusively the property of The Company and its licensors. The User agrees not to copy, transmit, distribute, sell, license, reverse engineer, modify, publish, or participate in the transfer or sale of, create derivative works from, or in any other way exploit any of the Content, in whole or in part. "**GRX**", "**Golden Ratio Exchange**", and all logos related to the Services are The Company's trademarks or registered marks. The User may not copy, imitate or use them without the Company's prior written consent.
+13.13. We grant the User a non-exclusive, limited, non-transferable, freely revocable license, subject to these Terms, to access and use the Services, and related content, materials, information (collectively, the "**Content**") solely for approved purposes as permitted by Us from time to time. Any other use of the Content is expressly prohibited, and all other right, title, and interest in the Content is exclusively the property of The Company and its licensors. The User agrees not to copy, transmit, distribute, sell, license, reverse engineer, modify, publish, or participate in the transfer or sale of, create derivative works from, or in any other way exploit any of the Content, in whole or in part. "**GRX**", "**Golden Ratio Exchange**", and all logos related to the Services are The Company's trademarks or registered marks. The User may not copy, imitate or use them without the Company's prior written consent.
 
 For these Terms, "**Intellectual Property Rights**" means all patent rights, copyright rights, mask work rights, moral rights, rights of publicity, trademark, trade dress and service mark rights, goodwill, trade secret rights and other intellectual property rights as may now exist or hereafter come into existence, and all applications therefore and registrations, renewals and extensions thereof, under the laws of any state, country, territory or other jurisdiction. We may display third-party content, advertisements, links, promotions, logos, and other materials (collectively, the "**Third-Party Content**") for the User's convenience only. We do not approve of, control, endorse, or sponsor any third parties or Third-Party Content, and the We make no representations or warranties of any kind regarding such Third- Party Content, including, without limitation, the accuracy, validity, legality, copyright compliance, or decency of such content.
 
@@ -478,27 +478,27 @@ For these Terms, "**Intellectual Property Rights**" means all patent rights, cop
 
 4. allowed to be distributed with the written consent of the User.
 
-   14.3. Personal information that you provide to The Company, including information provided in accordance with our Policies and any information about your use of the Website that The Company obtains, will be subject to our Privacy Policy. The Company respects the privacy of its clients, and The Company does not request any information that is unnecessary for the use of the Services or to comply with The Company's obligations under applicable law.
+14.3. Personal information that you provide to The Company, including information provided in accordance with our Policies and any information about your use of the Website that The Company obtains, will be subject to our Privacy Policy. The Company respects the privacy of its clients, and The Company does not request any information that is unnecessary for the use of the Services or to comply with The Company's obligations under applicable law.
 
-   14.4. The Company reserves the right to provide information to law enforcement personnel and other third parties to answer inquiries, participate in investigations, respond to legal process, respond to the order of a court of competent jurisdiction and those exercising the court's authority, and to protect The Company, its directors, officers, employees, shareholders, clients, service providers and other concerned parties. The Company may be obliged to disclose Your personal information to law enforcement authorities, data protection authorities, financial regulators, financial service providers, governmental authorities and officials, and other authorized persons, as outlined in the Privacy Policy.
+14.4. The Company reserves the right to provide information to law enforcement personnel and other third parties to answer inquiries, participate in investigations, respond to legal process, respond to the order of a court of competent jurisdiction and those exercising the court's authority, and to protect The Company, its directors, officers, employees, shareholders, clients, service providers and other concerned parties. The Company may be obliged to disclose Your personal information to law enforcement authorities, data protection authorities, financial regulators, financial service providers, governmental authorities and officials, and other authorized persons, as outlined in the Privacy Policy.
 
-   14.5. The User acknowledges and accepts that the User will comply willingly with all legal requests for information from The Company.
+14.5. The User acknowledges and accepts that the User will comply willingly with all legal requests for information from The Company.
 
-   14.6. The User understands that by using the Services, the User consents to the collection, use, and disclosure of the User's personally identifiable information and aggregate data and to the User's personally identifiable information being collected, used, transferred to, and processed in jurisdictions where The Company carries on business. By agreeing to these Terms, the User expressly allows The Company to export data outside of the jurisdiction in which the User resides or is located when it accesses the Services. The User acknowledges that The Company may process personal data in relation to the User (if they are an individual), and personal data that the User has provided or in the future will provide to The Company in relation to its legal entity, employees, or other associates, in connection with these Terms or the Services. Accordingly, the User represents and warrants that:
+14.6. The User understands that by using the Services, the User consents to the collection, use, and disclosure of the User's personally identifiable information and aggregate data and to the User's personally identifiable information being collected, used, transferred to, and processed in jurisdictions where The Company carries on business. By agreeing to these Terms, the User expressly allows The Company to export data outside of the jurisdiction in which the User resides or is located when it accesses the Services. The User acknowledges that The Company may process personal data in relation to the User (if they are an individual), and personal data that the User has provided or in the future will provide to The Company in relation to its legal entity, employees, or other associates, in connection with these Terms or the Services. Accordingly, the User represents and warrants that:
 
-5. User's disclosure to The Company of any personal data relating to individuals other than themselves (if they are an individual) was or will be made in accordance with all applicable data protection and data privacy laws, and such data is accurate, up to date, and relevant when disclosed;
+1. User's disclosure to The Company of any personal data relating to individuals other than themselves (if they are an individual) was or will be made in accordance with all applicable data protection and data privacy laws, and such data is accurate, up to date, and relevant when disclosed;
 
-6. before providing any such personal data to The Company, the User has read and understood The Company's Privacy Policy, which may be amended from time to time and is incorporated herein by reference and forms a part of these Terms, and has provided a copy to any individual whose personal data the User has provided to The Company;
+2. before providing any such personal data to The Company, the User has read and understood The Company's Privacy Policy, which may be amended from time to time and is incorporated herein by reference and forms a part of these Terms, and has provided a copy to any individual whose personal data the User has provided to The Company;
 
-7. and from time to time, if the Company amends the Privacy Policy, the User will promptly read it and provide a copy to any individual whose personal data the User has provided to the Company.
+3. and from time to time, if the Company amends the Privacy Policy, the User will promptly read it and provide a copy to any individual whose personal data the User has provided to the Company.
 
-   14.7. The Company cares about the integrity and security of Users' personal information, and The Company takes a number of security measures, including storing all Users' personal information in an encrypted fashion. However, the Company cannot guarantee that unauthorized third parties will not defeat the Company's security measures or use the User's personal information for improper purposes.
+14.7. The Company cares about the integrity and security of Users' personal information, and The Company takes a number of security measures, including storing all Users' personal information in an encrypted fashion. However, the Company cannot guarantee that unauthorized third parties will not defeat the Company's security measures or use the User's personal information for improper purposes.
 
-   14.8. The User acknowledges that the User provides its personal information to The Company at its own risk. The User understands that The Company is not responsible or liable for any damage or interruptions caused by any computer viruses, spyware, scareware, Trojan horses, worms, or other malware that may affect the User's computer or other equipment, or any phishing, spoofing, or other attack from using the Services.
+14.8. The User acknowledges that the User provides its personal information to The Company at its own risk. The User understands that The Company is not responsible or liable for any damage or interruptions caused by any computer viruses, spyware, scareware, Trojan horses, worms, or other malware that may affect the User's computer or other equipment, or any phishing, spoofing, or other attack from using the Services.
 
-   14.9. The User acknowledges that The Company advises the regular use of a reputable and readily available virus screening and prevention software. The User should also be aware that SMS and email services are vulnerable to spoofing and phishing attacks and should use care in reviewing messages purporting to originate from The Company. The Company's customer support will never seek to access the User's computer or ask for the User's password or its two-factor authentication codes. The User shall always log into the Account through the access details provided by The Company to review any transactions or required actions if the User has any uncertainty regarding the authenticity of any communication. The User is solely responsible for the activity that occurs in relation to the Account, and the User must keep the Account password secure. The Company recommends that the User use "strong" passwords (passwords that use a combination of upper- and lower-case letters, numbers, and symbols) with the Account.
+14.9. The User acknowledges that The Company advises the regular use of a reputable and readily available virus screening and prevention software. The User should also be aware that SMS and email services are vulnerable to spoofing and phishing attacks and should use care in reviewing messages purporting to originate from The Company. The Company's customer support will never seek to access the User's computer or ask for the User's password or its two-factor authentication codes. The User shall always log into the Account through the access details provided by The Company to review any transactions or required actions if the User has any uncertainty regarding the authenticity of any communication. The User is solely responsible for the activity that occurs in relation to the Account, and the User must keep the Account password secure. The Company recommends that the User use "strong" passwords (passwords that use a combination of upper- and lower-case letters, numbers, and symbols) with the Account.
 
-   14.10. The User must notify The Company immediately of any breach of security or unauthorized use of the Account by emailing The Company at [support@goldenratio.exchange](mailto:support@goldenratio.exchange). The Company will not be responsible or liable for any damages, liability, or losses caused by any unauthorized use of the Account.
+14.10. The User must notify The Company immediately of any breach of security or unauthorized use of the Account by emailing The Company at [support@goldenratio.exchange](mailto:support@goldenratio.exchange). The Company will not be responsible or liable for any damages, liability, or losses caused by any unauthorized use of the Account.
 
 ---
 
@@ -536,63 +536,63 @@ The Company is not liable for damages caused to the client due to common neglige
 
 5. the risk of unknown vulnerabilities in or unanticipated changes to the Networks, including changes to the underlying distributed ledger technology.
 
-   15.4. You release The Company from all liability related to any losses, damages, or claims arising from:
+15.4. You release The Company from all liability related to any losses, damages, or claims arising from:
 
-6. user error, such as forgotten passwords, incorrectly constructed transactions, or mistyped Virtual Assets addresses;
+1. user error, such as forgotten passwords, incorrectly constructed transactions, or mistyped Virtual Assets addresses;
 
-7. server failure or data loss;
+2. server failure or data loss;
 
-8. unauthorized access to the Company application;
+3. unauthorized access to the Company application;
 
-9. bugs or other errors in the Company software;
+4. bugs or other errors in the Company software;
 
-10. and any unauthorized third-party activities, including, but not limited to, the use of viruses, phishing, brute-forcing, or other means of attack against The Company.
+5. and any unauthorized third-party activities, including, but not limited to, the use of viruses, phishing, brute-forcing, or other means of attack against The Company.
 
-    15.5. The Company makes no representations concerning any third-party Content contained in or accessed through our Services. Any other terms, conditions, warranties, or representations associated with such content are solely between you and such organizations and/or individuals. The Company shall not be liable for the use or inability to use the Website and Services. In no event shall The Company, its officers, directors, employees, agents, or third-party service providers be liable to you or any other person or entity for any direct, indirect, incidental, special, punitive, or consequential damages whatsoever, including any that may result from:
+15.5. The Company makes no representations concerning any third-party Content contained in or accessed through our Services. Any other terms, conditions, warranties, or representations associated with such content are solely between you and such organizations and/or individuals. The Company shall not be liable for the use or inability to use the Website and Services. In no event shall The Company, its officers, directors, employees, agents, or third-party service providers be liable to you or any other person or entity for any direct, indirect, incidental, special, punitive, or consequential damages whatsoever, including any that may result from:
 
-11. the accuracy, completeness, or content of the Website,
+1. the accuracy, completeness, or content of the Website,
 
-12. the accuracy, completeness, or content of any websites linked (through hyperlinks, banner advertising, or otherwise) to the Website,
+2. the accuracy, completeness, or content of any websites linked (through hyperlinks, banner advertising, or otherwise) to the Website,
 
-13. the Services found at the Website or any websites linked (through hyperlinks, banner advertising, or otherwise) to this Website,
+3. the Services found at the Website or any websites linked (through hyperlinks, banner advertising, or otherwise) to this Website,
 
-14. personal injury or property damage of any nature whatsoever,
+4. personal injury or property damage of any nature whatsoever,
 
-15. third-party conduct of any nature whatsoever,
+5. third-party conduct of any nature whatsoever,
 
-16. any unauthorized access to or use of The Company's servers and/or any and all content, personal information, blockchain information, or other information and data stored therein,
+6. any unauthorized access to or use of The Company's servers and/or any and all content, personal information, blockchain information, or other information and data stored therein,
 
-17. any interruption or cessation of Services to or from the Website or any websites linked (through hyperlinks, banner advertising, or otherwise) to this site,
+7. any interruption or cessation of Services to or from the Website or any websites linked (through hyperlinks, banner advertising, or otherwise) to this site,
 
-18. any viruses, worms, bugs, trojan horses, or the like, which may be transmitted to or from this site or any websites linked (through hyperlinks, banner advertising, or otherwise) to this Website,
+8. any viruses, worms, bugs, trojan horses, or the like, which may be transmitted to or from this site or any websites linked (through hyperlinks, banner advertising, or otherwise) to this Website,
 
-19. any loss or damage of any kind incurred as a result of your use of the Website or the Services found at the Website, whether based on warranty, contract, tort, or any other legal or equitable theory, and whether or not The Company is advised of the possibility of such damages,
+9. any loss or damage of any kind incurred as a result of your use of the Website or the Services found at the Website, whether based on warranty, contract, tort, or any other legal or equitable theory, and whether or not The Company is advised of the possibility of such damages,
 
-20. losing access and/or unauthorized access to your Account,
+10. losing access and/or unauthorized access to your Account,
 
-21. any errors or malfunctions caused by or otherwise related to any wallets used to deposit and withdraw Virtual Assets,
+11. any errors or malfunctions caused by or otherwise related to any wallets used to deposit and withdraw Virtual Assets,
 
-22. malfunctions, breakdowns, and abandonment of blockchain protocols,
+12. malfunctions, breakdowns, and abandonment of blockchain protocols,
 
-23. changes in regulatory approaches or legal actions taken regarding the blockchain technology and Virtual Assets,
+13. changes in regulatory approaches or legal actions taken regarding the blockchain technology and Virtual Assets,
 
-24. taxation and/or changes in the tax system regarding Virtual Assets,
+14. taxation and/or changes in the tax system regarding Virtual Assets,
 
-25. advancements in cryptography, any technical advancements that may present risks to blockchain protocols,
+15. advancements in cryptography, any technical advancements that may present risks to blockchain protocols,
 
-26. unfavorable fluctuations of Virtual Assets,
+16. unfavorable fluctuations of Virtual Assets,
 
-27. errors in the provision of Services;
+17. errors in the provision of Services;
 
-28. other risks associated with purchasing, holding, and using Virtual Assets, and using the Website and Services.
+18. other risks associated with purchasing, holding, and using Virtual Assets, and using the Website and Services.
 
-29. any consequences of freezing of operations or delays in execution of orders due to your non-compliance with these Terms of Use and the applicable law;
+19. any consequences of freezing of operations or delays in execution of orders due to your non-compliance with these Terms of Use and the applicable law;
 
-30. any consequences of the execution of an operation, which was verified in accordance with these Terms of Use;
+20. any consequences of the execution of an operation, which was verified in accordance with these Terms of Use;
 
-31. any consequences of the inability to issue orders related to crypto-assets after losing client credentials;
+21. any consequences of the inability to issue orders related to crypto-assets after losing client credentials;
 
-32. losses arising from incorrect input of exchange parameters by the client;.
+22. losses arising from incorrect input of exchange parameters by the client;.
 
 15.6. The Company shall not be liable for any events that may include, but are not limited to, civil, criminal, and administrative actions that may arise from you using blockchain and Virtual Assets if such use is forbidden or otherwise limited in your country.
 
@@ -610,7 +610,7 @@ The Company is not liable for damages caused to the client due to common neglige
 
 5. and any unauthorized third-party activities, including, but not limited to, the use of viruses, phishing, brute forcing, or other means of attack against the Website.
 
-   15.9. It is the User's responsibility to determine what, if any, taxes apply to the transactions that the User has submitted transaction details for via the Services, and it is the User's responsibility to report and remit the correct tax to the appropriate tax authority. The Users agree that We are not responsible for determining whether taxes apply to the Users' transactions or for collecting, reporting, withholding, or remitting any taxes arising from any Virtual Assets-related transactions. It is the User's responsibility to determine partners (B2B) as legal and reliable. Before using any Service, each User is obliged to perform the KYC procedure with their partners.
+15.9. It is the User's responsibility to determine what, if any, taxes apply to the transactions that the User has submitted transaction details for via the Services, and it is the User's responsibility to report and remit the correct tax to the appropriate tax authority. The Users agree that We are not responsible for determining whether taxes apply to the Users' transactions or for collecting, reporting, withholding, or remitting any taxes arising from any Virtual Assets-related transactions. It is the User's responsibility to determine partners (B2B) as legal and reliable. Before using any Service, each User is obliged to perform the KYC procedure with their partners.
 
 ---
 
