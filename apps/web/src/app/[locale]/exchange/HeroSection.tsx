@@ -5,8 +5,8 @@ import { Badge } from "@grx/ui/components/badge";
 import { Theme } from "@grx/ui/theme";
 
 import { WaitlistForm } from "./WaitlistForm";
-import exchangePreviewImg from "./(assets)/exchange-desktop-preview.svg";
-import phoneMockupExchangeImg from "./(assets)/phone-mockup-exchange.svg";
+import exchangePreviewImg from "./(assets)/exchange-desktop-preview.webp";
+import phoneMockupExchangeImg from "./(assets)/exchange-mobile.webp";
 import { PhoneMockup } from "./AssetsSection";
 
 export async function HeroSection() {
@@ -14,7 +14,7 @@ export async function HeroSection() {
 
   return (
     <Theme theme="dark" asChild>
-      <section className="relative flex flex-col items-center bg-surface-canvas overflow-hidden h-[71.625rem]">
+      <section className="relative flex flex-col items-center bg-surface-canvas overflow-hidden h-auto md:h-[71.625rem]">
         <div className="relative z-10 flex flex-col items-center gap-8 px-4 pt-[6.25rem] sm:pt-30 md:pt-44 md:px-0 w-[48.75rem] max-w-full text-center">
           <div className="flex flex-col items-center gap-4">
             <Badge size="xs" palette="warning" variant="light">
@@ -37,7 +37,7 @@ export async function HeroSection() {
           <WaitlistForm />
         </div>
 
-        <div className="relative mt-20 w-full max-w-[61.25rem]">
+        <div className="relative mt-16 md:mt-20 w-full max-w-[61.25rem] flex-1 flex flex-col justify-end">
           <div className="flex justify-center w-full md:hidden">
             <PhoneMockup
               src={phoneMockupExchangeImg}

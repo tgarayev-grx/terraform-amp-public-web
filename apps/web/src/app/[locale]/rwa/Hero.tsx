@@ -5,8 +5,8 @@ import { Badge } from "@grx/ui/components/badge";
 import { Theme } from "@grx/ui/theme";
 
 import { WaitlistForm } from "@/modules/waitlist";
-import dashboardSvg from "./(assets)/dashboard.svg";
-import iphoneFrameSvg from "./(assets)/iphone-frame.svg";
+import dashboardImg from "./(assets)/dashboard.webp";
+import iphoneFrameImg from "./(assets)/rwa-mobile.webp";
 
 export async function HeroSection() {
   const t = await getTranslations("Rwa.hero");
@@ -41,7 +41,7 @@ export async function HeroSection() {
         <div className="hidden sm:flex justify-center w-full px-8 mt-10 md:mt-16">
           <Image
             className="w-full max-w-[980px]"
-            src={dashboardSvg}
+            src={dashboardImg}
             alt={t("dashboardAlt")}
             priority
             unoptimized
@@ -51,7 +51,7 @@ export async function HeroSection() {
         <div className="flex sm:hidden justify-center w-full px-7 mt-10">
           <Image
             className="w-full max-w-[321px]"
-            src={iphoneFrameSvg}
+            src={iphoneFrameImg}
             alt={t("dashboardAlt")}
             priority
             unoptimized

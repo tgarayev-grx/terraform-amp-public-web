@@ -3,9 +3,9 @@ import { getTranslations } from "next-intl/server";
 
 import { Theme } from "@grx/ui/theme";
 
-import phoneMockupAssetsImg from "./(assets)/phone-mockup-assets.svg";
-import phoneMockupBitcoinImg from "./(assets)/phone-mockup-bitcoin.svg";
-import phoneMockupExchangeImg from "./(assets)/phone-mockup-exchange.svg";
+import phoneMockupAssetsImg from "./(assets)/phone-mockup-assets.webp";
+import phoneMockupBitcoinImg from "./(assets)/phone-mockup-bitcoin.webp";
+import phoneMockupExchangeImg from "./(assets)/phone-mockup-exchange.webp";
 import coin3dLeftImg from "./(assets)/coin-3d-left.png";
 import coin3dRightImg from "./(assets)/coin-3d-right.png";
 
@@ -51,19 +51,19 @@ export async function AssetsSection() {
 
           <div className="relative flex justify-center items-start gap-4 sm:gap-8 md:gap-10 lg:gap-[5.625rem] w-full">
             <PhoneMockup
-              src={phoneMockupAssetsImg}
+              src={phoneMockupExchangeImg}
               alt={t("phoneMockup1Alt")}
-              className="relative z-[1] w-[12.5rem] sm:w-60 md:w-[16.875rem] lg:w-[19.375rem]"
+              className="relative z-[1] hidden md:block w-[12.5rem] sm:w-60 md:w-[16.875rem] lg:w-[19.375rem]"
+            />
+            <PhoneMockup
+              src={phoneMockupAssetsImg}
+              alt={t("phoneMockup2Alt")}
+              className="relative z-[2] w-[12.5rem] sm:w-60 md:w-[16.875rem] lg:w-[19.375rem] md:-ml-20 lg:ml-0 md:mt-20 lg:mt-0"
             />
             <PhoneMockup
               src={phoneMockupBitcoinImg}
-              alt={t("phoneMockup2Alt")}
-              className="relative z-[2] w-[12.5rem] sm:w-60 md:w-[16.875rem] lg:w-[19.375rem] -ml-[3.125rem] sm:-ml-15 md:-ml-20 lg:ml-0 mt-[3.125rem] sm:mt-15 md:mt-20 lg:mt-0"
-            />
-            <PhoneMockup
-              src={phoneMockupExchangeImg}
               alt={t("phoneMockup3Alt")}
-              className="relative z-[3] hidden md:block w-[12.5rem] sm:w-60 md:w-[16.875rem] lg:w-[19.375rem] md:-ml-20 lg:-ml-[8.75rem] md:mt-20 lg:mt-24"
+              className="relative z-[3] w-[12.5rem] sm:w-60 md:w-[16.875rem] lg:w-[19.375rem] -ml-[3.125rem] sm:-ml-15 md:-ml-20 lg:-ml-[8.75rem] mt-[3.125rem] sm:mt-15 md:mt-20 lg:mt-24"
             />
           </div>
         </div>
