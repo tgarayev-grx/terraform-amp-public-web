@@ -5,8 +5,8 @@ import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { ContactUsModal } from "@/modules/contact-us";
 import { InfoCircleFilledIcon } from "@grx/ui/icons/InfoCircleFilledIcon";
 import { CheckCircleFilledIcon } from "@grx/ui/icons/CheckCircleFilledIcon";
-import goldGemPng from "./gold-gem.png";
-import blackGemPng from "./black-gem.png";
+import goldGemPng from "./gold-gem.webp";
+import blackGemPng from "./black-gem.webp";
 import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
 
 export async function PricingSection() {

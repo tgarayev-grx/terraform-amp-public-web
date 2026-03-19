@@ -5,10 +5,10 @@ import Image from "next/image";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
 
-import howItWorksSlide1 from "./(assets)/how-it-works-slide-1-dark.png";
-import howItWorksSlide2 from "./(assets)/how-it-works-slide-2-dark.png";
-import howItWorksSlide3 from "./(assets)/how-it-works-slide-3-dark.png";
-import howItWorksSlide4 from "./(assets)/how-it-works-slide-4-dark.png";
+import howItWorksSlide1 from "./(assets)/how-it-works-slide-1-dark.webp";
+import howItWorksSlide2 from "./(assets)/how-it-works-slide-2-dark.webp";
+import howItWorksSlide3 from "./(assets)/how-it-works-slide-3-dark.webp";
+import howItWorksSlide4 from "./(assets)/how-it-works-slide-4-dark.webp";
 
 import {
   SliderRoot,

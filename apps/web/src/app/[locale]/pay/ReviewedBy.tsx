@@ -3,10 +3,10 @@ import * as Avatar from "@radix-ui/react-avatar";
 import clsx from "clsx";
 import { QuoteIcon } from "@grx/ui/icons/QuoteIcon";
 
-import avatar1Png from "./(assets)/avatar-1.png";
-import avatar2Png from "./(assets)/avatar-2.png";
-import avatar3Png from "./(assets)/avatar-3.png";
-import avatar4Png from "./(assets)/avatar-4.png";
+import avatar1Png from "./(assets)/avatar-1.webp";
+import avatar2Png from "./(assets)/avatar-2.webp";
+import avatar3Png from "./(assets)/avatar-3.webp";
+import avatar4Png from "./(assets)/avatar-4.webp";
 import { twMerge } from "tailwind-merge";
 
 export async function ReviewedBySection() {

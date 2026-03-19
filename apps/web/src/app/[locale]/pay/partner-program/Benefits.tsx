@@ -3,9 +3,9 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import clsx from "clsx";
 import { ArrowRightIcon } from "@grx/ui/icons/ArrowRightIcon";
-import benefitsPercentImage from "./(assets)/benefits-percent.png";
-import benefitsPayoutsImage from "./(assets)/benefits-payouts.png";
-import benefitsCreativeLibraryImage from "./(assets)/benefits-creative-library.png";
+import benefitsPercentImage from "./(assets)/benefits-percent.webp";
+import benefitsPayoutsImage from "./(assets)/benefits-payouts.webp";
+import benefitsCreativeLibraryImage from "./(assets)/benefits-creative-library.webp";
 import { ButtonRoot, ButtonText } from "@grx/ui/index";
 
 type BenefitItem = {

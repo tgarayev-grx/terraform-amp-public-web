@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Button } from "@grx/ui/components/button/Button";
 import { ContactUsModal } from "@/modules/contact-us";
 
-import faqCtaIcon from "./(assets)/faqcta.png";
+import faqCtaIcon from "./(assets)/faqcta.webp";
 
 export async function FAQCTASection() {
   const t = await getTranslations();

@@ -4,8 +4,7 @@ import clsx from "clsx";
 import { Button } from "@grx/ui/components/button/Button";
 import { ContactUsModal } from "@/modules/contact-us";
 
-import partnerProgramHeroImage from "./(assets)/partner-program-hero.png";
-import partnerProgramCoinImage from "./(assets)/partner-program-coin.png";
+import partnerProgramHeroImage from "./(assets)/partner-program-hero.webp";
 
 export async function HeroSection() {
   const t = await getTranslations();
@@ -60,16 +59,6 @@ export async function HeroSection() {
                 height={580}
                 priority
               />
-              <div className="bottom-0 left-0 z-20 absolute w-[68.8%] scale-[1.01] pointer-events-none">
-                <Image
-                  className="drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)] w-full h-auto"
-                  src={partnerProgramCoinImage}
-                  alt=""
-                  aria-hidden
-                  width={399}
-                  height={448}
-                />
-              </div>
             </div>
           </div>
         </div>

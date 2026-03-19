@@ -1,16 +1,16 @@
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { ReactNode } from "react";
-import tokenSwapAsset from "./(assets)/token-swap.png";
-import safeCheckAsset from "./(assets)/safe-check.png";
+import tokenSwapAsset from "./(assets)/token-swap.webp";
+import safeCheckAsset from "./(assets)/safe-check.webp";
 
 export async function MidStatementSection() {
   const t = await getTranslations("AboutUsPage.midStatement");
 
   return (
     <section className="bg-bg-weak-100 py-24 overflow-visible">
-      <div className="max-w-[1180px] mx-auto px-4 md:px-8 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
-        <p className="text-heading-h3 md:text-heading-h3 font-bold text-text-strong-1000 max-w-[680px] shrink-0">
+      <div className="flex lg:flex-row flex-col justify-between items-center gap-12 lg:gap-16 mx-auto px-4 md:px-8 max-w-[1180px]">
+        <p className="max-w-[680px] font-bold text-heading-h3 text-text-strong-1000 md:text-heading-h3 shrink-0">
           {t.rich("text", {
             secure: (chunks: ReactNode) => (
               <span className="text-gold-500">{chunks}</span>
@@ -24,10 +24,10 @@ export async function MidStatementSection() {
           })}
         </p>
 
-        <div className="hidden lg:block shrink-0 pt-36 -mt-36">
+        <div className="hidden lg:block -mt-36 pt-36 shrink-0">
           <div className="relative w-[480px] h-[400px]">
-            <div className="absolute -translate-x-1/2 bottom-[6%] left-[calc(50%+48px)] top-[-26.07%] flex items-center justify-center w-[367px] h-[367px]">
-              <div className="rotate-[20.92deg] w-[367px] h-[367px] overflow-hidden relative shrink-0">
+            <div className="top-[-26.07%] bottom-[6%] left-[calc(50%+48px)] absolute flex justify-center items-center w-[367px] h-[367px] -translate-x-1/2">
+              <div className="relative w-[367px] h-[367px] overflow-hidden rotate-[20.92deg] shrink-0">
                 <Image
                   className="object-cover"
                   src={tokenSwapAsset}
@@ -37,8 +37,8 @@ export async function MidStatementSection() {
                 />
               </div>
             </div>
-            <div className="absolute -translate-x-1/2 bottom-[-17.22%] left-[calc(50%-64px)] top-[9.49%] flex items-center justify-center w-[400px] h-[400px]">
-              <div className="rotate-[4.62deg] w-[400px] h-[400px] overflow-hidden relative shrink-0">
+            <div className="top-[9.49%] bottom-[-17.22%] left-[calc(50%-64px)] absolute flex justify-center items-center w-[400px] h-[400px] -translate-x-1/2">
+              <div className="relative w-[400px] h-[400px] overflow-hidden rotate-[4.62deg] shrink-0">
                 <Image
                   className="object-cover"
                   src={safeCheckAsset}

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ButtonRoot, ButtonText } from "@grx/ui/components/button/Button";
 
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
-import gainAccessToCryptoMarketImagePng from "./(assets)/gain-access-to-crypto-market.png";
+import gainAccessToCryptoMarketImagePng from "./(assets)/gain-access-to-crypto-market.webp";
 import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
 
 export async function GainAccessToCryptoMarketSection() {

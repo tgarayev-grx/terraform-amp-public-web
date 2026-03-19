@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { ButtonRoot, ButtonText } from "@grx/ui/components/button/Button";
 
-import heroBackgroundImagePng from "./(assets)/banner-dark.png";
+import heroBackgroundImagePng from "./(assets)/banner-dark.webp";
 import styles from "./hero.module.css";
 import clsx from "clsx";
 import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";

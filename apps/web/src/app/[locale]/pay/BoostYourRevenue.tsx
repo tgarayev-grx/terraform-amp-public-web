@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { ButtonRoot, ButtonText } from "@grx/ui/components/button/Button";
 
-import boostYourRevenueImagePng from "./(assets)/boost-your-revenue.png";
+import boostYourRevenueImagePng from "./(assets)/boost-your-revenue.webp";
 import { TypingEffect } from "./TypingEffect";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { defaultRichComponents } from "@/modules/cross-cutting-concerns/i18n/components/Rich/defaultRichComponents";

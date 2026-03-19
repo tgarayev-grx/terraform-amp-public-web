@@ -7,7 +7,7 @@ import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { ROUTES } from "@/modules/shared/header/routes";
 import { Badge } from "@grx/ui";
 
-import gdprPng from "./pay/(assets)/gdpr.png";
+import gdprPng from "./pay/(assets)/gdpr.webp";
 import { ChainAnalysisLogo } from "@grx/ui/icons/ChainAnalysisLogo";
 import { FooterLogoIcon } from "@grx/ui/icons/FooterLogoIcon";
 import { VerticalDividerIcon } from "@grx/ui/icons/VerticalDividerIcon";

@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { Button } from "@grx/ui/components/button/Button";
 import { ContactUsModal } from "@/modules/contact-us";
-import buildYourCryptoBusinessWithUsImagePng from "./(assets)/build-your-crypto-business-with-us.png";
+import buildYourCryptoBusinessWithUsImagePng from "./(assets)/build-your-crypto-business-with-us.webp";
 import { defaultRichComponents } from "@/modules/cross-cutting-concerns/i18n/components/Rich/defaultRichComponents";
 import { Theme } from "@grx/ui/theme";
 

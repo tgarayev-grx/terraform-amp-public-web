@@ -5,10 +5,10 @@ import { ButtonRoot, ButtonText } from "@grx/ui/components/button/Button";
 
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 
-import featureBankAccountsPng from "./(assets)/features-bank-accounts-dark.png";
-import featureInvoicesPng from "./(assets)/features-invoices-dark.png";
-import featureIncomePng from "./(assets)/features-income-dark.png";
-import featurePayoutsPng from "./(assets)/features-payouts-dark.png";
+import featureBankAccountsPng from "./(assets)/features-bank-accounts-dark.webp";
+import featureInvoicesPng from "./(assets)/features-invoices-dark.webp";
+import featureIncomePng from "./(assets)/features-income-dark.webp";
+import featurePayoutsPng from "./(assets)/features-payouts-dark.webp";
 import { EXTERNAL_LINKS } from "@/modules/cross-cutting-concerns/routing";
 import clsx from "clsx";
 
