@@ -18,13 +18,54 @@ import { RecaptchaScript } from "@/lib/recaptcha/RecaptchaScript";
 import { Header } from "@/modules/shared/header";
 import { Footer } from "./Footer";
 
-export const metadata: Metadata = {
-  title: "Golden Ratio Exchange",
-};
+// 1. Dynamic Metadata for International SEO
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const baseUrl = "https://goldenratio.exchange";
+
+  // Define localized titles/descriptions (or fetch them from your i18n messages)
+  const titles: Record<string, string> = {
+    en: "Golden Ratio Exchange | Fast & Secure Crypto Swap",
+    bg: "Golden Ratio Exchange | Бърза и сигурна крипто борса",
+  };
+
+  const descriptions: Record<string, string> = {
+    en: "The premium destination for secure cryptocurrency exchanges and swaps.",
+    bg: "Премиум дестинация за сигурен обмен и суап на криптовалути.",
+  };
+
+  return {
+    title: {
+      template: `%s | Golden Ratio`,
+      default: titles[locale] || titles.en,
+    },
+    description: descriptions[locale] || descriptions.en,
+    metadataBase: new URL(baseUrl),
+    alternates: {
+      canonical: locale === "en" ? "/" : `/${locale}`,
+      languages: {
+        en: "/",
+        bg: "/bg",
+        "x-default": "/", // Tells Google to use English for any other language
+      },
+    },
+    // Adding OpenGraph for social sharing
+    openGraph: {
+      type: "website",
+      siteName: "Golden Ratio Exchange",
+      locale: locale === "bg" ? "bg_BG" : "en_US",
+    },
+  };
+}
 
 const nunitoSans = Nunito_Sans({
   subsets: ["latin", "cyrillic"],
   variable: "--font-nunito-sans",
+  display: "swap", // Prevents layout shift (CLS)
 });
 
 const bounded = localFont({
@@ -45,8 +86,12 @@ export function generateStaticParams() {
 export default async function LocaleLayout({
   children,
   params,
-}: LayoutProps<"/[locale]">) {
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
+
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
@@ -73,9 +118,9 @@ export default async function LocaleLayout({
           >
             <ToastProvider>
               <Header />
-              {children}
+              <main>{children}</main>{" "}
+              {/* Wrapping children in main is better for accessibility/SEO */}
               <Footer />
-
               <CookieBanner />
             </ToastProvider>
           </ThemeProvider>
