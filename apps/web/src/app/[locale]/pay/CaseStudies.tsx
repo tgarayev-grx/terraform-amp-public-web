@@ -5,7 +5,6 @@ import clsx from "clsx";
 import { QuoteIcon } from "@grx/ui/icons/QuoteIcon";
 import { Company1LogoIcon } from "@grx/ui/icons/Company1LogoIcon";
 import { Company2LogoIcon } from "@grx/ui/icons/Company2LogoIcon";
-import { Company3LogoIcon } from "@grx/ui/icons/Company3LogoIcon";
 import { twMerge } from "tailwind-merge";
 
 export async function CaseStudiesSection() {
@@ -22,9 +21,9 @@ export async function CaseStudiesSection() {
           </h4>
         </div>
 
-        <div className="gap-6 xl:gap-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 xl:grid-rows-2">
+        <div className="gap-6 grid grid-cols-1 md:grid-cols-2">
           <CaseStudyCard
-            className="md:col-span-2 xl:col-span-1 xl:row-span-2 bg-gold-500 text-neutral-1000 md:min-h-[560px!important]"
+            className="bg-gold-500 text-neutral-1000"
             classes={{
               quote: "w-8 h-8",
               description: "text-text-inverce",
@@ -34,7 +33,7 @@ export async function CaseStudiesSection() {
             icon={<Company1LogoIcon />}
           />
           <CaseStudyCard
-            className="md:col-span-2 xl:col-start-2 xl:row-start-1 bg-surface-floating"
+            className="bg-surface-floating"
             classes={{
               quote: "text-gold-500",
               icon: "text-text-subtle-700",
@@ -42,17 +41,6 @@ export async function CaseStudiesSection() {
             description={t("Pay.Root.caseStudies.descriptions.1")}
             icon={<Company2LogoIcon />}
           />
-          <div className="md:contents xl:gap-6 xl:grid xl:grid-cols-2 xl:col-start-2 xl:row-start-2 xl:mr-[-24px]">
-            <CaseStudyCard
-              className="col-span-2 bg-surface-floating text-text-strong-1000"
-              classes={{
-                quote: "text-gold-500",
-                icon: "text-text-subtle-700",
-              }}
-              description={t("Pay.Root.caseStudies.descriptions.2")}
-              icon={<Company3LogoIcon />}
-            />
-          </div>
         </div>
       </div>
     </section>
