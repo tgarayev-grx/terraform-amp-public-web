@@ -1,5 +1,5 @@
 import type { IncomingMessage, ServerResponse } from "http";
-import { Duplex } from "stream";
+import type { LoggerOptions } from "pino";
 
 /** Paths we skip for request logging (static assets, Next internals). */
 const SKIP_LOG_PATH =
@@ -24,8 +24,17 @@ export async function register() {
 
   const pino = (await import("pino")).default;
   const isDev = process.env.NODE_ENV === "development";
+
+  const formatters: LoggerOptions["formatters"] = {
+    level(label) {
+      // Pino defaults to numeric `level` in JSON; use labels (e.g. "info") for prod logs.
+      return { level: label };
+    },
+  };
+
   const logger = isDev
     ? pino({
+        formatters,
         transport: {
           target: "pino-pretty",
           options: {
@@ -34,7 +43,7 @@ export async function register() {
           },
         },
       })
-    : pino();
+    : pino({ formatters });
 
   const install = (Server: typeof http.Server | typeof https.Server) => {
     const originalEmit = Server.prototype.emit;
