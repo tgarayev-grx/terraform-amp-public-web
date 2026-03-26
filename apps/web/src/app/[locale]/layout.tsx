@@ -13,6 +13,7 @@ import { ToastProvider } from "@grx/ui/components/toast";
 import { LOCAL_STORAGE_KEYS } from "@/config/localstorage";
 import { routing } from "@/modules/cross-cutting-concerns/i18n/routing";
 import { CookieBanner } from "@/modules/cross-cutting-concerns/cookie-preference";
+import { RecaptchaScript } from "@/lib/recaptcha/RecaptchaScript";
 import { Header } from "@/modules/shared/header";
 import { Footer } from "./Footer";
 
@@ -52,6 +53,8 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body>
+        <RecaptchaScript />
+
         <NextIntlClientProvider>
           <ThemeProvider
             themes={["dark"]}

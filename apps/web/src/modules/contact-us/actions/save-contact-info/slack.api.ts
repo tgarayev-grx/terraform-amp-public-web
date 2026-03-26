@@ -3,7 +3,7 @@ import type { ContactFormSchema } from "../../contactUsSchema";
 import { getTranslations } from "next-intl/server";
 import { CountryCode } from "../../config/countries";
 
-type ContactFormPayload = Omit<z.infer<ContactFormSchema>, "honeypot">;
+type ContactFormPayload = z.infer<ContactFormSchema>;
 
 export class SlackContactFormAPI {
   private readonly webhookUrl: string;

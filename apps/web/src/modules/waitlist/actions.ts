@@ -2,6 +2,8 @@
 
 import { z } from "zod";
 import { getTranslations } from "next-intl/server";
+import { RECAPTCHA_ACTIONS } from "@/lib/recaptcha/constants";
+import { verifyRecaptchaV3 } from "@/lib/recaptcha/verify-recaptcha";
 import { createWaitlistSchema, type WaitlistSchema } from "./waitlistSchema";
 import { SlackWaitlistAPI } from "./slack.api";
 
@@ -14,8 +16,24 @@ export type SubmitWaitlistResult =
     };
 
 export async function submitWaitlist(
-  values: z.infer<WaitlistSchema>
+  args: z.infer<WaitlistSchema> & {
+    recaptchaToken: string;
+    source: "RWA" | "EXCHANGE";
+  }
 ): Promise<SubmitWaitlistResult> {
+  const { recaptchaToken, source, ...values } = args;
+
+  const recaptcha = await verifyRecaptchaV3({
+    token: recaptchaToken,
+    expectedAction: RECAPTCHA_ACTIONS.waitlist,
+  });
+  if (!recaptcha.success) {
+    return {
+      success: false,
+      error: "reCAPTCHA verification failed",
+    };
+  }
+
   const t = await getTranslations("Rwa.hero");
   const schema = createWaitlistSchema(t);
   const parsed = schema.safeParse(values);
@@ -42,7 +60,7 @@ export async function submitWaitlist(
   const api = new SlackWaitlistAPI();
   const { ok, status } = await api.sendWaitlistSignup({
     email: parsed.data.email,
-    source: "RWA",
+    source,
   });
 
   if (!ok) {

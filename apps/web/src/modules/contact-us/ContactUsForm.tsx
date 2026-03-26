@@ -1,9 +1,11 @@
 "use client";
 
-import React, { useCallback, useEffect, useRef } from "react";
+import { useEffect, type ComponentType, type SVGProps } from "react";
 import { useTranslations } from "next-intl";
 import z from "zod";
 import { Button, Checkbox, useAppForm, Field, toast } from "@grx/ui";
+import { RECAPTCHA_ACTIONS } from "@/lib/recaptcha/constants";
+import { executeRecaptcha } from "@/lib/recaptcha/execute-recaptcha";
 import { submitContactForm } from "./actions/save-contact-info/actions";
 import { getUserCountryCode } from "./actions/detect-user-location/actions";
 import {
@@ -22,7 +24,7 @@ import { COUNTRY_CODES } from "./config/countries";
 
 function getCountryFlagIcon(
   code: (typeof COUNTRY_CODES)[number]
-): React.ComponentType<React.SVGProps<SVGSVGElement>> | undefined {
+): ComponentType<SVGProps<SVGSVGElement>> | undefined {
   return CountryFlagIcons[
     `IconCountryFlag${code}` as keyof typeof CountryFlagIcons
   ];
@@ -49,7 +51,6 @@ export function ContactUsForm({
   const t = useTranslations("ContactUs.contactForm");
   const tCommon = useTranslations("Common");
   const contactFormSchema = createContactFormSchema(t);
-  const honeypotCapture = useHoneypotCapture();
 
   const form = useAppForm({
     defaultValues: {
@@ -63,7 +64,6 @@ export function ContactUsForm({
       organizationType: "",
       interestedIn: [] as z.infer<typeof contactFormSchema>["interestedIn"],
       message: "",
-      honeypot: "" as z.infer<typeof contactFormSchema>["honeypot"],
       ...defaultValues,
     } satisfies z.infer<typeof contactFormSchema>,
     validators: {
@@ -73,12 +73,22 @@ export function ContactUsForm({
     },
     onSubmit: async ({ value }) => {
       try {
-        const payload = {
-          ...value,
-          honeypot: honeypotCapture.getCaptured() || value.honeypot,
-        };
+        const recaptchaResult = await executeRecaptcha(
+          RECAPTCHA_ACTIONS.contact
+        );
 
-        const result = await submitContactForm(payload);
+        if (!recaptchaResult.success) {
+          console.error("[ContactUsForm] Recaptcha verification failed");
+          toast.error(t("toast.error"));
+          return;
+        }
+
+        const recaptchaToken = recaptchaResult.data.token;
+
+        const result = await submitContactForm({
+          ...value,
+          recaptchaToken,
+        });
 
         if (result.success) {
           form.reset();
@@ -138,7 +148,6 @@ export function ContactUsForm({
       onSubmit={(e) => {
         e.preventDefault();
         e.stopPropagation();
-        honeypotCapture.captureFromForm(e);
         form.handleSubmit();
       }}
     >
@@ -191,22 +200,6 @@ export function ContactUsForm({
               <field.TextField
                 label={t("field.companyName.label")}
                 placeholder={t("field.companyName.placeholder")}
-              />
-            )}
-          </form.AppField>
-
-          <form.AppField name="honeypot">
-            {(field) => (
-              <input
-                className="absolute opacity-0 w-0 h-0 overflow-hidden pointer-events-none"
-                type="text"
-                name={HONEYPOT_INPUT_NAME}
-                value={field.state.value ?? ""}
-                onChange={(e) => field.handleChange(e.target.value)}
-                onBlur={field.handleBlur}
-                tabIndex={-1}
-                autoComplete="off"
-                aria-hidden
               />
             )}
           </form.AppField>
@@ -358,25 +351,4 @@ export function ContactUsForm({
       </form.AppForm>
     </form>
   );
-}
-
-const HONEYPOT_INPUT_NAME = "companyFax";
-
-function useHoneypotCapture() {
-  const ref = useRef<string>("");
-
-  const captureFromForm = useCallback((e: React.FormEvent<HTMLFormElement>) => {
-    const input = e.currentTarget.querySelector<HTMLInputElement>(
-      `input[name="${HONEYPOT_INPUT_NAME}"]`
-    );
-    ref.current = input?.value?.trim() ?? "";
-  }, []);
-
-  const getCaptured = useCallback(() => {
-    const value = ref.current;
-    ref.current = "";
-    return value;
-  }, []);
-
-  return { captureFromForm, getCaptured };
 }

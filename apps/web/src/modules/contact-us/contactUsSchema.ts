@@ -79,8 +79,6 @@ export function createContactFormSchema(
         maxLength: MESSAGE_MAX_LENGTH.toString(),
       })
     ),
-
-    honeypot: z.string(),
   });
 }
 

@@ -7,13 +7,25 @@ import {
   createBookDemoFormSchema,
 } from "../../bookDemoSchema";
 import { SlackBookDemoAPI } from "./slack.api";
+import { RECAPTCHA_ACTIONS } from "@/lib/recaptcha/constants";
+import { verifyRecaptchaV3 } from "@/lib/recaptcha/verify-recaptcha";
 
 export async function submitBookDemoForm(
-  values: z.infer<BookDemoFormSchema>
+  args: z.infer<BookDemoFormSchema> & { recaptchaToken: string }
 ): Promise<SubmitBookDemoFormResult> {
-  const honeypot = ("honeypot" in values ? values.honeypot : "")?.trim() ?? "";
-  if (honeypot !== "") {
-    return { success: true };
+  const { recaptchaToken, ...values } = args;
+
+  const recaptcha = await verifyRecaptchaV3({
+    token: recaptchaToken,
+    expectedAction: RECAPTCHA_ACTIONS.book_demo,
+  });
+
+  if (!recaptcha.success) {
+    return {
+      success: false,
+      message: "reCAPTCHA verification failed",
+      status: 403,
+    };
   }
 
   const t = await getTranslations("ContactUs.contactForm");
@@ -31,11 +43,9 @@ export async function submitBookDemoForm(
     };
   }
 
-  const { honeypot: _h, ...formData } = parsed.data;
-
   const api = new SlackBookDemoAPI();
 
-  const { ok, status } = await api.sendBookDemoSubmission(formData);
+  const { ok, status } = await api.sendBookDemoSubmission(parsed.data);
 
   if (!ok) {
     return {

@@ -1,9 +1,11 @@
 "use client";
 
-import React, { useCallback, useEffect, useRef } from "react";
+import { useEffect, type ComponentType, type SVGProps } from "react";
 import { useTranslations } from "next-intl";
 import z from "zod";
 import { Button, Checkbox, useAppForm, Field, toast } from "@grx/ui";
+import { RECAPTCHA_ACTIONS } from "@/lib/recaptcha/constants";
+import { executeRecaptcha } from "@/lib/recaptcha/execute-recaptcha";
 import { submitBookDemoForm } from "./actions/book-demo/actions";
 import { getUserCountryCode } from "./actions/detect-user-location/actions";
 import { createBookDemoFormSchema, MESSAGE_MAX_LENGTH } from "./bookDemoSchema";
@@ -17,7 +19,7 @@ import { COUNTRY_CODES } from "./config/countries";
 
 function getCountryFlagIcon(
   code: (typeof COUNTRY_CODES)[number]
-): React.ComponentType<React.SVGProps<SVGSVGElement>> | undefined {
+): ComponentType<SVGProps<SVGSVGElement>> | undefined {
   return CountryFlagIcons[
     `IconCountryFlag${code}` as keyof typeof CountryFlagIcons
   ];
@@ -44,7 +46,6 @@ export function BookDemoForm({
   const t = useTranslations("BookDemo.contactForm");
   const tCommon = useTranslations("Common");
   const bookDemoFormSchema = createBookDemoFormSchema(t);
-  const honeypotCapture = useHoneypotCapture();
 
   const form = useAppForm({
     defaultValues: {
@@ -55,7 +56,6 @@ export function BookDemoForm({
       country: "",
       primaryRole: "",
       message: "",
-      honeypot: "" as z.infer<typeof bookDemoFormSchema>["honeypot"],
       ...defaultValues,
     } satisfies z.infer<typeof bookDemoFormSchema>,
     validators: {
@@ -65,12 +65,22 @@ export function BookDemoForm({
     },
     onSubmit: async ({ value }) => {
       try {
-        const payload = {
-          ...value,
-          honeypot: honeypotCapture.getCaptured() || value.honeypot,
-        };
+        const recaptchaResult = await executeRecaptcha(
+          RECAPTCHA_ACTIONS.book_demo
+        );
 
-        const result = await submitBookDemoForm(payload);
+        if (!recaptchaResult.success) {
+          console.error("[BookDemoForm] Recaptcha verification failed");
+          toast.error(t("toast.error"));
+          return;
+        }
+
+        const recaptchaToken = recaptchaResult.data.token;
+
+        const result = await submitBookDemoForm({
+          ...value,
+          recaptchaToken,
+        });
 
         if (result.success) {
           form.reset();
@@ -130,7 +140,6 @@ export function BookDemoForm({
       onSubmit={(e) => {
         e.preventDefault();
         e.stopPropagation();
-        honeypotCapture.captureFromForm(e);
         form.handleSubmit();
       }}
     >
@@ -177,22 +186,6 @@ export function BookDemoForm({
               )}
             </form.AppField>
           </div>
-
-          <form.AppField name="honeypot">
-            {(field) => (
-              <input
-                className="absolute opacity-0 w-0 h-0 overflow-hidden pointer-events-none"
-                type="text"
-                name={HONEYPOT_INPUT_NAME}
-                value={field.state.value ?? ""}
-                onChange={(e) => field.handleChange(e.target.value)}
-                onBlur={field.handleBlur}
-                tabIndex={-1}
-                autoComplete="off"
-                aria-hidden
-              />
-            )}
-          </form.AppField>
 
           <div className="gap-5 grid grid-cols-1 sm:grid-cols-2">
             <form.AppField name="primaryRole">
@@ -286,25 +279,4 @@ export function BookDemoForm({
       </form.AppForm>
     </form>
   );
-}
-
-const HONEYPOT_INPUT_NAME = "companyFax";
-
-function useHoneypotCapture() {
-  const ref = useRef<string>("");
-
-  const captureFromForm = useCallback((e: React.FormEvent<HTMLFormElement>) => {
-    const input = e.currentTarget.querySelector<HTMLInputElement>(
-      `input[name="${HONEYPOT_INPUT_NAME}"]`
-    );
-    ref.current = input?.value?.trim() ?? "";
-  }, []);
-
-  const getCaptured = useCallback(() => {
-    const value = ref.current;
-    ref.current = "";
-    return value;
-  }, []);
-
-  return { captureFromForm, getCaptured };
 }

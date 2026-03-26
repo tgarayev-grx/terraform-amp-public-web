@@ -61,8 +61,6 @@ export function createBookDemoFormSchema(
         maxLength: MESSAGE_MAX_LENGTH.toString(),
       })
     ),
-
-    honeypot: z.string(),
   });
 }
 

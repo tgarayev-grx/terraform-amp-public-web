@@ -7,13 +7,24 @@ import {
   createContactFormSchema,
 } from "../../contactUsSchema";
 import { SlackContactFormAPI } from "./slack.api";
+import { RECAPTCHA_ACTIONS } from "@/lib/recaptcha/constants";
+import { verifyRecaptchaV3 } from "@/lib/recaptcha/verify-recaptcha";
 
 export async function submitContactForm(
-  values: z.infer<ContactFormSchema>
+  args: z.infer<ContactFormSchema> & { recaptchaToken: string }
 ): Promise<SubmitContactFormResult> {
-  const honeypot = ("honeypot" in values ? values.honeypot : "")?.trim() ?? "";
-  if (honeypot !== "") {
-    return { success: true };
+  const { recaptchaToken, ...values } = args;
+
+  const recaptcha = await verifyRecaptchaV3({
+    token: recaptchaToken,
+    expectedAction: RECAPTCHA_ACTIONS.contact,
+  });
+  if (!recaptcha.success) {
+    return {
+      success: false,
+      message: "reCAPTCHA verification failed",
+      status: 403,
+    };
   }
 
   const t = await getTranslations("ContactUs.contactForm");
@@ -31,11 +42,9 @@ export async function submitContactForm(
     };
   }
 
-  const { honeypot: _h, ...formData } = parsed.data;
-
   const api = new SlackContactFormAPI();
 
-  const { ok, status } = await api.sendContactFormSubmission(formData);
+  const { ok, status } = await api.sendContactFormSubmission(parsed.data);
 
   if (!ok) {
     return {

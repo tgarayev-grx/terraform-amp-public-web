@@ -3,7 +3,7 @@ import type { BookDemoFormSchema } from "../../bookDemoSchema";
 import { getTranslations } from "next-intl/server";
 import { CountryCode } from "../../config/countries";
 
-type BookDemoFormPayload = Omit<z.infer<BookDemoFormSchema>, "honeypot">;
+type BookDemoFormPayload = z.infer<BookDemoFormSchema>;
 
 export class SlackBookDemoAPI {
   private readonly webhookUrl: string;

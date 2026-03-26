@@ -14,14 +14,14 @@ export async function HeroSection() {
   return (
     <Theme theme="dark" asChild>
       <section className="relative flex flex-col items-center bg-bg-base overflow-hidden">
-        <div className="flex flex-col items-center gap-8 px-4 pt-20 sm:pt-40 w-full max-w-[1180px] text-center sm:px-8">
+        <div className="flex flex-col items-center gap-8 px-4 sm:px-8 pt-20 sm:pt-40 w-full max-w-[1180px] text-center">
           <div className="flex flex-col items-center gap-4 w-full max-w-[780px]">
             <div className="flex flex-col items-center gap-4">
               <Badge size="xs" palette="info" variant="light">
                 {t("badge")}
               </Badge>
 
-              <span className="font-unbounded text-sm uppercase tracking-[-0.56px] leading-[1.1] rwa-gold-gradient">
+              <span className="font-unbounded text-sm uppercase leading-[1.1] tracking-[-0.56px] rwa-gold-gradient">
                 {t("product")}
               </span>
             </div>
@@ -35,10 +35,10 @@ export async function HeroSection() {
             </p>
           </div>
 
-          <WaitlistForm />
+          <WaitlistForm source="RWA" />
         </div>
 
-        <div className="hidden sm:flex justify-center w-full px-8 mt-10 md:mt-16">
+        <div className="hidden sm:flex justify-center mt-10 md:mt-16 px-8 w-full">
           <Image
             className="w-full max-w-[980px]"
             src={dashboardImg}
@@ -48,7 +48,7 @@ export async function HeroSection() {
           />
         </div>
 
-        <div className="flex sm:hidden justify-center w-full px-7 mt-10">
+        <div className="sm:hidden flex justify-center mt-10 px-7 w-full">
           <Image
             className="w-full max-w-[321px]"
             src={iphoneFrameImg}
