@@ -47,4 +47,22 @@ export const defaultRichComponents = {
       {chunks}
     </Link>
   ),
+  linkTerms: (chunks) => (
+    <Link
+      className="text-info-base-600 hover:text-info-subtle-500"
+      href={ROUTES.termsOfUse}
+      target="_blank"
+    >
+      {chunks}
+    </Link>
+  ),
+  linkPrivacy: (chunks) => (
+    <Link
+      className="text-info-base-600 hover:text-info-subtle-500"
+      href={ROUTES.privacyPolicy}
+      target="_blank"
+    >
+      {chunks}
+    </Link>
+  ),
 } satisfies Record<string, RichTagsFunction>;

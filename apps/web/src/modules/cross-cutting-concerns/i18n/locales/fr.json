@@ -555,6 +555,220 @@
       "contactUs": "Contact us"
     }
   },
+  "CareersPage": {
+    "meta": {
+      "title": "Careers at GRX — Join Our Team",
+      "description": "Explore open positions at Golden Ratio Exchange and help us build the future of decentralised finance."
+    },
+    "hero": {
+      "badge": "We're hiring",
+      "title": "Career at GRX",
+      "subtitle": "Join a team shaping the next generation of financial infrastructure — connecting traditional finance with digital assets.",
+      "ctaButton": "Explore open positions"
+    },
+    "buildTheFuture": {
+      "title": "Build the <highlight>Future of Finance</highlight>",
+      "body": "GRX is building a regulated financial ecosystem that bridges traditional finance and digital assets. Our products include a crypto exchange, payment infrastructure, and tokenization of real-world assets."
+    },
+    "whyGRX": {
+      "title": "Why GRX",
+      "cards": {
+        "bigAmbition": {
+          "title": "Big ambition",
+          "body": "We're building toward becoming the #1 crypto platform in the EU — and you'll help create the systems, operations, and products that make that possible."
+        },
+        "buildFromGround": {
+          "title": "Build from the ground up",
+          "body": "Join at an early stage and help shape how the company works — from systems and processes to culture and decision-making."
+        },
+        "workThatMatters": {
+          "title": "Work that matters",
+          "body": "Your work will directly strengthen the product, improve operations, and help build a platform that is reliable, scalable, and trusted."
+        },
+        "freshCulture": {
+          "title": "Fresh culture, real challenges",
+          "body": "A new company culture with no legacy baggage — combined with the real technical and operational complexity of a mature product."
+        },
+        "autonomy": {
+          "title": "Autonomy & ownership",
+          "body": "We trust our people to take initiative, own their work, and drive meaningful change across the organization."
+        },
+        "moveFast": {
+          "title": "Move fast",
+          "body": "We operate in a fast-paced environment where decisions are quick, priorities evolve, and progress matters more than bureaucracy."
+        }
+      }
+    },
+    "hiringProcess": {
+      "title": "Hiring process",
+      "ctaButton": "Explore open positions",
+      "steps": {
+        "applicationReview": {
+          "title": "Application review",
+          "body": "Our team reviews your CV to understand your experience and fit for the role."
+        },
+        "introCall": {
+          "title": "Intro call",
+          "body": "A quick conversation to learn more about you and answer your initial questions."
+        },
+        "hiringManagerInterview": {
+          "title": "Hiring Manager interview",
+          "body": "A deeper discussion about your skills, experience, and how you would work with the team."
+        },
+        "offer": {
+          "title": "Offer",
+          "body": "If there's a great match, we'll make you an offer and welcome you to the team."
+        }
+      }
+    },
+    "openPositions": {
+      "title": "Open positions",
+      "noPositions": "No open positions at the moment. Check back soon!",
+      "submitCV": "Submit your CV",
+      "noRolesTitle": "No roles match your filters",
+      "noRolesDescription": "We couldn't find any open roles matching your filters. We're always excited to connect with exceptional people who share our ambition and values.",
+      "seeAllOpportunities": "See all opportunities"
+    },
+    "jobCard": {
+      "fullTime": "Full time",
+      "partTime": "Part time",
+      "remote": "Remote",
+      "hybrid": "Hybrid",
+      "onsite": "On-site",
+      "hotBadge": "Hot",
+      "viewRole": "View role"
+    },
+    "jobDetail": {
+      "breadcrumbs": {
+        "home": "Home",
+        "careers": "Career"
+      },
+      "notFound": "This position is no longer available.",
+      "applyButton": "Apply for this position",
+      "applySection": {
+        "title": "Submit your application",
+        "subtitle": "Apply quickly with just a few fields."
+      },
+      "sections": {
+        "description": "About Us",
+        "responsibilities": "What You Will Do",
+        "requirements": "What We're Looking For",
+        "niceToHave": "Nice to have",
+        "offer": "What We Offer"
+      }
+    },
+    "applicationForm": {
+      "fields": {
+        "name": {
+          "label": "Full name",
+          "placeholder": "Full name*"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Email*"
+        },
+        "phone": {
+          "label": "Phone number",
+          "placeholder": "Phone number"
+        },
+        "coverLetter": {
+          "label": "Cover letter",
+          "placeholder": "Cover letter"
+        },
+        "cv": {
+          "label": "CV / Resume",
+          "triggerLabel": "Click to attach document",
+          "helperText": "PDF, DOC, DOCX formats, up to 5 MB"
+        }
+      },
+      "errors": {
+        "name": {
+          "required": "Full name is required"
+        },
+        "email": {
+          "required": "Email is required",
+          "invalid": "Please enter a valid email address"
+        },
+        "coverLetter": {
+          "maxLength": "Cover letter must be {maxLength} characters or less"
+        },
+        "cv": {
+          "required": "Please attach your resume",
+          "maxSize": "File must be smaller than {maxSize} MB",
+          "invalidType": "Only PDF, DOC, and DOCX files are accepted"
+        }
+      },
+      "submit": "Submit application",
+      "submitting": "Submitting…",
+      "toast": {
+        "success": "Application submitted! We'll be in touch soon.",
+        "error": "Something went wrong. Please try again later."
+      },
+      "successAlert": {
+        "title": "Your application has been submitted.",
+        "description": "Thank you for applying. Our team will review your application and get back to you.",
+        "exploreLink": "Explore other opportunities"
+      },
+      "duplicateAlert": {
+        "title": "You have applied for this role",
+        "description": "It looks like you've already applied for this position.",
+        "exploreLink": "Explore other opportunities"
+      },
+      "privacyNote": "By applying for this position, you agree to our <linkTerms>Terms of Use</linkTerms> and <linkPrivacy>Privacy Policy</linkPrivacy>."
+    },
+    "submitCVModal": {
+      "title": "Submit your CV",
+      "description": "We're always excited to connect with exceptional people who share our ambition and values. Send us your application and let's explore how we might work together.",
+      "back": "Go back",
+      "close": "Close modal",
+      "submit": "Submit application",
+      "submitting": "Submitting...",
+      "cancel": "Cancel",
+      "successToast": "CV submitted successfully.",
+      "errorToast": "Something went wrong. Please try again later.",
+      "privacyNote": "By applying for this position, you agree to our <linkTerms>Terms of Use</linkTerms> and <linkPrivacy>Privacy Policy</linkPrivacy>.",
+      "fields": {
+        "name": {
+          "label": "Full name",
+          "placeholder": "Full name*"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Email*"
+        },
+        "cv": {
+          "label": "CV / Resume",
+          "triggerLabel": "Click to attach document",
+          "helperText": "PDF, DOC, DOCX formats, up to 5 MB",
+          "invalidType": "Only PDF, DOC, and DOCX files are accepted"
+        },
+        "coverLetter": {
+          "label": "Cover letter",
+          "placeholder": "Cover letter"
+        }
+      },
+      "duplicateAlert": {
+        "title": "We've received an application from this email address.",
+        "description": "It looks like you've already submitted your CV.",
+        "exploreLink": "Explore other opportunities"
+      }
+    },
+    "positions": {
+      "meta": {
+        "title": "Open Positions | GRX Careers",
+        "description": "Browse all open roles at GRX Pay and find your next opportunity."
+      },
+      "submitCV": "Submit your CV",
+      "resultsFound": "{count} results found",
+      "allPositions": "All positions",
+      "resetFilters": "Reset filters",
+      "filters": {
+        "department": "Department",
+        "location": "Location",
+        "employmentType": "Employment type"
+      }
+    }
+  },
   "Pay": {
     "Root": {
       "meta": {
@@ -792,11 +1006,12 @@
         "company": "Entreprise",
         "aboutSection": "À propos",
         "aboutGrx": "À propos de GRX",
+        "careers": "Carrières",
+        "careersHiringBadge": "Nous recrutons !",
         "contactGrx": "Contacter GRX",
         "legal": "Mentions légales",
         "privacyPolicy": "Politique de confidentialité",
         "termsOfUse": "Conditions d'utilisation",
-        "privacyPolicy": "Politique de confidentialité",
         "cookiePolicy": "Politique des cookies",
         "amlPolicy": "Politique AML",
         "acceptCrypto": "Accepter les crypto:",

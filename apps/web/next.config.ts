@@ -15,6 +15,11 @@ const SERVER_EXTERNAL_PACKAGES = ["http", "https", "pino", "pino-pretty"];
 const nextConfig: NextConfig = {
   output: "standalone",
   images: { unoptimized: true },
+  experimental: {
+    serverActions: {
+      bodySizeLimit: "5mb",
+    },
+  },
   devIndicators: {
     position: "bottom-right",
   },

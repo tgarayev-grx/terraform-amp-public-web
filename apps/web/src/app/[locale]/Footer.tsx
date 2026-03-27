@@ -103,6 +103,18 @@ function FooterNav({ t, className }: FooterNavProps) {
             <FooterNavItemLink href={ROUTES.aboutUs}>
               {t("Pay.Root.footer.aboutGrx")}
             </FooterNavItemLink>
+
+            <li>
+              <Link
+                className="inline-flex items-center gap-2 text-body-md-regular text-text-soft-500 hover:text-text-strong-1000 transition-colors"
+                href={ROUTES.careers}
+              >
+                {t("Pay.Root.footer.careers")}
+                <Badge palette="success" variant="light" size="sm">
+                  {t("Pay.Root.footer.careersHiringBadge")}
+                </Badge>
+              </Link>
+            </li>
           </FooterNavList>
         </FooterNavRoot>
 

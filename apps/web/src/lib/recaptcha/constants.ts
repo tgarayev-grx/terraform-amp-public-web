@@ -3,6 +3,7 @@ export const RECAPTCHA_ACTIONS = {
   contact: "contact",
   waitlist: "waitlist",
   book_demo: "book_demo",
+  careers_apply: "careers_apply",
 } as const;
 
 export type RecaptchaActionName =

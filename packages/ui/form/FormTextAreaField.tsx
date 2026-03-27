@@ -29,7 +29,7 @@ export function FormTextAreaField({
 
   return (
     <Field.Root id={field.name}>
-      <Field.Label>{field.state.value ? label : " "}</Field.Label>
+      <Field.Label>{label}</Field.Label>
 
       <TextField.Control
         hasError={!!errorText}
@@ -47,6 +47,13 @@ export function FormTextAreaField({
           maxLength={maxLength}
         />
       </TextField.Control>
+      {maxLength && (
+        <div className="mt-1 flex justify-end">
+          <span className="text-[12px] leading-[16px] text-text-soft-500">
+            {field.state.value?.length || 0}/{maxLength}
+          </span>
+        </div>
+      )}
 
       {hasHelperText && (
         <Field.HelperText isError={!!errorText}>

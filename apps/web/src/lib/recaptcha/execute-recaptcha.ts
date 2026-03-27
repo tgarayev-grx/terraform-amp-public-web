@@ -10,6 +10,7 @@ export async function executeRecaptcha(
   action: RecaptchaActionName
 ): Promise<ExecuteRecaptchaResult> {
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
   if (!siteKey) {
     throw new Error("NEXT_PUBLIC_RECAPTCHA_SITE_KEY is not configured");
   }

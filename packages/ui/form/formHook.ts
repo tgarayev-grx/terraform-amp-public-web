@@ -5,6 +5,7 @@ import { fieldContext, formContext } from "./formContext";
 import { FormTextField } from "./FormTextField";
 import { FormTextAreaField } from "./FormTextAreaField";
 import { FormSingleSelect } from "./FormSingleSelect";
+import { FormFileUpload } from "./FormFileUpload";
 
 export const { useAppForm } = createFormHook({
   fieldContext,
@@ -13,6 +14,7 @@ export const { useAppForm } = createFormHook({
     TextField: FormTextField,
     TextAreaField: FormTextAreaField,
     SingleSelect: FormSingleSelect,
+    FileUpload: FormFileUpload,
   },
   formComponents: {},
 });

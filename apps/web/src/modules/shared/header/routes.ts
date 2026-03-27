@@ -15,4 +15,5 @@ export const ROUTES = {
   amlPolicy: "/aml-policy/",
   cookiePolicy: "/cookie-policy/",
   imprint: "/imprint/",
+  careers: "/careers/",
 } as const;
