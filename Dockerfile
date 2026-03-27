@@ -15,6 +15,9 @@ COPY apps/web ./apps/web
 # Ensure public dir exists for COPY in runner (Next.js may not create it)
 RUN mkdir -p apps/web/public
 
+ARG NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+ENV NEXT_PUBLIC_RECAPTCHA_SITE_KEY=$NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+
 RUN pnpm build
 
 # Run stage: Node.js serves via standalone server
