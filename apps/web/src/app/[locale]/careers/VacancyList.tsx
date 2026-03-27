@@ -227,18 +227,9 @@ interface VacancyListProps {
 
 export function VacancyList({ vacancies }: VacancyListProps) {
   const t = useTranslations("CareersPage");
-  const [departmentFilter, setDepartmentFilter] = useState("");
   const [locationFilter, setLocationFilter] = useState("");
   const [typeFilter, setTypeFilter] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const departments = useMemo(() => {
-    const set = new Set<string>();
-    vacancies.forEach((v) => {
-      if (v.department?.trim()) set.add(v.department.trim());
-    });
-    return Array.from(set).sort();
-  }, [vacancies]);
 
   const locations = useMemo(() => {
     const set = new Set<string>();
@@ -260,15 +251,13 @@ export function VacancyList({ vacancies }: VacancyListProps) {
 
   const filtered = useMemo(() => {
     return vacancies.filter((v) => {
-      if (departmentFilter && v.department?.trim() !== departmentFilter)
-        return false;
       if (locationFilter && v.residence?.trim() !== locationFilter)
         return false;
       if (typeFilter && !v.work_types?.some((wt) => wt.name === typeFilter))
         return false;
       return true;
     });
-  }, [vacancies, departmentFilter, locationFilter, typeFilter]);
+  }, [vacancies, locationFilter, typeFilter]);
 
   const hotVacancies = filtered.filter((v) => v.hot_flag);
   const regularVacancies = filtered.filter((v) => !v.hot_flag);
@@ -283,10 +272,9 @@ export function VacancyList({ vacancies }: VacancyListProps) {
     return Array.from(map.entries()).sort(([a], [b]) => a.localeCompare(b));
   }, [regularVacancies]);
 
-  const hasFilters = Boolean(departmentFilter || locationFilter || typeFilter);
+  const hasFilters = Boolean(locationFilter || typeFilter);
 
   function resetFilters() {
-    setDepartmentFilter("");
     setLocationFilter("");
     setTypeFilter("");
   }
@@ -318,12 +306,6 @@ export function VacancyList({ vacancies }: VacancyListProps) {
             {/* Actions: filters + results count */}
             <div className="flex flex-col gap-4">
               <div className="flex flex-col gap-3 sm:flex-row sm:gap-5">
-                <FilterSelect
-                  value={departmentFilter}
-                  onChange={setDepartmentFilter}
-                  placeholder={t("positions.filters.department")}
-                  options={departments}
-                />
                 <FilterSelect
                   value={locationFilter}
                   onChange={setLocationFilter}
