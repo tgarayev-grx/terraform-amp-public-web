@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { HurmaClient } from "@/modules/careers";
 import { VacancyList } from "../VacancyList";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
   return {
