@@ -1,4 +1,4 @@
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { Nunito_Sans } from "next/font/google";
@@ -12,52 +12,45 @@ import "../globals.css";
 
 import { ToastProvider } from "@grx/ui/components/toast";
 import { LOCAL_STORAGE_KEYS } from "@/config/localstorage";
+import { SITE_URL } from "@/config/site";
 import { routing } from "@/modules/cross-cutting-concerns/i18n/routing";
+import {
+  resolveICULocale,
+  type Locale,
+} from "@/modules/cross-cutting-concerns/i18n/config";
 import { CookieBanner } from "@/modules/cross-cutting-concerns/cookie-preference";
 import { RecaptchaScript } from "@/lib/recaptcha/RecaptchaScript";
 import { Header } from "@/modules/shared/header";
 import { Footer } from "./Footer";
 
-// 1. Dynamic Metadata for International SEO
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+}: LayoutProps<"/[locale]">): Promise<Metadata> {
   const { locale } = await params;
-  const baseUrl = "https://goldenratio.exchange";
-
-  // Define localized titles/descriptions (or fetch them from your i18n messages)
-  const titles: Record<string, string> = {
-    en: "Golden Ratio Exchange | Fast & Secure Crypto Swap",
-    bg: "Golden Ratio Exchange | Бърза и сигурна крипто борса",
-  };
-
-  const descriptions: Record<string, string> = {
-    en: "The premium destination for secure cryptocurrency exchanges and swaps.",
-    bg: "Премиум дестинация за сигурен обмен и суап на криптовалути.",
-  };
+  const t = await getTranslations({
+    locale: locale as Locale,
+    namespace: "Metadata",
+  });
 
   return {
     title: {
       template: `%s | Golden Ratio`,
-      default: titles[locale] || titles.en,
+      default: t("title"),
     },
-    description: descriptions[locale] || descriptions.en,
-    metadataBase: new URL(baseUrl),
+    description: t("description"),
+    metadataBase: new URL(SITE_URL),
     alternates: {
-      canonical: locale === "en" ? "/" : `/${locale}`,
+      canonical: locale === routing.defaultLocale ? "/" : `/${locale}`,
       languages: {
         en: "/",
         bg: "/bg",
-        "x-default": "/", // Tells Google to use English for any other language
+        "x-default": "/",
       },
     },
-    // Adding OpenGraph for social sharing
     openGraph: {
       type: "website",
       siteName: "Golden Ratio Exchange",
-      locale: locale === "bg" ? "bg_BG" : "en_US",
+      locale: resolveICULocale(locale),
     },
   };
 }
@@ -65,7 +58,7 @@ export async function generateMetadata({
 const nunitoSans = Nunito_Sans({
   subsets: ["latin", "cyrillic"],
   variable: "--font-nunito-sans",
-  display: "swap", // Prevents layout shift (CLS)
+  display: "swap",
 });
 
 const bounded = localFont({
@@ -86,10 +79,7 @@ export function generateStaticParams() {
 export default async function LocaleLayout({
   children,
   params,
-}: {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}) {
+}: LayoutProps<"/[locale]">) {
   const { locale } = await params;
 
   if (!hasLocale(routing.locales, locale)) {
@@ -118,8 +108,7 @@ export default async function LocaleLayout({
           >
             <ToastProvider>
               <Header />
-              <main>{children}</main>{" "}
-              {/* Wrapping children in main is better for accessibility/SEO */}
+              {children}
               <Footer />
               <CookieBanner />
             </ToastProvider>

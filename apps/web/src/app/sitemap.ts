@@ -1,14 +1,11 @@
 import { MetadataRoute } from "next";
 
-// 1. Define your base URL (match your AWS SST production domain)
-const BASE_URL = "https://goldenratio.exchange";
-
-// 2. Define your supported locales
-const locales = ["en", "bg"] as const;
+import { SITE_URL } from "@/config/site";
+import { routing } from "@/modules/cross-cutting-concerns/i18n/routing";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // --- STATIC ROUTES ---
-  // Add your main pages here
+  const { locales, defaultLocale } = routing;
+
   const staticPages = [
     "",
     "/pay",
@@ -25,14 +22,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const staticEntries = staticPages.flatMap((page) =>
     locales.map((locale) => ({
-      url: `${BASE_URL}${locale === "en" ? "" : `/${locale}`}${page}`,
+      url: `${SITE_URL}${locale === defaultLocale ? "" : `/${locale}`}${page}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: page === "" ? 1 : 0.8,
       alternates: {
         languages: {
-          en: `${BASE_URL}${page}`,
-          bg: `${BASE_URL}/bg${page}`,
+          en: `${SITE_URL}${page}`,
+          bg: `${SITE_URL}/bg${page}`,
         },
       },
     }))
