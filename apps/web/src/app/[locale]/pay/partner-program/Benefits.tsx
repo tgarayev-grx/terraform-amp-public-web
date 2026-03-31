@@ -145,7 +145,7 @@ export async function BenefitsSection() {
   return (
     <section className="flex flex-col items-center bg-surface-canvas px-4 sm:px-8 py-16 sm:py-20 lg:py-24">
       <div className="mx-auto w-full max-w-[980px]">
-        <h2 className="mb-12 sm:mb-14 font-unbounded text-display-sm text-text-strong-1000 sm:text-display-md text-center">
+        <h2 className="mb-12 sm:mb-14 font-bounded text-display-sm text-text-strong-1000 sm:text-display-md text-center">
           {t("Pay.PartnerProgram.benefits.title")}
         </h2>
 

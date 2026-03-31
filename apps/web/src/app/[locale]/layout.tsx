@@ -34,7 +34,7 @@ const bounded = localFont({
       style: "normal",
     },
   ],
-  variable: "--font-unbounded",
+  variable: "--font-bounded",
   display: "swap",
 });
 

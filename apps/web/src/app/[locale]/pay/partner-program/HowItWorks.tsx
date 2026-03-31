@@ -22,7 +22,7 @@ export async function HowItWorksSection() {
   return (
     <section className="flex flex-col items-center bg-bg-weak-100 px-4 sm:px-8 py-20 sm:py-20 lg:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
-        <h2 className="mb-12 sm:mb-14 font-unbounded text-display-sm text-text-strong-1000 md:text-display-md text-center">
+        <h2 className="mb-12 sm:mb-14 font-bounded text-display-sm text-text-strong-1000 md:text-display-md text-center">
           {t("Pay.PartnerProgram.howItWorks.title")}
         </h2>
 
@@ -59,7 +59,7 @@ export function StepCard({
     <div className="relative flex items-center gap-4 sm:gap-8 md:gap-10 w-full">
       <div className="relative flex flex-col flex-shrink-0 items-center">
         <div className="flex justify-center items-center bg-surface-floating shadow-sm rounded-full w-16 sm:w-[84px] md:w-[108px] h-16 sm:h-[84px] md:h-[108px]">
-          <span className="font-unbounded text-text-strong-1000 text-title-lg md:text-display-md">
+          <span className="font-bounded text-text-strong-1000 text-title-lg md:text-display-md">
             {number}
           </span>
         </div>

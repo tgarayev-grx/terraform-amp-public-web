@@ -58,7 +58,7 @@ export async function WhatsIncludedSection() {
   return (
     <section className="flex flex-col items-center bg-bg-base px-4 sm:px-8 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
-        <h3 className="flex flex-col gap-4 mx-auto mb-14 max-w-[580px] font-unbounded text-display-sm text-text-strong-1000 sm:text-display-md text-center">
+        <h3 className="flex flex-col gap-4 mx-auto mb-14 max-w-[580px] font-bounded text-display-sm text-text-strong-1000 sm:text-display-md text-center">
           {t("Pay.Pricing.whatsIncluded.title")}
         </h3>
 

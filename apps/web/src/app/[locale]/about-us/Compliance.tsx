@@ -14,7 +14,7 @@ export async function ComplianceSection() {
     <section className="bg-bg-muted-50 py-24 px-4 md:px-8">
       <div className="max-w-[1180px] mx-auto flex flex-col gap-14">
         <div className="flex flex-col gap-4 text-center max-w-[780px] mx-auto">
-          <h2 className="font-unbounded text-display-sm text-text-strong-1000 md:text-display-md">
+          <h2 className="font-bounded text-display-sm text-text-strong-1000 md:text-display-md">
             {t("title")}
           </h2>
           <p className="text-body-lg-medium text-text-subtle-700 md:text-body-xl-medium">

@@ -23,7 +23,7 @@ export async function HeroSection() {
           <div className="z-10 flex flex-col flex-shrink-0 gap-8 lg:max-w-[650px]">
             <h1
               className={clsx(
-                "font-unbounded text-display-md text-text-strong-1000 md:text-display-lg",
+                "font-bounded text-display-md text-text-strong-1000 md:text-display-lg",
                 "text-[36px] leading-[40px]",
                 "sm:text-[42px] sm:leading-[50px]",
                 "md:text-[48px] md:leading-[56px]"

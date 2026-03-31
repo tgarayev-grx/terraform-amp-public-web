@@ -31,7 +31,7 @@ export async function HeroSection() {
       </div>
       <div className="relative flex flex-col flex-grow sm:justify-between gap-8 mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col px-2 sm:px-8">
-          <h1 className="mb-4 sm:max-w-[580px] font-unbounded text-display-md text-text-strong-1000 sm:text-display-xl">
+          <h1 className="mb-4 sm:max-w-[580px] font-bounded text-display-md text-text-strong-1000 sm:text-display-xl">
             {t("Pay.Root.hero.title")}
           </h1>
 

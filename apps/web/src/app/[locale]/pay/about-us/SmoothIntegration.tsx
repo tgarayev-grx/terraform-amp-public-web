@@ -13,7 +13,7 @@ export async function SmoothIntegrationSection() {
     <section className="flex flex-col bg-bg-weak-100 px-4 sm:px-8 py-16 sm:py-20 lg:py-24">
       <div className="flex md:flex-row flex-col md:justify-center md:items-center gap-10 md:gap-12 xl:gap-16 mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col gap-6 min-w-0 md:max-w-[500px] text-left">
-          <h2 className="font-unbounded text-heading-h5 text-text-strong-1000 md:text-heading-h3">
+          <h2 className="font-bounded text-heading-h5 text-text-strong-1000 md:text-heading-h3">
             {t("Pay.AboutUs.smoothIntegration.title")}
           </h2>
 

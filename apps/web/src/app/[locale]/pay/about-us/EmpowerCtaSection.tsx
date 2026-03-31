@@ -21,7 +21,7 @@ export async function EmpowerCtaSection() {
 
       <div className="z-10 relative flex flex-col justify-center px-4 sm:px-8 py-16 sm:py-20">
         <div className="flex flex-col items-start mx-auto w-full max-w-[1180px] text-left">
-          <h2 className="mb-4 max-w-[640px] font-unbounded text-heading-h3 text-text-strong-1000 sm:text-heading-h1">
+          <h2 className="mb-4 max-w-[640px] font-bounded text-heading-h3 text-text-strong-1000 sm:text-heading-h1">
             {t("Pay.AboutUs.empowerCta.title")}
           </h2>
 

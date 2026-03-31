@@ -27,7 +27,7 @@ export async function HeroSection() {
         <div className="z-10 relative flex flex-col flex-grow sm:justify-between lg:justify-center lg:items-center gap-8 mx-auto pt-[160px] md:pt-[116px] lg:pt-[80px] pb-20 lg:pb-[160px] w-full max-w-[1080px]">
           <div className="flex flex-col px-4 md:px-8 lg:px-8 xl:px-0">
             <h1
-              className="mb-4 md:mb-6 font-unbounded text-display-lg text-text-strong-1000 md:text-display-2xl break-words"
+              className="mb-4 md:mb-6 font-bounded text-display-lg text-text-strong-1000 md:text-display-2xl break-words"
               data-lang={locale}
             >
               {t.rich("hero.title", {

@@ -21,12 +21,12 @@ export async function HeroSection() {
                 {t("badge")}
               </Badge>
 
-              <span className="font-unbounded text-sm uppercase leading-[1.1] tracking-[-0.56px] rwa-gold-gradient">
+              <span className="font-bounded text-sm uppercase leading-[1.1] tracking-[-0.56px] rwa-gold-gradient">
                 {t("product")}
               </span>
             </div>
 
-            <h1 className="font-unbounded text-display-md text-text-strong-1000 sm:text-display-xl">
+            <h1 className="font-bounded text-display-md text-text-strong-1000 sm:text-display-xl">
               {t("title")}
             </h1>
 

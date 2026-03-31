@@ -21,7 +21,7 @@ export async function FAQCTASection() {
         </div>
 
         <div className="flex flex-col gap-4 text-center">
-          <h2 className="font-unbounded text-heading-h5 text-text-strong-1000 md:text-heading-h3">
+          <h2 className="font-bounded text-heading-h5 text-text-strong-1000 md:text-heading-h3">
             {t("Pay.PartnerProgram.faqCta.title")}
           </h2>
 

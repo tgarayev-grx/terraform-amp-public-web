@@ -72,7 +72,7 @@ export function ProductHeader({
             aria-label="Product navigation"
           >
             <span
-              className="font-unbounded text-sm uppercase tracking-[-0.56px]"
+              className="font-bounded text-sm uppercase tracking-[-0.56px]"
               style={{
                 background:
                   "linear-gradient(234deg, #F4BC4E -35.16%, #F5A70F 24.2%, #8A5A00 83.56%)",

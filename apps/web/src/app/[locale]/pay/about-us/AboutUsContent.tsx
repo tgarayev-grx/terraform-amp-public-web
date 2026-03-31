@@ -11,7 +11,7 @@ export async function AboutUsContentSection() {
     <section className="flex flex-col bg-bg-weak-100 px-4 sm:px-8 py-16 sm:py-20 lg:py-24">
       <div className="flex flex-col gap-16 sm:gap-20 lg:gap-24 mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col items-center mx-auto max-w-[680px] text-center">
-          <h2 className="mb-6 font-unbounded text-display-sm text-text-strong-1000 sm:text-display-md">
+          <h2 className="mb-6 font-bounded text-display-sm text-text-strong-1000 sm:text-display-md">
             {t("Pay.AboutUs.content.title")}
           </h2>
 

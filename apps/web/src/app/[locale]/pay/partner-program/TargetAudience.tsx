@@ -58,7 +58,7 @@ export async function TargetAudienceSection() {
     <section className="flex flex-col items-center bg-surface-canvas px-4 sm:px-8 py-20 sm:py-20 lg:py-24">
       <div className="mx-auto w-full max-w-[980px]">
         <div className="flex flex-col items-center gap-4 mb-12 sm:mb-14 text-center">
-          <h2 className="max-w-[780px] font-unbounded text-display-sm text-text-strong-1000 sm:text-display-md">
+          <h2 className="max-w-[780px] font-bounded text-display-sm text-text-strong-1000 sm:text-display-md">
             {t("Pay.PartnerProgram.targetAudience.title")}
           </h2>
           <p className="max-w-full text-body-lg-medium text-text-subtle-700 md:text-body-xl-medium">

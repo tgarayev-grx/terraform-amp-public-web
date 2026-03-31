@@ -10,7 +10,7 @@ export async function HeroSection() {
     <section className="flex flex-col bg-surface-canvas pt-[80px] sm:pt-[112px] lg:pt-[80px] pb-12 min-h-[800px] overflow-hidden sm:text-left text-center">
       <div className="relative flex lg:flex-row flex-col flex-grow sm:justify-between gap-8 mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col lg:justify-center px-4 sm:px-8">
-          <h1 className="mb-4 sm:max-w-[580px] font-unbounded text-display-md text-text-strong-1000 sm:text-display-lg">
+          <h1 className="mb-4 sm:max-w-[580px] font-bounded text-display-md text-text-strong-1000 sm:text-display-lg">
             {t("Pay.AboutUs.hero.title")}
           </h1>
 

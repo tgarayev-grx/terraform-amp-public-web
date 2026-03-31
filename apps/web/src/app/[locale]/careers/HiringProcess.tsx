@@ -13,7 +13,7 @@ export async function HiringProcess() {
   return (
     <section className="w-full bg-[#0a0a0a]">
       <div className="mx-auto flex max-w-[1180px] flex-col items-center gap-14 px-4 py-20 lg:py-24">
-        <h2 className="w-full font-unbounded text-[28px] font-bold leading-[32px] text-white lg:text-center lg:text-[36px] lg:leading-[40px]">
+        <h2 className="w-full font-bounded text-[28px] font-bold leading-[32px] text-white lg:text-center lg:text-[36px] lg:leading-[40px]">
           {t("title")}
         </h2>
 
@@ -33,7 +33,7 @@ export async function HiringProcess() {
                 key={step}
                 className="flex flex-col gap-10 rounded-2xl border border-[#404040] bg-[#0a0a0a] px-6 pb-6 pt-10 text-center"
               >
-                <span className="font-unbounded text-[28px] font-bold leading-[32px] text-white lg:text-[36px] lg:leading-[40px]">
+                <span className="font-bounded text-[28px] font-bold leading-[32px] text-white lg:text-[36px] lg:leading-[40px]">
                   {index + 1}
                 </span>
                 <div className="flex flex-col gap-2">

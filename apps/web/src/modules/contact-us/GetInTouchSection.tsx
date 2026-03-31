@@ -10,7 +10,7 @@ export async function GetInTouchSection() {
     >
       <div className="mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col gap-4 mb-14 text-center">
-          <h3 className="mx-auto max-w-[500px] font-unbounded text-display-sm text-text-strong-1000 md:text-display-md">
+          <h3 className="mx-auto max-w-[500px] font-bounded text-display-sm text-text-strong-1000 md:text-display-md">
             {t("title")}
           </h3>
           <h4 className="text-body-lg-medium text-text-subtle-700 md:text-body-xl-medium text-center">

@@ -16,7 +16,7 @@ export async function BenefitsAndFeaturesSection() {
   return (
     <section className="flex flex-col items-center bg-bg-base px-4 sm:px-8 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
-        <h3 className="mx-auto mb-14 max-w-[780px] text-center font-unbounded text-display-sm text-text-strong-1000 sm:text-display-md">
+        <h3 className="mx-auto mb-14 max-w-[780px] text-center font-bounded text-display-sm text-text-strong-1000 sm:text-display-md">
           {t("Pay.Root.benefitsAndFeatures.title")}
         </h3>
 

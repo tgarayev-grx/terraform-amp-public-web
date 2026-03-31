@@ -291,7 +291,7 @@ export function VacancyList({ vacancies }: VacancyListProps) {
           <div className="flex flex-col gap-10">
             {/* Top row: title + submit CV button */}
             <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:justify-between">
-              <h1 className="font-unbounded text-center text-[28px] font-bold leading-[32px] text-white sm:text-left sm:text-[32px] sm:leading-[36px] md:text-[36px] md:leading-[40px]">
+              <h1 className="font-bounded text-center text-[28px] font-bold leading-[32px] text-white sm:text-left sm:text-[32px] sm:leading-[36px] md:text-[36px] md:leading-[40px]">
                 {t("openPositions.title")}
               </h1>
               <Button

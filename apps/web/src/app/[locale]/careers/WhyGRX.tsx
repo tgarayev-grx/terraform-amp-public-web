@@ -31,7 +31,7 @@ export async function WhyGRX() {
   return (
     <section className="w-full bg-[#0a0a0a]">
       <div className="mx-auto flex max-w-[1180px] flex-col items-center gap-10 px-4 py-14 md:gap-14 md:py-20 lg:py-24">
-        <h2 className="font-unbounded text-[26px] font-bold leading-[30px] text-white sm:text-[28px] sm:leading-[32px] md:text-[32px] md:leading-[36px] lg:text-[36px] lg:leading-[40px]">
+        <h2 className="font-bounded text-[26px] font-bold leading-[30px] text-white sm:text-[28px] sm:leading-[32px] md:text-[32px] md:leading-[36px] lg:text-[36px] lg:leading-[40px]">
           {t("title")}
         </h2>
 

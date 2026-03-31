@@ -19,7 +19,7 @@ export async function HeroSection() {
         <div className="relative flex flex-col flex-grow sm:justify-between items-center gap-8 mx-auto w-full max-w-[1180px]">
           <div className="flex flex-col flex-grow items-center gap-8 px-4 sm:px-8 pt-[160px] md:pt-[224px]">
             <div className="flex flex-col items-center gap-4">
-              <h1 className="mb-4 sm:max-w-[580px] font-unbounded text-display-md text-text-strong-1000 md:text-display-lg">
+              <h1 className="mb-4 sm:max-w-[580px] font-bounded text-display-md text-text-strong-1000 md:text-display-lg">
                 {t("AboutUsPage.hero.title")}
               </h1>
 

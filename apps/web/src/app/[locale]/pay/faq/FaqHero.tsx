@@ -14,7 +14,7 @@ export function FaqHero() {
       <div className="mx-auto px-4 sm:px-8 w-full max-w-[980px] text-center">
         <h1
           id={HERO_HEADING_ID}
-          className="font-unbounded text-display-sm text-text-strong-1000 md:text-display-md"
+          className="font-bounded text-display-sm text-text-strong-1000 md:text-display-md"
         >
           {HERO.title}
         </h1>

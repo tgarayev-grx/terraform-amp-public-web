@@ -41,7 +41,7 @@ export async function AssetsSection() {
       <section className="relative bg-bg-muted-50 pt-24 pb-20 overflow-hidden">
         <div className="z-10 relative flex flex-col items-center mx-auto px-4 sm:px-8 max-w-[73.75rem]">
           <div className="flex flex-col items-center gap-4 mb-20 px-4 md:px-0 w-[48.75rem] max-w-full text-center">
-            <h2 className="font-unbounded text-heading-h4 text-text-strong-1000 sm:text-heading-h3 md:text-display-md">
+            <h2 className="font-bounded text-heading-h4 text-text-strong-1000 sm:text-heading-h3 md:text-display-md">
               {t("title")}
             </h2>
             <p className="text-body-lg-medium text-text-subtle-700 md:text-body-xl-medium">

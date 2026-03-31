@@ -16,7 +16,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        unbounded: ["var(--font-unbounded)", "sans-serif"],
+        bounded: ["var(--font-bounded)", "sans-serif"],
       },
       colors: tailwindConfigColors,
       boxShadow: tailwindConfigShadows,

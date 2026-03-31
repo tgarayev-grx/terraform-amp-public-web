@@ -11,7 +11,7 @@ export async function BookDemoSection() {
     <section className="flex flex-col items-center bg-surface-floating px-4 sm:px-8 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-[1180px]">
         <div className="flex flex-col gap-4 mb-14 text-center">
-          <h3 className="mx-auto font-unbounded text-display-sm text-text-strong-1000 sm:text-display-md">
+          <h3 className="mx-auto font-bounded text-display-sm text-text-strong-1000 sm:text-display-md">
             {t("section.title")}
           </h3>
           <h4 className="mx-auto max-w-[580px] text-body-lg-medium text-text-subtle-700 sm:text-body-xl-medium">

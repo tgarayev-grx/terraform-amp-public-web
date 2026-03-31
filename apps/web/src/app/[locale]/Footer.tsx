@@ -73,7 +73,7 @@ function FooterNav({ t, className }: FooterNavProps) {
         aria-label="GRX - Golden Ratio Exchange"
       >
         <FooterLogoIcon className="w-auto h-9 text-text-strong-1000 shrink-0" />
-        <span className="font-unbounded font-medium text-[18px] text-text-strong-1000 leading-[0.98] tracking-[-0.36px]">
+        <span className="font-bounded font-medium text-[18px] text-text-strong-1000 leading-[0.98] tracking-[-0.36px]">
           <span className="block">GOLDEN RATIO</span>
           <span className="block">EXCHANGE</span>
         </span>
