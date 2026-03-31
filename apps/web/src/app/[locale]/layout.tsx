@@ -1,7 +1,8 @@
 import { setRequestLocale } from "next-intl/server";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
-import { Nunito_Sans, Unbounded } from "next/font/google";
+import { Nunito_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import clsx from "clsx";
@@ -26,9 +27,15 @@ const nunitoSans = Nunito_Sans({
   variable: "--font-nunito-sans",
 });
 
-const unbounded = Unbounded({
-  subsets: ["latin", "cyrillic"],
+const bounded = localFont({
+  src: [
+    {
+      path: "../../../public/fonts/Bounded-Variable.woff2",
+      style: "normal",
+    },
+  ],
   variable: "--font-unbounded",
+  display: "swap",
 });
 
 export function generateStaticParams() {
@@ -48,7 +55,7 @@ export default async function LocaleLayout({
 
   return (
     <html
-      className={clsx(nunitoSans.variable, unbounded.variable)}
+      className={clsx(nunitoSans.variable, bounded.variable)}
       lang={locale}
       suppressHydrationWarning
     >
