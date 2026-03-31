@@ -1,9 +1,11 @@
 import { getTranslations } from "next-intl/server";
+import Link from "next/link";
 
 const STEPS = [
   "applicationReview",
   "introCall",
   "hiringManagerInterview",
+  "specialistInterview",
   "offer",
 ] as const;
 
@@ -27,7 +29,7 @@ export async function HiringProcess() {
             className="absolute left-0 top-[124px] z-0 hidden h-0.5 w-[83%] bg-primary-gold lg:block"
           />
 
-          <div className="relative z-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="relative z-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {STEPS.map((step, index) => (
               <div
                 key={step}
@@ -48,6 +50,13 @@ export async function HiringProcess() {
             ))}
           </div>
         </div>
+
+        <Link
+          href="#open-positions"
+          className="rounded-[10px] bg-[var(--primary-base-1000)] px-4 py-[10px] text-[16px] font-semibold leading-[24px] text-[var(--surface-canvas)]"
+        >
+          {t("ctaButton")}
+        </Link>
       </div>
     </section>
   );

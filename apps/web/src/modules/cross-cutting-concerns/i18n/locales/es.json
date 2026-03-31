@@ -613,7 +613,11 @@
         },
         "hiringManagerInterview": {
           "title": "Hiring Manager interview",
-          "body": "A deeper discussion about your skills, experience, and how you would work with the team."
+          "body": "A deeper discussion of your skills, experience, and collaboration with the team."
+        },
+        "specialistInterview": {
+          "title": "Specialist interview",
+          "body": "A 1h conversation with another specialist to assess your hard skills and experience"
         },
         "offer": {
           "title": "Offer",
