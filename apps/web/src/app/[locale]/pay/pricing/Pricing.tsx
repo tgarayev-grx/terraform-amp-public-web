@@ -36,7 +36,7 @@ export async function PricingSection() {
                 width={96}
                 height={96}
                 style={{
-                  filter: "drop-shadow(2px 4px 16px rgba(0, 0, 0, 0.16))",
+                  filter: "var(--filter-drop-shadow-gem)",
                 }}
               />
 
@@ -126,7 +126,7 @@ export async function PricingSection() {
                   width={96}
                   height={96}
                   style={{
-                    filter: "drop-shadow(2px 4px 16px rgba(0, 0, 0, 0.16))",
+                    filter: "var(--filter-drop-shadow-gem)",
                   }}
                 />
                 <div className="flex flex-col gap-10 p-8">

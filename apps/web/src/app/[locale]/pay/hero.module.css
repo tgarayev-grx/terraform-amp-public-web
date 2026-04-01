@@ -8,7 +8,7 @@
 .heroImageBg {
   position: absolute;
   inset: 0;
-  background-color: #010101;
+  background-color: var(--color-neutral-1000);
 }
 
 .heroImageContainer {

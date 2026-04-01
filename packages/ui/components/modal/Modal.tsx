@@ -30,8 +30,7 @@ const Overlay = forwardRef<
         className
       )}
       style={{
-        // Tailwind can't handle bg-neutral-1000/40, because its specified in hex
-        background: "rgba(10, 10, 10, 0.4)",
+        background: "var(--overlay-backdrop)",
         ...style,
       }}
       {...props}

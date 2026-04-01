@@ -24,7 +24,7 @@ import { ZECIcon } from "@grx/ui/icons/ZECIcon";
 const iconProps = {
   className: "rounded-full flex-shrink-0",
   style: {
-    boxShadow: "3.333px 6.667px 26.667px 0 rgba(0, 10, 62, 0.10)",
+    boxShadow: "var(--shadow-crypto-icon)",
   },
 };
 

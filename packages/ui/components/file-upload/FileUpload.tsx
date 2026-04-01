@@ -106,8 +106,10 @@ export function FileUpload({
                 </div>
               ) : (
                 <div className="flex items-center gap-1">
-                  <CheckCircleIcon className="shrink-0 text-[#3EAD3E]" />
-                  <span className="text-xs text-[#3EAD3E]">Completed</span>
+                  <CheckCircleIcon className="shrink-0 text-success-subtle-500" />
+                  <span className="text-xs text-success-subtle-500">
+                    Completed
+                  </span>
                 </div>
               )}
             </div>

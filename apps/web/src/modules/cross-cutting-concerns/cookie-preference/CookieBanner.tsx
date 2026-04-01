@@ -22,13 +22,7 @@ export const CookieBanner = memo(() => {
   if (cookiePreferences.value) {
     return (
       <ManageCookiesModal cookiePreferences={cookiePreferences}>
-        <button
-          className="bottom-6 left-6 z-10 fixed flex flex-col justify-center items-center bg-primary-base-1000 hover:bg-primary-dark-700 active:bg-primary-darker-800 p-2.5 rounded-[12px] text-text-inverce"
-          style={{
-            boxShadow:
-              "0 20px 48px -4px rgba(16, 24, 40, 0.08), 0 8px 16px -4px rgba(16, 24, 40, 0.03)",
-          }}
-        >
+        <button className="bottom-6 left-6 z-10 fixed flex flex-col justify-center items-center bg-primary-base-1000 hover:bg-primary-dark-700 active:bg-primary-darker-800 p-2.5 rounded-[12px] text-text-inverce shadow-md">
           <CookieIcon width={24} height={24} />
         </button>
       </ManageCookiesModal>
@@ -36,13 +30,7 @@ export const CookieBanner = memo(() => {
   }
 
   return (
-    <div
-      className="right-0 sm:right-6 bottom-0 sm:bottom-6 z-10 fixed flex flex-col bg-surface-floating rounded-2xl max-w-full sm:max-w-[440px]"
-      style={{
-        boxShadow:
-          "0 20px 48px -4px rgba(16, 24, 40, 0.08), 0 8px 16px -4px rgba(16, 24, 40, 0.03)",
-      }}
-    >
+    <div className="right-0 sm:right-6 bottom-0 sm:bottom-6 z-10 fixed flex flex-col bg-surface-floating rounded-2xl max-w-full sm:max-w-[440px] shadow-md">
       <div className="flex flex-col gap-4 px-8 pt-8 text-neutral-1000">
         <h6 className="text-text-strong-1000 text-title-md">
           {t("CookieBanner.banner.title")}

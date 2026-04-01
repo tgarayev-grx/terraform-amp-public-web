@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { MANIFEST_BACKGROUND_HEX, MANIFEST_THEME_HEX } from "@grx/ui/theme";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
@@ -7,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Golden Ratio Exchange - Your trusted exchange platform",
     start_url: "/",
     display: "standalone",
-    background_color: "#ffffff",
-    theme_color: "#000000",
+    background_color: MANIFEST_BACKGROUND_HEX,
+    theme_color: MANIFEST_THEME_HEX,
     icons: [
       {
         src: "/icon-192.png",

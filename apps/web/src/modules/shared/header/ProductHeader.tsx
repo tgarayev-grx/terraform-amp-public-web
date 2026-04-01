@@ -75,7 +75,7 @@ export function ProductHeader({
               className="font-bounded text-sm uppercase tracking-[-0.56px]"
               style={{
                 background:
-                  "linear-gradient(234deg, #F4BC4E -35.16%, #F5A70F 24.2%, #8A5A00 83.56%)",
+                  "linear-gradient(234deg, var(--color-gold-300) -35.16%, var(--color-gold-500) 24.2%, var(--color-gold-800) 83.56%)",
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
                 WebkitTextFillColor: "transparent",
