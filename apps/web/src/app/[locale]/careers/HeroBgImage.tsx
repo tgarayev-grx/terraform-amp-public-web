@@ -14,8 +14,8 @@ export function HeroBgImage() {
           sizes="100vw"
         />
       </div>
-      <div className="absolute inset-y-0 left-0 z-10 w-[80px] bg-gradient-to-r from-[#0a0a0a] to-[#0a0a0a]/0 sm:w-[119px] md:w-[206px] lg:w-[386px]" />
-      <div className="absolute inset-x-0 bottom-0 z-10 h-[100px] bg-gradient-to-t from-[#171717] to-[#171717]/0 sm:h-[124px] md:h-[182px] lg:h-[329px]" />
+      <div className="absolute inset-y-0 left-0 z-10 w-[80px] bg-gradient-to-r from-surface-canvas to-transparent sm:w-[119px] md:w-[206px] lg:w-[386px]" />
+      <div className="absolute inset-x-0 bottom-0 z-10 h-[100px] bg-gradient-to-t from-surface-base to-transparent sm:h-[124px] md:h-[182px] lg:h-[329px]" />
     </div>
   );
 }
