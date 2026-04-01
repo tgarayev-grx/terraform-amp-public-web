@@ -36,7 +36,6 @@ export class HurmaClient {
     const url = `${this.baseUrl}/vacancy?page=${page}`;
     const res = await fetch(url, {
       headers: this.headers,
-      next: { revalidate: 60 },
     });
 
     if (!res.ok) {
