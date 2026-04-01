@@ -1,3 +1,4 @@
+import { ButtonRoot } from "@grx/ui/components/button/Button";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 
@@ -39,11 +40,11 @@ export async function HiringProcess() {
                   {index + 1}
                 </span>
                 <div className="flex flex-col gap-2">
-                  <h3 className="text-[16px] font-medium leading-[24px] text-text-strong-1000 lg:text-[20px] lg:leading-[26px]">
-                    {t(`steps.${step}.title`)}
+                  <h3 className="text-[16px] font-medium leading-[24px] text-[var(--text-strong-1000)] lg:text-[20px] lg:leading-[26px]">
+                    {t(`steps.${step}.title` as Parameters<typeof t>[0])}
                   </h3>
-                  <p className="text-[14px] font-normal leading-[20px] text-text-soft-500 lg:text-[16px] lg:leading-[24px]">
-                    {t(`steps.${step}.body`)}
+                  <p className="text-[14px] font-normal leading-[20px] text-[var(--text-soft-500)] lg:text-[16px] lg:leading-[24px]">
+                    {t(`steps.${step}.body` as Parameters<typeof t>[0])}
                   </p>
                 </div>
               </div>
@@ -51,12 +52,9 @@ export async function HiringProcess() {
           </div>
         </div>
 
-        <Link
-          href="#open-positions"
-          className="rounded-[10px] bg-[var(--primary-base-1000)] px-4 py-[10px] text-[16px] font-semibold leading-[24px] text-[var(--surface-canvas)]"
-        >
-          {t("ctaButton")}
-        </Link>
+        <ButtonRoot variant="primary" size="md" asChild>
+          <Link href="/careers/positions">{t("ctaButton")}</Link>
+        </ButtonRoot>
       </div>
     </section>
   );
