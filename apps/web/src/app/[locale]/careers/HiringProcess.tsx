@@ -16,7 +16,7 @@ export async function HiringProcess() {
   return (
     <section className="w-full bg-surface-canvas">
       <div className="mx-auto flex max-w-[1180px] flex-col items-center gap-14 px-4 py-20 lg:py-24">
-        <h2 className="w-full font-bounded text-[28px] font-bold leading-[32px] text-white lg:text-center lg:text-[36px] lg:leading-[40px]">
+        <h2 className="w-full font-bounded text-[28px] font-bold leading-[32px] text-text-strong-1000 lg:text-center lg:text-[36px] lg:leading-[40px]">
           {t("title")}
         </h2>
 
@@ -27,7 +27,7 @@ export async function HiringProcess() {
           />
           <div
             aria-hidden="true"
-            className="absolute left-0 top-[124px] z-0 hidden h-0.5 w-[83%] bg-primary-gold lg:block"
+            className="absolute left-0 top-[124px] z-0 hidden h-0.5 w-[90%] bg-primary-gold lg:block"
           />
 
           <div className="relative z-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
@@ -36,7 +36,7 @@ export async function HiringProcess() {
                 key={step}
                 className="flex flex-col gap-10 rounded-2xl border border-stroke-soft-200 bg-surface-canvas px-6 pb-6 pt-10 text-center"
               >
-                <span className="font-bounded text-[28px] font-bold leading-[32px] text-white lg:text-[36px] lg:leading-[40px]">
+                <span className="font-bounded text-[28px] font-bold leading-[32px] text-text-strong-1000 lg:text-[36px] lg:leading-[40px]">
                   {index + 1}
                 </span>
                 <div className="flex flex-col gap-2">
