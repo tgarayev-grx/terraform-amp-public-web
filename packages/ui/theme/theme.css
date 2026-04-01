@@ -16,17 +16,17 @@
   --color-neutral-1000: #0a0a0a;
 
   /* Blue colors */
-  --color-blue-50: #eff6ff;
+  --color-blue-50: #f1f7ff;
   --color-blue-100: #dbeafe;
   --color-blue-200: #bfdbfe;
   --color-blue-300: #93c5fd;
   --color-blue-400: #60a5fa;
   --color-blue-500: #3b82f6;
   --color-blue-600: #2563eb;
-  --color-blue-700: #1d4ed8;
-  --color-blue-800: #1e40af;
-  --color-blue-900: #1e3a8a;
-  --color-blue-950: #172554;
+  --color-blue-700: #1e40af;
+  --color-blue-800: #1e3a8a;
+  --color-blue-900: #122865;
+  --color-blue-950: #171d32;
 
   /* Indigo colors */
   --color-indigo-50: #f0f3ff;
@@ -53,7 +53,7 @@
   --color-fuchsia-900: #711a75;
 
   /* Gold colors */
-  --color-gold-50: #fef6e6;
+  --color-gold-50: #fff9ed;
   --color-gold-100: #fdedcd;
   --color-gold-200: #fce4b5;
   --color-gold-300: #fad384;
@@ -61,9 +61,9 @@
   --color-gold-500: #f5a70f;
   --color-gold-600: #dc970d;
   --color-gold-700: #c4860c;
-  --color-gold-800: #ab760a;
-  --color-gold-900: #7a5407;
-  --color-gold-950: #312203;
+  --color-gold-800: #8b6008;
+  --color-gold-900: #473000;
+  --color-gold-950: #1f1602;
 
   /* Amber colors */
   --color-amber-50: #fffbeb;
@@ -71,25 +71,26 @@
   --color-amber-200: #fde68b;
   --color-amber-300: #fcd44f;
   --color-amber-400: #fbbd23;
-  --color-amber-500: #f59f0a;
+  --color-amber-500: #df9310;
   --color-amber-600: #db7706;
   --color-amber-700: #b35309;
   --color-amber-800: #91400d;
-  --color-amber-900: #76350f;
+  --color-amber-900: #42220f;
+  --color-amber-950: #2c1c12;
 
   /* Green colors */
-  --color-green: #c2e2df;
-  --color-green-50: #ebf8e0;
-  --color-green-100: #dcf1c8;
-  --color-green-200: #c7eba6;
-  --color-green-300: #96d759;
-  --color-green-400: #6bc417;
-  --color-green-500: #5fae14;
-  --color-green-600: #4f9211;
-  --color-green-700: #3b6d0d;
-  --color-green-800: #2f570a;
-  --color-green-900: #234107;
-  --color-green-950: #172b05;
+  --color-green: #22c55e;
+  --color-green-50: #effff6;
+  --color-green-100: #d5f7e0;
+  --color-green-200: #96e2b1;
+  --color-green-300: #51d682;
+  --color-green-400: #22c55e;
+  --color-green-500: #16a34a;
+  --color-green-600: #1a853f;
+  --color-green-700: #166534;
+  --color-green-800: #0b5226;
+  --color-green-900: #0a3f23;
+  --color-green-950: #0e2618;
 
   /* Emerald colors */
   --color-emerald-50: #eafbf3;
@@ -143,20 +144,20 @@
   --color-beige: #fffde7;
 
   /* Red colors */
-  --color-red-50: #fef2f2;
-  --color-red-100: #fee2e2;
-  --color-red-200: #f4b7b7;
-  --color-red-300: #e24c4c;
-  --color-red-400: #df3838;
-  --color-red-500: #dc2626;
-  --color-red-600: #c52222;
-  --color-red-700: #6e1313;
-  --color-red-800: #580f0f;
+  --color-red-50: #fff2f2;
+  --color-red-100: #ffd5d8;
+  --color-red-200: #ff97a0;
+  --color-red-300: #ff6875;
+  --color-red-400: #fb4b5a;
+  --color-red-500: #fb3748;
+  --color-red-600: #d02533;
+  --color-red-700: #ad1f2b;
+  --color-red-800: #8b1822;
   --color-red-900: #420b0b;
-  --color-red-950: #2c0707;
+  --color-red-950: #311515;
 
   /* Yellow colors */
-  --color-yellow-50: #fffbeb;
+  --color-yellow-50: #fffae7;
   --color-yellow-100: #fef3c7;
   --color-yellow-200: #fde68a;
   --color-yellow-300: #fcd34d;
@@ -166,7 +167,6 @@
   --color-yellow-700: #af8418;
   --color-yellow-800: #7d5f11;
   --color-yellow-900: #4b390a;
-  --color-yellow-950: #322607;
 
   /* Cyan colors */
   --color-cyan-50: #ebfeff;
@@ -213,7 +213,9 @@
   --shadow-light-md:
     0 20px 48px -4px rgba(16, 24, 40, 0.08),
     0 8px 16px -4px rgba(16, 24, 40, 0.03);
-  --shadow-light-lg: 0 24px 64px -12px rgba(16, 24, 40, 0.18);
+  --shadow-light-lg:
+    0 4px 6px -2px rgba(10, 13, 18, 0.031),
+    0 12px 16px -4px rgba(10, 13, 18, 0.078);
   --shadow-light-xl: 0 32px 80px -12px rgba(16, 24, 40, 0.2);
 
   --shadow-dark-xs:
@@ -252,6 +254,7 @@
   --surface-floating: var(--color-neutral);
 
   --bg-base-1000: var(--color-neutral-1000);
+  --bg-base-0: var(--color-neutral);
   --bg-strong-800: var(--color-neutral-800);
   --bg-emphasis-700: var(--color-neutral-700);
   --bg-emphasis-400: var(--color-neutral-400);
@@ -289,11 +292,11 @@
   --error-lighter-100: var(--color-red-100);
   --error-muted-50: var(--color-red-50);
 
-  --warning-strong-800: var(--color-yellow-800);
-  --warning-base-600: var(--color-yellow-600);
-  --warning-subtle-500: var(--color-yellow-500);
-  --warning-soft-400: var(--color-yellow-400);
-  --warning-muted-50: var(--color-yellow-50);
+  --warning-strong-800: var(--color-amber-800);
+  --warning-base-600: var(--color-amber-600);
+  --warning-subtle-500: var(--color-amber-500);
+  --warning-soft-400: var(--color-amber-400);
+  --warning-muted-50: var(--color-amber-50);
 
   --success-strong-800: var(--color-green-800);
   --success-base-600: var(--color-green-600);
@@ -373,6 +376,7 @@
   --surface-floating: var(--color-neutral-850);
 
   --bg-base-1000: var(--color-neutral);
+  --bg-base-0: var(--color-neutral-1000);
   --bg-strong-800: var(--color-neutral-200);
   --bg-emphasis-700: var(--color-neutral-300);
   --bg-emphasis-400: var(--color-neutral-500);
@@ -410,11 +414,11 @@
   --error-lighter-100: var(--color-red-900);
   --error-muted-50: var(--color-red-950);
 
-  --warning-strong-800: var(--color-yellow-600);
-  --warning-base-600: var(--color-yellow-500);
-  --warning-subtle-500: var(--color-yellow-400);
-  --warning-soft-400: var(--color-yellow-300);
-  --warning-muted-50: var(--color-yellow-950);
+  --warning-strong-800: var(--color-amber-700);
+  --warning-base-600: var(--color-amber-500);
+  --warning-subtle-500: var(--color-amber-400);
+  --warning-soft-400: var(--color-amber-300);
+  --warning-muted-50: var(--color-amber-950);
 
   --success-strong-800: var(--color-green-600);
   --success-base-600: var(--color-green-500);
@@ -451,7 +455,7 @@
   --add-pink-900: var(--color-pink-50);
   --add-orange-50: var(--color-orange-900);
   --add-orange-300: var(--color-orange-600);
-  --add-orange-900: var(--color-orange-900);
+  --add-orange-900: var(--color-orange-50);
   --add-amber-50: var(--color-amber-900);
   --add-amber-300: var(--color-amber-600);
   --add-amber-900: var(--color-amber-50);

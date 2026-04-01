@@ -195,7 +195,6 @@ export const tailwindConfigColors = {
     700: "var(--color-yellow-700)",
     800: "var(--color-yellow-800)",
     900: "var(--color-yellow-900)",
-    950: "var(--color-yellow-950)",
   },
 
   // Cyan
@@ -256,6 +255,7 @@ export const tailwindConfigColors = {
   },
   bg: {
     "base-1000": "var(--bg-base-1000)",
+    "base-0": "var(--bg-base-0)",
     "strong-800": "var(--bg-strong-800)",
     "emphasis-700": "var(--bg-emphasis-700)",
     "emphasis-400": "var(--bg-emphasis-400)",
