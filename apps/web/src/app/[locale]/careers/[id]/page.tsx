@@ -51,7 +51,7 @@ export default async function JobDetailPage({ params }: { params: Params }) {
   }
 
   return (
-    <main className="w-full bg-surface-base">
+    <main className="w-full bg-surface-floating">
       <div className="mx-auto flex max-w-[780px] flex-col gap-8 px-4 pb-14 pt-6 md:gap-10 md:pb-24 md:pt-10">
         <nav aria-label="Breadcrumb">
           <ol className="flex items-center gap-[var(--150,6px)]">
