@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Nunito_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import { Metadata } from "next";
+import { Suspense } from "react";
 import { ThemeProvider } from "next-themes";
 import clsx from "clsx";
 
@@ -20,6 +21,8 @@ import {
 } from "@/modules/cross-cutting-concerns/i18n/config";
 import { CookieBanner } from "@/modules/cross-cutting-concerns/cookie-preference";
 import { RecaptchaScript } from "@/lib/recaptcha/RecaptchaScript";
+import { GoogleAnalytics } from "@/lib/gtag/GoogleAnalytics";
+import { GoogleAnalyticsPageTracker } from "@/lib/gtag/GoogleAnalyticsPageTracker";
 import { Header } from "@/modules/shared/header";
 import { Footer } from "./Footer";
 
@@ -96,6 +99,10 @@ export default async function LocaleLayout({
     >
       <body>
         <RecaptchaScript />
+        <GoogleAnalytics />
+        <Suspense fallback={null}>
+          <GoogleAnalyticsPageTracker />
+        </Suspense>
 
         <NextIntlClientProvider>
           <ThemeProvider
