@@ -14,6 +14,15 @@ export function GoogleAnalytics() {
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
+          gtag('consent', 'default', {
+            analytics_storage: 'denied',
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            functionality_storage: 'denied',
+            security_storage: 'granted',
+            wait_for_update: 500,
+          });
           gtag('js', new Date());
           gtag('config', '${GA_MEASUREMENT_ID}', { page_path: window.location.pathname });
         `}

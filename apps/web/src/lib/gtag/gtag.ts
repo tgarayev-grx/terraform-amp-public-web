@@ -7,6 +7,21 @@ export const pageview = (url: string) => {
   window.gtag("config", GA_MEASUREMENT_ID!, { page_path: url });
 };
 
+export const updateConsent = (preferences: {
+  analytics: boolean;
+  advertisement: boolean;
+  functional: boolean;
+}) => {
+  if (!isEnabled) return;
+  window.gtag("consent", "update", {
+    analytics_storage: preferences.analytics ? "granted" : "denied",
+    ad_storage: preferences.advertisement ? "granted" : "denied",
+    ad_user_data: preferences.advertisement ? "granted" : "denied",
+    ad_personalization: preferences.advertisement ? "granted" : "denied",
+    functionality_storage: preferences.functional ? "granted" : "denied",
+  });
+};
+
 export const event = ({
   action,
   category,

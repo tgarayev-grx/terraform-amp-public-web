@@ -23,6 +23,7 @@ import { CookieBanner } from "@/modules/cross-cutting-concerns/cookie-preference
 import { RecaptchaScript } from "@/lib/recaptcha/RecaptchaScript";
 import { GoogleAnalytics } from "@/lib/gtag/GoogleAnalytics";
 import { GoogleAnalyticsPageTracker } from "@/lib/gtag/GoogleAnalyticsPageTracker";
+import { GoogleAnalyticsConsentSync } from "@/lib/gtag/GoogleAnalyticsConsentSync";
 import { Header } from "@/modules/shared/header";
 import { Footer } from "./Footer";
 
@@ -103,6 +104,7 @@ export default async function LocaleLayout({
         <Suspense fallback={null}>
           <GoogleAnalyticsPageTracker />
         </Suspense>
+        <GoogleAnalyticsConsentSync />
 
         <NextIntlClientProvider>
           <ThemeProvider
