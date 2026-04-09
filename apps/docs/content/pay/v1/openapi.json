@@ -1,0 +1,2530 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/v1/invoice": {
+      "post": {
+        "operationId": "InvoiceController_createInvoice",
+        "summary": "Create an invoice",
+        "description": "Create an invoice for a client for a specified amount",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateInvoiceArgsDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": ["data"],
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/CreateInvoiceResponseDto"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "When the request data is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppValidationErrorResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "When the user is Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "When an internal error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Invoice"],
+        "security": [
+          {
+            "Api_Key": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "InvoiceController_getInvoices",
+        "summary": "Retrieve invoices list",
+        "description": "Retrieve crypto invoices list",
+        "parameters": [
+          {
+            "name": "take",
+            "required": false,
+            "in": "query",
+            "example": 10,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "skip",
+            "required": false,
+            "in": "query",
+            "example": 0,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "orderDir",
+            "required": false,
+            "in": "query",
+            "example": "asc",
+            "schema": {
+              "enum": ["asc", "desc"],
+              "type": "string"
+            }
+          },
+          {
+            "name": "orderBy",
+            "required": false,
+            "in": "query",
+            "example": "createdAt",
+            "schema": {
+              "enum": [
+                "createdAt",
+                "completedAt",
+                "invoiceAssetCode",
+                "paymentAssetCode",
+                "status"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdFrom",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdTo",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "name": "completedFrom",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "name": "completedTo",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "name": "externalOrderId",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "invoiceAssetCode",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "paymentAssetCode",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": ["data"],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/GetInvoicesResponseDto"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "When the request data is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppValidationErrorResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "When the user is Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "When an internal error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Invoice"],
+        "security": [
+          {
+            "Api_Key": []
+          }
+        ]
+      }
+    },
+    "/v1/invoice/{id}": {
+      "get": {
+        "operationId": "InvoiceController_getInvoiceById",
+        "summary": "Retrieve invoice details",
+        "description": "Retrieve crypto invoice details",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": ["data"],
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/GetInvoiceByIdResponseDto"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "When the request data is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppValidationErrorResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "When the user is Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "When an internal error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Invoice"],
+        "security": [
+          {
+            "Api_Key": []
+          }
+        ]
+      }
+    },
+    "/v1/invoice/assets": {
+      "get": {
+        "operationId": "InvoiceController_getInvoiceAssets",
+        "summary": "Retrieve invoice currencies",
+        "description": "Retrieve invoice currencies for invoice creation",
+        "parameters": [
+          {
+            "name": "take",
+            "required": false,
+            "in": "query",
+            "example": 10,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "skip",
+            "required": false,
+            "in": "query",
+            "example": 0,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": ["data"],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/InvoiceAssetsResponseDto"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "When the request data is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppValidationErrorResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "When the user is Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "When an internal error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Invoice"],
+        "security": [
+          {
+            "Api_Key": []
+          }
+        ]
+      }
+    },
+    "/v1/invoice/questionnaire": {
+      "get": {
+        "operationId": "InvoiceController_getAvailableQuestionnaireFields",
+        "summary": "Retrieve questionnaire fields",
+        "description": "Retrieve available questionnaire fields for Invoice creation",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": ["data"],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/InvoiceQuestionnaireFieldsResponseDto"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "When the request data is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppValidationErrorResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "When the user is Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "When an internal error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Invoice"],
+        "security": [
+          {
+            "Api_Key": []
+          }
+        ]
+      }
+    },
+    "/v1/withdraw/pre-request": {
+      "get": {
+        "operationId": "WithdrawController_preRequestWithdraw",
+        "summary": "Retrieve withdrawal methods",
+        "description": "Retrieve available withdrawal methods",
+        "parameters": [
+          {
+            "name": "asset",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "minLength": 3,
+              "maxLength": 5,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": ["data"],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/PreRequestWithdrawResponseDto"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "When the request data is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppValidationErrorResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "When the user is Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "When an internal error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Withdraw"],
+        "security": [
+          {
+            "Api_Key": []
+          }
+        ]
+      }
+    },
+    "/v1/withdraw": {
+      "post": {
+        "operationId": "WithdrawController_makeWithdraw",
+        "summary": "Create a withdraw",
+        "description": "Withdraw in crypto to any specified address",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MakeWithdrawBodyDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": ["data"],
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/MakeWithdrawResponseDto"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "When the request data is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppValidationErrorResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "When the user is Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "When an internal error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Withdraw"],
+        "security": [
+          {
+            "Api_Key": []
+          }
+        ]
+      }
+    },
+    "/v1/asset/balance": {
+      "get": {
+        "operationId": "AssetController_getBalances",
+        "summary": "Retrieve balance",
+        "description": "Retrieve balance",
+        "parameters": [
+          {
+            "name": "assetCodes",
+            "required": false,
+            "in": "query",
+            "description": "list of assets separated by coma \",\" ",
+            "example": "BTC,USDT,ETH",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": ["data"],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/GetAssetBalanceResponseDto"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "When the request data is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppValidationErrorResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "When the user is Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "When an internal error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Asset"],
+        "security": [
+          {
+            "Api_Key": []
+          }
+        ]
+      }
+    },
+    "/v1/transaction": {
+      "get": {
+        "operationId": "TransactionController_getTransactions",
+        "summary": "Retrieve transactions",
+        "description": "Method to get a list of transactions",
+        "parameters": [
+          {
+            "name": "take",
+            "required": false,
+            "in": "query",
+            "example": 10,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "skip",
+            "required": false,
+            "in": "query",
+            "example": 0,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "asset",
+            "required": false,
+            "in": "query",
+            "example": "BTC",
+            "schema": {
+              "minLength": 3,
+              "maxLength": 5,
+              "type": "string"
+            }
+          },
+          {
+            "name": "payoutId",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdFrom",
+            "required": false,
+            "in": "query",
+            "example": "2022-12-12",
+            "description": "Can be date in: YYYY-MM-DD, ISO format like \"2023-05-17T06:11:25.866Z\"",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdTo",
+            "required": false,
+            "in": "query",
+            "example": "2023-01-01",
+            "description": "Can be date in: YYYY-MM-DD, ISO format like \"2023-05-17T06:11:25.866Z\"",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "name": "orderDir",
+            "required": false,
+            "in": "query",
+            "example": "asc",
+            "schema": {
+              "enum": ["asc", "desc"],
+              "type": "string"
+            }
+          },
+          {
+            "name": "orderBy",
+            "required": false,
+            "in": "query",
+            "example": "status",
+            "schema": {
+              "enum": ["createdAt", "asset", "status"],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": ["data"],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/GetTransactionsResponseDto"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "When the request data is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppValidationErrorResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "When the user is Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "When an internal error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Transaction"],
+        "security": [
+          {
+            "Api_Key": []
+          }
+        ]
+      }
+    },
+    "/v1/transaction/{id}": {
+      "get": {
+        "operationId": "TransactionController_getTransactionById",
+        "summary": "Retrieve transaction details",
+        "description": "Retrieve detailed information about the transaction",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": ["data"],
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/GetTransactionByIdResponseDto"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "When the request data is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppValidationErrorResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "When the user is Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "When an internal error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Transaction"],
+        "security": [
+          {
+            "Api_Key": []
+          }
+        ]
+      }
+    },
+    "/v1/deposit/crypto/address": {
+      "get": {
+        "operationId": "CryptoDepositController_getDepositCryptoAddress",
+        "summary": "Find crypto address",
+        "description": "Find crypto address for deposit",
+        "parameters": [
+          {
+            "name": "source",
+            "required": true,
+            "in": "query",
+            "description": "Cryptocurrency(Fiat currency cannot be specified)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": ["data"],
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/CryptoAddressDetailsResDto"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "When the request data is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppValidationErrorResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "When the user is Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "When an internal error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Deposit"],
+        "security": [
+          {
+            "Api_Key": []
+          }
+        ]
+      }
+    },
+    "/v1/deposit/crypto/generateAddress": {
+      "post": {
+        "operationId": "CryptoDepositController_generateDepositCryptoAddress",
+        "summary": "Generate crypto address",
+        "description": "Generate constant crypto address for deposit",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CryptocurrencyReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": ["data"],
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/CryptoAddressDetailsResDto"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "When the request data is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppValidationErrorResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "When the user is Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "When an internal error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Deposit"],
+        "security": [
+          {
+            "Api_Key": []
+          }
+        ]
+      }
+    },
+    "/v1/payout/pre-request": {
+      "get": {
+        "operationId": "PayoutController_preRequestPayout",
+        "summary": "Retrieve payout methods",
+        "description": "Retrieve available payment methods for payout",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": ["data"],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/PreRequestWithdrawResponseDto"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "When the request data is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppValidationErrorResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "When the user is Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "When an internal error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Payout"],
+        "security": [
+          {
+            "Api_Key": []
+          }
+        ]
+      }
+    },
+    "/v1/payout": {
+      "post": {
+        "operationId": "PayoutController_createPayout",
+        "summary": "Create a payout",
+        "description": "Create and launch payout to specified contractors",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePayoutRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": ["data"],
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/CreatePayoutResponse"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "When the request data is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppValidationErrorResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "When the user is Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "When an internal error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Payout"],
+        "security": [
+          {
+            "Api_Key": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "PayoutController_getPayouts",
+        "summary": "Retrieve invoices list",
+        "description": "Retrieve crypto invoices list",
+        "parameters": [
+          {
+            "name": "take",
+            "required": false,
+            "in": "query",
+            "example": 10,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "skip",
+            "required": false,
+            "in": "query",
+            "example": 0,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "externalId",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": ["data"],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/PayoutsGeneralInfoResponse"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "When the request data is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppValidationErrorResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "When the user is Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "When an internal error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppErrorResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Payout"],
+        "security": [
+          {
+            "Api_Key": []
+          }
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "GRX_PAY_REST_API",
+    "description": "Valid From: Wed May 29 2024 14:01:05 GMT+0000 (Coordinated Universal Time)",
+    "version": "1.0.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [
+    {
+      "url": "{BASE_URL}",
+      "description": "Application base url",
+      "variables": {
+        "BASE_URL": {
+          "description": "Base url",
+          "default": "https://rest-api-pay.goldenratio.exchange"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "Api_Key": {
+        "type": "apiKey",
+        "description": "GRXPay API Key",
+        "in": "header",
+        "name": "api-key"
+      }
+    },
+    "schemas": {
+      "AppErrorResItem": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "object",
+            "example": "UNAUTHORIZED"
+          },
+          "message": {
+            "type": "string",
+            "example": "Reason, why it happens"
+          }
+        },
+        "required": ["message"]
+      },
+      "AppErrorResponseDto": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AppErrorResItem"
+            }
+          }
+        },
+        "required": ["errors"]
+      },
+      "AppValidationErrorResItem": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "object",
+            "example": "BAD_REQUEST"
+          },
+          "message": {
+            "type": "string",
+            "example": "{fieldname} must be a {type}"
+          }
+        },
+        "required": ["message"]
+      },
+      "AppValidationErrorResponseDto": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AppValidationErrorResItem"
+            }
+          }
+        },
+        "required": ["errors"]
+      },
+      "CreateInvoiceResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "10bc8f8e-ccc9-48c0-9d43-bf1dff913cc2"
+          },
+          "paymentLink": {
+            "type": "string"
+          }
+        },
+        "required": ["id", "paymentLink"]
+      },
+      "CreateInvoiceCustomizationDto": {
+        "type": "object",
+        "properties": {
+          "redirectUrl": {
+            "type": "string",
+            "description": "URL to redirect the user once the invoice is paid."
+          },
+          "redirectButtonTitle": {
+            "type": "string",
+            "maxLength": 30,
+            "description": "Custom text to display on the button for redirecting the user."
+          }
+        }
+      },
+      "CreateQuestionnaireFieldDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of schema field"
+          }
+        },
+        "required": ["name"]
+      },
+      "CreateQuestionnaireDto": {
+        "type": "object",
+        "properties": {
+          "schemaFields": {
+            "description": "Schema fields",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateQuestionnaireFieldDto"
+            }
+          }
+        },
+        "required": ["schemaFields"]
+      },
+      "CreateInvoiceArgsDto": {
+        "type": "object",
+        "properties": {
+          "asset": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 5,
+            "example": "UAH",
+            "description": "Currency short code in uppercase "
+          },
+          "shouldSendTransactionalCallback": {
+            "type": "boolean",
+            "description": "If true, then callbacks will be sent to each deposit according to the invoice"
+          },
+          "amount": {
+            "type": "string"
+          },
+          "externalOrderId": {
+            "type": "string"
+          },
+          "productDescription": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "productCategory": {
+            "type": "string",
+            "maxLength": 50
+          },
+          "callbackUrl": {
+            "type": "string"
+          },
+          "customization": {
+            "$ref": "#/components/schemas/CreateInvoiceCustomizationDto"
+          },
+          "questionnaire": {
+            "$ref": "#/components/schemas/CreateQuestionnaireDto"
+          }
+        },
+        "required": ["asset", "amount"]
+      },
+      "GetInvoicesResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "7cc777a3-d9ef-4766-aeff-34a48baf493e"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "CREATED",
+              "PAYMENT_AWAITING",
+              "CONFIRMATION_AWAITING",
+              "LIMITS_OUT_OF_RANGE",
+              "PAID",
+              "PARTIALLY_PAID",
+              "TIMEOUT",
+              "DEACTIVATED",
+              "DECLINED",
+              "SUSPENDED",
+              "ARRESTED",
+              "CURRENCY_MISMATCH"
+            ],
+            "example": "CREATED"
+          },
+          "addressId": {
+            "type": "string",
+            "nullable": true
+          },
+          "externalOrderId": {
+            "type": "string",
+            "nullable": true
+          },
+          "paymentAmount": {
+            "type": "string",
+            "nullable": true
+          },
+          "invoiceAmount": {
+            "type": "string",
+            "example": "19999.00"
+          },
+          "invoiceAssetCode": {
+            "type": "string",
+            "example": "UAH"
+          },
+          "paymentAssetCode": {
+            "type": "object",
+            "example": "BTC",
+            "nullable": true
+          },
+          "expireAt": {
+            "type": "string",
+            "example": "2023-05-25T08:24:44.986Z",
+            "nullable": true
+          },
+          "completedAt": {
+            "type": "string",
+            "example": "2023-05-24T08:00:00.986Z",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2023-05-23T08:12:00.986Z",
+            "nullable": true
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "addressId",
+          "externalOrderId",
+          "paymentAmount",
+          "invoiceAmount",
+          "invoiceAssetCode",
+          "paymentAssetCode",
+          "expireAt",
+          "completedAt",
+          "createdAt"
+        ]
+      },
+      "ConvertResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "fromCurrency": {
+            "type": "string",
+            "example": "USDT"
+          },
+          "fromAmount": {
+            "type": "string",
+            "example": "101000"
+          },
+          "toCurrency": {
+            "type": "string",
+            "example": "EUR"
+          },
+          "amount": {
+            "type": "string",
+            "description": "Amount received to account after convert",
+            "nullable": true,
+            "example": "100000"
+          },
+          "fee": {
+            "type": "string",
+            "description": "Convert fee",
+            "nullable": true,
+            "example": "0"
+          },
+          "rate": {
+            "type": "string",
+            "description": "Convert rate",
+            "nullable": true,
+            "example": "0.92"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["Created", "Processing", "Processed", "Canceled"],
+            "example": "Processed"
+          },
+          "completedAt": {
+            "type": "object",
+            "nullable": true,
+            "example": "2023-05-23T08:12:00.986Z"
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2023-05-23T08:12:00.986Z"
+          }
+        },
+        "required": [
+          "id",
+          "fromCurrency",
+          "fromAmount",
+          "toCurrency",
+          "status",
+          "createdAt"
+        ]
+      },
+      "InvoiceEquivalentsDto": {
+        "type": "object",
+        "properties": {
+          "invoiceAsset": {
+            "type": "string",
+            "description": "Invoice asset"
+          },
+          "amount": {
+            "type": "string",
+            "description": "Transaction amount in equivalent to the invoice currency"
+          },
+          "rate": {
+            "type": "string",
+            "description": "Equivalent rate"
+          }
+        },
+        "required": ["invoiceAsset", "amount", "rate"]
+      },
+      "InvoiceTransferDto": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "memo": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "type": "string",
+            "example": "0.365128"
+          },
+          "asset": {
+            "type": "string",
+            "example": "UAH"
+          },
+          "creatorComment": {
+            "type": "string",
+            "example": "any comments",
+            "nullable": true
+          },
+          "fee": {
+            "type": "string",
+            "example": "0.000012"
+          },
+          "id": {
+            "type": "string",
+            "example": "2a494e98-eaa8-4a95-904c-e3a8e4dd0511"
+          },
+          "processedAmount": {
+            "type": "string",
+            "example": "0.365128"
+          },
+          "reason": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Created",
+              "Canceled",
+              "PartiallyProcessed",
+              "Processing",
+              "Processed",
+              "Suspended",
+              "Arrested"
+            ],
+            "example": "Processed"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "Deposit",
+              "InvoiceDeposit",
+              "Withdraw",
+              "PayoutWithdraw",
+              "Refund"
+            ],
+            "example": "Deposit"
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2023-05-23T08:12:00.986Z"
+          },
+          "txId": {
+            "type": "string",
+            "example": "d281dbc6604a80eee84d3121x499x97x1222c7e3dd166ce052e13f5c42f4ec8a",
+            "nullable": true
+          },
+          "riskScore": {
+            "type": "string",
+            "description": "AML risk score",
+            "nullable": true
+          },
+          "Convert": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ConvertResponse"
+              }
+            ]
+          },
+          "InvoiceEquivalents": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/InvoiceEquivalentsDto"
+              }
+            ]
+          },
+          "paymentCode": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "address",
+          "memo",
+          "amount",
+          "asset",
+          "creatorComment",
+          "fee",
+          "id",
+          "processedAmount",
+          "reason",
+          "status",
+          "type",
+          "createdAt",
+          "paymentCode"
+        ]
+      },
+      "InvoicePaymentDetailsDto": {
+        "type": "object",
+        "properties": {
+          "paidAmount": {
+            "type": "string",
+            "description": "Amount paid on Invoice."
+          },
+          "paidFee": {
+            "type": "string",
+            "description": "Commission paid on Invoice."
+          },
+          "leftAmount": {
+            "type": "string",
+            "description": "The amount remaining to pay on the Invoice."
+          },
+          "paidAmountInInvoiceAsset": {
+            "type": "string",
+            "description": "The paid amount on the invoice in the Invoice currency."
+          },
+          "leftAmountInInvoiceAsset": {
+            "type": "string",
+            "description": "The amount remaining to be paid on the invoice in the Invoice currency."
+          }
+        },
+        "required": [
+          "paidAmount",
+          "paidFee",
+          "leftAmount",
+          "paidAmountInInvoiceAsset",
+          "leftAmountInInvoiceAsset"
+        ]
+      },
+      "GetInvoiceByIdResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "a2b833ab-4bb0-4fed-a95c-40bdc0b0ee82"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "CREATED",
+              "PAYMENT_AWAITING",
+              "CONFIRMATION_AWAITING",
+              "LIMITS_OUT_OF_RANGE",
+              "PAID",
+              "PARTIALLY_PAID",
+              "TIMEOUT",
+              "DEACTIVATED",
+              "DECLINED",
+              "SUSPENDED",
+              "ARRESTED",
+              "CURRENCY_MISMATCH"
+            ]
+          },
+          "isPaymentAfterTimeout": {
+            "type": "boolean",
+            "description": "When at least one payment is received after the timeout"
+          },
+          "externalOrderId": {
+            "type": "string",
+            "example": "MyCustomOrderId"
+          },
+          "addressId": {
+            "type": "string",
+            "example": "92ffbaa4-11db-4fa7-a6d3-805f337971c6",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "description": "Address for deposit on invoice",
+            "nullable": true
+          },
+          "memo": {
+            "type": "string",
+            "description": "Memo for deposit on invoice",
+            "nullable": true
+          },
+          "creatorId": {
+            "type": "string",
+            "example": "8f32aa89-6ae4-48db-88da-645166d59c2d"
+          },
+          "invoiceAmount": {
+            "type": "string",
+            "example": "9999.99"
+          },
+          "paymentAmount": {
+            "type": "string",
+            "example": "0.365128",
+            "nullable": true
+          },
+          "paymentFee": {
+            "type": "string",
+            "example": "1.5784",
+            "description": "Expected fee amount for the invoice",
+            "nullable": true
+          },
+          "invoiceAssetCode": {
+            "type": "string",
+            "example": "UAH"
+          },
+          "paymentAssetCode": {
+            "type": "string",
+            "example": "ETH",
+            "nullable": true
+          },
+          "transactions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InvoiceTransferDto"
+            }
+          },
+          "payment": {
+            "description": "Invoice payment details",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/InvoicePaymentDetailsDto"
+              }
+            ]
+          },
+          "productCategory": {
+            "type": "string",
+            "example": "Cool phone",
+            "nullable": true
+          },
+          "productDescription": {
+            "type": "string",
+            "example": "PhoneX",
+            "nullable": true
+          },
+          "isCreatedByApi": {
+            "type": "boolean",
+            "example": "false"
+          },
+          "expireAt": {
+            "type": "string",
+            "example": "2023-05-23T08:12:00.986Z"
+          },
+          "completedAt": {
+            "type": "string",
+            "example": "2023-05-23T08:12:00.986Z"
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2023-05-23T08:12:00.986Z"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "isPaymentAfterTimeout",
+          "externalOrderId",
+          "addressId",
+          "address",
+          "memo",
+          "creatorId",
+          "invoiceAmount",
+          "paymentAmount",
+          "paymentFee",
+          "invoiceAssetCode",
+          "paymentAssetCode",
+          "transactions",
+          "payment",
+          "productCategory",
+          "productDescription",
+          "isCreatedByApi",
+          "expireAt",
+          "completedAt",
+          "createdAt"
+        ]
+      },
+      "AssetIcons": {
+        "type": "object",
+        "properties": {
+          "svg": {
+            "type": "string",
+            "description": "Asset description",
+            "example": "https://goldenratio.exchange/icon-usd-svg"
+          },
+          "png": {
+            "type": "string",
+            "description": "Asset description",
+            "example": "https://goldenratio.exchange/icon-usd-png"
+          }
+        }
+      },
+      "InvoiceAssetsResponseDto": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Asset main Identifier",
+            "example": "USD"
+          },
+          "name": {
+            "type": "string",
+            "description": "Asset name",
+            "example": "Dollar"
+          },
+          "description": {
+            "type": "string",
+            "description": "Asset description",
+            "example": "some description"
+          },
+          "position": {
+            "type": "number",
+            "example": 1
+          },
+          "precision": {
+            "type": "number",
+            "example": 6
+          },
+          "type": {
+            "type": "string",
+            "enum": ["Crypto", "Fiat"],
+            "example": "Crypto"
+          },
+          "icons": {
+            "description": "link to icons in various formats",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AssetIcons"
+              }
+            ]
+          }
+        },
+        "required": [
+          "code",
+          "name",
+          "description",
+          "position",
+          "precision",
+          "type"
+        ]
+      },
+      "InvoiceQuestionnaireFieldsResponseDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Field name",
+            "example": "first_name"
+          }
+        },
+        "required": ["name"]
+      },
+      "PaymentMethodFieldDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of field",
+            "example": "address"
+          },
+          "label": {
+            "type": "string",
+            "description": "Name of label for the field",
+            "example": "Address"
+          },
+          "description": {
+            "type": "object",
+            "nullable": true,
+            "description": "Name of the field",
+            "example": "description of field"
+          },
+          "position": {
+            "type": "number",
+            "description": "Sort position",
+            "example": 1
+          },
+          "type": {
+            "type": "string",
+            "description": "Name of the field",
+            "example": "description of field"
+          },
+          "isRequired": {
+            "type": "object",
+            "nullable": true,
+            "description": "show if field required for Withdraw",
+            "example": "true"
+          },
+          "isMasked": {
+            "type": "object",
+            "nullable": true,
+            "description": "show if field should be masked on web-page",
+            "example": "false"
+          },
+          "isResultField": {
+            "type": "object",
+            "nullable": true,
+            "description": "show if field should be filled on th client side",
+            "example": "true"
+          }
+        },
+        "required": [
+          "name",
+          "label",
+          "description",
+          "position",
+          "type",
+          "isRequired",
+          "isMasked",
+          "isResultField"
+        ]
+      },
+      "PreRequestWithdrawResponseDto": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Payment method code",
+            "example": "BTC"
+          },
+          "asset": {
+            "type": "string",
+            "description": "Payment asset code",
+            "example": "BTC"
+          },
+          "network": {
+            "type": "string",
+            "nullable": true,
+            "description": "Blockchain network",
+            "example": "TRC20"
+          },
+          "position": {
+            "type": "number",
+            "description": "Sort position",
+            "example": 0
+          },
+          "name": {
+            "type": "string",
+            "description": "Payment method full name",
+            "example": "Crypto Address"
+          },
+          "icon": {
+            "type": "string",
+            "nullable": true,
+            "description": "Icon url",
+            "example": "https://cool-icon.com"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true,
+            "description": "Custom description",
+            "example": "description"
+          },
+          "customTitle": {
+            "type": "string",
+            "nullable": true,
+            "description": "Custom title"
+          },
+          "fields": {
+            "description": "Description of fields that should be used with withdraw request",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaymentMethodFieldDto"
+            }
+          }
+        },
+        "required": [
+          "code",
+          "asset",
+          "network",
+          "position",
+          "name",
+          "icon",
+          "description",
+          "customTitle",
+          "fields"
+        ]
+      },
+      "MakeWithdrawResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of Withdraw operation",
+            "example": "da24ed52-6698-49f6-b6b9-a3f5bf79818d"
+          },
+          "success": {
+            "type": "boolean",
+            "example": true,
+            "description": "Show if withdraw start processing"
+          }
+        },
+        "required": ["id", "success"]
+      },
+      "MakeWithdrawBodyDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Custom withdrawal ID",
+            "format": "uuid"
+          },
+          "amount": {
+            "type": "string",
+            "example": "0.546"
+          },
+          "asset": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 5,
+            "example": "BTC"
+          },
+          "paymentMethod": {
+            "type": "string",
+            "example": "BTC"
+          },
+          "fields": {
+            "type": "object",
+            "description": "Fields from preRequest method"
+          },
+          "comment": {
+            "type": "string",
+            "maxLength": 1000,
+            "example": "Useful comment for you"
+          },
+          "callbackId": {
+            "type": "string",
+            "maxLength": 64,
+            "description": "External id from merchant side for callback"
+          },
+          "callbackUrl": {
+            "type": "string"
+          }
+        },
+        "required": ["amount", "asset", "paymentMethod"]
+      },
+      "GetAssetBalanceResponseDto": {
+        "type": "object",
+        "properties": {
+          "balance": {
+            "type": "string",
+            "example": "122.546"
+          },
+          "lockBalance": {
+            "type": "string",
+            "example": "23.46"
+          },
+          "code": {
+            "type": "string",
+            "example": "USDT"
+          },
+          "name": {
+            "type": "string",
+            "example": "Tether"
+          },
+          "icons": {
+            "description": "link to icons in various formats",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AssetIcons"
+              }
+            ]
+          }
+        },
+        "required": ["balance", "lockBalance", "code", "name"]
+      },
+      "PayoutContractorResponse": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": ["name"]
+      },
+      "GetTransactionsResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "c94c0c95-e735-45ea-982e-a95f7f52ca49"
+          },
+          "address": {
+            "type": "string",
+            "example": "tb1q0xrgwsd7e0uad3sy98klppjwjq26023mcx224d",
+            "nullable": true
+          },
+          "amount": {
+            "type": "string",
+            "example": "287.1315825"
+          },
+          "asset": {
+            "type": "string",
+            "example": "ETH"
+          },
+          "fee": {
+            "type": "string",
+            "example": "0.0000025"
+          },
+          "processedAmount": {
+            "type": "string",
+            "example": "287.1315825",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Created",
+              "Canceled",
+              "PartiallyProcessed",
+              "Processing",
+              "Processed",
+              "Suspended",
+              "Arrested"
+            ],
+            "example": "Processed"
+          },
+          "paymentCode": {
+            "type": "string",
+            "example": "ETH"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "Deposit",
+              "InvoiceDeposit",
+              "Withdraw",
+              "PayoutWithdraw",
+              "Refund"
+            ]
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2023-05-29T08:29:29.551Z"
+          },
+          "txId": {
+            "type": "string",
+            "example": "d281dbc6604a80eee84d3121x499x97x1222c7e3dd166ce052e13f5c42f4ec8a",
+            "nullable": true
+          },
+          "PayoutContractor": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PayoutContractorResponse"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "address",
+          "amount",
+          "asset",
+          "fee",
+          "processedAmount",
+          "status",
+          "paymentCode",
+          "type",
+          "createdAt"
+        ]
+      },
+      "GetTransactionByIdResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "c94c0c95-e735-45ea-982e-a95f7f52ca49"
+          },
+          "address": {
+            "type": "string",
+            "example": "tb1q0xrgwsd7e0uad3sy98klppjwjq26023mcx224d",
+            "nullable": true
+          },
+          "amount": {
+            "type": "string",
+            "example": "287.1315825"
+          },
+          "asset": {
+            "type": "string",
+            "example": "ETH"
+          },
+          "fee": {
+            "type": "string",
+            "example": "0.0000025"
+          },
+          "processedAmount": {
+            "type": "string",
+            "example": "287.1315825",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Created",
+              "Canceled",
+              "PartiallyProcessed",
+              "Processing",
+              "Processed",
+              "Suspended",
+              "Arrested"
+            ],
+            "example": "Processed"
+          },
+          "paymentCode": {
+            "type": "string",
+            "example": "ETH"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "Deposit",
+              "InvoiceDeposit",
+              "Withdraw",
+              "PayoutWithdraw",
+              "Refund"
+            ]
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2023-05-29T08:29:29.551Z"
+          },
+          "txId": {
+            "type": "string",
+            "example": "d281dbc6604a80eee84d3121x499x97x1222c7e3dd166ce052e13f5c42f4ec8a",
+            "nullable": true
+          },
+          "PayoutContractor": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PayoutContractorResponse"
+              }
+            ]
+          },
+          "invoiceId": {
+            "type": "string",
+            "example": "ecdcb638-49ae-4383-b1a6-ce31ad4ef192",
+            "nullable": true
+          },
+          "Convert": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ConvertResponse"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "address",
+          "amount",
+          "asset",
+          "fee",
+          "processedAmount",
+          "status",
+          "paymentCode",
+          "type",
+          "createdAt",
+          "invoiceId"
+        ]
+      },
+      "CryptoAddressDetailsResDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "memo": {
+            "type": "string"
+          }
+        },
+        "required": ["id", "source", "address"]
+      },
+      "CryptocurrencyReqDto": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Cryptocurrency(Fiat currency cannot be specified)"
+          }
+        },
+        "required": ["source"]
+      },
+      "CreatePayoutResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Payout ID"
+          }
+        },
+        "required": ["id"]
+      },
+      "CreatePayoutContractorRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 100,
+            "example": "Contractor name"
+          },
+          "comment": {
+            "type": "string",
+            "maxLength": 1000,
+            "example": "Comment on payout to the contractor"
+          },
+          "amount": {
+            "type": "string",
+            "example": "0.546"
+          },
+          "asset": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 5,
+            "example": "USDT"
+          },
+          "paymentMethod": {
+            "type": "string",
+            "example": "TRX"
+          },
+          "fields": {
+            "type": "object",
+            "description": "Fields from preRequest method"
+          },
+          "externalId": {
+            "type": "string",
+            "maxLength": 64,
+            "description": "Contractor id from merchant side"
+          }
+        },
+        "required": ["name", "amount", "asset", "paymentMethod"]
+      },
+      "PayoutCallbackSettingsRequest": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "URL where the callback will be sent"
+          },
+          "shouldSendTransactionalCallback": {
+            "type": "boolean",
+            "description": "If true, then callbacks will be sent to each transaction"
+          }
+        },
+        "required": ["url"]
+      },
+      "CreatePayoutRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Custom payout ID",
+            "format": "uuid"
+          },
+          "contractors": {
+            "description": "Contractors to payout",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreatePayoutContractorRequest"
+            }
+          },
+          "externalId": {
+            "type": "string",
+            "maxLength": 64,
+            "description": "Payout external id from merchant side for callback"
+          },
+          "callbackSettings": {
+            "$ref": "#/components/schemas/PayoutCallbackSettingsRequest"
+          }
+        },
+        "required": ["contractors"]
+      },
+      "PayoutsGeneralInfoResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "externalId": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "isCreatedByApi": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["Created", "Processing", "Processed", "Failed"]
+          },
+          "completedAt": {
+            "type": "string",
+            "nullable": true
+          },
+          "launchedAt": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        },
+        "required": ["id", "isCreatedByApi", "status", "createdAt", "updatedAt"]
+      }
+    }
+  },
+  "x-readme": {
+    "explorer-enabled": true,
+    "proxy-enabled": true
+  }
+}

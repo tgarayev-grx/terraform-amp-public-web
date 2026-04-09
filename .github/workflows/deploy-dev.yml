@@ -5,6 +5,13 @@ name: Build and deploy to dev
 on:
   push:
     branches: [master]
+    paths:
+      - "apps/web/**"
+      - "packages/ui/**"
+      - "Dockerfile.web"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "turbo.json"
 
 env:
   ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
@@ -52,7 +59,7 @@ jobs:
       - name: Build image
         run: |
           ECR_REGISTRY="${{ steps.ecr_registry.outputs.ecr_registry }}"
-          docker build -f Dockerfile \
+          docker build -f Dockerfile.web \
             --build-arg NEXT_PUBLIC_RECAPTCHA_SITE_KEY=${{ secrets.NEXT_PUBLIC_RECAPTCHA_SITE_KEY }} \
             -t "${ECR_REGISTRY}/nyx-playground/public-web:${{ steps.version.outputs.version }}" \
             .

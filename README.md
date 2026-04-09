@@ -34,6 +34,12 @@ pnpm dev
 
 This will start all apps in development mode.
 
+To run **only** the developer docs site (port **3001**):
+
+```bash
+pnpm dev:docs
+```
+
 ### Build
 
 ```bash
@@ -45,15 +51,26 @@ pnpm build
 ```
 landing/
 ├── apps/
-│   └── web/          # Main Next.js marketing website
+│   ├── web/          # Main Next.js marketing website
+│   └── docs/         # Technical API docs (MDX + custom OpenAPI renderer)
 ├── packages/         # Shared packages (components, utils, etc.)
 ├── turbo.json        # Turborepo configuration
 └── pnpm-workspace.yaml
 ```
 
+### Developer documentation (`apps/docs`)
+
+- **Navigation:** [apps/docs/src/config/docs-navigation.ts](apps/docs/src/config/docs-navigation.ts) — products, versions, per-version OpenAPI file path, and sidebar (articles, groups, API reference link).
+- **MDX guides:** `apps/docs/content/<product>/<version>/<slug>.mdx`
+- **OpenAPI spec:** path per version in `docs-navigation.ts` (e.g. `apps/docs/specs/grx-pay/v1/openapi.json`), also served at `/api/spec/<product>/<version>`
+- **API reference:** `/[product]/[version]/reference/` — custom parser + styled operation docs (`src/lib/openapi`, `src/components/openapi`)
+
+Optional: set `NEXT_PUBLIC_MARKETING_URL` for the header “Marketing site” link (defaults to `https://goldenratio.exchange`).
+
 ## Available Scripts
 
 - `pnpm dev` - Start all apps in development mode
+- `pnpm dev:docs` - Start only `@grx/docs` on port 3001
 - `pnpm build` - Build all apps
 - `pnpm start` - Start all apps in production mode
 - `pnpm lint` - Lint all apps
@@ -71,7 +88,7 @@ The site is deployed to the **dev Kubernetes cluster** like other services (e.g.
 
 ### Why `output: "standalone"` and `images: { unoptimized: true }` in `next.config.ts`?
 
-We run a **Node.js server** in the cluster: the Dockerfile builds the app with `output: "standalone"`, copies the minimal standalone output, and runs `node server.js`. The server listens on port 80. `images: { unoptimized: true }` avoids runtime image optimization (no sharp/squoosh in container).
+We run a **Node.js server** in the cluster: **`Dockerfile.web`** builds the marketing app with `output: "standalone"`, copies the minimal standalone output, and runs `node server.js`. The server listens on port 80. `images: { unoptimized: true }` avoids runtime image optimization (no sharp/squoosh in container). **`Dockerfile.docs`** does the same for the docs app.
 
 ### GitHub Actions secrets (public-web repo)
 
@@ -103,12 +120,23 @@ Production uses the same ECR repo and GitOps flow as dev; the image tag suffix i
 5. **After merge**: the workflow runs again on push to `prod`: builds the image for the merged commit, updates `infrastructure/public-web/deployment.yaml` in **gitops.prod** with the new image tag, commits and pushes, then runs `argocd app sync public-web-prod`.
 
 **Requirements:** branch `prod` must exist; gitops.prod must have `infrastructure/public-web/deployment.yaml` and the Argo CD app `public-web-prod`. Configure branch protection on `prod` so that “Test changes” and “Build and deploy to prod” (or at least tests) must pass before merging.
+
 ### Local build and run (Docker)
 
+Images are split by app: **`Dockerfile.web`** (marketing site) and **`Dockerfile.docs`** (documentation).
+
 ```bash
-pnpm build
-docker build -f Dockerfile -t public-web:local .
-docker run -p 8080:80 public-web:local
+# Marketing web (default Makefile target)
+make build-web
+make run-web
+# or: docker build -f Dockerfile.web -t public-web:local . && docker run -p 8080:80 public-web:local
+
+# Docs
+make build-docs
+make run-docs
+# or: docker build -f Dockerfile.docs -t public-docs:local . && docker run -p 8081:80 public-docs:local
 ```
 
-Open http://localhost:8080.
+Open http://localhost:8080 (web) or http://localhost:8081 (docs).
+
+Dev/prod CI builds the web image with `Dockerfile.web` (see `.github/workflows/deploy-*.yml`).

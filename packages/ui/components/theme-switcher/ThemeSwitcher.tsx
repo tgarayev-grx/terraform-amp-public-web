@@ -1,8 +1,8 @@
 "use client";
 
-import { ButtonHTMLAttributes, SVGProps, useEffect, useState } from "react";
+import clsx from "clsx";
 import { useTheme } from "next-themes";
-import { twMerge } from "tailwind-merge";
+import { ButtonHTMLAttributes, SVGProps, useEffect, useState } from "react";
 
 type ThemeSwitcherProps = Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
@@ -20,28 +20,34 @@ export function ThemeSwitcher({ className, ...props }: ThemeSwitcherProps) {
   }, []);
 
   if (!mounted) {
-    return <div className={twMerge("w-5 h-5", className)} />;
+    return <div className={clsx("w-5 h-5", className)} />;
   }
 
   if (resolvedTheme !== "light" && resolvedTheme !== "dark") {
     console.error(`Unknown theme: ${resolvedTheme}`);
 
-    return <div className={twMerge("w-5 h-5", className)} />;
+    return <div className={clsx("w-5 h-5", className)} />;
   }
 
   return (
     <button
-      className={twMerge(
+      type="button"
+      className={clsx(
         "flex justify-center items-center text-icon-base-500 hover:text-icon-subtle-700 transition-colors",
         className
       )}
       onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
+      aria-label={
+        resolvedTheme === "light"
+          ? "Switch to dark theme"
+          : "Switch to light theme"
+      }
       {...props}
     >
       {resolvedTheme === "light" ? (
-        <DarkThemeIcon className="w-5 h-5" />
-      ) : (
         <LightThemeIcon className="w-5 h-5" />
+      ) : (
+        <DarkThemeIcon className="w-5 h-5" />
       )}
     </button>
   );

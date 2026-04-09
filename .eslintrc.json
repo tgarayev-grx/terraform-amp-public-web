@@ -5,6 +5,7 @@
     {
       "files": [
         "apps/web/**/*.{js,jsx,ts,tsx}",
+        "apps/docs/**/*.{js,jsx,ts,tsx}",
         "packages/**/*.{js,jsx,ts,tsx}"
       ],
       "extends": ["next/core-web-vitals"]

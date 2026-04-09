@@ -1,0 +1,294 @@
+---
+title: How to call private endpoints
+description: Practical guide on how to start calling GRX Pay private endpoints.
+---
+
+First of all, generate API keys in [Authentication](/pay/v1/authentication/), so you may start calling private endpoints.
+
+> **Note**: After initial exploration, we highly recommend using **signed requests**.
+
+All examples below use the API base URL: <code>{BASE_URL}</code>
+
+## Header settings if a single API key is used
+
+| Header         | Value              | Description                                        |
+| -------------- | ------------------ | -------------------------------------------------- |
+| `accept`       | `application/json` | The client expects response data as JSON.          |
+| `content-type` | `application/json` | The client sends data as JSON in the request body. |
+| `api-key`      | `YOUR_API_KEY`     | A single API key string to authenticate.           |
+
+## Example: Get account balance using API key
+
+<CodeGroup>
+
+```javascript
+const apiKey = "YOUR_API_KEY"; // put here your API key
+
+const url = "https://rest-api-pay.goldenratio.exchange";
+const path = "/v1/asset/balance"; // put here request path.
+
+const options = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    "Content-Type": "application/json",
+    "api-key": apiKey,
+  },
+};
+
+fetch(url + path, options)
+  .then((response) => response.json())
+  .then((showResponse) => console.log(showResponse.data));
+```
+
+```python
+import requests
+
+api_key = "YOUR_API_KEY"  # put here your API key
+
+url = "https://rest-api-pay.goldenratio.exchange"
+path = "/v1/asset/balance"  # put here request path.
+
+headers = {
+    "accept": "application/json",
+    "Content-Type": "application/json",
+    "api-key": api_key,
+}
+
+request = requests.get(url + path, headers=headers)
+print(request.json())
+```
+
+</CodeGroup>
+
+## Example: Create invoice using API key
+
+<CodeGroup>
+
+```javascript
+const apiKey = "YOUR_API_KEY"; // put here your API key
+
+const url = "https://rest-api-pay.goldenratio.exchange";
+const path = "/v1/invoice"; // put here request path.
+
+const body = {
+  asset: "USD",
+  amount: "1000",
+};
+
+const options = {
+  method: "POST",
+  headers: {
+    accept: "application/json",
+    "Content-Type": "application/json",
+    "api-key": apiKey,
+  },
+  body: JSON.stringify(body),
+};
+
+fetch(url + path, options)
+  .then((response) => response.json())
+  .then((showResponse) => console.log(showResponse.data));
+```
+
+```python
+import requests
+
+api_key = "YOUR_API_KEY"
+
+url = "https://rest-api-pay.goldenratio.exchange"
+path = "/v1/invoice"  # put here request path.
+
+headers = {
+    "accept": "application/json",
+    "Content-Type": "application/json",
+    "api-key": api_key,
+}
+
+body = {
+    "asset": "USD",
+    "amount": "1000",
+}
+
+request = requests.post(url + path, headers=headers, json=body)
+print(request.json())
+```
+
+</CodeGroup>
+
+## Header settings if public + private keys are used
+
+| Header         | Value              | Description                                                      |
+| -------------- | ------------------ | ---------------------------------------------------------------- |
+| `accept`       | `application/json` | The client expects response data as JSON.                        |
+| `content-type` | `application/json` | The client sends data as JSON in the request body.               |
+| `public-key`   | `YOUR_PUBLIC_KEY`  | Public key (obtained when generating keys) used to authenticate. |
+| `nonce`        | `NONCE`            | Timestamp in Unix time **milliseconds** (ms).                    |
+| `signature`    | `SIGNATURE`        | Request signature generated using the private key.               |
+
+## Example: Get account balance using public + private keys
+
+<CodeGroup>
+
+```javascript
+const crypto = require("crypto");
+
+const publicKey = "YOUR_PUBLIC_KEY"; // put here your public key
+const privateKey = "YOUR_PRIVATE_KEY"; // put here your private key
+
+const url = "https://rest-api-pay.goldenratio.exchange";
+const path = "/v1/asset/balance"; // put here request path.
+
+const body = {}; // empty object for GET request
+
+// Get UTC time in milliseconds
+const nonce = +new Date(); // nonce must be higher than the previous request nonce
+
+// Hashing signature
+const signature = crypto
+  .createHmac("sha384", privateKey)
+  .update(path + nonce + JSON.stringify(body))
+  .digest("hex");
+
+const options = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    "Content-Type": "application/json",
+    "public-key": publicKey,
+    nonce: nonce.toString(),
+    signature: signature,
+  },
+};
+
+fetch(url + path, options)
+  .then((response) => response.json())
+  .then((showResponse) => console.log(showResponse.data));
+```
+
+```python
+import json
+import requests
+import time
+import hashlib
+import hmac
+
+public_key = "YOUR_PUBLIC_KEY"  # put here your public key
+private_key = "YOUR_PRIVATE_KEY"  # put here your private key
+
+url = "https://rest-api-pay.goldenratio.exchange"
+path = "/v1/asset/balance"
+body = {}  # empty object for GET request
+
+# Get UTC time in milliseconds
+nonce = str(int(time.time() * 1000))  # nonce must be higher than the previous request nonce
+
+signature_string = path + nonce + json.dumps(body)
+
+# Hashing signature
+signature = hmac.new(
+    private_key.encode("utf-8"),
+    signature_string.encode("utf-8"),
+    hashlib.sha384,
+).hexdigest()
+
+headers = {
+    "accept": "application/json",
+    "Content-Type": "application/json",
+    "public-key": public_key,
+    "nonce": nonce,
+    "signature": signature,
+}
+
+request = requests.get(url + path, headers=headers, json=body)
+print(request.json())
+```
+
+</CodeGroup>
+
+## Example: Create invoice using public + private keys
+
+<CodeGroup>
+
+```javascript
+const crypto = require("crypto");
+
+const publicKey = "YOUR_PUBLIC_KEY"; // put here your public key
+const privateKey = "YOUR_PRIVATE_KEY"; // put here your private key
+
+const url = "https://rest-api-pay.goldenratio.exchange";
+const path = "/v1/invoice"; // put here request path.
+
+const body = {
+  asset: "USD",
+  amount: "1000",
+};
+
+// Get UTC time in milliseconds
+const nonce = +new Date(); // nonce must be higher than the previous request nonce
+
+// Hashing signature
+const signature = crypto
+  .createHmac("sha384", privateKey)
+  .update(path + nonce + JSON.stringify(body))
+  .digest("hex");
+
+const options = {
+  method: "POST",
+  headers: {
+    accept: "application/json",
+    "Content-Type": "application/json",
+    "public-key": publicKey,
+    nonce: nonce.toString(),
+    signature: signature,
+  },
+  body: JSON.stringify(body),
+};
+
+fetch(url + path, options)
+  .then((response) => response.json())
+  .then((showResponse) => console.log(showResponse.data));
+```
+
+```python
+import json
+import requests
+import time
+import hashlib
+import hmac
+
+public_key = "YOUR_PUBLIC_KEY"  # put here your public key
+private_key = "YOUR_PRIVATE_KEY"  # put here your private key
+
+url = "https://rest-api-pay.goldenratio.exchange"
+path = "/v1/invoice"
+body = {
+    "asset": "USD",
+    "amount": "1000",
+}
+
+# Get UTC time in milliseconds
+nonce = str(int(time.time() * 1000))  # nonce must be higher than the previous request nonce
+
+signature_string = path + nonce + json.dumps(body, separators=(",", ":"))
+
+# Hashing signature
+signature = hmac.new(
+    private_key.encode("utf-8"),
+    signature_string.encode("utf-8"),
+    hashlib.sha384,
+).hexdigest()
+
+headers = {
+    "accept": "application/json",
+    "Content-Type": "application/json",
+    "public-key": public_key,
+    "nonce": nonce,
+    "signature": signature,
+}
+
+request = requests.post(url + path, headers=headers, json=body)
+print(request.json())
+```
+
+</CodeGroup>

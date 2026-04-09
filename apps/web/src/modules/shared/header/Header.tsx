@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/modules/cross-cutting-concerns/i18n/navigation";
 import { HeaderLogo } from "@grx/ui/icons/HeaderLogo";
+import { ThemeSwitcher } from "@grx/ui/components/theme-switcher";
 import { MobileMenu } from "./components/MobileMenu";
 import { ProductsDropdown } from "./components/ProductsDropdown";
 import { LocalizationSelect } from "./components/LocalizationSelect";

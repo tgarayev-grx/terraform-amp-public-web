@@ -1,0 +1,38 @@
+# Build stage: docs app (apps/docs) + @grx/ui — Next.js standalone
+FROM node:20-alpine AS builder
+
+RUN corepack enable && corepack prepare pnpm@9.0.0 --activate
+WORKDIR /usr/src
+
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml turbo.json ./
+COPY apps/web/package.json ./apps/web/
+COPY apps/docs/package.json ./apps/docs/
+COPY packages/ui/package.json ./packages/ui/
+COPY packages/ui ./packages/ui
+
+RUN pnpm install --frozen-lockfile
+
+COPY apps/docs ./apps/docs
+RUN mkdir -p apps/docs/public
+
+RUN pnpm --filter @grx/docs build
+
+# Run stage: standalone server (monorepo path apps/docs/)
+FROM node:20-alpine AS runner
+
+WORKDIR /app
+ENV NODE_ENV=production
+ENV PORT=80
+ENV HOSTNAME="0.0.0.0"
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+COPY --from=builder --chown=nextjs:nodejs /usr/src/apps/docs/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /usr/src/apps/docs/.next/static ./apps/docs/.next/static
+COPY --from=builder --chown=nextjs:nodejs /usr/src/apps/docs/public ./apps/docs/public
+
+USER nextjs
+EXPOSE 80
+WORKDIR /app/apps/docs
+CMD ["node", "server.js"]

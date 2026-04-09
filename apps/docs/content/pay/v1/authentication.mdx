@@ -1,0 +1,48 @@
+---
+title: Authentication
+description: Create and secure your GRX Pay API keys.
+---
+
+## Creating your API key
+
+To create your API key, follow these steps:
+
+- Sign in to your GRX Pay account.
+- Pass verification.
+- Open **Settings** and navigate to the **API key** tab.
+- Name your API key (for example, “Your store name”).
+- (Optional) Add a list of IP addresses allowed to use the API key. You can also do this after key creation.
+- Click **Create an API key** to complete.
+
+We provide **three keys** when you generate a new API key:
+
+- **API Key**: used for requests that do not require a signature.
+- **Public & Private Keys**: used for requests that require a signature. The public key is passed as the API key identifier, and the private key is used to create the signature (which is also sent with the request).
+
+You can create and manage API keys in **Settings → API key**.
+
+![Settings API key tab](/pay/v1/api-key-creation.png)
+
+<Alert
+  variant="warning"
+  size="sm"
+  title="Warning: "
+  description="Never share your API key and secret/private key with anyone."
+  concatTitleAndDescription
+  hideCloseButton
+  filled
+/>
+
+## Whitelisting IP addresses
+
+To further improve the security of your account, we recommend whitelisting the IPs of your servers so your keys may only be used by trusted machines. If such an API key is used from a non-whitelisted IP, the request will not be executed by the service.
+
+To whitelist IPs for an existing API key, open the **API keys** tab, find the API key in question, and click the **Whitelisted IPs** ✏ button next to it.
+
+To whitelist IPs when creating a new API key, click the **Create** ✏ button for the IP whitelist field.
+
+The modal accepts IP addresses separated by commas. Click **Save list** once completed.
+
+## How to call private endpoints
+
+More details: [How to call private endpoints](/pay/v1/how-to-call-private-endpoints/)

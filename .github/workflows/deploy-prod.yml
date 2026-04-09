@@ -8,8 +8,22 @@ on:
   pull_request:
     branches: [prod]
     types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - "apps/web/**"
+      - "packages/ui/**"
+      - "Dockerfile.web"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "turbo.json"
   push:
     branches: [prod]
+    paths:
+      - "apps/web/**"
+      - "packages/ui/**"
+      - "Dockerfile.web"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "turbo.json"
 
 env:
   ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
@@ -64,7 +78,7 @@ jobs:
       - name: Build image
         run: |
           ECR_REGISTRY="${{ steps.ecr_registry.outputs.ecr_registry }}"
-          docker build -f Dockerfile \
+          docker build -f Dockerfile.web \
             -t "${ECR_REGISTRY}/nyx-playground/public-web:${{ steps.version.outputs.version }}" \
             .
 

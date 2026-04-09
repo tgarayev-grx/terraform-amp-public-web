@@ -49,3 +49,6 @@ pnpm-debug.log*
 
 # next-intl
 apps/**/locales/*.d.json.ts
+
+# Generated at build time (apps/docs: pnpm run build:search-index)
+apps/docs/src/generated/

@@ -17,5 +17,6 @@ export * from "./components/modal";
 export * from "./components/toast";
 export * from "./components/badge";
 export * from "./components/switch";
+export * from "./components/theme-switcher";
 export * from "./components/file-upload";
 export * from "./form";

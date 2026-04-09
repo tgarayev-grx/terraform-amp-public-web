@@ -1,0 +1,120 @@
+# Build and deploy public-docs to dev (K8s + Argo CD).
+# Runners: ubuntu-arm-2204-kuna. Image: AWS ECR. Manifests: gitops.dev.
+name: Build and deploy docs to dev
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "apps/docs/**"
+      - "packages/ui/**"
+      - "Dockerfile.docs"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "turbo.json"
+
+env:
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+
+jobs:
+  build-and-push:
+    runs-on: [self-hosted, ubuntu-arm-2204-kuna]
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      ecr_registry: ${{ steps.ecr_registry.outputs.ecr_registry }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Version
+        id: version
+        run: |
+          v="${GITHUB_SHA::8}-arm"
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+
+      - name: Get ECR registry URL
+        id: ecr_registry
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.INFRA_ECR_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.INFRA_ECR_AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.INFRA_ECR_AWS_DEFAULT_REGION }}
+        run: |
+          ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+          REGION="${{ secrets.INFRA_ECR_AWS_DEFAULT_REGION }}"
+          ECR_REGISTRY="${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com"
+          echo "ecr_registry=${ECR_REGISTRY}" >> "$GITHUB_OUTPUT"
+
+      - name: Docker login (ECR)
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.INFRA_ECR_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.INFRA_ECR_AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.INFRA_ECR_AWS_DEFAULT_REGION }}
+        run: |
+          ECR_REGISTRY="${{ steps.ecr_registry.outputs.ecr_registry }}"
+          aws ecr get-login-password --region $AWS_DEFAULT_REGION | \
+            docker login --username AWS --password-stdin "$ECR_REGISTRY"
+
+      - name: Build image
+        run: |
+          ECR_REGISTRY="${{ steps.ecr_registry.outputs.ecr_registry }}"
+          docker build -f Dockerfile.docs \
+            -t "${ECR_REGISTRY}/nyx-playground/public-docs:${{ steps.version.outputs.version }}" \
+            .
+
+      - name: Push image to ECR
+        run: |
+          docker push ${{ steps.ecr_registry.outputs.ecr_registry }}/nyx-playground/public-docs:${{ steps.version.outputs.version }}
+
+  update-gitops:
+    runs-on: [self-hosted, ubuntu-arm-2204-kuna]
+    needs: build-and-push
+    steps:
+      - name: Checkout gitops.dev
+        uses: actions/checkout@v4
+        with:
+          repository: NYX-ENGINEERS/gitops.dev
+          token: ${{ secrets.PLAT13748_SUPERMAN }}
+          ref: master
+
+      - name: Get ECR registry URL
+        id: ecr_registry
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.INFRA_ECR_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.INFRA_ECR_AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.INFRA_ECR_AWS_DEFAULT_REGION }}
+        run: |
+          ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+          REGION="${{ secrets.INFRA_ECR_AWS_DEFAULT_REGION }}"
+          ECR_REGISTRY="${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com"
+          echo "ecr_registry=${ECR_REGISTRY}" >> "$GITHUB_OUTPUT"
+
+      - name: Update image tag
+        env:
+          ECR_REGISTRY: ${{ steps.ecr_registry.outputs.ecr_registry }}
+          VERSION: ${{ needs.build-and-push.outputs.version }}
+        run: |
+          sed -i "s|image: .*nyx-playground/public-docs.*|image: ${ECR_REGISTRY}/nyx-playground/public-docs:${VERSION}|" \
+            infrastructure/public-docs/deployment.yaml
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add infrastructure/public-docs/deployment.yaml
+          git diff --staged --quiet || git commit -m "[public-docs] deploy ${{ needs.build-and-push.outputs.version }}"
+          git push origin master
+
+  sync-argocd:
+    runs-on: [self-hosted, ubuntu-arm-2204-kuna]
+    needs: update-gitops
+    steps:
+      - name: Sync Argo CD app
+        run: |
+          argocd app sync public-docs-dev \
+            --auth-token ${{ secrets.ARGO_TOKEN_DEV }} \
+            --server argocd-dev.nyx-dev.com \
+            --timeout 300 \
+            --grpc-web
+        continue-on-error: true
