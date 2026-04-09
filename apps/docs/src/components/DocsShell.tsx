@@ -114,7 +114,7 @@ export function DocsShell({
         searchRegisterShortcut={isMd}
       />
 
-      <div className="flex flex-col flex-1 bg-surface-canvas py-6 px-4 md:px-0 md:pl-6 rounded min-w-0 min-h-0">
+      <div className="flex flex-col flex-1 bg-surface-canvas px-4 md:px-0 py-6 md:pl-6 rounded min-w-0 min-h-0">
         <DocsMobileMenu
           open={mobileNavOpen}
           onOpenChange={setMobileNavOpen}
@@ -126,7 +126,7 @@ export function DocsShell({
           endpointTags={endpointTags}
         />
 
-        <main className="flex flex-col flex-1 bg-surface-base py-6 px-0 md:p-6 rounded-2xl min-w-0 min-h-0">
+        <main className="flex flex-col flex-1 bg-surface-base p-6 px-4 rounded-2xl min-w-0 min-h-0">
           {children}
         </main>
       </div>
