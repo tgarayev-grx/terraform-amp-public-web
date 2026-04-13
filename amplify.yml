@@ -1,0 +1,44 @@
+version: 1
+applications:
+  - appRoot: apps/web
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - corepack enable
+            - corepack prepare pnpm@9.0.0 --activate
+            - pnpm config set store-dir .pnpm-store
+            - pnpm install --frozen-lockfile
+        build:
+          commands:
+            - pnpm --filter @grx/web build
+      artifacts:
+        baseDirectory: apps/web/.next
+        files:
+          - "**/*"
+      cache:
+        paths:
+          - .pnpm-store/**/*
+          - node_modules/**/*
+          - apps/web/.next/cache/**/*
+  - appRoot: apps/docs
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - corepack enable
+            - corepack prepare pnpm@9.0.0 --activate
+            - pnpm config set store-dir .pnpm-store
+            - pnpm install --frozen-lockfile
+        build:
+          commands:
+            - pnpm --filter @grx/docs build
+      artifacts:
+        baseDirectory: apps/docs/.next
+        files:
+          - "**/*"
+      cache:
+        paths:
+          - .pnpm-store/**/*
+          - node_modules/**/*
+          - apps/docs/.next/cache/**/*
