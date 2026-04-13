@@ -2,6 +2,7 @@ version: 1
 applications:
   - appRoot: apps/web
     frontend:
+      buildPath: /
       phases:
         preBuild:
           commands:
@@ -19,10 +20,10 @@ applications:
       cache:
         paths:
           - .pnpm-store/**/*
-          - node_modules/**/*
           - apps/web/.next/cache/**/*
   - appRoot: apps/docs
     frontend:
+      buildPath: /
       phases:
         preBuild:
           commands:
@@ -40,5 +41,4 @@ applications:
       cache:
         paths:
           - .pnpm-store/**/*
-          - node_modules/**/*
           - apps/docs/.next/cache/**/*
