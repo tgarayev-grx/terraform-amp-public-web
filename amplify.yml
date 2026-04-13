@@ -14,6 +14,15 @@ applications:
         build:
           commands:
             - pnpm --filter @grx/web build
+        postBuild:
+          commands:
+            # Next standalone nests as .next/standalone/apps/web; Amplify looks for next under .next/standalone/node_modules.
+            - |
+              NEST=".next/standalone/apps/web"
+              if [ -d "$NEST" ]; then
+                cp -r "$NEST"/. .next/standalone/
+                rm -rf .next/standalone/apps
+              fi
       artifacts:
         baseDirectory: .next
         files:
@@ -36,6 +45,14 @@ applications:
         build:
           commands:
             - pnpm --filter @grx/docs build
+        postBuild:
+          commands:
+            - |
+              NEST=".next/standalone/apps/docs"
+              if [ -d "$NEST" ]; then
+                cp -r "$NEST"/. .next/standalone/
+                rm -rf .next/standalone/apps
+              fi
       artifacts:
         baseDirectory: .next
         files:

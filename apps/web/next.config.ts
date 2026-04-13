@@ -1,5 +1,9 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const withNextIntl = createNextIntlPlugin({
   requestConfig: "./src/modules/cross-cutting-concerns/i18n/request.ts",
@@ -13,6 +17,7 @@ const SERVER_EXTERNAL_PACKAGES = ["http", "https", "pino", "pino-pretty"];
 
 // K8s/Docker: output "standalone" for Node.js server (pnpm start).
 const nextConfig: NextConfig = {
+  outputFileTracingRoot: path.join(__dirname, "../.."),
   output: "standalone",
   images: { unoptimized: true },
   experimental: {
