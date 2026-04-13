@@ -2,43 +2,44 @@ version: 1
 applications:
   - appRoot: apps/web
     frontend:
-      buildPath: /
       phases:
         preBuild:
           commands:
-            - corepack enable
-            - corepack prepare pnpm@9.0.0 --activate
-            - pnpm config set store-dir .pnpm-store
-            - pnpm install --frozen-lockfile
+            - |
+              cd ../..
+              corepack enable
+              corepack prepare pnpm@9.0.0 --activate
+              pnpm config set store-dir .pnpm-store
+              pnpm install --frozen-lockfile
         build:
           commands:
             - pnpm --filter @grx/web build
       artifacts:
-        baseDirectory: apps/web/.next
+        baseDirectory: .next
         files:
           - "**/*"
       cache:
         paths:
-          - .pnpm-store/**/*
+          # Amplify cache upload limit is 5GB; omit .pnpm-store and node_modules.
           - apps/web/.next/cache/**/*
   - appRoot: apps/docs
     frontend:
-      buildPath: /
       phases:
         preBuild:
           commands:
-            - corepack enable
-            - corepack prepare pnpm@9.0.0 --activate
-            - pnpm config set store-dir .pnpm-store
-            - pnpm install --frozen-lockfile
+            - |
+              cd ../..
+              corepack enable
+              corepack prepare pnpm@9.0.0 --activate
+              pnpm config set store-dir .pnpm-store
+              pnpm install --frozen-lockfile
         build:
           commands:
             - pnpm --filter @grx/docs build
       artifacts:
-        baseDirectory: apps/docs/.next
+        baseDirectory: .next
         files:
           - "**/*"
       cache:
         paths:
-          - .pnpm-store/**/*
           - apps/docs/.next/cache/**/*
