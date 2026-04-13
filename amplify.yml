@@ -16,15 +16,23 @@ applications:
             - pnpm --filter @grx/web build
         postBuild:
           commands:
-            # Next standalone nests as .next/standalone/apps/web; Amplify looks for next under .next/standalone/node_modules.
+            # Flatten monorepo standalone layout; copy static + public (Next standalone runtime).
+            # Do not upload full .next — .next/cache alone exceeds Amplify's ~220MB output limit.
             - |
+              set -e
               NEST=".next/standalone/apps/web"
               if [ -d "$NEST" ]; then
                 cp -r "$NEST"/. .next/standalone/
                 rm -rf .next/standalone/apps
               fi
+              mkdir -p .next/standalone/.next
+              cp -r .next/static .next/standalone/.next/static
+              if [ -d public ]; then
+                rm -rf .next/standalone/public
+                cp -r public .next/standalone/public
+              fi
       artifacts:
-        baseDirectory: .next
+        baseDirectory: .next/standalone
         files:
           - "**/*"
       cache:
@@ -48,13 +56,20 @@ applications:
         postBuild:
           commands:
             - |
+              set -e
               NEST=".next/standalone/apps/docs"
               if [ -d "$NEST" ]; then
                 cp -r "$NEST"/. .next/standalone/
                 rm -rf .next/standalone/apps
               fi
+              mkdir -p .next/standalone/.next
+              cp -r .next/static .next/standalone/.next/static
+              if [ -d public ]; then
+                rm -rf .next/standalone/public
+                cp -r public .next/standalone/public
+              fi
       artifacts:
-        baseDirectory: .next
+        baseDirectory: .next/standalone
         files:
           - "**/*"
       cache:
