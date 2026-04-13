@@ -33,6 +33,13 @@ applications:
               if [ -d .next/static ]; then
                 cp -r .next/static .next/standalone/.next/static
               fi
+              # Amplify SSR looks for required-server-files.json under artifacts baseDirectory (.next/standalone), not only under .next/.
+              for f in required-server-files.json BUILD_ID; do
+                if [ -f ".next/$f" ]; then
+                  cp ".next/$f" ".next/standalone/$f"
+                  cp ".next/$f" ".next/standalone/.next/$f"
+                fi
+              done
               if [ -d public ]; then
                 rm -rf .next/standalone/public
                 cp -r public .next/standalone/public
@@ -75,6 +82,12 @@ applications:
               if [ -d .next/static ]; then
                 cp -r .next/static .next/standalone/.next/static
               fi
+              for f in required-server-files.json BUILD_ID; do
+                if [ -f ".next/$f" ]; then
+                  cp ".next/$f" ".next/standalone/$f"
+                  cp ".next/$f" ".next/standalone/.next/$f"
+                fi
+              done
               if [ -d public ]; then
                 rm -rf .next/standalone/public
                 cp -r public .next/standalone/public
