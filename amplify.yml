@@ -18,15 +18,21 @@ applications:
           commands:
             # Flatten monorepo standalone layout; copy static + public (Next standalone runtime).
             # Do not upload full .next — .next/cache alone exceeds Amplify's ~220MB output limit.
+            # Amplify may run this phase from repo root while `next build` output lives under appRoot.
             - |
               set -e
+              if [ ! -d .next ] && [ -d "${AMPLIFY_MONOREPO_APP_ROOT:-apps/web}/.next" ]; then
+                cd "${AMPLIFY_MONOREPO_APP_ROOT:-apps/web}"
+              fi
               NEST=".next/standalone/apps/web"
               if [ -d "$NEST" ]; then
                 cp -r "$NEST"/. .next/standalone/
                 rm -rf .next/standalone/apps
               fi
               mkdir -p .next/standalone/.next
-              cp -r .next/static .next/standalone/.next/static
+              if [ -d .next/static ]; then
+                cp -r .next/static .next/standalone/.next/static
+              fi
               if [ -d public ]; then
                 rm -rf .next/standalone/public
                 cp -r public .next/standalone/public
@@ -57,13 +63,18 @@ applications:
           commands:
             - |
               set -e
+              if [ ! -d .next ] && [ -d "${AMPLIFY_MONOREPO_APP_ROOT:-apps/docs}/.next" ]; then
+                cd "${AMPLIFY_MONOREPO_APP_ROOT:-apps/docs}"
+              fi
               NEST=".next/standalone/apps/docs"
               if [ -d "$NEST" ]; then
                 cp -r "$NEST"/. .next/standalone/
                 rm -rf .next/standalone/apps
               fi
               mkdir -p .next/standalone/.next
-              cp -r .next/static .next/standalone/.next/static
+              if [ -d .next/static ]; then
+                cp -r .next/static .next/standalone/.next/static
+              fi
               if [ -d public ]; then
                 rm -rf .next/standalone/public
                 cp -r public .next/standalone/public
