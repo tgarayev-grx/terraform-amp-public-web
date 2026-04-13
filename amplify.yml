@@ -16,41 +16,22 @@ applications:
             - pnpm --filter @grx/web build
         postBuild:
           commands:
-            # Flatten monorepo standalone layout; copy static + public (Next standalone runtime).
-            # Do not upload full .next — .next/cache alone exceeds Amplify's ~220MB output limit.
-            # Amplify may run this phase from repo root while `next build` output lives under appRoot.
+            # Amplify Next SSR expects a normal .next tree (required-server-files.json, server/, static/, etc.).
+            # The ~220MB artifact cap is exceeded if .next/cache is included — it is not used at runtime.
+            # It is still restored between builds via `cache.paths` below.
             - |
               set -e
               if [ ! -d .next ] && [ -d "${AMPLIFY_MONOREPO_APP_ROOT:-apps/web}/.next" ]; then
                 cd "${AMPLIFY_MONOREPO_APP_ROOT:-apps/web}"
               fi
-              NEST=".next/standalone/apps/web"
-              if [ -d "$NEST" ]; then
-                cp -r "$NEST"/. .next/standalone/
-                rm -rf .next/standalone/apps
-              fi
-              mkdir -p .next/standalone/.next
-              if [ -d .next/static ]; then
-                cp -r .next/static .next/standalone/.next/static
-              fi
-              # Amplify SSR looks for required-server-files.json under artifacts baseDirectory (.next/standalone), not only under .next/.
-              for f in required-server-files.json BUILD_ID; do
-                if [ -f ".next/$f" ]; then
-                  cp ".next/$f" ".next/standalone/$f"
-                  cp ".next/$f" ".next/standalone/.next/$f"
-                fi
-              done
-              if [ -d public ]; then
-                rm -rf .next/standalone/public
-                cp -r public .next/standalone/public
-              fi
+              rm -rf .next/cache
+              rm -rf .next/trace
       artifacts:
-        baseDirectory: .next/standalone
+        baseDirectory: .next
         files:
           - "**/*"
       cache:
         paths:
-          # Amplify cache upload limit is 5GB; omit .pnpm-store and node_modules.
           - apps/web/.next/cache/**/*
   - appRoot: apps/docs
     frontend:
@@ -73,27 +54,10 @@ applications:
               if [ ! -d .next ] && [ -d "${AMPLIFY_MONOREPO_APP_ROOT:-apps/docs}/.next" ]; then
                 cd "${AMPLIFY_MONOREPO_APP_ROOT:-apps/docs}"
               fi
-              NEST=".next/standalone/apps/docs"
-              if [ -d "$NEST" ]; then
-                cp -r "$NEST"/. .next/standalone/
-                rm -rf .next/standalone/apps
-              fi
-              mkdir -p .next/standalone/.next
-              if [ -d .next/static ]; then
-                cp -r .next/static .next/standalone/.next/static
-              fi
-              for f in required-server-files.json BUILD_ID; do
-                if [ -f ".next/$f" ]; then
-                  cp ".next/$f" ".next/standalone/$f"
-                  cp ".next/$f" ".next/standalone/.next/$f"
-                fi
-              done
-              if [ -d public ]; then
-                rm -rf .next/standalone/public
-                cp -r public .next/standalone/public
-              fi
+              rm -rf .next/cache
+              rm -rf .next/trace
       artifacts:
-        baseDirectory: .next/standalone
+        baseDirectory: .next
         files:
           - "**/*"
       cache:
